@@ -49,7 +49,7 @@ void play(void)
             // printf("\nstop");
           break;
          }
-          case 'I':{
+          case 'J':{
             velocity_robot[0]= -(velocity/2);
             velocity_robot[1]= -(velocity/2);
             velocity_robot[2]= 0;
@@ -70,7 +70,7 @@ void play(void)
             // printf("\nstop");
           break;
          }
-         case 'J':{
+         case 'I':{
             velocity_robot[0]= -(velocity/2);
             velocity_robot[1]= (velocity/2);
             velocity_robot[2]= 0;
@@ -113,14 +113,9 @@ void calculate_wheel_velocity()
       printf("\t%d",(int)(velocity_motor[i]*100) );
       
        motor[i].set_omega(velocity_motor[i]);
-      //  motor[1].set_omega(-30);
-		// if((HAL_GetTick() - time) >= SAMPLE_TIME){
-      //    time = HAL_GetTick();
-      //    calculate_data(1);
-      //    get_data(1);
-         //get_cnt(0);
-      }
-    //}
+   
+    }
+    
 	
 }
 
