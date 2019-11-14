@@ -1,0 +1,33 @@
+{
+        "configurations": [
+                {
+                        "name": "STM32 Debug",
+                        "includePath": [
+                                "${workspaceRoot}",
+                                "${workspaceRoot}/Core/Inc",
+                                "${workspaceRoot}/Core/Inc/devs",
+                                "${workspaceRoot}/Core/Inc/periphs",
+                                "${workspaceRoot}/Core/Inc/robot",
+                                "${workspaceRoot}/Core/Inc/sys",
+                                "${workspaceRoot}/Core/Inc/parts",
+                                "${workspaceRoot}/Core/Inc/parts/actuators",
+                                "${workspaceRoot}/Core/Inc/parts/processor",
+                                "${workspaceRoot}/Core/Inc/parts/sensors",
+                                "${workspaceRoot}/Core/Inc/utils",
+                                "${workspaceRoot}/Core/Inc/utils/container",
+                                "${workspaceRoot}/Core/Inc/utils/control",
+                                "${workspaceRoot}/Core/Inc/utils/filter",
+                                "${workspaceRoot}/Core/Inc/utils/math",
+                                
+                                "C:/Users/n-is/STM32Cube/Repository/STM32Cube_FW_F4_V1.23.0/Drivers/STM32F4xx_HAL_Driver/Inc",
+                                "C:/Users/n-is/STM32Cube/Repository/STM32Cube_FW_F4_V1.23.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+                                "C:/Users/n-is/STM32Cube/Repository/STM32Cube_FW_F4_V1.23.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                                "C:/Users/n-is/STM32Cube/Repository/STM32Cube_FW_F4_V1.23.0/Drivers/CMSIS/Include",
+                                "C:/Users/n-is/STM32Cube/Repository/STM32Cube_FW_F4_V1.23.0/Drivers/CMSIS/RTOS/Template",
+                                "C:/Users/n-is/STM32Cube/Repository/STM32Cube_FW_F4_V1.23.0/Middlewares/Third_Party/FreeRTOS/Source/include"
+                        ],
+                        "intelliSenseMode": "msvc-x64"
+                }
+        ],
+        "version": 4
+}

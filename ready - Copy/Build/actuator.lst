@@ -1,0 +1,424 @@
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"actuator.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	_Z41__static_initialization_and_destruction_0ii:
+  25              	.LFB393:
+  26              		.file 1 "Core/Src/actuator.cpp"
+   1:Core/Src/actuator.cpp **** #include "actuator.h"
+   2:Core/Src/actuator.cpp **** #include "main.h"
+   3:Core/Src/actuator.cpp **** //#include "pid.h"
+   4:Core/Src/actuator.cpp **** #define setpoint (34.0)
+   5:Core/Src/actuator.cpp **** 
+   6:Core/Src/actuator.cpp **** extern motor gMotors[4];
+   7:Core/Src/actuator.cpp **** //static float velocity_robot[3]={0,0,0};
+   8:Core/Src/actuator.cpp **** // float velocity = 10;
+   9:Core/Src/actuator.cpp **** int32_t time = HAL_GetTick();
+  10:Core/Src/actuator.cpp **** 
+  11:Core/Src/actuator.cpp **** void play(void)
+  12:Core/Src/actuator.cpp **** {
+  13:Core/Src/actuator.cpp ****    //PID pid;
+  14:Core/Src/actuator.cpp **** /*   char data;
+  15:Core/Src/actuator.cpp ****    if(HAL_UART_Receive(&huart2,(uint8_t*)&data,1,10)==HAL_OK){
+  16:Core/Src/actuator.cpp ****       printf("\n %c",data);
+  17:Core/Src/actuator.cpp ****       switch(data)
+  18:Core/Src/actuator.cpp ****       {
+  19:Core/Src/actuator.cpp ****          case 'L':{
+  20:Core/Src/actuator.cpp ****             velocity_robot[0]= 0;
+  21:Core/Src/actuator.cpp ****             velocity_robot[1]= velocity;
+  22:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
+  23:Core/Src/actuator.cpp ****             // printf("\nforward");
+  24:Core/Src/actuator.cpp ****           break;
+  25:Core/Src/actuator.cpp ****          }
+  26:Core/Src/actuator.cpp ****          case 'R':{
+  27:Core/Src/actuator.cpp ****             velocity_robot[0]= 0;
+  28:Core/Src/actuator.cpp ****             velocity_robot[1]= -velocity;
+  29:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
+  30:Core/Src/actuator.cpp ****             // printf("\back");
+  31:Core/Src/actuator.cpp ****           break;
+  32:Core/Src/actuator.cpp ****          }
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s 			page 2
+
+
+  33:Core/Src/actuator.cpp ****          case 'F':{
+  34:Core/Src/actuator.cpp ****             velocity_robot[0]= velocity;
+  35:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
+  36:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
+  37:Core/Src/actuator.cpp ****             // printf("\nright");
+  38:Core/Src/actuator.cpp ****           break;
+  39:Core/Src/actuator.cpp ****          }
+  40:Core/Src/actuator.cpp ****          case 'B':{
+  41:Core/Src/actuator.cpp ****             velocity_robot[0]= -velocity;
+  42:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
+  43:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
+  44:Core/Src/actuator.cpp ****             // printf("\nleft");
+  45:Core/Src/actuator.cpp ****           break;
+  46:Core/Src/actuator.cpp ****          }
+  47:Core/Src/actuator.cpp ****          case 'S':{
+  48:Core/Src/actuator.cpp ****             velocity_robot[0]= 0;
+  49:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
+  50:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
+  51:Core/Src/actuator.cpp ****             // printf("\nstop");
+  52:Core/Src/actuator.cpp ****           break;
+  53:Core/Src/actuator.cpp ****          }
+  54:Core/Src/actuator.cpp ****           case 'G':{
+  55:Core/Src/actuator.cpp ****             velocity_robot[0]= 0;
+  56:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
+  57:Core/Src/actuator.cpp ****             velocity_robot[2]= -(velocity-11);
+  58:Core/Src/actuator.cpp ****             // printf("\nstop");
+  59:Core/Src/actuator.cpp ****           break;
+  60:Core/Src/actuator.cpp ****          }
+  61:Core/Src/actuator.cpp ****           case 'I':{
+  62:Core/Src/actuator.cpp ****             velocity_robot[0]= 0;
+  63:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
+  64:Core/Src/actuator.cpp ****             velocity_robot[2]= (velocity-11);
+  65:Core/Src/actuator.cpp ****             // printf("\nstop");
+  66:Core/Src/actuator.cpp ****           break;
+  67:Core/Src/actuator.cpp ****          }
+  68:Core/Src/actuator.cpp ****          default:{
+  69:Core/Src/actuator.cpp ****           velocity_robot[0]= 0;
+  70:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
+  71:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
+  72:Core/Src/actuator.cpp ****             // printf("\ndefault");
+  73:Core/Src/actuator.cpp ****           break;
+  74:Core/Src/actuator.cpp ****          }
+  75:Core/Src/actuator.cpp ****       }
+  76:Core/Src/actuator.cpp ****       // printf("here too");
+  77:Core/Src/actuator.cpp ****       printf("\n%d\t%d\t%d\t",(int)velocity_robot[0], (int)velocity_robot[1], (int)velocity_robot[2
+  78:Core/Src/actuator.cpp ****    
+  79:Core/Src/actuator.cpp ****       calculate_wheel_velocity();
+  80:Core/Src/actuator.cpp ****    }
+  81:Core/Src/actuator.cpp ****    else{
+  82:Core/Src/actuator.cpp ****       // printf("\nnodata");
+  83:Core/Src/actuator.cpp ****    }
+  84:Core/Src/actuator.cpp **** //}
+  85:Core/Src/actuator.cpp **** 
+  86:Core/Src/actuator.cpp **** void calculate_wheel_velocity()
+  87:Core/Src/actuator.cpp **** //{
+  88:Core/Src/actuator.cpp ****    // printf("here\n");
+  89:Core/Src/actuator.cpp ****    float velocity_motor[4] = {0,0,0,0};
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s 			page 3
+
+
+  90:Core/Src/actuator.cpp **** 	float coupling_matrix[4][3] = {{0.707,0.707,1},
+  91:Core/Src/actuator.cpp ****                                  {0.707,-0.707,1},
+  92:Core/Src/actuator.cpp ****                                  {-0.707,-0.707,1},
+  93:Core/Src/actuator.cpp ****                                  {-0.707,0.707,1}};
+  94:Core/Src/actuator.cpp ****     for(int i=0;i<4;i++)
+  95:Core/Src/actuator.cpp ****     {
+  96:Core/Src/actuator.cpp ****         velocity_motor[i] = 0;
+  97:Core/Src/actuator.cpp ****         for(int j=0;j<3;j++)
+  98:Core/Src/actuator.cpp ****         {
+  99:Core/Src/actuator.cpp ****              velocity_motor[i] += velocity_robot[j] * coupling_matrix[i][j];
+ 100:Core/Src/actuator.cpp ****         }
+ 101:Core/Src/actuator.cpp ****       printf("\t%d",(int)(velocity_motor[i]*100) );
+ 102:Core/Src/actuator.cpp **** */      
+ 103:Core/Src/actuator.cpp ****        // motor[i].(velocity_motor[i]);
+ 104:Core/Src/actuator.cpp ****        //float iOmega=get_data(3);
+ 105:Core/Src/actuator.cpp ****       // gMotors[3].set_omega(Omega);
+ 106:Core/Src/actuator.cpp **** 		if((HAL_GetTick() - time) >= SAMPLE_TIME){
+ 107:Core/Src/actuator.cpp ****          time = HAL_GetTick();
+ 108:Core/Src/actuator.cpp ****          // calculate_data(0);   //omega=0,-5.4976
+ 109:Core/Src/actuator.cpp ****          // calculate_data(1);   //omega=0,-5.4976
+ 110:Core/Src/actuator.cpp ****          // calculate_data(2);   //omega=0,-5.4976
+ 111:Core/Src/actuator.cpp ****          // calculate_data(3);   //omega=0,-5.4976
+ 112:Core/Src/actuator.cpp ****          // float iOmega=get_data(0);     // printf("\n%f",iOmega);
+ 113:Core/Src/actuator.cpp ****          //  float iOmega=get_data(1);     // printf("\n%f",iOmega);
+ 114:Core/Src/actuator.cpp ****          // float iOmega=get_data(2);     // printf("\n%f",iOmega);
+ 115:Core/Src/actuator.cpp ****          // float iOmega=get_data(3);     // printf("\n%f",iOmega);
+ 116:Core/Src/actuator.cpp ****          //printf("\n%f\t%f\t%f\t%f",get_data(0),get_data(1),get_data(2),get_data(3));
+ 117:Core/Src/actuator.cpp ****          printf("\n");
+ 118:Core/Src/actuator.cpp ****          gMotors[0].motor_input(setpoint,get_data(0));
+ 119:Core/Src/actuator.cpp ****          gMotors[1].motor_input(setpoint,get_data(1));
+ 120:Core/Src/actuator.cpp ****          gMotors[2].motor_input(setpoint,get_data(2));
+ 121:Core/Src/actuator.cpp ****          gMotors[3].motor_input(setpoint,get_data(3));
+ 122:Core/Src/actuator.cpp ****              
+ 123:Core/Src/actuator.cpp **** 
+ 124:Core/Src/actuator.cpp ****          //gMotors[3].set_omega(iOmega);
+ 125:Core/Src/actuator.cpp ****         // get_data(3);
+ 126:Core/Src/actuator.cpp ****          //printf("Omega=%f",get_data(3));
+ 127:Core/Src/actuator.cpp ****          //get_cnt(0);
+ 128:Core/Src/actuator.cpp ****       }
+ 129:Core/Src/actuator.cpp ****       //pid.setPID(2.0526,0.078101,0);
+ 130:Core/Src/actuator.cpp ****       //pid.setlimits(75,-75);
+ 131:Core/Src/actuator.cpp ****      // printf("Omega=%f",get_data(1));
+ 132:Core/Src/actuator.cpp ****      // pid.computePID(50,get_data(1));
+ 133:Core/Src/actuator.cpp **** 
+ 134:Core/Src/actuator.cpp ****       
+ 135:Core/Src/actuator.cpp ****     //}
+ 136:Core/Src/actuator.cpp **** 	
+ 137:Core/Src/actuator.cpp ****    //  for(int i=0;i<4;i++)
+ 138:Core/Src/actuator.cpp ****    //  {
+ 139:Core/Src/actuator.cpp ****    //      //ocr_motor[i] = ((249.0*velocity_motor[i])/(MAX_RPM));//multiply by icr_top value
+ 140:Core/Src/actuator.cpp **** 	// 	ocr_motor[i] = velocity_motor[i]*PPR/3000.0;
+ 141:Core/Src/actuator.cpp **** 	// 	velocity_robot[i] = 0;
+ 142:Core/Src/actuator.cpp **** 	// 	p[i].Set_SP(ocr_motor[i]);
+ 143:Core/Src/actuator.cpp ****    //  }
+ 144:Core/Src/actuator.cpp **** 	  
+ 145:Core/Src/actuator.cpp **** }
+  27              		.loc 1 145 0
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s 			page 4
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 0128     		cmp	r0, #1
+  33 0002 00D0     		beq	.L7
+  34 0004 7047     		bx	lr
+  35              	.L7:
+  36              		.loc 1 145 0 is_stmt 0 discriminator 1
+  37 0006 08B5     		push	{r3, lr}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 8
+  40              		.cfi_offset 3, -8
+  41              		.cfi_offset 14, -4
+  42              		.loc 1 145 0 is_stmt 1 discriminator 1
+  43 0008 4FF6FF73 		movw	r3, #65535
+  44 000c 9942     		cmp	r1, r3
+  45 000e 00D0     		beq	.L8
+  46              	.LVL1:
+  47              	.L1:
+  48              		.loc 1 145 0 is_stmt 0
+  49 0010 08BD     		pop	{r3, pc}
+  50              	.LVL2:
+  51              	.L8:
+   9:Core/Src/actuator.cpp **** 
+  52              		.loc 1 9 0 is_stmt 1
+  53 0012 FFF7FEFF 		bl	HAL_GetTick
+  54              	.LVL3:
+  55 0016 014B     		ldr	r3, .L9
+  56 0018 1860     		str	r0, [r3]
+  57              		.loc 1 145 0
+  58 001a F9E7     		b	.L1
+  59              	.L10:
+  60              		.align	2
+  61              	.L9:
+  62 001c 00000000 		.word	.LANCHOR0
+  63              		.cfi_endproc
+  64              	.LFE393:
+  66              		.section	.text._Z4playv,"ax",%progbits
+  67              		.align	1
+  68              		.global	_Z4playv
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  72              		.fpu fpv4-sp-d16
+  74              	_Z4playv:
+  75              	.LFB392:
+  12:Core/Src/actuator.cpp ****    //PID pid;
+  76              		.loc 1 12 0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80 0000 10B5     		push	{r4, lr}
+  81              	.LCFI1:
+  82              		.cfi_def_cfa_offset 8
+  83              		.cfi_offset 4, -8
+  84              		.cfi_offset 14, -4
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s 			page 5
+
+
+  85 0002 2DED028B 		vpush.64	{d8}
+  86              	.LCFI2:
+  87              		.cfi_def_cfa_offset 16
+  88              		.cfi_offset 80, -16
+  89              		.cfi_offset 81, -12
+ 106:Core/Src/actuator.cpp ****          time = HAL_GetTick();
+  90              		.loc 1 106 0
+  91 0006 FFF7FEFF 		bl	HAL_GetTick
+  92              	.LVL4:
+  93 000a 1F4B     		ldr	r3, .L15
+  94 000c 1B68     		ldr	r3, [r3]
+  95 000e C01A     		subs	r0, r0, r3
+  96 0010 0928     		cmp	r0, #9
+  97 0012 02D8     		bhi	.L14
+  98              	.L11:
+  99              		.loc 1 145 0
+ 100 0014 BDEC028B 		vldm	sp!, {d8}
+ 101              	.LCFI3:
+ 102              		.cfi_remember_state
+ 103              		.cfi_restore 80
+ 104              		.cfi_restore 81
+ 105              		.cfi_def_cfa_offset 8
+ 106 0018 10BD     		pop	{r4, pc}
+ 107              	.L14:
+ 108              	.LCFI4:
+ 109              		.cfi_restore_state
+ 107:Core/Src/actuator.cpp ****          // calculate_data(0);   //omega=0,-5.4976
+ 110              		.loc 1 107 0
+ 111 001a FFF7FEFF 		bl	HAL_GetTick
+ 112              	.LVL5:
+ 113 001e 1A4B     		ldr	r3, .L15
+ 114 0020 1860     		str	r0, [r3]
+ 117:Core/Src/actuator.cpp ****          gMotors[0].motor_input(setpoint,get_data(0));
+ 115              		.loc 1 117 0
+ 116 0022 0A20     		movs	r0, #10
+ 117 0024 FFF7FEFF 		bl	putchar
+ 118              	.LVL6:
+ 118:Core/Src/actuator.cpp ****          gMotors[1].motor_input(setpoint,get_data(1));
+ 119              		.loc 1 118 0
+ 120 0028 0020     		movs	r0, #0
+ 121 002a FFF7FEFF 		bl	_Z8get_datai
+ 122              	.LVL7:
+ 123 002e 9FED178A 		vldr.32	s16, .L15+4
+ 124 0032 174C     		ldr	r4, .L15+8
+ 125 0034 F0EE400A 		vmov.f32	s1, s0
+ 126 0038 B0EE480A 		vmov.f32	s0, s16
+ 127 003c 2046     		mov	r0, r4
+ 128 003e FFF7FEFF 		bl	_ZN5motor11motor_inputEff
+ 129              	.LVL8:
+ 119:Core/Src/actuator.cpp ****          gMotors[2].motor_input(setpoint,get_data(2));
+ 130              		.loc 1 119 0
+ 131 0042 0120     		movs	r0, #1
+ 132 0044 FFF7FEFF 		bl	_Z8get_datai
+ 133              	.LVL9:
+ 134 0048 F0EE400A 		vmov.f32	s1, s0
+ 135 004c B0EE480A 		vmov.f32	s0, s16
+ 136 0050 04F11800 		add	r0, r4, #24
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s 			page 6
+
+
+ 137 0054 FFF7FEFF 		bl	_ZN5motor11motor_inputEff
+ 138              	.LVL10:
+ 120:Core/Src/actuator.cpp ****          gMotors[3].motor_input(setpoint,get_data(3));
+ 139              		.loc 1 120 0
+ 140 0058 0220     		movs	r0, #2
+ 141 005a FFF7FEFF 		bl	_Z8get_datai
+ 142              	.LVL11:
+ 143 005e F0EE400A 		vmov.f32	s1, s0
+ 144 0062 B0EE480A 		vmov.f32	s0, s16
+ 145 0066 04F13000 		add	r0, r4, #48
+ 146 006a FFF7FEFF 		bl	_ZN5motor11motor_inputEff
+ 147              	.LVL12:
+ 121:Core/Src/actuator.cpp ****              
+ 148              		.loc 1 121 0
+ 149 006e 0320     		movs	r0, #3
+ 150 0070 FFF7FEFF 		bl	_Z8get_datai
+ 151              	.LVL13:
+ 152 0074 F0EE400A 		vmov.f32	s1, s0
+ 153 0078 B0EE480A 		vmov.f32	s0, s16
+ 154 007c 04F14800 		add	r0, r4, #72
+ 155 0080 FFF7FEFF 		bl	_ZN5motor11motor_inputEff
+ 156              	.LVL14:
+ 157              		.loc 1 145 0
+ 158 0084 C6E7     		b	.L11
+ 159              	.L16:
+ 160 0086 00BF     		.align	2
+ 161              	.L15:
+ 162 0088 00000000 		.word	.LANCHOR0
+ 163 008c 00000842 		.word	1107820544
+ 164 0090 00000000 		.word	gMotors
+ 165              		.cfi_endproc
+ 166              	.LFE392:
+ 168              		.section	.text._GLOBAL__sub_I_time,"ax",%progbits
+ 169              		.align	1
+ 170              		.syntax unified
+ 171              		.thumb
+ 172              		.thumb_func
+ 173              		.fpu fpv4-sp-d16
+ 175              	_GLOBAL__sub_I_time:
+ 176              	.LFB394:
+ 177              		.loc 1 145 0
+ 178              		.cfi_startproc
+ 179              		@ args = 0, pretend = 0, frame = 0
+ 180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 181 0000 08B5     		push	{r3, lr}
+ 182              	.LCFI5:
+ 183              		.cfi_def_cfa_offset 8
+ 184              		.cfi_offset 3, -8
+ 185              		.cfi_offset 14, -4
+ 186              		.loc 1 145 0
+ 187 0002 4FF6FF71 		movw	r1, #65535
+ 188 0006 0120     		movs	r0, #1
+ 189 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 190              	.LVL15:
+ 191 000c 08BD     		pop	{r3, pc}
+ 192              		.cfi_endproc
+ 193              	.LFE394:
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s 			page 7
+
+
+ 195              		.section	.init_array,"aw",%init_array
+ 196              		.align	2
+ 197 0000 00000000 		.word	_GLOBAL__sub_I_time(target1)
+ 198              		.global	time
+ 199              		.section	.bss.time,"aw",%nobits
+ 200              		.align	2
+ 201              		.set	.LANCHOR0,. + 0
+ 204              	time:
+ 205 0000 00000000 		.space	4
+ 206              		.text
+ 207              	.Letext0:
+ 208              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 209              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 210              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 211              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 212              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 213              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 214              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 215              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 216              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 217              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 218              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 219              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 220              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 221              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
+ 222              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 223              		.file 17 "Core/Inc/tim.h"
+ 224              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 225              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 226              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 227              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 228              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 229              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 230              		.file 24 "Core/Inc/pid.h"
+ 231              		.file 25 "Core/Inc/motor.h"
+ 232              		.file 26 "Core/Inc/usart.h"
+ 233              		.file 27 "<built-in>"
+ 234              		.file 28 "Core/Inc/encoder.h"
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 actuator.cpp
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:24     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:62     .text._Z41__static_initialization_and_destruction_0ii:0000001c $d
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:67     .text._Z4playv:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:74     .text._Z4playv:00000000 _Z4playv
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:162    .text._Z4playv:00000088 $d
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:169    .text._GLOBAL__sub_I_time:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:175    .text._GLOBAL__sub_I_time:00000000 _GLOBAL__sub_I_time
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:196    .init_array:00000000 $d
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:204    .bss.time:00000000 time
+C:\Users\pawan\AppData\Local\Temp\ccF7WHNt.s:200    .bss.time:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GetTick
+putchar
+_Z8get_datai
+_ZN5motor11motor_inputEff
+gMotors

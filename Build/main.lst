@@ -1,0 +1,479 @@
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._Z18SystemClock_Configv,"ax",%progbits
+  18              		.align	1
+  19              		.global	_Z18SystemClock_Configv
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_Z18SystemClock_Configv:
+  26              	.LFB380:
+  27              		.file 1 "Core/Src/main.cpp"
+   1:Core/Src/main.cpp **** /* USER CODE BEGIN Header */
+   2:Core/Src/main.cpp **** /**
+   3:Core/Src/main.cpp ****   ******************************************************************************
+   4:Core/Src/main.cpp ****   * @file           : main.c
+   5:Core/Src/main.cpp ****   * @brief          : Main program body
+   6:Core/Src/main.cpp ****   ******************************************************************************
+   7:Core/Src/main.cpp ****   * @attention
+   8:Core/Src/main.cpp ****   *
+   9:Core/Src/main.cpp ****   * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+  10:Core/Src/main.cpp ****   * All rights reserved.</center></h2>
+  11:Core/Src/main.cpp ****   *
+  12:Core/Src/main.cpp ****   * This software component is licensed by ST under BSD 3-Clause license,
+  13:Core/Src/main.cpp ****   * the "License"; You may not use this file except in compliance with the
+  14:Core/Src/main.cpp ****   * License. You may obtain a copy of the License at:
+  15:Core/Src/main.cpp ****   *                        opensource.org/licenses/BSD-3-Clause
+  16:Core/Src/main.cpp ****   *
+  17:Core/Src/main.cpp ****   ******************************************************************************
+  18:Core/Src/main.cpp ****   */
+  19:Core/Src/main.cpp **** /* USER CODE END Header */
+  20:Core/Src/main.cpp **** 
+  21:Core/Src/main.cpp **** /* Includes ------------------------------------------------------------------*/
+  22:Core/Src/main.cpp **** #include "main.h"
+  23:Core/Src/main.cpp **** #include "tim.h"
+  24:Core/Src/main.cpp **** #include "usart.h"
+  25:Core/Src/main.cpp **** #include "gpio.h"
+  26:Core/Src/main.cpp **** 
+  27:Core/Src/main.cpp **** /* Private includes ----------------------------------------------------------*/
+  28:Core/Src/main.cpp **** /* USER CODE BEGIN Includes */
+  29:Core/Src/main.cpp **** #include "robo_init.h"
+  30:Core/Src/main.cpp **** #include "motor.h"
+  31:Core/Src/main.cpp **** #include "actuator.h"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 2
+
+
+  32:Core/Src/main.cpp **** /* USER CODE END Includes */
+  33:Core/Src/main.cpp **** 
+  34:Core/Src/main.cpp **** /* Private typedef -----------------------------------------------------------*/
+  35:Core/Src/main.cpp **** /* USER CODE BEGIN PTD */
+  36:Core/Src/main.cpp **** 
+  37:Core/Src/main.cpp **** /* USER CODE END PTD */
+  38:Core/Src/main.cpp **** 
+  39:Core/Src/main.cpp **** /* Private define ------------------------------------------------------------*/
+  40:Core/Src/main.cpp **** /* USER CODE BEGIN PD */
+  41:Core/Src/main.cpp **** 
+  42:Core/Src/main.cpp **** /* USER CODE END PD */
+  43:Core/Src/main.cpp **** 
+  44:Core/Src/main.cpp **** /* Private macro -------------------------------------------------------------*/
+  45:Core/Src/main.cpp **** /* USER CODE BEGIN PM */
+  46:Core/Src/main.cpp **** 
+  47:Core/Src/main.cpp **** /* USER CODE END PM */
+  48:Core/Src/main.cpp **** 
+  49:Core/Src/main.cpp **** /* Private variables ---------------------------------------------------------*/
+  50:Core/Src/main.cpp **** 
+  51:Core/Src/main.cpp **** /* USER CODE BEGIN PV */
+  52:Core/Src/main.cpp **** 
+  53:Core/Src/main.cpp **** /* USER CODE END PV */
+  54:Core/Src/main.cpp **** 
+  55:Core/Src/main.cpp **** /* Private function prototypes -----------------------------------------------*/
+  56:Core/Src/main.cpp **** void SystemClock_Config(void);
+  57:Core/Src/main.cpp **** /* USER CODE BEGIN PFP */
+  58:Core/Src/main.cpp **** 
+  59:Core/Src/main.cpp **** /* USER CODE END PFP */
+  60:Core/Src/main.cpp **** 
+  61:Core/Src/main.cpp **** /* Private user code ---------------------------------------------------------*/
+  62:Core/Src/main.cpp **** /* USER CODE BEGIN 0 */
+  63:Core/Src/main.cpp **** 
+  64:Core/Src/main.cpp **** /* USER CODE END 0 */
+  65:Core/Src/main.cpp **** 
+  66:Core/Src/main.cpp **** /**
+  67:Core/Src/main.cpp ****   * @brief  The application entry point.
+  68:Core/Src/main.cpp ****   * @retval int
+  69:Core/Src/main.cpp ****   */
+  70:Core/Src/main.cpp **** int main(void)
+  71:Core/Src/main.cpp **** {
+  72:Core/Src/main.cpp ****   /* USER CODE BEGIN 1 */
+  73:Core/Src/main.cpp **** 
+  74:Core/Src/main.cpp ****   /* USER CODE END 1 */
+  75:Core/Src/main.cpp ****   
+  76:Core/Src/main.cpp **** 
+  77:Core/Src/main.cpp ****   /* MCU Configuration--------------------------------------------------------*/
+  78:Core/Src/main.cpp **** 
+  79:Core/Src/main.cpp ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  80:Core/Src/main.cpp ****   HAL_Init();
+  81:Core/Src/main.cpp **** 
+  82:Core/Src/main.cpp ****   /* USER CODE BEGIN Init */
+  83:Core/Src/main.cpp **** 
+  84:Core/Src/main.cpp ****   /* USER CODE END Init */
+  85:Core/Src/main.cpp **** 
+  86:Core/Src/main.cpp ****   /* Configure the system clock */
+  87:Core/Src/main.cpp ****   SystemClock_Config();
+  88:Core/Src/main.cpp **** 
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 3
+
+
+  89:Core/Src/main.cpp ****   /* USER CODE BEGIN SysInit */
+  90:Core/Src/main.cpp **** 
+  91:Core/Src/main.cpp ****   /* USER CODE END SysInit */
+  92:Core/Src/main.cpp **** 
+  93:Core/Src/main.cpp ****   /* Initialize all configured peripherals */
+  94:Core/Src/main.cpp ****   MX_GPIO_Init();
+  95:Core/Src/main.cpp ****   MX_TIM1_Init();
+  96:Core/Src/main.cpp ****   MX_TIM2_Init();
+  97:Core/Src/main.cpp ****   MX_TIM3_Init();
+  98:Core/Src/main.cpp ****   MX_TIM4_Init();
+  99:Core/Src/main.cpp ****   MX_TIM8_Init();
+ 100:Core/Src/main.cpp ****   MX_UART4_Init();
+ 101:Core/Src/main.cpp ****   MX_USART2_UART_Init();
+ 102:Core/Src/main.cpp ****   /* USER CODE BEGIN 2 */
+ 103:Core/Src/main.cpp ****   robo_init();
+ 104:Core/Src/main.cpp ****   /* USER CODE END 2 */
+ 105:Core/Src/main.cpp **** 
+ 106:Core/Src/main.cpp ****   /* Infinite loop */
+ 107:Core/Src/main.cpp ****   /* USER CODE BEGIN WHILE */
+ 108:Core/Src/main.cpp ****   while (1)
+ 109:Core/Src/main.cpp ****   {
+ 110:Core/Src/main.cpp ****     /* USER CODE END WHILE */
+ 111:Core/Src/main.cpp ****     
+ 112:Core/Src/main.cpp ****     /* USER CODE BEGIN 3 */
+ 113:Core/Src/main.cpp ****     play();
+ 114:Core/Src/main.cpp ****   }
+ 115:Core/Src/main.cpp ****   /* USER CODE END 3 */
+ 116:Core/Src/main.cpp **** }
+ 117:Core/Src/main.cpp **** 
+ 118:Core/Src/main.cpp **** /**
+ 119:Core/Src/main.cpp ****   * @brief System Clock Configuration
+ 120:Core/Src/main.cpp ****   * @retval None
+ 121:Core/Src/main.cpp ****   */
+ 122:Core/Src/main.cpp **** void SystemClock_Config(void)
+ 123:Core/Src/main.cpp **** {
+  28              		.loc 1 123 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 80
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 30B5     		push	{r4, r5, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 12
+  35              		.cfi_offset 4, -12
+  36              		.cfi_offset 5, -8
+  37              		.cfi_offset 14, -4
+  38 0002 95B0     		sub	sp, sp, #84
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 96
+ 124:Core/Src/main.cpp ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  41              		.loc 1 124 0
+  42 0004 3022     		movs	r2, #48
+  43 0006 0021     		movs	r1, #0
+  44 0008 08A8     		add	r0, sp, #32
+  45 000a FFF7FEFF 		bl	memset
+  46              	.LVL0:
+ 125:Core/Src/main.cpp ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  47              		.loc 1 125 0
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 4
+
+
+  48 000e 0024     		movs	r4, #0
+  49 0010 0394     		str	r4, [sp, #12]
+  50 0012 0494     		str	r4, [sp, #16]
+  51 0014 0594     		str	r4, [sp, #20]
+  52 0016 0694     		str	r4, [sp, #24]
+  53 0018 0794     		str	r4, [sp, #28]
+  54              	.LBB2:
+ 126:Core/Src/main.cpp **** 
+ 127:Core/Src/main.cpp ****   /** Configure the main internal regulator output voltage 
+ 128:Core/Src/main.cpp ****   */
+ 129:Core/Src/main.cpp ****   __HAL_RCC_PWR_CLK_ENABLE();
+  55              		.loc 1 129 0
+  56 001a 0194     		str	r4, [sp, #4]
+  57 001c 1C4B     		ldr	r3, .L3
+  58 001e 1A6C     		ldr	r2, [r3, #64]
+  59 0020 42F08052 		orr	r2, r2, #268435456
+  60 0024 1A64     		str	r2, [r3, #64]
+  61 0026 1B6C     		ldr	r3, [r3, #64]
+  62 0028 03F08053 		and	r3, r3, #268435456
+  63 002c 0193     		str	r3, [sp, #4]
+  64 002e 019B     		ldr	r3, [sp, #4]
+  65              	.LBE2:
+  66              	.LBB3:
+ 130:Core/Src/main.cpp ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  67              		.loc 1 130 0
+  68 0030 0294     		str	r4, [sp, #8]
+  69 0032 184B     		ldr	r3, .L3+4
+  70 0034 1A68     		ldr	r2, [r3]
+  71 0036 42F48042 		orr	r2, r2, #16384
+  72 003a 1A60     		str	r2, [r3]
+  73 003c 1B68     		ldr	r3, [r3]
+  74 003e 03F48043 		and	r3, r3, #16384
+  75 0042 0293     		str	r3, [sp, #8]
+  76 0044 029B     		ldr	r3, [sp, #8]
+  77              	.LBE3:
+ 131:Core/Src/main.cpp ****   /** Initializes the CPU, AHB and APB busses clocks 
+ 132:Core/Src/main.cpp ****   */
+ 133:Core/Src/main.cpp ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  78              		.loc 1 133 0
+  79 0046 0123     		movs	r3, #1
+  80 0048 0893     		str	r3, [sp, #32]
+ 134:Core/Src/main.cpp ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  81              		.loc 1 134 0
+  82 004a 4FF48033 		mov	r3, #65536
+  83 004e 0993     		str	r3, [sp, #36]
+ 135:Core/Src/main.cpp ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  84              		.loc 1 135 0
+  85 0050 0225     		movs	r5, #2
+  86 0052 0E95     		str	r5, [sp, #56]
+ 136:Core/Src/main.cpp ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  87              		.loc 1 136 0
+  88 0054 4FF48003 		mov	r3, #4194304
+  89 0058 0F93     		str	r3, [sp, #60]
+ 137:Core/Src/main.cpp ****   RCC_OscInitStruct.PLL.PLLM = 8;
+  90              		.loc 1 137 0
+  91 005a 0823     		movs	r3, #8
+  92 005c 1093     		str	r3, [sp, #64]
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 5
+
+
+ 138:Core/Src/main.cpp ****   RCC_OscInitStruct.PLL.PLLN = 336;
+  93              		.loc 1 138 0
+  94 005e 4FF4A873 		mov	r3, #336
+  95 0062 1193     		str	r3, [sp, #68]
+ 139:Core/Src/main.cpp ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  96              		.loc 1 139 0
+  97 0064 1295     		str	r5, [sp, #72]
+ 140:Core/Src/main.cpp ****   RCC_OscInitStruct.PLL.PLLQ = 7;
+  98              		.loc 1 140 0
+  99 0066 0723     		movs	r3, #7
+ 100 0068 1393     		str	r3, [sp, #76]
+ 141:Core/Src/main.cpp ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 101              		.loc 1 141 0
+ 102 006a 08A8     		add	r0, sp, #32
+ 103 006c FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 104              	.LVL1:
+ 142:Core/Src/main.cpp ****   {
+ 143:Core/Src/main.cpp ****     Error_Handler();
+ 144:Core/Src/main.cpp ****   }
+ 145:Core/Src/main.cpp ****   /** Initializes the CPU, AHB and APB busses clocks 
+ 146:Core/Src/main.cpp ****   */
+ 147:Core/Src/main.cpp ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 105              		.loc 1 147 0
+ 106 0070 0F23     		movs	r3, #15
+ 107 0072 0393     		str	r3, [sp, #12]
+ 148:Core/Src/main.cpp ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 149:Core/Src/main.cpp ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 108              		.loc 1 149 0
+ 109 0074 0495     		str	r5, [sp, #16]
+ 150:Core/Src/main.cpp ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 110              		.loc 1 150 0
+ 111 0076 0594     		str	r4, [sp, #20]
+ 151:Core/Src/main.cpp ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 112              		.loc 1 151 0
+ 113 0078 4FF4A053 		mov	r3, #5120
+ 114 007c 0693     		str	r3, [sp, #24]
+ 152:Core/Src/main.cpp ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 115              		.loc 1 152 0
+ 116 007e 4FF48053 		mov	r3, #4096
+ 117 0082 0793     		str	r3, [sp, #28]
+ 153:Core/Src/main.cpp **** 
+ 154:Core/Src/main.cpp ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+ 118              		.loc 1 154 0
+ 119 0084 0521     		movs	r1, #5
+ 120 0086 03A8     		add	r0, sp, #12
+ 121 0088 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 122              	.LVL2:
+ 155:Core/Src/main.cpp ****   {
+ 156:Core/Src/main.cpp ****     Error_Handler();
+ 157:Core/Src/main.cpp ****   }
+ 158:Core/Src/main.cpp **** }
+ 123              		.loc 1 158 0
+ 124 008c 15B0     		add	sp, sp, #84
+ 125              	.LCFI2:
+ 126              		.cfi_def_cfa_offset 12
+ 127              		@ sp needed
+ 128 008e 30BD     		pop	{r4, r5, pc}
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 6
+
+
+ 129              	.L4:
+ 130              		.align	2
+ 131              	.L3:
+ 132 0090 00380240 		.word	1073887232
+ 133 0094 00700040 		.word	1073770496
+ 134              		.cfi_endproc
+ 135              	.LFE380:
+ 137              		.section	.text.main,"ax",%progbits
+ 138              		.align	1
+ 139              		.global	main
+ 140              		.syntax unified
+ 141              		.thumb
+ 142              		.thumb_func
+ 143              		.fpu fpv4-sp-d16
+ 145              	main:
+ 146              	.LFB379:
+  71:Core/Src/main.cpp ****   /* USER CODE BEGIN 1 */
+ 147              		.loc 1 71 0
+ 148              		.cfi_startproc
+ 149              		@ Volatile: function does not return.
+ 150              		@ args = 0, pretend = 0, frame = 0
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152 0000 08B5     		push	{r3, lr}
+ 153              	.LCFI3:
+ 154              		.cfi_def_cfa_offset 8
+ 155              		.cfi_offset 3, -8
+ 156              		.cfi_offset 14, -4
+  80:Core/Src/main.cpp **** 
+ 157              		.loc 1 80 0
+ 158 0002 FFF7FEFF 		bl	HAL_Init
+ 159              	.LVL3:
+  87:Core/Src/main.cpp **** 
+ 160              		.loc 1 87 0
+ 161 0006 FFF7FEFF 		bl	_Z18SystemClock_Configv
+ 162              	.LVL4:
+  94:Core/Src/main.cpp ****   MX_TIM1_Init();
+ 163              		.loc 1 94 0
+ 164 000a FFF7FEFF 		bl	MX_GPIO_Init
+ 165              	.LVL5:
+  95:Core/Src/main.cpp ****   MX_TIM2_Init();
+ 166              		.loc 1 95 0
+ 167 000e FFF7FEFF 		bl	MX_TIM1_Init
+ 168              	.LVL6:
+  96:Core/Src/main.cpp ****   MX_TIM3_Init();
+ 169              		.loc 1 96 0
+ 170 0012 FFF7FEFF 		bl	MX_TIM2_Init
+ 171              	.LVL7:
+  97:Core/Src/main.cpp ****   MX_TIM4_Init();
+ 172              		.loc 1 97 0
+ 173 0016 FFF7FEFF 		bl	MX_TIM3_Init
+ 174              	.LVL8:
+  98:Core/Src/main.cpp ****   MX_TIM8_Init();
+ 175              		.loc 1 98 0
+ 176 001a FFF7FEFF 		bl	MX_TIM4_Init
+ 177              	.LVL9:
+  99:Core/Src/main.cpp ****   MX_UART4_Init();
+ 178              		.loc 1 99 0
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 7
+
+
+ 179 001e FFF7FEFF 		bl	MX_TIM8_Init
+ 180              	.LVL10:
+ 100:Core/Src/main.cpp ****   MX_USART2_UART_Init();
+ 181              		.loc 1 100 0
+ 182 0022 FFF7FEFF 		bl	MX_UART4_Init
+ 183              	.LVL11:
+ 101:Core/Src/main.cpp ****   /* USER CODE BEGIN 2 */
+ 184              		.loc 1 101 0
+ 185 0026 FFF7FEFF 		bl	MX_USART2_UART_Init
+ 186              	.LVL12:
+ 103:Core/Src/main.cpp ****   /* USER CODE END 2 */
+ 187              		.loc 1 103 0
+ 188 002a FFF7FEFF 		bl	_Z9robo_initv
+ 189              	.LVL13:
+ 190              	.L6:
+ 113:Core/Src/main.cpp ****   }
+ 191              		.loc 1 113 0 discriminator 1
+ 192 002e FFF7FEFF 		bl	_Z4playv
+ 193              	.LVL14:
+ 194 0032 FCE7     		b	.L6
+ 195              		.cfi_endproc
+ 196              	.LFE379:
+ 198              		.section	.text.Error_Handler,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	Error_Handler
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 204              		.fpu fpv4-sp-d16
+ 206              	Error_Handler:
+ 207              	.LFB381:
+ 159:Core/Src/main.cpp **** 
+ 160:Core/Src/main.cpp **** /* USER CODE BEGIN 4 */
+ 161:Core/Src/main.cpp **** 
+ 162:Core/Src/main.cpp **** /* USER CODE END 4 */
+ 163:Core/Src/main.cpp **** 
+ 164:Core/Src/main.cpp **** /**
+ 165:Core/Src/main.cpp ****   * @brief  This function is executed in case of error occurrence.
+ 166:Core/Src/main.cpp ****   * @retval None
+ 167:Core/Src/main.cpp ****   */
+ 168:Core/Src/main.cpp **** void Error_Handler(void)
+ 169:Core/Src/main.cpp **** {
+ 208              		.loc 1 169 0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              		@ link register save eliminated.
+ 170:Core/Src/main.cpp ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 171:Core/Src/main.cpp ****   /* User can add his own implementation to report the HAL error return state */
+ 172:Core/Src/main.cpp **** 
+ 173:Core/Src/main.cpp ****   /* USER CODE END Error_Handler_Debug */
+ 174:Core/Src/main.cpp **** }
+ 213              		.loc 1 174 0
+ 214 0000 7047     		bx	lr
+ 215              		.cfi_endproc
+ 216              	.LFE381:
+ 218              		.text
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 8
+
+
+ 219              	.Letext0:
+ 220              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 221              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 222              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 223              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 224              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 225              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 226              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 227              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 228              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 229              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 230              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 231              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 232              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 233              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
+ 234              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 235              		.file 17 "Core/Inc/tim.h"
+ 236              		.file 18 "Core/Inc/usart.h"
+ 237              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 238              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 239              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 240              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 241              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 242              		.file 24 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 243              		.file 25 "Core/Inc/gpio.h"
+ 244              		.file 26 "Core/Inc/robo_init.h"
+ 245              		.file 27 "Core/Inc/actuator.h"
+ 246              		.file 28 "<built-in>"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.cpp
+C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s:18     .text._Z18SystemClock_Configv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s:25     .text._Z18SystemClock_Configv:00000000 _Z18SystemClock_Configv
+C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s:132    .text._Z18SystemClock_Configv:00000090 $d
+C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s:138    .text.main:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s:145    .text.main:00000000 main
+C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s:199    .text.Error_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cceiISEG.s:206    .text.Error_Handler:00000000 Error_Handler
+
+UNDEFINED SYMBOLS
+memset
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_Init
+MX_GPIO_Init
+MX_TIM1_Init
+MX_TIM2_Init
+MX_TIM3_Init
+MX_TIM4_Init
+MX_TIM8_Init
+MX_UART4_Init
+MX_USART2_UART_Init
+_Z9robo_initv
+_Z4playv

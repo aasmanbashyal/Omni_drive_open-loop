@@ -1,0 +1,55 @@
+/* 
+ * tasks.json
+ *
+ * Created : 7/29/2018 9:38:43 PM
+ *  Author : n-is
+ *   email : 073bex422.nischal@pcampus.edu.np
+ */
+ 
+ {
+        "version": "2.0.0",
+        "options": {
+                "shell": {
+                        "executable": "cmd.exe",
+                        "args": [
+                                "/d", "/c"
+                        ]
+                },
+                "cwd": "${workspaceRoot}"
+        },
+        "tasks": [
+                {
+                        "label": "Rebuild Code",
+                        "type": "shell",
+                        "group": "build",
+                        "command": "make rebuild",
+                        "isBackground": true,
+                        "problemMatcher": [
+                                "$gcc"
+                        ]
+                },
+                {
+                        "label": "Build Code",
+                        "type": "shell",
+                        "group": "build",
+                        "command": "make",
+                        "isBackground": false,
+                        "problemMatcher": [
+                                "$gcc"
+                        ],
+                        "runOptions": {
+                                "runOn": "folderOpen"
+                        }
+                },
+                {
+                        "label": "Clean Code",
+                        "type": "shell",
+                        "group": "build",
+                        "command": "make clean",
+                        "isBackground": false,
+                        "problemMatcher": [
+                                "$gcc"
+                        ]
+                }
+        ]
+}

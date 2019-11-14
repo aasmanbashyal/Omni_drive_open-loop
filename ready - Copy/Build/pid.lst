@@ -1,0 +1,368 @@
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"pid.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN3PID5setKpEf,"ax",%progbits
+  18              		.align	1
+  19              		.global	_ZN3PID5setKpEf
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_ZN3PID5setKpEf:
+  26              	.LFB237:
+  27              		.file 1 "Core/Src/pid.cpp"
+   1:Core/Src/pid.cpp **** #include "pid.h"
+   2:Core/Src/pid.cpp **** #include "math.h"
+   3:Core/Src/pid.cpp **** #define SampleTime 10
+   4:Core/Src/pid.cpp **** //#define max (float)70
+   5:Core/Src/pid.cpp **** //#define min (float)-70
+   6:Core/Src/pid.cpp **** float max, min;
+   7:Core/Src/pid.cpp **** float lastError=0;
+   8:Core/Src/pid.cpp **** float iError=0;
+   9:Core/Src/pid.cpp **** 
+  10:Core/Src/pid.cpp **** void PID::setKp(float kp){
+  28              		.loc 1 10 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  11:Core/Src/pid.cpp ****     Kp=kp;
+  34              		.loc 1 11 0
+  35 0000 80ED000A 		vstr.32	s0, [r0]
+  12:Core/Src/pid.cpp ****     //printf("KP=%f",Kp);
+  13:Core/Src/pid.cpp ****     }
+  36              		.loc 1 13 0
+  37 0004 7047     		bx	lr
+  38              		.cfi_endproc
+  39              	.LFE237:
+  41              		.section	.text._ZN3PID5setKiEf,"ax",%progbits
+  42              		.align	1
+  43              		.global	_ZN3PID5setKiEf
+  44              		.syntax unified
+  45              		.thumb
+  46              		.thumb_func
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s 			page 2
+
+
+  47              		.fpu fpv4-sp-d16
+  49              	_ZN3PID5setKiEf:
+  50              	.LFB238:
+  14:Core/Src/pid.cpp **** void PID::setKi(float ki){Ki=ki;}
+  51              		.loc 1 14 0
+  52              		.cfi_startproc
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55              		@ link register save eliminated.
+  56              	.LVL1:
+  57              		.loc 1 14 0
+  58 0000 80ED010A 		vstr.32	s0, [r0, #4]
+  59 0004 7047     		bx	lr
+  60              		.cfi_endproc
+  61              	.LFE238:
+  63              		.section	.text._ZN3PID5setKdEf,"ax",%progbits
+  64              		.align	1
+  65              		.global	_ZN3PID5setKdEf
+  66              		.syntax unified
+  67              		.thumb
+  68              		.thumb_func
+  69              		.fpu fpv4-sp-d16
+  71              	_ZN3PID5setKdEf:
+  72              	.LFB239:
+  15:Core/Src/pid.cpp **** void PID::setKd(float kd){Kd=kd;}
+  73              		.loc 1 15 0
+  74              		.cfi_startproc
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77              		@ link register save eliminated.
+  78              	.LVL2:
+  79              		.loc 1 15 0
+  80 0000 80ED020A 		vstr.32	s0, [r0, #8]
+  81 0004 7047     		bx	lr
+  82              		.cfi_endproc
+  83              	.LFE239:
+  85              		.section	.text._ZN3PID6setPIDEfff,"ax",%progbits
+  86              		.align	1
+  87              		.global	_ZN3PID6setPIDEfff
+  88              		.syntax unified
+  89              		.thumb
+  90              		.thumb_func
+  91              		.fpu fpv4-sp-d16
+  93              	_ZN3PID6setPIDEfff:
+  94              	.LFB240:
+  16:Core/Src/pid.cpp **** void PID::setPID(float kp, float ki, float kd)
+  17:Core/Src/pid.cpp **** {
+  95              		.loc 1 17 0
+  96              		.cfi_startproc
+  97              		@ args = 0, pretend = 0, frame = 0
+  98              		@ frame_needed = 0, uses_anonymous_args = 0
+  99              	.LVL3:
+ 100 0000 10B5     		push	{r4, lr}
+ 101              	.LCFI0:
+ 102              		.cfi_def_cfa_offset 8
+ 103              		.cfi_offset 4, -8
+ 104              		.cfi_offset 14, -4
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s 			page 3
+
+
+ 105 0002 2DED028B 		vpush.64	{d8}
+ 106              	.LCFI1:
+ 107              		.cfi_def_cfa_offset 16
+ 108              		.cfi_offset 80, -16
+ 109              		.cfi_offset 81, -12
+ 110 0006 0446     		mov	r4, r0
+ 111 0008 F0EE608A 		vmov.f32	s17, s1
+ 112 000c B0EE418A 		vmov.f32	s16, s2
+  18:Core/Src/pid.cpp ****     setKp(kp);
+ 113              		.loc 1 18 0
+ 114 0010 FFF7FEFF 		bl	_ZN3PID5setKpEf
+ 115              	.LVL4:
+  19:Core/Src/pid.cpp ****     setKi(ki);
+ 116              		.loc 1 19 0
+ 117 0014 B0EE680A 		vmov.f32	s0, s17
+ 118 0018 2046     		mov	r0, r4
+ 119 001a FFF7FEFF 		bl	_ZN3PID5setKiEf
+ 120              	.LVL5:
+  20:Core/Src/pid.cpp ****     setKd(kd);
+ 121              		.loc 1 20 0
+ 122 001e B0EE480A 		vmov.f32	s0, s16
+ 123 0022 2046     		mov	r0, r4
+ 124 0024 FFF7FEFF 		bl	_ZN3PID5setKdEf
+ 125              	.LVL6:
+  21:Core/Src/pid.cpp **** }
+ 126              		.loc 1 21 0
+ 127 0028 BDEC028B 		vldm	sp!, {d8}
+ 128              	.LCFI2:
+ 129              		.cfi_restore 80
+ 130              		.cfi_restore 81
+ 131              		.cfi_def_cfa_offset 8
+ 132              	.LVL7:
+ 133 002c 10BD     		pop	{r4, pc}
+ 134              		.cfi_endproc
+ 135              	.LFE240:
+ 137              		.section	.text._ZN3PID9setlimitsEff,"ax",%progbits
+ 138              		.align	1
+ 139              		.global	_ZN3PID9setlimitsEff
+ 140              		.syntax unified
+ 141              		.thumb
+ 142              		.thumb_func
+ 143              		.fpu fpv4-sp-d16
+ 145              	_ZN3PID9setlimitsEff:
+ 146              	.LFB241:
+  22:Core/Src/pid.cpp **** void PID::setlimits(float upp_out, float low_out)
+  23:Core/Src/pid.cpp ****         {
+ 147              		.loc 1 23 0
+ 148              		.cfi_startproc
+ 149              		@ args = 0, pretend = 0, frame = 0
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151              		@ link register save eliminated.
+ 152              	.LVL8:
+  24:Core/Src/pid.cpp ****             max=upp_out;
+ 153              		.loc 1 24 0
+ 154 0000 80ED030A 		vstr.32	s0, [r0, #12]
+  25:Core/Src/pid.cpp ****             min=low_out;
+ 155              		.loc 1 25 0
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s 			page 4
+
+
+ 156 0004 C0ED040A 		vstr.32	s1, [r0, #16]
+  26:Core/Src/pid.cpp ****            // printf("%f",max);
+  27:Core/Src/pid.cpp ****         }
+ 157              		.loc 1 27 0
+ 158 0008 7047     		bx	lr
+ 159              		.cfi_endproc
+ 160              	.LFE241:
+ 162              		.section	.text._ZN3PID10computePIDEff,"ax",%progbits
+ 163              		.align	1
+ 164              		.global	_ZN3PID10computePIDEff
+ 165              		.syntax unified
+ 166              		.thumb
+ 167              		.thumb_func
+ 168              		.fpu fpv4-sp-d16
+ 170              	_ZN3PID10computePIDEff:
+ 171              	.LFB242:
+  28:Core/Src/pid.cpp **** 
+  29:Core/Src/pid.cpp **** 
+  30:Core/Src/pid.cpp **** float PID::computePID(float setpoint, float obtain)
+  31:Core/Src/pid.cpp **** {   
+ 172              		.loc 1 31 0
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176              		@ link register save eliminated.
+ 177              	.LVL9:
+  32:Core/Src/pid.cpp ****     //float iError=0;
+  33:Core/Src/pid.cpp ****     //float obtain=(*f)(omega);
+  34:Core/Src/pid.cpp ****    // printf("Omega=%f\n",omega);
+  35:Core/Src/pid.cpp ****     float error = setpoint - obtain;
+ 178              		.loc 1 35 0
+ 179 0000 70EE600A 		vsub.f32	s1, s0, s1
+ 180              	.LVL10:
+  36:Core/Src/pid.cpp ****    // printf("PIDomega=%f",omega);
+  37:Core/Src/pid.cpp ****     // printf("\nerror=%f\n",error);
+  38:Core/Src/pid.cpp ****     iError =iError + (error * SampleTime)/1000;
+ 181              		.loc 1 38 0
+ 182 0004 B2EE046A 		vmov.f32	s12, #1.0e+1
+ 183 0008 60EE867A 		vmul.f32	s15, s1, s12
+ 184 000c DFED1B6A 		vldr.32	s13, .L10
+ 185 0010 87EEA67A 		vdiv.f32	s14, s15, s13
+ 186 0014 1A4B     		ldr	r3, .L10+4
+ 187 0016 D3ED007A 		vldr.32	s15, [r3]
+ 188 001a 37EE277A 		vadd.f32	s14, s14, s15
+ 189 001e 83ED007A 		vstr.32	s14, [r3]
+  39:Core/Src/pid.cpp ****     // printf("iError=%f\n",iError);
+  40:Core/Src/pid.cpp ****     float dError = (error - float(lastError)*1000/ (SampleTime));
+ 190              		.loc 1 40 0
+ 191 0022 184B     		ldr	r3, .L10+8
+ 192 0024 D3ED007A 		vldr.32	s15, [r3]
+ 193 0028 67EEA67A 		vmul.f32	s15, s15, s13
+ 194 002c C7EE866A 		vdiv.f32	s13, s15, s12
+ 195 0030 70EEE66A 		vsub.f32	s13, s1, s13
+ 196              	.LVL11:
+  41:Core/Src/pid.cpp ****     //PID Function
+  42:Core/Src/pid.cpp ****     float output = Kp * error + Ki * iError + Kd * dError;
+ 197              		.loc 1 42 0
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s 			page 5
+
+
+ 198 0034 D0ED007A 		vldr.32	s15, [r0]
+ 199 0038 67EEA07A 		vmul.f32	s15, s15, s1
+ 200 003c 90ED016A 		vldr.32	s12, [r0, #4]
+ 201 0040 27EE067A 		vmul.f32	s14, s14, s12
+ 202 0044 77EE877A 		vadd.f32	s15, s15, s14
+ 203 0048 90ED027A 		vldr.32	s14, [r0, #8]
+ 204 004c 27EE267A 		vmul.f32	s14, s14, s13
+ 205 0050 77EE877A 		vadd.f32	s15, s15, s14
+ 206              	.LVL12:
+  43:Core/Src/pid.cpp ****     
+  44:Core/Src/pid.cpp ****    // printf("%f\n",output);
+  45:Core/Src/pid.cpp ****     //omega = output;
+  46:Core/Src/pid.cpp ****     lastError = error;
+ 207              		.loc 1 46 0
+ 208 0054 C3ED000A 		vstr.32	s1, [r3]
+  47:Core/Src/pid.cpp ****     if (output>max)
+ 209              		.loc 1 47 0
+ 210 0058 90ED030A 		vldr.32	s0, [r0, #12]
+ 211              	.LVL13:
+ 212 005c B4EEE70A 		vcmpe.f32	s0, s15
+ 213 0060 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 214 0064 06D4     		bmi	.L7
+  48:Core/Src/pid.cpp ****     {
+  49:Core/Src/pid.cpp ****         output=max;
+  50:Core/Src/pid.cpp ****     }
+  51:Core/Src/pid.cpp ****     else if (output<min)
+ 215              		.loc 1 51 0
+ 216 0066 90ED040A 		vldr.32	s0, [r0, #16]
+ 217 006a B4EEE70A 		vcmpe.f32	s0, s15
+ 218 006e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 219 0072 00DD     		ble	.L9
+ 220              	.LVL14:
+ 221              	.L7:
+  52:Core/Src/pid.cpp ****     {
+  53:Core/Src/pid.cpp ****         output=min;
+  54:Core/Src/pid.cpp ****     }
+  55:Core/Src/pid.cpp ****     // printf("Output=%f\n",output);
+  56:Core/Src/pid.cpp ****     return output;
+  57:Core/Src/pid.cpp **** }
+ 222              		.loc 1 57 0
+ 223 0074 7047     		bx	lr
+ 224              	.LVL15:
+ 225              	.L9:
+  42:Core/Src/pid.cpp ****     
+ 226              		.loc 1 42 0
+ 227 0076 B0EE670A 		vmov.f32	s0, s15
+ 228              	.LVL16:
+  56:Core/Src/pid.cpp **** }
+ 229              		.loc 1 56 0
+ 230 007a FBE7     		b	.L7
+ 231              	.L11:
+ 232              		.align	2
+ 233              	.L10:
+ 234 007c 00007A44 		.word	1148846080
+ 235 0080 00000000 		.word	.LANCHOR0
+ 236 0084 00000000 		.word	.LANCHOR1
+ 237              		.cfi_endproc
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s 			page 6
+
+
+ 238              	.LFE242:
+ 240              		.global	iError
+ 241              		.global	lastError
+ 242              		.global	min
+ 243              		.global	max
+ 244              		.section	.bss.iError,"aw",%nobits
+ 245              		.align	2
+ 246              		.set	.LANCHOR0,. + 0
+ 249              	iError:
+ 250 0000 00000000 		.space	4
+ 251              		.section	.bss.lastError,"aw",%nobits
+ 252              		.align	2
+ 253              		.set	.LANCHOR1,. + 0
+ 256              	lastError:
+ 257 0000 00000000 		.space	4
+ 258              		.section	.bss.max,"aw",%nobits
+ 259              		.align	2
+ 262              	max:
+ 263 0000 00000000 		.space	4
+ 264              		.section	.bss.min,"aw",%nobits
+ 265              		.align	2
+ 268              	min:
+ 269 0000 00000000 		.space	4
+ 270              		.text
+ 271              	.Letext0:
+ 272              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 273              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 274              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+ 275              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 276              		.file 6 "Core/Inc/pid.h"
+ 277              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 278              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 279              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 280              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 281              		.file 11 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 282              		.file 12 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 283              		.file 13 "<built-in>"
+ARM GAS  C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 pid.cpp
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:18     .text._ZN3PID5setKpEf:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:25     .text._ZN3PID5setKpEf:00000000 _ZN3PID5setKpEf
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:42     .text._ZN3PID5setKiEf:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:49     .text._ZN3PID5setKiEf:00000000 _ZN3PID5setKiEf
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:64     .text._ZN3PID5setKdEf:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:71     .text._ZN3PID5setKdEf:00000000 _ZN3PID5setKdEf
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:86     .text._ZN3PID6setPIDEfff:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:93     .text._ZN3PID6setPIDEfff:00000000 _ZN3PID6setPIDEfff
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:138    .text._ZN3PID9setlimitsEff:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:145    .text._ZN3PID9setlimitsEff:00000000 _ZN3PID9setlimitsEff
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:163    .text._ZN3PID10computePIDEff:00000000 $t
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:170    .text._ZN3PID10computePIDEff:00000000 _ZN3PID10computePIDEff
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:234    .text._ZN3PID10computePIDEff:0000007c $d
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:249    .bss.iError:00000000 iError
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:256    .bss.lastError:00000000 lastError
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:268    .bss.min:00000000 min
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:262    .bss.max:00000000 max
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:245    .bss.iError:00000000 $d
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:252    .bss.lastError:00000000 $d
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:259    .bss.max:00000000 $d
+C:\Users\pawan\AppData\Local\Temp\ccwYEF0u.s:265    .bss.min:00000000 $d
+
+NO UNDEFINED SYMBOLS

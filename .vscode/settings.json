@@ -1,0 +1,12 @@
+{
+        "cortex-debug.armToolchainPath": "C:\\Program Files (x86)\\GNU Tools ARM Embedded\\7 2017-q4-major\\bin",
+        "cortex-debug.openocdPath": "C:\\ExtraPrograms\\OpenOCD-20181020\\bin\\openocd.exe",
+        "files.associations": {
+                "freertos.h": "c",
+                "cmsis_os.h": "c",
+                "*.tcc": "cpp",
+                "ostream": "cpp",
+                "usart.h": "c",
+                "cstdio": "cpp"
+        }
+}
