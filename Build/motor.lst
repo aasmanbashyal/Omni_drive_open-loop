@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
   47              	.LFE366:
   49              		.section	.text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt,"ax",%progbits
   50              		.align	1
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 2
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 2
 
 
   51              		.syntax unified
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
   98              		.loc 1 17 0 is_stmt 1 discriminator 6
   99 0032 02E0     		b	.L4
  100              	.LVL7:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 3
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 3
 
 
  101              	.L10:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
  150 0002 0A46     		mov	r2, r1
  151 0004 C169     		ldr	r1, [r0, #28]
  152              	.LVL11:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 4
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 4
 
 
  153 0006 8069     		ldr	r0, [r0, #24]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
  185              		.cfi_offset 5, -16
  186              		.cfi_offset 6, -12
  187              		.cfi_offset 7, -8
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 5
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 5
 
 
  188              		.cfi_offset 14, -4
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
  239              	_ZL18set_motorDirectionP12motor_config9Direction:
  240              	.LFB369:
   25:Core/Src/motor.cpp ****         if (d == Direction::CLOCKWISE)       
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 6
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 6
 
 
  241              		.loc 1 25 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
  288 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
  289              	.LVL33:
  290 0034 F3E7     		b	.L21
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 7
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 7
 
 
  291              	.LVL34:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
  340 000a 90ED008A 		vldr.32	s16, [r0]
  341 000e B4EEC08A 		vcmpe.f32	s16, s0
  342 0012 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 8
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 8
 
 
  343 0016 08D4     		bmi	.L29
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
  379              	.LVL44:
  380 005a 10BD     		pop	{r4, pc}
  381              	.LVL45:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 9
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 9
 
 
  382              	.L40:
@@ -526,42 +526,44 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 1
  421              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  422              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  423              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 424              		.file 11 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 424              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
  425              		.file 12 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 426              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
- 427              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 428              		.file 15 "Core/Inc/tim.h"
- 429              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 430              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 426              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 427              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
+ 428              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 429              		.file 16 "Core/Inc/tim.h"
+ 430              		.file 17 "Core/Inc/usart.h"
  431              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
  432              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
  433              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 434              		.file 21 "Core/Inc/motor.h"
- 435              		.file 22 "<built-in>"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 10
+ 434              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 435              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 10
 
 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s 			page 11
+ 436              		.file 23 "Core/Inc/motor.h"
+ 437              		.file 24 "<built-in>"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 motor.cpp
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:18     .text._ZL11time_periodt:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:24     .text._ZL11time_periodt:00000000 _ZL11time_periodt
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:45     .text._ZL11time_periodt:00000010 $d
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:50     .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:56     .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:00000000 _ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:126    .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:0000004c $d
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:131    .text._ZL13set_DutyCycleP12motor_configt:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:137    .text._ZL13set_DutyCycleP12motor_configt:00000000 _ZL13set_DutyCycleP12motor_configt
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:167    .text._ZL14set_motorOmegaP12motor_configf:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:173    .text._ZL14set_motorOmegaP12motor_configf:00000000 _ZL14set_motorOmegaP12motor_configf
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:227    .text._ZL14set_motorOmegaP12motor_configf:00000040 $d
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:233    .text._ZL18set_motorDirectionP12motor_config9Direction:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:239    .text._ZL18set_motorDirectionP12motor_config9Direction:00000000 _ZL18set_motorDirectionP12motor_config9Direction
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:312    .text._ZN5motor9set_omegaEf:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:319    .text._ZN5motor9set_omegaEf:00000000 _ZN5motor9set_omegaEf
-C:\Users\Aasman\AppData\Local\Temp\ccxWK3Xx.s:409    .text._ZN5motor9set_omegaEf:00000080 $d
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:18     .text._ZL11time_periodt:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:24     .text._ZL11time_periodt:00000000 _ZL11time_periodt
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:45     .text._ZL11time_periodt:00000010 $d
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:50     .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:56     .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:00000000 _ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:126    .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:0000004c $d
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:131    .text._ZL13set_DutyCycleP12motor_configt:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:137    .text._ZL13set_DutyCycleP12motor_configt:00000000 _ZL13set_DutyCycleP12motor_configt
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:167    .text._ZL14set_motorOmegaP12motor_configf:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:173    .text._ZL14set_motorOmegaP12motor_configf:00000000 _ZL14set_motorOmegaP12motor_configf
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:227    .text._ZL14set_motorOmegaP12motor_configf:00000040 $d
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:233    .text._ZL18set_motorDirectionP12motor_config9Direction:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:239    .text._ZL18set_motorDirectionP12motor_config9Direction:00000000 _ZL18set_motorDirectionP12motor_config9Direction
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:312    .text._ZN5motor9set_omegaEf:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:319    .text._ZN5motor9set_omegaEf:00000000 _ZN5motor9set_omegaEf
+C:\Users\Aasman\AppData\Local\Temp\ccb4sHFD.s:409    .text._ZN5motor9set_omegaEf:00000080 $d
 
 UNDEFINED SYMBOLS
 __aeabi_f2d

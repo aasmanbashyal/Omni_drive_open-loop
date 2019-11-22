@@ -1,4 +1,6 @@
 #include "robo_init.h"
+#include "motor.h"
+#include "encoder.h"
 
 
 motor motor[4];
@@ -35,7 +37,7 @@ void motor_init(){
         motor_configurations[0].in2_port = GPIOE;
         motor_configurations[0].in2_pin = GPIO_PIN_5;
         motor_configurations[0].channel = TIM_CHANNEL_1;
-        motor_configurations[0].max_omega = 92;
+        motor_configurations[0].max_omega = 61;
         motor_configurations[0].tolerance = 0.1;
 
 		  motor_configurations[1].htim = &htim8;
@@ -53,7 +55,7 @@ void motor_init(){
 			motor_configurations[2].in2_port = GPIOD;
 			motor_configurations[2].in2_pin = GPIO_PIN_2;
 			motor_configurations[2].channel = TIM_CHANNEL_3;
-			motor_configurations[2].max_omega = 88;
+			motor_configurations[2].max_omega = 61;
 			motor_configurations[2].tolerance = 0.1;
 			
 			motor_configurations[3].htim = &htim8;

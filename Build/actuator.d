@@ -26,7 +26,10 @@ Build/actuator.o: Core/Src/actuator.cpp Core/Inc/actuator.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Core/Inc/gpio.h \
- Core/Inc/motor.h Core/Inc/usart.h Core/Inc/encoder.h Core/Inc/main.h
+ Core/Inc/usart.h Core/Inc/dma.h Core/Inc/stm32f4xx_it.h \
+ Core/Inc/stm32f4xx_hal_conf.h Core/Inc/main.h Core/Inc/joystick.h \
+ Core/Inc/container/queue_custom.h Core/Inc/crypto/crc_hash.h \
+ Core/Inc/robo_init.h Core/Inc/motor.h
 
 Core/Inc/actuator.h:
 
@@ -94,10 +97,22 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 Core/Inc/gpio.h:
 
-Core/Inc/motor.h:
-
 Core/Inc/usart.h:
 
-Core/Inc/encoder.h:
+Core/Inc/dma.h:
+
+Core/Inc/stm32f4xx_it.h:
+
+Core/Inc/stm32f4xx_hal_conf.h:
 
 Core/Inc/main.h:
+
+Core/Inc/joystick.h:
+
+Core/Inc/container/queue_custom.h:
+
+Core/Inc/crypto/crc_hash.h:
+
+Core/Inc/robo_init.h:
+
+Core/Inc/motor.h:

@@ -57,7 +57,9 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
-Core/Src/system_stm32f4xx.c
+Core/Src/system_stm32f4xx.c\
+Core/Src/dma.c
+
 
 # ASM sources
 ASM_SOURCES =  \
@@ -70,7 +72,10 @@ Core/Src/actuator.cpp \
 Core/Src/motor.cpp \
 Core/Src/robo_init.cpp \
 Core/Src/encoder.cpp \
-Core/Src/main.cpp
+Core/Src/main.cpp\
+Core/Src/joystick.cpp\
+Core/Src/crc_hash.cpp
+
 ##
 #######################################
 # binaries
@@ -133,7 +138,10 @@ C_INCLUDES =  \
 -IDrivers/STM32F4xx_HAL_Driver/Inc \
 -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
--IDrivers/CMSIS/Include
+-IDrivers/CMSIS/Include\
+-ICore/Inc/container\
+-ICore/Inc/math\
+-ICore/Inc/crypto
 
 
 # compile gcc flags

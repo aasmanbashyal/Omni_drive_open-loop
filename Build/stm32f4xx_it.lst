@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
   29:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN TD */
   30:Core/Src/stm32f4xx_it.c **** 
   31:Core/Src/stm32f4xx_it.c **** /* USER CODE END TD */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 2
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 2
 
 
   32:Core/Src/stm32f4xx_it.c **** 
@@ -93,35 +93,36 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
   61:Core/Src/stm32f4xx_it.c **** extern TIM_HandleTypeDef htim3;
   62:Core/Src/stm32f4xx_it.c **** extern TIM_HandleTypeDef htim4;
   63:Core/Src/stm32f4xx_it.c **** extern TIM_HandleTypeDef htim8;
-  64:Core/Src/stm32f4xx_it.c **** extern UART_HandleTypeDef huart2;
-  65:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN EV */
-  66:Core/Src/stm32f4xx_it.c **** 
-  67:Core/Src/stm32f4xx_it.c **** /* USER CODE END EV */
-  68:Core/Src/stm32f4xx_it.c **** 
-  69:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
-  70:Core/Src/stm32f4xx_it.c **** /*           Cortex-M4 Processor Interruption and Exception Handlers          */ 
-  71:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
-  72:Core/Src/stm32f4xx_it.c **** /**
-  73:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Non maskable interrupt.
-  74:Core/Src/stm32f4xx_it.c ****   */
-  75:Core/Src/stm32f4xx_it.c **** void NMI_Handler(void)
-  76:Core/Src/stm32f4xx_it.c **** {
-  28              		.loc 1 76 0
+  64:Core/Src/stm32f4xx_it.c **** extern DMA_HandleTypeDef hdma_uart4_rx;
+  65:Core/Src/stm32f4xx_it.c **** extern DMA_HandleTypeDef hdma_usart2_rx;
+  66:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN EV */
+  67:Core/Src/stm32f4xx_it.c **** 
+  68:Core/Src/stm32f4xx_it.c **** /* USER CODE END EV */
+  69:Core/Src/stm32f4xx_it.c **** 
+  70:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
+  71:Core/Src/stm32f4xx_it.c **** /*           Cortex-M4 Processor Interruption and Exception Handlers          */ 
+  72:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
+  73:Core/Src/stm32f4xx_it.c **** /**
+  74:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Non maskable interrupt.
+  75:Core/Src/stm32f4xx_it.c ****   */
+  76:Core/Src/stm32f4xx_it.c **** void NMI_Handler(void)
+  77:Core/Src/stm32f4xx_it.c **** {
+  28              		.loc 1 77 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  77:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
-  78:Core/Src/stm32f4xx_it.c **** 
-  79:Core/Src/stm32f4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
-  80:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  81:Core/Src/stm32f4xx_it.c **** 
-  82:Core/Src/stm32f4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
-  83:Core/Src/stm32f4xx_it.c **** }
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 3
+  78:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+  79:Core/Src/stm32f4xx_it.c **** 
+  80:Core/Src/stm32f4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
+  81:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+  82:Core/Src/stm32f4xx_it.c **** 
+  83:Core/Src/stm32f4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 3
 
 
-  33              		.loc 1 83 0
+  84:Core/Src/stm32f4xx_it.c **** }
+  33              		.loc 1 84 0
   34 0000 7047     		bx	lr
   35              		.cfi_endproc
   36              	.LFE133:
@@ -134,13 +135,13 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
   44              		.fpu fpv4-sp-d16
   46              	HardFault_Handler:
   47              	.LFB134:
-  84:Core/Src/stm32f4xx_it.c **** 
-  85:Core/Src/stm32f4xx_it.c **** /**
-  86:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Hard fault interrupt.
-  87:Core/Src/stm32f4xx_it.c ****   */
-  88:Core/Src/stm32f4xx_it.c **** void HardFault_Handler(void)
-  89:Core/Src/stm32f4xx_it.c **** {
-  48              		.loc 1 89 0
+  85:Core/Src/stm32f4xx_it.c **** 
+  86:Core/Src/stm32f4xx_it.c **** /**
+  87:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Hard fault interrupt.
+  88:Core/Src/stm32f4xx_it.c ****   */
+  89:Core/Src/stm32f4xx_it.c **** void HardFault_Handler(void)
+  90:Core/Src/stm32f4xx_it.c **** {
+  48              		.loc 1 90 0
   49              		.cfi_startproc
   50              		@ Volatile: function does not return.
   51              		@ args = 0, pretend = 0, frame = 0
@@ -159,28 +160,28 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
   65              		.fpu fpv4-sp-d16
   67              	MemManage_Handler:
   68              	.LFB135:
-  90:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
-  91:Core/Src/stm32f4xx_it.c **** 
-  92:Core/Src/stm32f4xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
-  93:Core/Src/stm32f4xx_it.c ****   while (1)
-  94:Core/Src/stm32f4xx_it.c ****   {
-  95:Core/Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-  96:Core/Src/stm32f4xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
-  97:Core/Src/stm32f4xx_it.c ****   }
-  98:Core/Src/stm32f4xx_it.c **** }
-  99:Core/Src/stm32f4xx_it.c **** 
- 100:Core/Src/stm32f4xx_it.c **** /**
- 101:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Memory management fault.
- 102:Core/Src/stm32f4xx_it.c ****   */
- 103:Core/Src/stm32f4xx_it.c **** void MemManage_Handler(void)
- 104:Core/Src/stm32f4xx_it.c **** {
-  69              		.loc 1 104 0
+  91:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
+  92:Core/Src/stm32f4xx_it.c **** 
+  93:Core/Src/stm32f4xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
+  94:Core/Src/stm32f4xx_it.c ****   while (1)
+  95:Core/Src/stm32f4xx_it.c ****   {
+  96:Core/Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+  97:Core/Src/stm32f4xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
+  98:Core/Src/stm32f4xx_it.c ****   }
+  99:Core/Src/stm32f4xx_it.c **** }
+ 100:Core/Src/stm32f4xx_it.c **** 
+ 101:Core/Src/stm32f4xx_it.c **** /**
+ 102:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Memory management fault.
+ 103:Core/Src/stm32f4xx_it.c ****   */
+ 104:Core/Src/stm32f4xx_it.c **** void MemManage_Handler(void)
+ 105:Core/Src/stm32f4xx_it.c **** {
+  69              		.loc 1 105 0
   70              		.cfi_startproc
   71              		@ Volatile: function does not return.
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 4
+
+
   72              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 4
-
-
   73              		@ frame_needed = 0, uses_anonymous_args = 0
   74              		@ link register save eliminated.
   75              	.L5:
@@ -196,22 +197,22 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
   86              		.fpu fpv4-sp-d16
   88              	BusFault_Handler:
   89              	.LFB136:
- 105:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
- 106:Core/Src/stm32f4xx_it.c **** 
- 107:Core/Src/stm32f4xx_it.c ****   /* USER CODE END MemoryManagement_IRQn 0 */
- 108:Core/Src/stm32f4xx_it.c ****   while (1)
- 109:Core/Src/stm32f4xx_it.c ****   {
- 110:Core/Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
- 111:Core/Src/stm32f4xx_it.c ****     /* USER CODE END W1_MemoryManagement_IRQn 0 */
- 112:Core/Src/stm32f4xx_it.c ****   }
- 113:Core/Src/stm32f4xx_it.c **** }
- 114:Core/Src/stm32f4xx_it.c **** 
- 115:Core/Src/stm32f4xx_it.c **** /**
- 116:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Pre-fetch fault, memory access fault.
- 117:Core/Src/stm32f4xx_it.c ****   */
- 118:Core/Src/stm32f4xx_it.c **** void BusFault_Handler(void)
- 119:Core/Src/stm32f4xx_it.c **** {
-  90              		.loc 1 119 0
+ 106:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+ 107:Core/Src/stm32f4xx_it.c **** 
+ 108:Core/Src/stm32f4xx_it.c ****   /* USER CODE END MemoryManagement_IRQn 0 */
+ 109:Core/Src/stm32f4xx_it.c ****   while (1)
+ 110:Core/Src/stm32f4xx_it.c ****   {
+ 111:Core/Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
+ 112:Core/Src/stm32f4xx_it.c ****     /* USER CODE END W1_MemoryManagement_IRQn 0 */
+ 113:Core/Src/stm32f4xx_it.c ****   }
+ 114:Core/Src/stm32f4xx_it.c **** }
+ 115:Core/Src/stm32f4xx_it.c **** 
+ 116:Core/Src/stm32f4xx_it.c **** /**
+ 117:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Pre-fetch fault, memory access fault.
+ 118:Core/Src/stm32f4xx_it.c ****   */
+ 119:Core/Src/stm32f4xx_it.c **** void BusFault_Handler(void)
+ 120:Core/Src/stm32f4xx_it.c **** {
+  90              		.loc 1 120 0
   91              		.cfi_startproc
   92              		@ Volatile: function does not return.
   93              		@ args = 0, pretend = 0, frame = 0
@@ -230,25 +231,25 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  107              		.fpu fpv4-sp-d16
  109              	UsageFault_Handler:
  110              	.LFB137:
- 120:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN BusFault_IRQn 0 */
- 121:Core/Src/stm32f4xx_it.c **** 
- 122:Core/Src/stm32f4xx_it.c ****   /* USER CODE END BusFault_IRQn 0 */
- 123:Core/Src/stm32f4xx_it.c ****   while (1)
- 124:Core/Src/stm32f4xx_it.c ****   {
- 125:Core/Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_BusFault_IRQn 0 */
- 126:Core/Src/stm32f4xx_it.c ****     /* USER CODE END W1_BusFault_IRQn 0 */
- 127:Core/Src/stm32f4xx_it.c ****   }
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 5
+ 121:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN BusFault_IRQn 0 */
+ 122:Core/Src/stm32f4xx_it.c **** 
+ 123:Core/Src/stm32f4xx_it.c ****   /* USER CODE END BusFault_IRQn 0 */
+ 124:Core/Src/stm32f4xx_it.c ****   while (1)
+ 125:Core/Src/stm32f4xx_it.c ****   {
+ 126:Core/Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_BusFault_IRQn 0 */
+ 127:Core/Src/stm32f4xx_it.c ****     /* USER CODE END W1_BusFault_IRQn 0 */
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 5
 
 
- 128:Core/Src/stm32f4xx_it.c **** }
- 129:Core/Src/stm32f4xx_it.c **** 
- 130:Core/Src/stm32f4xx_it.c **** /**
- 131:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Undefined instruction or illegal state.
- 132:Core/Src/stm32f4xx_it.c ****   */
- 133:Core/Src/stm32f4xx_it.c **** void UsageFault_Handler(void)
- 134:Core/Src/stm32f4xx_it.c **** {
- 111              		.loc 1 134 0
+ 128:Core/Src/stm32f4xx_it.c ****   }
+ 129:Core/Src/stm32f4xx_it.c **** }
+ 130:Core/Src/stm32f4xx_it.c **** 
+ 131:Core/Src/stm32f4xx_it.c **** /**
+ 132:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Undefined instruction or illegal state.
+ 133:Core/Src/stm32f4xx_it.c ****   */
+ 134:Core/Src/stm32f4xx_it.c **** void UsageFault_Handler(void)
+ 135:Core/Src/stm32f4xx_it.c **** {
+ 111              		.loc 1 135 0
  112              		.cfi_startproc
  113              		@ Volatile: function does not return.
  114              		@ args = 0, pretend = 0, frame = 0
@@ -267,40 +268,40 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  128              		.fpu fpv4-sp-d16
  130              	SVC_Handler:
  131              	.LFB138:
- 135:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN UsageFault_IRQn 0 */
- 136:Core/Src/stm32f4xx_it.c **** 
- 137:Core/Src/stm32f4xx_it.c ****   /* USER CODE END UsageFault_IRQn 0 */
- 138:Core/Src/stm32f4xx_it.c ****   while (1)
- 139:Core/Src/stm32f4xx_it.c ****   {
- 140:Core/Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
- 141:Core/Src/stm32f4xx_it.c ****     /* USER CODE END W1_UsageFault_IRQn 0 */
- 142:Core/Src/stm32f4xx_it.c ****   }
- 143:Core/Src/stm32f4xx_it.c **** }
- 144:Core/Src/stm32f4xx_it.c **** 
- 145:Core/Src/stm32f4xx_it.c **** /**
- 146:Core/Src/stm32f4xx_it.c ****   * @brief This function handles System service call via SWI instruction.
- 147:Core/Src/stm32f4xx_it.c ****   */
- 148:Core/Src/stm32f4xx_it.c **** void SVC_Handler(void)
- 149:Core/Src/stm32f4xx_it.c **** {
- 132              		.loc 1 149 0
+ 136:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN UsageFault_IRQn 0 */
+ 137:Core/Src/stm32f4xx_it.c **** 
+ 138:Core/Src/stm32f4xx_it.c ****   /* USER CODE END UsageFault_IRQn 0 */
+ 139:Core/Src/stm32f4xx_it.c ****   while (1)
+ 140:Core/Src/stm32f4xx_it.c ****   {
+ 141:Core/Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
+ 142:Core/Src/stm32f4xx_it.c ****     /* USER CODE END W1_UsageFault_IRQn 0 */
+ 143:Core/Src/stm32f4xx_it.c ****   }
+ 144:Core/Src/stm32f4xx_it.c **** }
+ 145:Core/Src/stm32f4xx_it.c **** 
+ 146:Core/Src/stm32f4xx_it.c **** /**
+ 147:Core/Src/stm32f4xx_it.c ****   * @brief This function handles System service call via SWI instruction.
+ 148:Core/Src/stm32f4xx_it.c ****   */
+ 149:Core/Src/stm32f4xx_it.c **** void SVC_Handler(void)
+ 150:Core/Src/stm32f4xx_it.c **** {
+ 132              		.loc 1 150 0
  133              		.cfi_startproc
  134              		@ args = 0, pretend = 0, frame = 0
  135              		@ frame_needed = 0, uses_anonymous_args = 0
  136              		@ link register save eliminated.
- 150:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 0 */
- 151:Core/Src/stm32f4xx_it.c **** 
- 152:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SVCall_IRQn 0 */
- 153:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 1 */
- 154:Core/Src/stm32f4xx_it.c **** 
- 155:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SVCall_IRQn 1 */
- 156:Core/Src/stm32f4xx_it.c **** }
- 137              		.loc 1 156 0
+ 151:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 0 */
+ 152:Core/Src/stm32f4xx_it.c **** 
+ 153:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SVCall_IRQn 0 */
+ 154:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 1 */
+ 155:Core/Src/stm32f4xx_it.c **** 
+ 156:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SVCall_IRQn 1 */
+ 157:Core/Src/stm32f4xx_it.c **** }
+ 137              		.loc 1 157 0
  138 0000 7047     		bx	lr
  139              		.cfi_endproc
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 6
+
+
  140              	.LFE138:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 6
-
-
  142              		.section	.text.DebugMon_Handler,"ax",%progbits
  143              		.align	1
  144              		.global	DebugMon_Handler
@@ -310,25 +311,25 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  148              		.fpu fpv4-sp-d16
  150              	DebugMon_Handler:
  151              	.LFB139:
- 157:Core/Src/stm32f4xx_it.c **** 
- 158:Core/Src/stm32f4xx_it.c **** /**
- 159:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Debug monitor.
- 160:Core/Src/stm32f4xx_it.c ****   */
- 161:Core/Src/stm32f4xx_it.c **** void DebugMon_Handler(void)
- 162:Core/Src/stm32f4xx_it.c **** {
- 152              		.loc 1 162 0
+ 158:Core/Src/stm32f4xx_it.c **** 
+ 159:Core/Src/stm32f4xx_it.c **** /**
+ 160:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Debug monitor.
+ 161:Core/Src/stm32f4xx_it.c ****   */
+ 162:Core/Src/stm32f4xx_it.c **** void DebugMon_Handler(void)
+ 163:Core/Src/stm32f4xx_it.c **** {
+ 152              		.loc 1 163 0
  153              		.cfi_startproc
  154              		@ args = 0, pretend = 0, frame = 0
  155              		@ frame_needed = 0, uses_anonymous_args = 0
  156              		@ link register save eliminated.
- 163:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
- 164:Core/Src/stm32f4xx_it.c **** 
- 165:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 0 */
- 166:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 1 */
- 167:Core/Src/stm32f4xx_it.c **** 
- 168:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 1 */
- 169:Core/Src/stm32f4xx_it.c **** }
- 157              		.loc 1 169 0
+ 164:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
+ 165:Core/Src/stm32f4xx_it.c **** 
+ 166:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 0 */
+ 167:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 1 */
+ 168:Core/Src/stm32f4xx_it.c **** 
+ 169:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 1 */
+ 170:Core/Src/stm32f4xx_it.c **** }
+ 157              		.loc 1 170 0
  158 0000 7047     		bx	lr
  159              		.cfi_endproc
  160              	.LFE139:
@@ -341,28 +342,28 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  168              		.fpu fpv4-sp-d16
  170              	PendSV_Handler:
  171              	.LFB140:
- 170:Core/Src/stm32f4xx_it.c **** 
- 171:Core/Src/stm32f4xx_it.c **** /**
- 172:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Pendable request for system service.
- 173:Core/Src/stm32f4xx_it.c ****   */
- 174:Core/Src/stm32f4xx_it.c **** void PendSV_Handler(void)
- 175:Core/Src/stm32f4xx_it.c **** {
- 172              		.loc 1 175 0
+ 171:Core/Src/stm32f4xx_it.c **** 
+ 172:Core/Src/stm32f4xx_it.c **** /**
+ 173:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Pendable request for system service.
+ 174:Core/Src/stm32f4xx_it.c ****   */
+ 175:Core/Src/stm32f4xx_it.c **** void PendSV_Handler(void)
+ 176:Core/Src/stm32f4xx_it.c **** {
+ 172              		.loc 1 176 0
  173              		.cfi_startproc
  174              		@ args = 0, pretend = 0, frame = 0
  175              		@ frame_needed = 0, uses_anonymous_args = 0
  176              		@ link register save eliminated.
- 176:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
- 177:Core/Src/stm32f4xx_it.c **** 
- 178:Core/Src/stm32f4xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
- 179:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 1 */
- 180:Core/Src/stm32f4xx_it.c **** 
- 181:Core/Src/stm32f4xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 7
+ 177:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
+ 178:Core/Src/stm32f4xx_it.c **** 
+ 179:Core/Src/stm32f4xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
+ 180:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 1 */
+ 181:Core/Src/stm32f4xx_it.c **** 
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 7
 
 
- 182:Core/Src/stm32f4xx_it.c **** }
- 177              		.loc 1 182 0
+ 182:Core/Src/stm32f4xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
+ 183:Core/Src/stm32f4xx_it.c **** }
+ 177              		.loc 1 183 0
  178 0000 7047     		bx	lr
  179              		.cfi_endproc
  180              	.LFE140:
@@ -375,13 +376,13 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  188              		.fpu fpv4-sp-d16
  190              	SysTick_Handler:
  191              	.LFB141:
- 183:Core/Src/stm32f4xx_it.c **** 
- 184:Core/Src/stm32f4xx_it.c **** /**
- 185:Core/Src/stm32f4xx_it.c ****   * @brief This function handles System tick timer.
- 186:Core/Src/stm32f4xx_it.c ****   */
- 187:Core/Src/stm32f4xx_it.c **** void SysTick_Handler(void)
- 188:Core/Src/stm32f4xx_it.c **** {
- 192              		.loc 1 188 0
+ 184:Core/Src/stm32f4xx_it.c **** 
+ 185:Core/Src/stm32f4xx_it.c **** /**
+ 186:Core/Src/stm32f4xx_it.c ****   * @brief This function handles System tick timer.
+ 187:Core/Src/stm32f4xx_it.c ****   */
+ 188:Core/Src/stm32f4xx_it.c **** void SysTick_Handler(void)
+ 189:Core/Src/stm32f4xx_it.c **** {
+ 192              		.loc 1 189 0
  193              		.cfi_startproc
  194              		@ args = 0, pretend = 0, frame = 0
  195              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -390,47 +391,47 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  198              		.cfi_def_cfa_offset 8
  199              		.cfi_offset 3, -8
  200              		.cfi_offset 14, -4
- 189:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
- 190:Core/Src/stm32f4xx_it.c **** 
- 191:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
- 192:Core/Src/stm32f4xx_it.c ****   HAL_IncTick();
- 201              		.loc 1 192 0
+ 190:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
+ 191:Core/Src/stm32f4xx_it.c **** 
+ 192:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
+ 193:Core/Src/stm32f4xx_it.c ****   HAL_IncTick();
+ 201              		.loc 1 193 0
  202 0002 FFF7FEFF 		bl	HAL_IncTick
  203              	.LVL0:
- 193:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
- 194:Core/Src/stm32f4xx_it.c **** 
- 195:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
- 196:Core/Src/stm32f4xx_it.c **** }
- 204              		.loc 1 196 0
+ 194:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
+ 195:Core/Src/stm32f4xx_it.c **** 
+ 196:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
+ 197:Core/Src/stm32f4xx_it.c **** }
+ 204              		.loc 1 197 0
  205 0006 08BD     		pop	{r3, pc}
  206              		.cfi_endproc
  207              	.LFE141:
- 209              		.section	.text.TIM1_BRK_TIM9_IRQHandler,"ax",%progbits
+ 209              		.section	.text.DMA1_Stream2_IRQHandler,"ax",%progbits
  210              		.align	1
- 211              		.global	TIM1_BRK_TIM9_IRQHandler
+ 211              		.global	DMA1_Stream2_IRQHandler
  212              		.syntax unified
  213              		.thumb
  214              		.thumb_func
  215              		.fpu fpv4-sp-d16
- 217              	TIM1_BRK_TIM9_IRQHandler:
+ 217              	DMA1_Stream2_IRQHandler:
  218              	.LFB142:
- 197:Core/Src/stm32f4xx_it.c **** 
- 198:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
- 199:Core/Src/stm32f4xx_it.c **** /* STM32F4xx Peripheral Interrupt Handlers                                    */
- 200:Core/Src/stm32f4xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 8
+ 198:Core/Src/stm32f4xx_it.c **** 
+ 199:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
+ 200:Core/Src/stm32f4xx_it.c **** /* STM32F4xx Peripheral Interrupt Handlers                                    */
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 8
 
 
- 201:Core/Src/stm32f4xx_it.c **** /* For the available peripheral interrupt handler names,                      */
- 202:Core/Src/stm32f4xx_it.c **** /* please refer to the startup file (startup_stm32f4xx.s).                    */
- 203:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
- 204:Core/Src/stm32f4xx_it.c **** 
- 205:Core/Src/stm32f4xx_it.c **** /**
- 206:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
- 207:Core/Src/stm32f4xx_it.c ****   */
- 208:Core/Src/stm32f4xx_it.c **** void TIM1_BRK_TIM9_IRQHandler(void)
- 209:Core/Src/stm32f4xx_it.c **** {
- 219              		.loc 1 209 0
+ 201:Core/Src/stm32f4xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
+ 202:Core/Src/stm32f4xx_it.c **** /* For the available peripheral interrupt handler names,                      */
+ 203:Core/Src/stm32f4xx_it.c **** /* please refer to the startup file (startup_stm32f4xx.s).                    */
+ 204:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
+ 205:Core/Src/stm32f4xx_it.c **** 
+ 206:Core/Src/stm32f4xx_it.c **** /**
+ 207:Core/Src/stm32f4xx_it.c ****   * @brief This function handles DMA1 stream2 global interrupt.
+ 208:Core/Src/stm32f4xx_it.c ****   */
+ 209:Core/Src/stm32f4xx_it.c **** void DMA1_Stream2_IRQHandler(void)
+ 210:Core/Src/stm32f4xx_it.c **** {
+ 219              		.loc 1 210 0
  220              		.cfi_startproc
  221              		@ args = 0, pretend = 0, frame = 0
  222              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -439,89 +440,89 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  225              		.cfi_def_cfa_offset 8
  226              		.cfi_offset 3, -8
  227              		.cfi_offset 14, -4
- 210:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
- 211:Core/Src/stm32f4xx_it.c **** 
- 212:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
- 213:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
- 228              		.loc 1 213 0
+ 211:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DMA1_Stream2_IRQn 0 */
+ 212:Core/Src/stm32f4xx_it.c **** 
+ 213:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DMA1_Stream2_IRQn 0 */
+ 214:Core/Src/stm32f4xx_it.c ****   HAL_DMA_IRQHandler(&hdma_uart4_rx);
+ 228              		.loc 1 214 0
  229 0002 0248     		ldr	r0, .L17
- 230 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 230 0004 FFF7FEFF 		bl	HAL_DMA_IRQHandler
  231              	.LVL1:
- 214:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
- 215:Core/Src/stm32f4xx_it.c **** 
- 216:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_BRK_TIM9_IRQn 1 */
- 217:Core/Src/stm32f4xx_it.c **** }
- 232              		.loc 1 217 0
+ 215:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DMA1_Stream2_IRQn 1 */
+ 216:Core/Src/stm32f4xx_it.c **** 
+ 217:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DMA1_Stream2_IRQn 1 */
+ 218:Core/Src/stm32f4xx_it.c **** }
+ 232              		.loc 1 218 0
  233 0008 08BD     		pop	{r3, pc}
  234              	.L18:
  235 000a 00BF     		.align	2
  236              	.L17:
- 237 000c 00000000 		.word	htim1
+ 237 000c 00000000 		.word	hdma_uart4_rx
  238              		.cfi_endproc
  239              	.LFE142:
- 241              		.section	.text.TIM1_UP_TIM10_IRQHandler,"ax",%progbits
+ 241              		.section	.text.DMA1_Stream5_IRQHandler,"ax",%progbits
  242              		.align	1
- 243              		.global	TIM1_UP_TIM10_IRQHandler
+ 243              		.global	DMA1_Stream5_IRQHandler
  244              		.syntax unified
  245              		.thumb
  246              		.thumb_func
  247              		.fpu fpv4-sp-d16
- 249              	TIM1_UP_TIM10_IRQHandler:
+ 249              	DMA1_Stream5_IRQHandler:
  250              	.LFB143:
- 218:Core/Src/stm32f4xx_it.c **** 
- 219:Core/Src/stm32f4xx_it.c **** /**
- 220:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
- 221:Core/Src/stm32f4xx_it.c ****   */
- 222:Core/Src/stm32f4xx_it.c **** void TIM1_UP_TIM10_IRQHandler(void)
- 223:Core/Src/stm32f4xx_it.c **** {
- 251              		.loc 1 223 0
+ 219:Core/Src/stm32f4xx_it.c **** 
+ 220:Core/Src/stm32f4xx_it.c **** /**
+ 221:Core/Src/stm32f4xx_it.c ****   * @brief This function handles DMA1 stream5 global interrupt.
+ 222:Core/Src/stm32f4xx_it.c ****   */
+ 223:Core/Src/stm32f4xx_it.c **** void DMA1_Stream5_IRQHandler(void)
+ 224:Core/Src/stm32f4xx_it.c **** {
+ 251              		.loc 1 224 0
  252              		.cfi_startproc
  253              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 9
+
+
  254              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 9
-
-
  255 0000 08B5     		push	{r3, lr}
  256              	.LCFI2:
  257              		.cfi_def_cfa_offset 8
  258              		.cfi_offset 3, -8
  259              		.cfi_offset 14, -4
- 224:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
- 225:Core/Src/stm32f4xx_it.c **** 
- 226:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
- 227:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
- 260              		.loc 1 227 0
+ 225:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DMA1_Stream5_IRQn 0 */
+ 226:Core/Src/stm32f4xx_it.c **** 
+ 227:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DMA1_Stream5_IRQn 0 */
+ 228:Core/Src/stm32f4xx_it.c ****   HAL_DMA_IRQHandler(&hdma_usart2_rx);
+ 260              		.loc 1 228 0
  261 0002 0248     		ldr	r0, .L21
- 262 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 262 0004 FFF7FEFF 		bl	HAL_DMA_IRQHandler
  263              	.LVL2:
- 228:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
- 229:Core/Src/stm32f4xx_it.c **** 
- 230:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
- 231:Core/Src/stm32f4xx_it.c **** }
- 264              		.loc 1 231 0
+ 229:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DMA1_Stream5_IRQn 1 */
+ 230:Core/Src/stm32f4xx_it.c **** 
+ 231:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DMA1_Stream5_IRQn 1 */
+ 232:Core/Src/stm32f4xx_it.c **** }
+ 264              		.loc 1 232 0
  265 0008 08BD     		pop	{r3, pc}
  266              	.L22:
  267 000a 00BF     		.align	2
  268              	.L21:
- 269 000c 00000000 		.word	htim1
+ 269 000c 00000000 		.word	hdma_usart2_rx
  270              		.cfi_endproc
  271              	.LFE143:
- 273              		.section	.text.TIM1_TRG_COM_TIM11_IRQHandler,"ax",%progbits
+ 273              		.section	.text.TIM1_BRK_TIM9_IRQHandler,"ax",%progbits
  274              		.align	1
- 275              		.global	TIM1_TRG_COM_TIM11_IRQHandler
+ 275              		.global	TIM1_BRK_TIM9_IRQHandler
  276              		.syntax unified
  277              		.thumb
  278              		.thumb_func
  279              		.fpu fpv4-sp-d16
- 281              	TIM1_TRG_COM_TIM11_IRQHandler:
+ 281              	TIM1_BRK_TIM9_IRQHandler:
  282              	.LFB144:
- 232:Core/Src/stm32f4xx_it.c **** 
- 233:Core/Src/stm32f4xx_it.c **** /**
- 234:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt
- 235:Core/Src/stm32f4xx_it.c ****   */
- 236:Core/Src/stm32f4xx_it.c **** void TIM1_TRG_COM_TIM11_IRQHandler(void)
- 237:Core/Src/stm32f4xx_it.c **** {
- 283              		.loc 1 237 0
+ 233:Core/Src/stm32f4xx_it.c **** 
+ 234:Core/Src/stm32f4xx_it.c **** /**
+ 235:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM1 break interrupt and TIM9 global interrupt.
+ 236:Core/Src/stm32f4xx_it.c ****   */
+ 237:Core/Src/stm32f4xx_it.c **** void TIM1_BRK_TIM9_IRQHandler(void)
+ 238:Core/Src/stm32f4xx_it.c **** {
+ 283              		.loc 1 238 0
  284              		.cfi_startproc
  285              		@ args = 0, pretend = 0, frame = 0
  286              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -530,22 +531,22 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  289              		.cfi_def_cfa_offset 8
  290              		.cfi_offset 3, -8
  291              		.cfi_offset 14, -4
- 238:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
- 239:Core/Src/stm32f4xx_it.c **** 
- 240:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
- 241:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
- 292              		.loc 1 241 0
+ 239:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 0 */
+ 240:Core/Src/stm32f4xx_it.c **** 
+ 241:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_BRK_TIM9_IRQn 0 */
+ 242:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
+ 292              		.loc 1 242 0
  293 0002 0248     		ldr	r0, .L25
  294 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 10
+
+
  295              	.LVL3:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 10
-
-
- 242:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 1 */
- 243:Core/Src/stm32f4xx_it.c **** 
- 244:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 1 */
- 245:Core/Src/stm32f4xx_it.c **** }
- 296              		.loc 1 245 0
+ 243:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_BRK_TIM9_IRQn 1 */
+ 244:Core/Src/stm32f4xx_it.c **** 
+ 245:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_BRK_TIM9_IRQn 1 */
+ 246:Core/Src/stm32f4xx_it.c **** }
+ 296              		.loc 1 246 0
  297 0008 08BD     		pop	{r3, pc}
  298              	.L26:
  299 000a 00BF     		.align	2
@@ -553,22 +554,22 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  301 000c 00000000 		.word	htim1
  302              		.cfi_endproc
  303              	.LFE144:
- 305              		.section	.text.TIM1_CC_IRQHandler,"ax",%progbits
+ 305              		.section	.text.TIM1_UP_TIM10_IRQHandler,"ax",%progbits
  306              		.align	1
- 307              		.global	TIM1_CC_IRQHandler
+ 307              		.global	TIM1_UP_TIM10_IRQHandler
  308              		.syntax unified
  309              		.thumb
  310              		.thumb_func
  311              		.fpu fpv4-sp-d16
- 313              	TIM1_CC_IRQHandler:
+ 313              	TIM1_UP_TIM10_IRQHandler:
  314              	.LFB145:
- 246:Core/Src/stm32f4xx_it.c **** 
- 247:Core/Src/stm32f4xx_it.c **** /**
- 248:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM1 capture compare interrupt.
- 249:Core/Src/stm32f4xx_it.c ****   */
- 250:Core/Src/stm32f4xx_it.c **** void TIM1_CC_IRQHandler(void)
- 251:Core/Src/stm32f4xx_it.c **** {
- 315              		.loc 1 251 0
+ 247:Core/Src/stm32f4xx_it.c **** 
+ 248:Core/Src/stm32f4xx_it.c **** /**
+ 249:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
+ 250:Core/Src/stm32f4xx_it.c ****   */
+ 251:Core/Src/stm32f4xx_it.c **** void TIM1_UP_TIM10_IRQHandler(void)
+ 252:Core/Src/stm32f4xx_it.c **** {
+ 315              		.loc 1 252 0
  316              		.cfi_startproc
  317              		@ args = 0, pretend = 0, frame = 0
  318              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -577,19 +578,19 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  321              		.cfi_def_cfa_offset 8
  322              		.cfi_offset 3, -8
  323              		.cfi_offset 14, -4
- 252:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_CC_IRQn 0 */
- 253:Core/Src/stm32f4xx_it.c **** 
- 254:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_CC_IRQn 0 */
- 255:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
- 324              		.loc 1 255 0
+ 253:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 0 */
+ 254:Core/Src/stm32f4xx_it.c **** 
+ 255:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
+ 256:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
+ 324              		.loc 1 256 0
  325 0002 0248     		ldr	r0, .L29
  326 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
  327              	.LVL4:
- 256:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_CC_IRQn 1 */
- 257:Core/Src/stm32f4xx_it.c **** 
- 258:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_CC_IRQn 1 */
- 259:Core/Src/stm32f4xx_it.c **** }
- 328              		.loc 1 259 0
+ 257:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
+ 258:Core/Src/stm32f4xx_it.c **** 
+ 259:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
+ 260:Core/Src/stm32f4xx_it.c **** }
+ 328              		.loc 1 260 0
  329 0008 08BD     		pop	{r3, pc}
  330              	.L30:
  331 000a 00BF     		.align	2
@@ -597,25 +598,25 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  333 000c 00000000 		.word	htim1
  334              		.cfi_endproc
  335              	.LFE145:
- 337              		.section	.text.TIM2_IRQHandler,"ax",%progbits
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 11
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 11
 
 
+ 337              		.section	.text.TIM1_TRG_COM_TIM11_IRQHandler,"ax",%progbits
  338              		.align	1
- 339              		.global	TIM2_IRQHandler
+ 339              		.global	TIM1_TRG_COM_TIM11_IRQHandler
  340              		.syntax unified
  341              		.thumb
  342              		.thumb_func
  343              		.fpu fpv4-sp-d16
- 345              	TIM2_IRQHandler:
+ 345              	TIM1_TRG_COM_TIM11_IRQHandler:
  346              	.LFB146:
- 260:Core/Src/stm32f4xx_it.c **** 
- 261:Core/Src/stm32f4xx_it.c **** /**
- 262:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM2 global interrupt.
- 263:Core/Src/stm32f4xx_it.c ****   */
- 264:Core/Src/stm32f4xx_it.c **** void TIM2_IRQHandler(void)
- 265:Core/Src/stm32f4xx_it.c **** {
- 347              		.loc 1 265 0
+ 261:Core/Src/stm32f4xx_it.c **** 
+ 262:Core/Src/stm32f4xx_it.c **** /**
+ 263:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt
+ 264:Core/Src/stm32f4xx_it.c ****   */
+ 265:Core/Src/stm32f4xx_it.c **** void TIM1_TRG_COM_TIM11_IRQHandler(void)
+ 266:Core/Src/stm32f4xx_it.c **** {
+ 347              		.loc 1 266 0
  348              		.cfi_startproc
  349              		@ args = 0, pretend = 0, frame = 0
  350              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -624,45 +625,45 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  353              		.cfi_def_cfa_offset 8
  354              		.cfi_offset 3, -8
  355              		.cfi_offset 14, -4
- 266:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM2_IRQn 0 */
- 267:Core/Src/stm32f4xx_it.c **** 
- 268:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM2_IRQn 0 */
- 269:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim2);
- 356              		.loc 1 269 0
+ 267:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
+ 268:Core/Src/stm32f4xx_it.c **** 
+ 269:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
+ 270:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
+ 356              		.loc 1 270 0
  357 0002 0248     		ldr	r0, .L33
  358 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
  359              	.LVL5:
- 270:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM2_IRQn 1 */
- 271:Core/Src/stm32f4xx_it.c **** 
- 272:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM2_IRQn 1 */
- 273:Core/Src/stm32f4xx_it.c **** }
- 360              		.loc 1 273 0
+ 271:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 1 */
+ 272:Core/Src/stm32f4xx_it.c **** 
+ 273:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 1 */
+ 274:Core/Src/stm32f4xx_it.c **** }
+ 360              		.loc 1 274 0
  361 0008 08BD     		pop	{r3, pc}
  362              	.L34:
  363 000a 00BF     		.align	2
  364              	.L33:
- 365 000c 00000000 		.word	htim2
+ 365 000c 00000000 		.word	htim1
  366              		.cfi_endproc
  367              	.LFE146:
- 369              		.section	.text.TIM3_IRQHandler,"ax",%progbits
+ 369              		.section	.text.TIM1_CC_IRQHandler,"ax",%progbits
  370              		.align	1
- 371              		.global	TIM3_IRQHandler
+ 371              		.global	TIM1_CC_IRQHandler
  372              		.syntax unified
  373              		.thumb
  374              		.thumb_func
  375              		.fpu fpv4-sp-d16
- 377              	TIM3_IRQHandler:
+ 377              	TIM1_CC_IRQHandler:
  378              	.LFB147:
- 274:Core/Src/stm32f4xx_it.c **** 
- 275:Core/Src/stm32f4xx_it.c **** /**
- 276:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM3 global interrupt.
- 277:Core/Src/stm32f4xx_it.c ****   */
- 278:Core/Src/stm32f4xx_it.c **** void TIM3_IRQHandler(void)
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 12
+ 275:Core/Src/stm32f4xx_it.c **** 
+ 276:Core/Src/stm32f4xx_it.c **** /**
+ 277:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM1 capture compare interrupt.
+ 278:Core/Src/stm32f4xx_it.c ****   */
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 12
 
 
- 279:Core/Src/stm32f4xx_it.c **** {
- 379              		.loc 1 279 0
+ 279:Core/Src/stm32f4xx_it.c **** void TIM1_CC_IRQHandler(void)
+ 280:Core/Src/stm32f4xx_it.c **** {
+ 379              		.loc 1 280 0
  380              		.cfi_startproc
  381              		@ args = 0, pretend = 0, frame = 0
  382              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -671,42 +672,42 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  385              		.cfi_def_cfa_offset 8
  386              		.cfi_offset 3, -8
  387              		.cfi_offset 14, -4
- 280:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 0 */
- 281:Core/Src/stm32f4xx_it.c **** 
- 282:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 0 */
- 283:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim3);
- 388              		.loc 1 283 0
+ 281:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_CC_IRQn 0 */
+ 282:Core/Src/stm32f4xx_it.c **** 
+ 283:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_CC_IRQn 0 */
+ 284:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim1);
+ 388              		.loc 1 284 0
  389 0002 0248     		ldr	r0, .L37
  390 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
  391              	.LVL6:
- 284:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 1 */
- 285:Core/Src/stm32f4xx_it.c **** 
- 286:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 1 */
- 287:Core/Src/stm32f4xx_it.c **** }
- 392              		.loc 1 287 0
+ 285:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM1_CC_IRQn 1 */
+ 286:Core/Src/stm32f4xx_it.c **** 
+ 287:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM1_CC_IRQn 1 */
+ 288:Core/Src/stm32f4xx_it.c **** }
+ 392              		.loc 1 288 0
  393 0008 08BD     		pop	{r3, pc}
  394              	.L38:
  395 000a 00BF     		.align	2
  396              	.L37:
- 397 000c 00000000 		.word	htim3
+ 397 000c 00000000 		.word	htim1
  398              		.cfi_endproc
  399              	.LFE147:
- 401              		.section	.text.TIM4_IRQHandler,"ax",%progbits
+ 401              		.section	.text.TIM2_IRQHandler,"ax",%progbits
  402              		.align	1
- 403              		.global	TIM4_IRQHandler
+ 403              		.global	TIM2_IRQHandler
  404              		.syntax unified
  405              		.thumb
  406              		.thumb_func
  407              		.fpu fpv4-sp-d16
- 409              	TIM4_IRQHandler:
+ 409              	TIM2_IRQHandler:
  410              	.LFB148:
- 288:Core/Src/stm32f4xx_it.c **** 
- 289:Core/Src/stm32f4xx_it.c **** /**
- 290:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM4 global interrupt.
- 291:Core/Src/stm32f4xx_it.c ****   */
- 292:Core/Src/stm32f4xx_it.c **** void TIM4_IRQHandler(void)
- 293:Core/Src/stm32f4xx_it.c **** {
- 411              		.loc 1 293 0
+ 289:Core/Src/stm32f4xx_it.c **** 
+ 290:Core/Src/stm32f4xx_it.c **** /**
+ 291:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM2 global interrupt.
+ 292:Core/Src/stm32f4xx_it.c ****   */
+ 293:Core/Src/stm32f4xx_it.c **** void TIM2_IRQHandler(void)
+ 294:Core/Src/stm32f4xx_it.c **** {
+ 411              		.loc 1 294 0
  412              		.cfi_startproc
  413              		@ args = 0, pretend = 0, frame = 0
  414              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -715,45 +716,45 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  417              		.cfi_def_cfa_offset 8
  418              		.cfi_offset 3, -8
  419              		.cfi_offset 14, -4
- 294:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 0 */
- 295:Core/Src/stm32f4xx_it.c **** 
- 296:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 0 */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 13
+ 295:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM2_IRQn 0 */
+ 296:Core/Src/stm32f4xx_it.c **** 
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 13
 
 
- 297:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim4);
- 420              		.loc 1 297 0
+ 297:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM2_IRQn 0 */
+ 298:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim2);
+ 420              		.loc 1 298 0
  421 0002 0248     		ldr	r0, .L41
  422 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
  423              	.LVL7:
- 298:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 1 */
- 299:Core/Src/stm32f4xx_it.c **** 
- 300:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 1 */
- 301:Core/Src/stm32f4xx_it.c **** }
- 424              		.loc 1 301 0
+ 299:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM2_IRQn 1 */
+ 300:Core/Src/stm32f4xx_it.c **** 
+ 301:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM2_IRQn 1 */
+ 302:Core/Src/stm32f4xx_it.c **** }
+ 424              		.loc 1 302 0
  425 0008 08BD     		pop	{r3, pc}
  426              	.L42:
  427 000a 00BF     		.align	2
  428              	.L41:
- 429 000c 00000000 		.word	htim4
+ 429 000c 00000000 		.word	htim2
  430              		.cfi_endproc
  431              	.LFE148:
- 433              		.section	.text.USART2_IRQHandler,"ax",%progbits
+ 433              		.section	.text.TIM3_IRQHandler,"ax",%progbits
  434              		.align	1
- 435              		.global	USART2_IRQHandler
+ 435              		.global	TIM3_IRQHandler
  436              		.syntax unified
  437              		.thumb
  438              		.thumb_func
  439              		.fpu fpv4-sp-d16
- 441              	USART2_IRQHandler:
+ 441              	TIM3_IRQHandler:
  442              	.LFB149:
- 302:Core/Src/stm32f4xx_it.c **** 
- 303:Core/Src/stm32f4xx_it.c **** /**
- 304:Core/Src/stm32f4xx_it.c ****   * @brief This function handles USART2 global interrupt.
- 305:Core/Src/stm32f4xx_it.c ****   */
- 306:Core/Src/stm32f4xx_it.c **** void USART2_IRQHandler(void)
- 307:Core/Src/stm32f4xx_it.c **** {
- 443              		.loc 1 307 0
+ 303:Core/Src/stm32f4xx_it.c **** 
+ 304:Core/Src/stm32f4xx_it.c **** /**
+ 305:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM3 global interrupt.
+ 306:Core/Src/stm32f4xx_it.c ****   */
+ 307:Core/Src/stm32f4xx_it.c **** void TIM3_IRQHandler(void)
+ 308:Core/Src/stm32f4xx_it.c **** {
+ 443              		.loc 1 308 0
  444              		.cfi_startproc
  445              		@ args = 0, pretend = 0, frame = 0
  446              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -762,45 +763,45 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  449              		.cfi_def_cfa_offset 8
  450              		.cfi_offset 3, -8
  451              		.cfi_offset 14, -4
- 308:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 0 */
- 309:Core/Src/stm32f4xx_it.c **** 
- 310:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART2_IRQn 0 */
- 311:Core/Src/stm32f4xx_it.c ****   HAL_UART_IRQHandler(&huart2);
- 452              		.loc 1 311 0
+ 309:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 0 */
+ 310:Core/Src/stm32f4xx_it.c **** 
+ 311:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 0 */
+ 312:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim3);
+ 452              		.loc 1 312 0
  453 0002 0248     		ldr	r0, .L45
- 454 0004 FFF7FEFF 		bl	HAL_UART_IRQHandler
+ 454 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
  455              	.LVL8:
- 312:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 1 */
- 313:Core/Src/stm32f4xx_it.c **** 
- 314:Core/Src/stm32f4xx_it.c ****   /* USER CODE END USART2_IRQn 1 */
- 315:Core/Src/stm32f4xx_it.c **** }
- 456              		.loc 1 315 0
+ 313:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 1 */
+ 314:Core/Src/stm32f4xx_it.c **** 
+ 315:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 1 */
+ 316:Core/Src/stm32f4xx_it.c **** }
+ 456              		.loc 1 316 0
  457 0008 08BD     		pop	{r3, pc}
  458              	.L46:
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 14
+
+
  459 000a 00BF     		.align	2
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 14
-
-
  460              	.L45:
- 461 000c 00000000 		.word	huart2
+ 461 000c 00000000 		.word	htim3
  462              		.cfi_endproc
  463              	.LFE149:
- 465              		.section	.text.TIM8_UP_TIM13_IRQHandler,"ax",%progbits
+ 465              		.section	.text.TIM4_IRQHandler,"ax",%progbits
  466              		.align	1
- 467              		.global	TIM8_UP_TIM13_IRQHandler
+ 467              		.global	TIM4_IRQHandler
  468              		.syntax unified
  469              		.thumb
  470              		.thumb_func
  471              		.fpu fpv4-sp-d16
- 473              	TIM8_UP_TIM13_IRQHandler:
+ 473              	TIM4_IRQHandler:
  474              	.LFB150:
- 316:Core/Src/stm32f4xx_it.c **** 
- 317:Core/Src/stm32f4xx_it.c **** /**
- 318:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM8 update interrupt and TIM13 global interrupt.
- 319:Core/Src/stm32f4xx_it.c ****   */
- 320:Core/Src/stm32f4xx_it.c **** void TIM8_UP_TIM13_IRQHandler(void)
- 321:Core/Src/stm32f4xx_it.c **** {
- 475              		.loc 1 321 0
+ 317:Core/Src/stm32f4xx_it.c **** 
+ 318:Core/Src/stm32f4xx_it.c **** /**
+ 319:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM4 global interrupt.
+ 320:Core/Src/stm32f4xx_it.c ****   */
+ 321:Core/Src/stm32f4xx_it.c **** void TIM4_IRQHandler(void)
+ 322:Core/Src/stm32f4xx_it.c **** {
+ 475              		.loc 1 322 0
  476              		.cfi_startproc
  477              		@ args = 0, pretend = 0, frame = 0
  478              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -809,106 +810,153 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 1
  481              		.cfi_def_cfa_offset 8
  482              		.cfi_offset 3, -8
  483              		.cfi_offset 14, -4
- 322:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM8_UP_TIM13_IRQn 0 */
- 323:Core/Src/stm32f4xx_it.c **** 
- 324:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM8_UP_TIM13_IRQn 0 */
- 325:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim8);
- 484              		.loc 1 325 0
+ 323:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 0 */
+ 324:Core/Src/stm32f4xx_it.c **** 
+ 325:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 0 */
+ 326:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim4);
+ 484              		.loc 1 326 0
  485 0002 0248     		ldr	r0, .L49
  486 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
  487              	.LVL9:
- 326:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM8_UP_TIM13_IRQn 1 */
- 327:Core/Src/stm32f4xx_it.c **** 
- 328:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM8_UP_TIM13_IRQn 1 */
- 329:Core/Src/stm32f4xx_it.c **** }
- 488              		.loc 1 329 0
+ 327:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 1 */
+ 328:Core/Src/stm32f4xx_it.c **** 
+ 329:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 1 */
+ 330:Core/Src/stm32f4xx_it.c **** }
+ 488              		.loc 1 330 0
  489 0008 08BD     		pop	{r3, pc}
  490              	.L50:
  491 000a 00BF     		.align	2
  492              	.L49:
- 493 000c 00000000 		.word	htim8
+ 493 000c 00000000 		.word	htim4
  494              		.cfi_endproc
  495              	.LFE150:
- 497              		.text
- 498              	.Letext0:
- 499              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 500              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 501              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 502              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 503              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 504              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 505              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 15
+ 497              		.section	.text.TIM8_UP_TIM13_IRQHandler,"ax",%progbits
+ 498              		.align	1
+ 499              		.global	TIM8_UP_TIM13_IRQHandler
+ 500              		.syntax unified
+ 501              		.thumb
+ 502              		.thumb_func
+ 503              		.fpu fpv4-sp-d16
+ 505              	TIM8_UP_TIM13_IRQHandler:
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 15
 
 
- 506              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 507              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 508              		.file 11 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 509              		.file 12 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 510              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
- 511              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 512              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 16
+ 506              	.LFB151:
+ 331:Core/Src/stm32f4xx_it.c **** 
+ 332:Core/Src/stm32f4xx_it.c **** /**
+ 333:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM8 update interrupt and TIM13 global interrupt.
+ 334:Core/Src/stm32f4xx_it.c ****   */
+ 335:Core/Src/stm32f4xx_it.c **** void TIM8_UP_TIM13_IRQHandler(void)
+ 336:Core/Src/stm32f4xx_it.c **** {
+ 507              		.loc 1 336 0
+ 508              		.cfi_startproc
+ 509              		@ args = 0, pretend = 0, frame = 0
+ 510              		@ frame_needed = 0, uses_anonymous_args = 0
+ 511 0000 08B5     		push	{r3, lr}
+ 512              	.LCFI10:
+ 513              		.cfi_def_cfa_offset 8
+ 514              		.cfi_offset 3, -8
+ 515              		.cfi_offset 14, -4
+ 337:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM8_UP_TIM13_IRQn 0 */
+ 338:Core/Src/stm32f4xx_it.c **** 
+ 339:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM8_UP_TIM13_IRQn 0 */
+ 340:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim8);
+ 516              		.loc 1 340 0
+ 517 0002 0248     		ldr	r0, .L53
+ 518 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 519              	.LVL10:
+ 341:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM8_UP_TIM13_IRQn 1 */
+ 342:Core/Src/stm32f4xx_it.c **** 
+ 343:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM8_UP_TIM13_IRQn 1 */
+ 344:Core/Src/stm32f4xx_it.c **** }
+ 520              		.loc 1 344 0
+ 521 0008 08BD     		pop	{r3, pc}
+ 522              	.L54:
+ 523 000a 00BF     		.align	2
+ 524              	.L53:
+ 525 000c 00000000 		.word	htim8
+ 526              		.cfi_endproc
+ 527              	.LFE151:
+ 529              		.text
+ 530              	.Letext0:
+ 531              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 532              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 533              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 534              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 535              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 536              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 537              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 538              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 539              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 540              		.file 11 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 541              		.file 12 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
+ 542              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 543              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_it.c
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:18     .text.NMI_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:25     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:39     .text.HardFault_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:46     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:60     .text.MemManage_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:67     .text.MemManage_Handler:00000000 MemManage_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:81     .text.BusFault_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:88     .text.BusFault_Handler:00000000 BusFault_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:102    .text.UsageFault_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:109    .text.UsageFault_Handler:00000000 UsageFault_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:123    .text.SVC_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:130    .text.SVC_Handler:00000000 SVC_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:143    .text.DebugMon_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:150    .text.DebugMon_Handler:00000000 DebugMon_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:163    .text.PendSV_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:170    .text.PendSV_Handler:00000000 PendSV_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:183    .text.SysTick_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:190    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:210    .text.TIM1_BRK_TIM9_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:217    .text.TIM1_BRK_TIM9_IRQHandler:00000000 TIM1_BRK_TIM9_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:237    .text.TIM1_BRK_TIM9_IRQHandler:0000000c $d
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:242    .text.TIM1_UP_TIM10_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:249    .text.TIM1_UP_TIM10_IRQHandler:00000000 TIM1_UP_TIM10_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:269    .text.TIM1_UP_TIM10_IRQHandler:0000000c $d
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:274    .text.TIM1_TRG_COM_TIM11_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:281    .text.TIM1_TRG_COM_TIM11_IRQHandler:00000000 TIM1_TRG_COM_TIM11_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:301    .text.TIM1_TRG_COM_TIM11_IRQHandler:0000000c $d
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:306    .text.TIM1_CC_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:313    .text.TIM1_CC_IRQHandler:00000000 TIM1_CC_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:333    .text.TIM1_CC_IRQHandler:0000000c $d
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:338    .text.TIM2_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:345    .text.TIM2_IRQHandler:00000000 TIM2_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:365    .text.TIM2_IRQHandler:0000000c $d
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:370    .text.TIM3_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:377    .text.TIM3_IRQHandler:00000000 TIM3_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:397    .text.TIM3_IRQHandler:0000000c $d
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:402    .text.TIM4_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:409    .text.TIM4_IRQHandler:00000000 TIM4_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:429    .text.TIM4_IRQHandler:0000000c $d
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:434    .text.USART2_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:441    .text.USART2_IRQHandler:00000000 USART2_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:461    .text.USART2_IRQHandler:0000000c $d
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:466    .text.TIM8_UP_TIM13_IRQHandler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:473    .text.TIM8_UP_TIM13_IRQHandler:00000000 TIM8_UP_TIM13_IRQHandler
-C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s:493    .text.TIM8_UP_TIM13_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:18     .text.NMI_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:25     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:39     .text.HardFault_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:46     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:60     .text.MemManage_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:67     .text.MemManage_Handler:00000000 MemManage_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:81     .text.BusFault_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:88     .text.BusFault_Handler:00000000 BusFault_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:102    .text.UsageFault_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:109    .text.UsageFault_Handler:00000000 UsageFault_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:123    .text.SVC_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:130    .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:143    .text.DebugMon_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:150    .text.DebugMon_Handler:00000000 DebugMon_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:163    .text.PendSV_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:170    .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:183    .text.SysTick_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:190    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:210    .text.DMA1_Stream2_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:217    .text.DMA1_Stream2_IRQHandler:00000000 DMA1_Stream2_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:237    .text.DMA1_Stream2_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:242    .text.DMA1_Stream5_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:249    .text.DMA1_Stream5_IRQHandler:00000000 DMA1_Stream5_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:269    .text.DMA1_Stream5_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:274    .text.TIM1_BRK_TIM9_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:281    .text.TIM1_BRK_TIM9_IRQHandler:00000000 TIM1_BRK_TIM9_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:301    .text.TIM1_BRK_TIM9_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:306    .text.TIM1_UP_TIM10_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:313    .text.TIM1_UP_TIM10_IRQHandler:00000000 TIM1_UP_TIM10_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:333    .text.TIM1_UP_TIM10_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:338    .text.TIM1_TRG_COM_TIM11_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:345    .text.TIM1_TRG_COM_TIM11_IRQHandler:00000000 TIM1_TRG_COM_TIM11_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:365    .text.TIM1_TRG_COM_TIM11_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:370    .text.TIM1_CC_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:377    .text.TIM1_CC_IRQHandler:00000000 TIM1_CC_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:397    .text.TIM1_CC_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:402    .text.TIM2_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:409    .text.TIM2_IRQHandler:00000000 TIM2_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:429    .text.TIM2_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:434    .text.TIM3_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:441    .text.TIM3_IRQHandler:00000000 TIM3_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:461    .text.TIM3_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:466    .text.TIM4_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:473    .text.TIM4_IRQHandler:00000000 TIM4_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:493    .text.TIM4_IRQHandler:0000000c $d
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:498    .text.TIM8_UP_TIM13_IRQHandler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:505    .text.TIM8_UP_TIM13_IRQHandler:00000000 TIM8_UP_TIM13_IRQHandler
+C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s:525    .text.TIM8_UP_TIM13_IRQHandler:0000000c $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick
+HAL_DMA_IRQHandler
+hdma_uart4_rx
+hdma_usart2_rx
 HAL_TIM_IRQHandler
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccpzksie.s 			page 17
+
+
 htim1
 htim2
 htim3
 htim4
-HAL_UART_IRQHandler
-huart2
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccLNwnJy.s 			page 17
-
-
 htim8

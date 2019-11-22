@@ -4,9 +4,11 @@
 #include "tim.h"
 #include "gpio.h"
 #include "main.h"
-#include "motor.h"
 #include "usart.h"
-#include "encoder.h"
+#include "dma.h"
+#include "stm32f4xx_it.h"
+#include "stm32f4xx_hal_conf.h"
+
 
 void robo_init(void);
 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
   52              		.cfi_endproc
   53              	.LFE150:
   55              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 2
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 2
 
 
   56              		.align	1
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
   82 000e 00D0     		beq	.L15
   83              	.LVL3:
   84              	.L6:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 3
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 3
 
 
   85              		.loc 1 33 0 is_stmt 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
  122 0032 EDE7     		b	.L6
  123              	.L17:
  124              		.align	2
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 4
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 4
 
 
  125              	.L16:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
  172              	.LVL13:
  173              	.LBE35:
  174              	.LBE34:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 5
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 5
 
 
  175              	.LBB36:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
  226              	_ZN7encoder9calculateEv:
  227              	.LFB145:
   17:Core/Src/encoder.cpp ****         omega = ((2* PI* (int16_t)henc->Instance->CNT*1000)/(PPR*SAMPLE_TIME));
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 6
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 6
 
 
  228              		.loc 1 17 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
  278 0042 00BFAFF3 		.align	3
  278      0080
  279              	.L24:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 7
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 7
 
 
  280 0048 00408F40 		.word	1083129856
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
   27:Core/Src/encoder.cpp ****     encoder_config[i].get_omega();
  335              		.loc 1 27 0
  336              		.cfi_startproc
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 8
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 8
 
 
  337              		@ args = 0, pretend = 0, frame = 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
  389 0000 08B5     		push	{r3, lr}
  390              	.LCFI5:
  391              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 9
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 9
 
 
  392              		.cfi_offset 3, -8
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
  448 0000 00000000 		.word	_GLOBAL__sub_I__Z12encoder_initv(target1)
  449              		.section	.bss._ZL14encoder_config,"aw",%nobits
  450              		.align	2
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 10
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 10
 
 
  451              		.set	.LANCHOR0,. + 0
@@ -577,39 +577,39 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 1
  479              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
  480              		.file 17 "Core/Inc/tim.h"
  481              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s 			page 11
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 encoder.cpp
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:18     .text.__tcf_0:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:24     .text.__tcf_0:00000000 __tcf_0
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:50     .text.__tcf_0:00000010 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:56     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:62     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:126    .text._Z41__static_initialization_and_destruction_0ii:00000034 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:133    .text._Z12encoder_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:140    .text._Z12encoder_initv:00000000 _Z12encoder_initv
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:206    .text._Z12encoder_initv:00000034 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:219    .text._ZN7encoder9calculateEv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:226    .text._ZN7encoder9calculateEv:00000000 _ZN7encoder9calculateEv
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:280    .text._ZN7encoder9calculateEv:00000048 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:288    .text._Z14calculate_datai:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:295    .text._Z14calculate_datai:00000000 _Z14calculate_datai
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:320    .text._Z14calculate_datai:00000014 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:326    .text._Z8get_datai:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:333    .text._Z8get_datai:00000000 _Z8get_datai
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:369    .text._Z8get_datai:00000020 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:375    .text._Z7get_cnti:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:382    .text._Z7get_cnti:00000000 _Z7get_cnti
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:414    .text._Z7get_cnti:00000018 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:420    .text._GLOBAL__sub_I__Z12encoder_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:426    .text._GLOBAL__sub_I__Z12encoder_initv:00000000 _GLOBAL__sub_I__Z12encoder_initv
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:447    .init_array:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:450    .bss._ZL14encoder_config:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:454    .bss._ZL14encoder_config:00000000 _ZL14encoder_config
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:457    .rodata._Z7get_cnti.str1.4:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccYd2Ctj.s:461    .rodata._Z8get_datai.str1.4:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:18     .text.__tcf_0:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:24     .text.__tcf_0:00000000 __tcf_0
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:50     .text.__tcf_0:00000010 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:56     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:62     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:126    .text._Z41__static_initialization_and_destruction_0ii:00000034 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:133    .text._Z12encoder_initv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:140    .text._Z12encoder_initv:00000000 _Z12encoder_initv
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:206    .text._Z12encoder_initv:00000034 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:219    .text._ZN7encoder9calculateEv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:226    .text._ZN7encoder9calculateEv:00000000 _ZN7encoder9calculateEv
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:280    .text._ZN7encoder9calculateEv:00000048 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:288    .text._Z14calculate_datai:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:295    .text._Z14calculate_datai:00000000 _Z14calculate_datai
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:320    .text._Z14calculate_datai:00000014 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:326    .text._Z8get_datai:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:333    .text._Z8get_datai:00000000 _Z8get_datai
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:369    .text._Z8get_datai:00000020 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:375    .text._Z7get_cnti:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:382    .text._Z7get_cnti:00000000 _Z7get_cnti
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:414    .text._Z7get_cnti:00000018 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:420    .text._GLOBAL__sub_I__Z12encoder_initv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:426    .text._GLOBAL__sub_I__Z12encoder_initv:00000000 _GLOBAL__sub_I__Z12encoder_initv
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:447    .init_array:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:450    .bss._ZL14encoder_config:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:454    .bss._ZL14encoder_config:00000000 _ZL14encoder_config
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:457    .rodata._Z7get_cnti.str1.4:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:461    .rodata._Z8get_datai.str1.4:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_atexit

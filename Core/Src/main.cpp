@@ -29,6 +29,7 @@
 #include "robo_init.h"
 #include "motor.h"
 #include "actuator.h"
+#include "dma.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,7 +92,8 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
+  MX_GPIO_Init(); 
+  MX_DMA_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
@@ -108,7 +110,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    
+    // HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_15);
     /* USER CODE BEGIN 3 */
     play();
   }
