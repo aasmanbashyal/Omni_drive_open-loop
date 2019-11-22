@@ -1,4 +1,5 @@
 #include "joystick.h"
+#include "actuator.h"
 #include "array.h"
 #include <math.h>
 
@@ -29,7 +30,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
        __HAL_UART_FLUSH_DRREGISTER(gJoyStick.huart);
         if (!gStart_Byte_Rx2) {
                 if (gRx2Data == JOYSTICK_START_BYTE) {
-   printf("\n ohh yeah 1\n");
+//    printf("\n ohh yeah yyy\n");
 
                         gStart_Byte_Rx2 = true;
                 }
@@ -37,40 +38,45 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         else {
                 if (gRx2_Data_num < NUM_JOYSTICK_BYTES) {
                         // printf("%x \n", (int8_t)gRx2Data)
-   printf("\n ohh yeah\n");
+//    printf("\n ohh yeah xxx\n");
                         
                         gJoy_Data_Arr[gRx2_Data_num] = gRx2Data;
                         ++gRx2_Data_num;
                 }
                 else {
-                        uint8_t rem = gRx2Data;
+//    printf("\n ohh fuck\n");
+
+                        // uint8_t rem = gRx2Data;
 
                         gStart_Byte_Rx2 = false;
                         gRx2_Data_num = 0;
 
-                        uint8_t hash = gJoyStick_CRC.get_Hash(gJoy_Data_Arr, NUM_JOYSTICK_BYTES);
+                        // uint8_t hash = gJoyStick_CRC.get_Hash(gJoy_Data_Arr, NUM_JOYSTICK_BYTES);
                         // arrPrint(gJoy_Data_Arr);
                         // printf("\t%d\t", hash);
 
-                        if (hash == rem) {
+                        // if (hash == rem) {
                                 fill_JoyData(&gJoy,gJoy_Data_Arr);
-                              //   gJoyStick.data.insert(gJoy);
+                                // gJoyStick.data.insert(/gJoy);
+                         task_();
 
-                            void task();
-                                // printf("No Error!!");
+                                printf("No Error!!");
                         }
-                        else {
+                        // else {
                              
                                 // printf("%d, %d, %ld", rem, hash, gJoy_Err_Count);
-                        }
+                        // }
                         // printf("\n");
 
-                        arrFill(gJoy_Data_Arr, (uint8_t)0);
+                        // arrFill(gJoy_Data_Arr, (uint8_t)0);
 
                 }
+//    printf("\n task\n");
+                            
+
         }
-        void task();
-}
+        
+// }
 
 int JoyStick::init()
 {
@@ -102,11 +108,27 @@ int JoyStick::init()
 // {
 //       joystick.init();
 // }
-void task()
+void task_()
 {
-printf("\n %d",gJoy.l_hatx);
-printf("\n %d",gJoy.l_haty);
-printf("\n %d",gJoy.r_hatx);
-printf("\n %d",gJoy.r_haty);
-
+printf("\n1\t %d",gJoy.l_hatx);
+printf("\n 2\t %d",gJoy.l_haty);
+printf("\n 3\t%d",gJoy.r_hatx);
+printf("\n 4\t%d",gJoy.r_haty);
+if(gJoy.l_haty <= 127 && gJoy.l_haty != 0)
+        forward();
+else if(gJoy.l_haty >= 128)
+        back();
+else if(gJoy.r_hatx <= 127 && gJoy.r_hatx != 0)
+        right();
+else if(gJoy.r_hatx >= 128)
+        left();
+else
+        stop();
 }
+
+
+
+
+
+
+// }

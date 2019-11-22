@@ -13,7 +13,7 @@ void play(void)
 {
    // printf("\n play");
    joystick.init();
-    void initilize(void); 
+   //  void initilize(void); 
    //  char data;
    // if(HAL_UART_Receive(&huart2,(uint8_t*)&data,1,10)==HAL_OK){
       // printf("\n %c",data);
@@ -120,8 +120,46 @@ void calculate_wheel_velocity()
        motor[i].set_omega(velocity_motor[i]);
    
     }
-    
-	
+    	
 }
 
+void forward()
+{
+    velocity_robot[0]= 0;
+    velocity_robot[1]= -velocity;
+    velocity_robot[2]= 0;
+    calculate_wheel_velocity();
+}
+
+void back()
+{
+    velocity_robot[0]= 0;
+    velocity_robot[1]= +velocity;
+    velocity_robot[2]= 0;
+    calculate_wheel_velocity();
+}
+
+void left()
+{
+    velocity_robot[0]= -velocity;
+    velocity_robot[1]= 0;
+    velocity_robot[2]= 0;
+    calculate_wheel_velocity();
+}
+
+void right()
+{
+    velocity_robot[0]= velocity;
+    velocity_robot[1]= 0;
+    velocity_robot[2]= 0;
+    calculate_wheel_velocity();
+}
+
+void stop()
+{
+    velocity_robot[0]= 0;
+    velocity_robot[1]= 0;
+    velocity_robot[2]= 0;
+    calculate_wheel_velocity();
+}
 	  

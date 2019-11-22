@@ -67,5 +67,5 @@ private:
       //   JoyStick_Data read();
       //   void parse_JoyData(JoyStick_Data joy);
 };
-
+void task_();
 #endif // !_JOYSTICK_H_
