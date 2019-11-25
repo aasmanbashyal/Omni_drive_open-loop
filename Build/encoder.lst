@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -24,31 +24,32 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
   21              		.thumb_func
   22              		.fpu fpv4-sp-d16
   24              	__tcf_0:
-  25              	.LFB150:
+  25              	.LFB374:
   26              		.file 1 "Core/Src/encoder.cpp"
    1:Core/Src/encoder.cpp **** #include "encoder.h"
    2:Core/Src/encoder.cpp **** #include "stm32f407xx.h"
-   3:Core/Src/encoder.cpp **** 
-   4:Core/Src/encoder.cpp **** static encoder encoder_config[4];
-  27              		.loc 1 4 0
+   3:Core/Src/encoder.cpp **** #include "math.h"
+   4:Core/Src/encoder.cpp **** 
+   5:Core/Src/encoder.cpp **** static encoder encoder_config[4];
+  27              		.loc 1 5 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              		@ link register save eliminated.
-  32              		.loc 1 4 0
+  32              		.loc 1 5 0
   33 0000 034B     		ldr	r3, .L4
   34              	.L3:
-  35              		.loc 1 4 0 is_stmt 0 discriminator 5
+  35              		.loc 1 5 0 is_stmt 0 discriminator 5
   36 0002 044A     		ldr	r2, .L4+4
   37 0004 9342     		cmp	r3, r2
   38 0006 01D0     		beq	.L1
-  39              		.loc 1 4 0 discriminator 4
+  39              		.loc 1 5 0 discriminator 4
   40 0008 0C3B     		subs	r3, r3, #12
   41              	.LVL0:
   42 000a FAE7     		b	.L3
   43              	.LVL1:
   44              	.L1:
-  45              		.loc 1 4 0
+  45              		.loc 1 5 0
   46 000c 7047     		bx	lr
   47              	.L5:
   48 000e 00BF     		.align	2
@@ -56,48 +57,54 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
   50 0010 30000000 		.word	.LANCHOR0+48
   51 0014 00000000 		.word	.LANCHOR0
   52              		.cfi_endproc
-  53              	.LFE150:
+  53              	.LFE374:
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 2
+
+
   55              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 2
-
-
   56              		.align	1
   57              		.syntax unified
   58              		.thumb
   59              		.thumb_func
   60              		.fpu fpv4-sp-d16
   62              	_Z41__static_initialization_and_destruction_0ii:
-  63              	.LFB149:
-   5:Core/Src/encoder.cpp **** 
-   6:Core/Src/encoder.cpp **** void encoder_init(void){
-   7:Core/Src/encoder.cpp ****     encoder_config[0].set_config(&htim1);
-   8:Core/Src/encoder.cpp ****     encoder_config[1].set_config(&htim2);
-   9:Core/Src/encoder.cpp ****     encoder_config[2].set_config(&htim3);
-  10:Core/Src/encoder.cpp ****     encoder_config[3].set_config(&htim4);
-  11:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[0].get_handle(), TIM_CHANNEL_ALL);
-  12:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[1].get_handle(), TIM_CHANNEL_ALL);
-  13:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[2].get_handle(), TIM_CHANNEL_ALL);
-  14:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[3].get_handle(), TIM_CHANNEL_ALL);
-  15:Core/Src/encoder.cpp **** }
-  16:Core/Src/encoder.cpp **** 
-  17:Core/Src/encoder.cpp **** void encoder::calculate(void){
-  18:Core/Src/encoder.cpp ****         omega = ((2* PI* (int16_t)henc->Instance->CNT*1000)/(PPR*SAMPLE_TIME));
-  19:Core/Src/encoder.cpp ****         count += int16_t(henc->Instance->CNT);
-  20:Core/Src/encoder.cpp ****         henc->Instance->CNT =0;
-  21:Core/Src/encoder.cpp ****     }
-  22:Core/Src/encoder.cpp **** 
-  23:Core/Src/encoder.cpp **** void calculate_data(int i){
-  24:Core/Src/encoder.cpp ****     encoder_config[i].calculate();
-  25:Core/Src/encoder.cpp **** }
-  26:Core/Src/encoder.cpp **** 
-  27:Core/Src/encoder.cpp **** void get_data(int i){
-  28:Core/Src/encoder.cpp ****     encoder_config[i].get_omega();
+  63              	.LFB373:
+   6:Core/Src/encoder.cpp **** 
+   7:Core/Src/encoder.cpp **** void encoder_init(void)
+   8:Core/Src/encoder.cpp **** {
+   9:Core/Src/encoder.cpp ****     encoder_config[0].set_config(&htim1);
+  10:Core/Src/encoder.cpp ****     encoder_config[1].set_config(&htim2);
+  11:Core/Src/encoder.cpp ****     encoder_config[2].set_config(&htim3);
+  12:Core/Src/encoder.cpp ****     encoder_config[3].set_config(&htim4);
+  13:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[0].get_handle(), TIM_CHANNEL_ALL);
+  14:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[1].get_handle(), TIM_CHANNEL_ALL);
+  15:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[2].get_handle(), TIM_CHANNEL_ALL);
+  16:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[3].get_handle(), TIM_CHANNEL_ALL);
+  17:Core/Src/encoder.cpp **** }
+  18:Core/Src/encoder.cpp **** 
+  19:Core/Src/encoder.cpp **** void encoder::calculate(void)
+  20:Core/Src/encoder.cpp **** {
+  21:Core/Src/encoder.cpp ****     omega = -((2 * PI * (int16_t)henc->Instance->CNT * 1000) / (PPR * SAMPLE_TIME));
+  22:Core/Src/encoder.cpp ****     count += int16_t(henc->Instance->CNT);
+  23:Core/Src/encoder.cpp ****     henc->Instance->CNT = 0;
+  24:Core/Src/encoder.cpp **** }
+  25:Core/Src/encoder.cpp **** 
+  26:Core/Src/encoder.cpp **** void calculate_data(int i)
+  27:Core/Src/encoder.cpp **** {
+  28:Core/Src/encoder.cpp ****     encoder_config[i].calculate();
   29:Core/Src/encoder.cpp **** }
   30:Core/Src/encoder.cpp **** 
-  31:Core/Src/encoder.cpp **** void get_cnt(int i){
-  32:Core/Src/encoder.cpp ****     encoder_config[i].get_count();
-  33:Core/Src/encoder.cpp **** }
-  64              		.loc 1 33 0 is_stmt 1
+  31:Core/Src/encoder.cpp **** float get_data(int i)
+  32:Core/Src/encoder.cpp **** {
+  33:Core/Src/encoder.cpp ****     //    printf("get_omega=%f",encoder_config[i].get_omega());
+  34:Core/Src/encoder.cpp ****     return encoder_config[i].get_omega();
+  35:Core/Src/encoder.cpp **** }
+  36:Core/Src/encoder.cpp **** 
+  37:Core/Src/encoder.cpp **** int16_t get_cnt(int i)
+  38:Core/Src/encoder.cpp **** {
+  39:Core/Src/encoder.cpp ****     return encoder_config[i].get_count();
+  40:Core/Src/encoder.cpp **** }
+  64              		.loc 1 40 0 is_stmt 1
   65              		.cfi_startproc
   66              		@ args = 0, pretend = 0, frame = 0
   67              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -106,53 +113,54 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
   70 0002 00D0     		beq	.L14
   71 0004 7047     		bx	lr
   72              	.L14:
-  73              		.loc 1 33 0 is_stmt 0 discriminator 1
+  73              		.loc 1 40 0 is_stmt 0 discriminator 1
   74 0006 08B5     		push	{r3, lr}
   75              	.LCFI0:
   76              		.cfi_def_cfa_offset 8
   77              		.cfi_offset 3, -8
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 3
+
+
   78              		.cfi_offset 14, -4
-  79              		.loc 1 33 0 is_stmt 1 discriminator 1
+  79              		.loc 1 40 0 is_stmt 1 discriminator 1
   80 0008 4FF6FF73 		movw	r3, #65535
   81 000c 9942     		cmp	r1, r3
   82 000e 00D0     		beq	.L15
   83              	.LVL3:
   84              	.L6:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 3
-
-
-  85              		.loc 1 33 0 is_stmt 0
+  85              		.loc 1 40 0 is_stmt 0
   86 0010 08BD     		pop	{r3, pc}
   87              	.LVL4:
   88              	.L15:
-   4:Core/Src/encoder.cpp **** 
-  89              		.loc 1 4 0 is_stmt 1
+   5:Core/Src/encoder.cpp **** 
+  89              		.loc 1 5 0 is_stmt 1
   90 0012 0322     		movs	r2, #3
   91 0014 074B     		ldr	r3, .L16
   92              	.LVL5:
   93              	.L9:
-   4:Core/Src/encoder.cpp **** 
-  94              		.loc 1 4 0 is_stmt 0 discriminator 4
+   5:Core/Src/encoder.cpp **** 
+  94              		.loc 1 5 0 is_stmt 0 discriminator 4
   95 0016 002A     		cmp	r2, #0
   96 0018 06DB     		blt	.L8
   97              	.LVL6:
   98              	.LBB28:
   99              	.LBB29:
  100              		.file 2 "Core/Inc/encoder.h"
-   1:Core/Inc/encoder.h **** #include "stm32f4xx_hal.h"
-   2:Core/Inc/encoder.h **** #include "tim.h"
-   3:Core/Inc/encoder.h **** #include "stm32f4xx_hal_gpio.h"
-   4:Core/Inc/encoder.h **** 
-   5:Core/Inc/encoder.h **** #define PPR (800)
-   6:Core/Inc/encoder.h **** #define PI (3.1415)
-   7:Core/Inc/encoder.h **** #define SAMPLE_TIME (5)
-   8:Core/Inc/encoder.h **** 
-   9:Core/Inc/encoder.h **** 
-  10:Core/Inc/encoder.h **** class encoder
-  11:Core/Inc/encoder.h **** {
-  12:Core/Inc/encoder.h **** public:
-  13:Core/Inc/encoder.h ****     encoder() {}
- 101              		.loc 2 13 0 is_stmt 1
+   1:Core/Inc/encoder.h **** #ifndef _ENCODER_H_
+   2:Core/Inc/encoder.h **** #define _ENCODER_H_
+   3:Core/Inc/encoder.h **** #include "stm32f4xx_hal.h"
+   4:Core/Inc/encoder.h **** #include "tim.h"
+   5:Core/Inc/encoder.h **** #include "stm32f4xx_hal_gpio.h"
+   6:Core/Inc/encoder.h **** 
+   7:Core/Inc/encoder.h **** #define PPR (998)
+   8:Core/Inc/encoder.h **** #define PI (3.1415)
+   9:Core/Inc/encoder.h **** #define SAMPLE_TIME (10)
+  10:Core/Inc/encoder.h **** 
+  11:Core/Inc/encoder.h **** class encoder
+  12:Core/Inc/encoder.h **** {
+  13:Core/Inc/encoder.h **** public:
+  14:Core/Inc/encoder.h ****     encoder() {}
+ 101              		.loc 2 14 0 is_stmt 1
  102 001a 0021     		movs	r1, #0
  103 001c 5960     		str	r1, [r3, #4]	@ float
  104 001e 0021     		movs	r1, #0
@@ -160,33 +168,33 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  106              	.LVL7:
  107              	.LBE29:
  108              	.LBE28:
-   4:Core/Src/encoder.cpp **** 
- 109              		.loc 1 4 0
+   5:Core/Src/encoder.cpp **** 
+ 109              		.loc 1 5 0
  110 0022 0C33     		adds	r3, r3, #12
  111 0024 013A     		subs	r2, r2, #1
  112 0026 F6E7     		b	.L9
  113              	.L8:
-   4:Core/Src/encoder.cpp **** 
- 114              		.loc 1 4 0 is_stmt 0 discriminator 2
+   5:Core/Src/encoder.cpp **** 
+ 114              		.loc 1 5 0 is_stmt 0 discriminator 2
  115 0028 034A     		ldr	r2, .L16+4
  116 002a 0449     		ldr	r1, .L16+8
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 4
+
+
  117 002c 0020     		movs	r0, #0
  118              	.LVL8:
  119 002e FFF7FEFF 		bl	__aeabi_atexit
  120              	.LVL9:
- 121              		.loc 1 33 0 is_stmt 1 discriminator 2
+ 121              		.loc 1 40 0 is_stmt 1 discriminator 2
  122 0032 EDE7     		b	.L6
  123              	.L17:
  124              		.align	2
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 4
-
-
  125              	.L16:
  126 0034 00000000 		.word	.LANCHOR0
  127 0038 00000000 		.word	__dso_handle
  128 003c 00000000 		.word	__tcf_0
  129              		.cfi_endproc
- 130              	.LFE149:
+ 130              	.LFE373:
  132              		.section	.text._Z12encoder_initv,"ax",%progbits
  133              		.align	1
  134              		.global	_Z12encoder_initv
@@ -195,9 +203,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  137              		.thumb_func
  138              		.fpu fpv4-sp-d16
  140              	_Z12encoder_initv:
- 141              	.LFB144:
-   6:Core/Src/encoder.cpp ****     encoder_config[0].set_config(&htim1);
- 142              		.loc 1 6 0
+ 141              	.LFB368:
+   8:Core/Src/encoder.cpp ****     encoder_config[0].set_config(&htim1);
+ 142              		.loc 1 8 0
  143              		.cfi_startproc
  144              		@ args = 0, pretend = 0, frame = 0
  145              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -209,15 +217,15 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  151              	.LVL10:
  152              	.LBB30:
  153              	.LBB31:
-  14:Core/Inc/encoder.h ****     encoder(TIM_HandleTypeDef *e) : henc(e) {}
-  15:Core/Inc/encoder.h ****     encoder(encoder &&) = default;
-  16:Core/Inc/encoder.h ****     encoder(const encoder &) = default;
-  17:Core/Inc/encoder.h ****     encoder &operator=(encoder &&) = default;
-  18:Core/Inc/encoder.h ****     encoder &operator=(const encoder &) = default;
-  19:Core/Inc/encoder.h ****     ~encoder() {}
-  20:Core/Inc/encoder.h **** 
-  21:Core/Inc/encoder.h ****     void set_config(TIM_HandleTypeDef *e) { henc = e; }
- 154              		.loc 2 21 0
+  15:Core/Inc/encoder.h ****     encoder(TIM_HandleTypeDef *e) : henc(e) {}
+  16:Core/Inc/encoder.h ****     encoder(encoder &&) = default;
+  17:Core/Inc/encoder.h ****     encoder(const encoder &) = default;
+  18:Core/Inc/encoder.h ****     encoder &operator=(encoder &&) = default;
+  19:Core/Inc/encoder.h ****     encoder &operator=(const encoder &) = default;
+  20:Core/Inc/encoder.h ****     ~encoder() {}
+  21:Core/Inc/encoder.h **** 
+  22:Core/Inc/encoder.h ****     void set_config(TIM_HandleTypeDef *e) { henc = e; }
+ 154              		.loc 2 22 0
  155 0002 0C4C     		ldr	r4, .L20
  156 0004 0C48     		ldr	r0, .L20+4
  157 0006 2060     		str	r0, [r4]
@@ -230,6 +238,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  164 000a E360     		str	r3, [r4, #12]
  165              	.LVL12:
  166              	.LBE33:
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 5
+
+
  167              	.LBE32:
  168              	.LBB34:
  169              	.LBB35:
@@ -238,9 +249,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  172              	.LVL13:
  173              	.LBE35:
  174              	.LBE34:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 5
-
-
  175              	.LBB36:
  176              	.LBB37:
  177 0010 0C4B     		ldr	r3, .L20+16
@@ -248,31 +256,31 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  179              	.LVL14:
  180              	.LBE37:
  181              	.LBE36:
-  11:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[1].get_handle(), TIM_CHANNEL_ALL);
- 182              		.loc 1 11 0
+  13:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[1].get_handle(), TIM_CHANNEL_ALL);
+ 182              		.loc 1 13 0
  183 0014 3C21     		movs	r1, #60
  184 0016 FFF7FEFF 		bl	HAL_TIM_Encoder_Start
  185              	.LVL15:
-  12:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[2].get_handle(), TIM_CHANNEL_ALL);
- 186              		.loc 1 12 0
+  14:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[2].get_handle(), TIM_CHANNEL_ALL);
+ 186              		.loc 1 14 0
  187 001a 3C21     		movs	r1, #60
  188 001c E068     		ldr	r0, [r4, #12]
  189 001e FFF7FEFF 		bl	HAL_TIM_Encoder_Start
  190              	.LVL16:
-  13:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[3].get_handle(), TIM_CHANNEL_ALL);
- 191              		.loc 1 13 0
+  15:Core/Src/encoder.cpp ****     HAL_TIM_Encoder_Start(encoder_config[3].get_handle(), TIM_CHANNEL_ALL);
+ 191              		.loc 1 15 0
  192 0022 3C21     		movs	r1, #60
  193 0024 A069     		ldr	r0, [r4, #24]
  194 0026 FFF7FEFF 		bl	HAL_TIM_Encoder_Start
  195              	.LVL17:
-  14:Core/Src/encoder.cpp **** }
- 196              		.loc 1 14 0
+  16:Core/Src/encoder.cpp **** }
+ 196              		.loc 1 16 0
  197 002a 3C21     		movs	r1, #60
  198 002c 606A     		ldr	r0, [r4, #36]
  199 002e FFF7FEFF 		bl	HAL_TIM_Encoder_Start
  200              	.LVL18:
-  15:Core/Src/encoder.cpp **** 
- 201              		.loc 1 15 0
+  17:Core/Src/encoder.cpp **** 
+ 201              		.loc 1 17 0
  202 0032 10BD     		pop	{r4, pc}
  203              	.L21:
  204              		.align	2
@@ -283,25 +291,25 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  209 0040 00000000 		.word	htim3
  210 0044 00000000 		.word	htim4
  211              		.cfi_endproc
- 212              	.LFE144:
+ 212              	.LFE368:
  214              		.global	__aeabi_i2d
  215              		.global	__aeabi_dmul
  216              		.global	__aeabi_ddiv
  217              		.global	__aeabi_d2f
  218              		.section	.text._ZN7encoder9calculateEv,"ax",%progbits
  219              		.align	1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 6
+
+
  220              		.global	_ZN7encoder9calculateEv
  221              		.syntax unified
  222              		.thumb
  223              		.thumb_func
  224              		.fpu fpv4-sp-d16
  226              	_ZN7encoder9calculateEv:
- 227              	.LFB145:
-  17:Core/Src/encoder.cpp ****         omega = ((2* PI* (int16_t)henc->Instance->CNT*1000)/(PPR*SAMPLE_TIME));
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 6
-
-
- 228              		.loc 1 17 0
+ 227              	.LFB369:
+  20:Core/Src/encoder.cpp ****     omega = -((2 * PI * (int16_t)henc->Instance->CNT * 1000) / (PPR * SAMPLE_TIME));
+ 228              		.loc 1 20 0
  229              		.cfi_startproc
  230              		@ args = 0, pretend = 0, frame = 0
  231              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -314,8 +322,8 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  238              		.cfi_offset 5, -8
  239              		.cfi_offset 14, -4
  240 0002 0446     		mov	r4, r0
-  18:Core/Src/encoder.cpp ****         count += int16_t(henc->Instance->CNT);
- 241              		.loc 1 18 0
+  21:Core/Src/encoder.cpp ****     count += int16_t(henc->Instance->CNT);
+ 241              		.loc 1 21 0
  242 0004 0568     		ldr	r5, [r0]
  243 0006 2B68     		ldr	r3, [r5]
  244 0008 586A     		ldr	r0, [r3, #36]
@@ -323,293 +331,324 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 1
  246 000a 00B2     		sxth	r0, r0
  247 000c FFF7FEFF 		bl	__aeabi_i2d
  248              	.LVL21:
- 249 0010 0FA3     		adr	r3, .L24+8
+ 249 0010 10A3     		adr	r3, .L24+12
  250 0012 D3E90023 		ldrd	r2, [r3]
  251 0016 FFF7FEFF 		bl	__aeabi_dmul
  252              	.LVL22:
  253 001a 0022     		movs	r2, #0
- 254 001c 0A4B     		ldr	r3, .L24
+ 254 001c 0C4B     		ldr	r3, .L24+8
  255 001e FFF7FEFF 		bl	__aeabi_dmul
  256              	.LVL23:
- 257 0022 0022     		movs	r2, #0
- 258 0024 094B     		ldr	r3, .L24+4
- 259 0026 FFF7FEFF 		bl	__aeabi_ddiv
+ 257 0022 09A3     		adr	r3, .L24
+ 258 0024 D3E90023 		ldrd	r2, [r3]
+ 259 0028 FFF7FEFF 		bl	__aeabi_ddiv
  260              	.LVL24:
- 261 002a FFF7FEFF 		bl	__aeabi_d2f
+ 261 002c FFF7FEFF 		bl	__aeabi_d2f
  262              	.LVL25:
- 263 002e 6060     		str	r0, [r4, #4]	@ float
-  19:Core/Src/encoder.cpp ****         henc->Instance->CNT =0;
- 264              		.loc 1 19 0
- 265 0030 2B68     		ldr	r3, [r5]
- 266 0032 5B6A     		ldr	r3, [r3, #36]
- 267 0034 2289     		ldrh	r2, [r4, #8]
- 268 0036 1344     		add	r3, r3, r2
- 269 0038 2381     		strh	r3, [r4, #8]	@ movhi
-  20:Core/Src/encoder.cpp ****     }
- 270              		.loc 1 20 0
- 271 003a 2B68     		ldr	r3, [r5]
- 272 003c 0022     		movs	r2, #0
- 273 003e 5A62     		str	r2, [r3, #36]
-  21:Core/Src/encoder.cpp **** 
- 274              		.loc 1 21 0
- 275 0040 38BD     		pop	{r3, r4, r5, pc}
- 276              	.LVL26:
- 277              	.L25:
- 278 0042 00BFAFF3 		.align	3
- 278      0080
- 279              	.L24:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 7
+ 263 0030 80F00040 		eor	r0, r0, #-2147483648
+ 264 0034 6060     		str	r0, [r4, #4]	@ float
+  22:Core/Src/encoder.cpp ****     henc->Instance->CNT = 0;
+ 265              		.loc 1 22 0
+ 266 0036 2B68     		ldr	r3, [r5]
+ 267 0038 5B6A     		ldr	r3, [r3, #36]
+ 268 003a 2289     		ldrh	r2, [r4, #8]
+ 269 003c 1344     		add	r3, r3, r2
+ 270 003e 2381     		strh	r3, [r4, #8]	@ movhi
+  23:Core/Src/encoder.cpp **** }
+ 271              		.loc 1 23 0
+ 272 0040 2B68     		ldr	r3, [r5]
+ 273 0042 0022     		movs	r2, #0
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 7
 
 
- 280 0048 00408F40 		.word	1083129856
- 281 004c 0040AF40 		.word	1085227008
- 282 0050 6F1283C0 		.word	-1065151889
- 283 0054 CA211940 		.word	1075388874
- 284              		.cfi_endproc
- 285              	.LFE145:
- 287              		.section	.text._Z14calculate_datai,"ax",%progbits
- 288              		.align	1
- 289              		.global	_Z14calculate_datai
- 290              		.syntax unified
- 291              		.thumb
- 292              		.thumb_func
- 293              		.fpu fpv4-sp-d16
- 295              	_Z14calculate_datai:
- 296              	.LFB146:
-  23:Core/Src/encoder.cpp ****     encoder_config[i].calculate();
- 297              		.loc 1 23 0
- 298              		.cfi_startproc
- 299              		@ args = 0, pretend = 0, frame = 0
- 300              		@ frame_needed = 0, uses_anonymous_args = 0
- 301              	.LVL27:
- 302 0000 08B5     		push	{r3, lr}
- 303              	.LCFI3:
- 304              		.cfi_def_cfa_offset 8
- 305              		.cfi_offset 3, -8
- 306              		.cfi_offset 14, -4
-  24:Core/Src/encoder.cpp **** }
- 307              		.loc 1 24 0
- 308 0002 00EB4000 		add	r0, r0, r0, lsl #1
- 309              	.LVL28:
- 310 0006 8300     		lsls	r3, r0, #2
- 311 0008 0248     		ldr	r0, .L28
- 312 000a 1844     		add	r0, r0, r3
- 313 000c FFF7FEFF 		bl	_ZN7encoder9calculateEv
- 314              	.LVL29:
-  25:Core/Src/encoder.cpp **** 
- 315              		.loc 1 25 0
- 316 0010 08BD     		pop	{r3, pc}
- 317              	.L29:
- 318 0012 00BF     		.align	2
- 319              	.L28:
- 320 0014 00000000 		.word	.LANCHOR0
- 321              		.cfi_endproc
- 322              	.LFE146:
- 324              		.global	__aeabi_f2d
- 325              		.section	.text._Z8get_datai,"ax",%progbits
- 326              		.align	1
- 327              		.global	_Z8get_datai
- 328              		.syntax unified
- 329              		.thumb
- 330              		.thumb_func
- 331              		.fpu fpv4-sp-d16
- 333              	_Z8get_datai:
- 334              	.LFB147:
-  27:Core/Src/encoder.cpp ****     encoder_config[i].get_omega();
- 335              		.loc 1 27 0
- 336              		.cfi_startproc
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 8
-
-
- 337              		@ args = 0, pretend = 0, frame = 0
- 338              		@ frame_needed = 0, uses_anonymous_args = 0
- 339              	.LVL30:
- 340 0000 08B5     		push	{r3, lr}
- 341              	.LCFI4:
- 342              		.cfi_def_cfa_offset 8
- 343              		.cfi_offset 3, -8
- 344              		.cfi_offset 14, -4
- 345              	.LVL31:
- 346              	.LBB38:
- 347              	.LBB39:
-  22:Core/Inc/encoder.h ****     void calculate(void);
-  23:Core/Inc/encoder.h ****     float get_omega(void) { printf("\n %f", omega); return omega; }
- 348              		.loc 2 23 0
- 349 0002 00EB4000 		add	r0, r0, r0, lsl #1
- 350              	.LVL32:
- 351 0006 8200     		lsls	r2, r0, #2
- 352 0008 054B     		ldr	r3, .L32
- 353 000a 1344     		add	r3, r3, r2
- 354 000c 5868     		ldr	r0, [r3, #4]	@ float
- 355 000e FFF7FEFF 		bl	__aeabi_f2d
- 356              	.LVL33:
- 357 0012 0246     		mov	r2, r0
- 358 0014 0B46     		mov	r3, r1
- 359 0016 0348     		ldr	r0, .L32+4
- 360 0018 FFF7FEFF 		bl	printf
- 361              	.LVL34:
- 362              	.LBE39:
- 363              	.LBE38:
+ 274 0044 5A62     		str	r2, [r3, #36]
+  24:Core/Src/encoder.cpp **** 
+ 275              		.loc 1 24 0
+ 276 0046 38BD     		pop	{r3, r4, r5, pc}
+ 277              	.LVL26:
+ 278              	.L25:
+ 279              		.align	3
+ 280              	.L24:
+ 281 0048 00000000 		.word	0
+ 282 004c 007EC340 		.word	1086553600
+ 283 0050 00408F40 		.word	1083129856
+ 284 0054 6F1283C0 		.word	-1065151889
+ 285 0058 CA211940 		.word	1075388874
+ 286              		.cfi_endproc
+ 287              	.LFE369:
+ 289              		.section	.text._Z14calculate_datai,"ax",%progbits
+ 290              		.align	1
+ 291              		.global	_Z14calculate_datai
+ 292              		.syntax unified
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.fpu fpv4-sp-d16
+ 297              	_Z14calculate_datai:
+ 298              	.LFB370:
+  27:Core/Src/encoder.cpp ****     encoder_config[i].calculate();
+ 299              		.loc 1 27 0
+ 300              		.cfi_startproc
+ 301              		@ args = 0, pretend = 0, frame = 0
+ 302              		@ frame_needed = 0, uses_anonymous_args = 0
+ 303              	.LVL27:
+ 304 0000 08B5     		push	{r3, lr}
+ 305              	.LCFI3:
+ 306              		.cfi_def_cfa_offset 8
+ 307              		.cfi_offset 3, -8
+ 308              		.cfi_offset 14, -4
+  28:Core/Src/encoder.cpp **** }
+ 309              		.loc 1 28 0
+ 310 0002 00EB4000 		add	r0, r0, r0, lsl #1
+ 311              	.LVL28:
+ 312 0006 8300     		lsls	r3, r0, #2
+ 313 0008 0248     		ldr	r0, .L28
+ 314 000a 1844     		add	r0, r0, r3
+ 315 000c FFF7FEFF 		bl	_ZN7encoder9calculateEv
+ 316              	.LVL29:
   29:Core/Src/encoder.cpp **** 
- 364              		.loc 1 29 0
- 365 001c 08BD     		pop	{r3, pc}
- 366              	.L33:
- 367 001e 00BF     		.align	2
- 368              	.L32:
- 369 0020 00000000 		.word	.LANCHOR0
- 370 0024 00000000 		.word	.LC0
- 371              		.cfi_endproc
- 372              	.LFE147:
- 374              		.section	.text._Z7get_cnti,"ax",%progbits
- 375              		.align	1
- 376              		.global	_Z7get_cnti
- 377              		.syntax unified
- 378              		.thumb
- 379              		.thumb_func
- 380              		.fpu fpv4-sp-d16
- 382              	_Z7get_cnti:
- 383              	.LFB148:
-  31:Core/Src/encoder.cpp ****     encoder_config[i].get_count();
- 384              		.loc 1 31 0
- 385              		.cfi_startproc
- 386              		@ args = 0, pretend = 0, frame = 0
- 387              		@ frame_needed = 0, uses_anonymous_args = 0
- 388              	.LVL35:
- 389 0000 08B5     		push	{r3, lr}
- 390              	.LCFI5:
- 391              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 9
+ 317              		.loc 1 29 0
+ 318 0010 08BD     		pop	{r3, pc}
+ 319              	.L29:
+ 320 0012 00BF     		.align	2
+ 321              	.L28:
+ 322 0014 00000000 		.word	.LANCHOR0
+ 323              		.cfi_endproc
+ 324              	.LFE370:
+ 326              		.section	.text._Z8get_datai,"ax",%progbits
+ 327              		.align	1
+ 328              		.global	_Z8get_datai
+ 329              		.syntax unified
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 8
 
 
- 392              		.cfi_offset 3, -8
- 393              		.cfi_offset 14, -4
- 394              	.LVL36:
- 395              	.LBB40:
- 396              	.LBB41:
-  24:Core/Inc/encoder.h ****     float get_count(void) { printf("\ncount: %d", count); return count; }
- 397              		.loc 2 24 0
- 398 0002 00EB4000 		add	r0, r0, r0, lsl #1
- 399              	.LVL37:
- 400 0006 8200     		lsls	r2, r0, #2
- 401 0008 034B     		ldr	r3, .L36
- 402 000a 1344     		add	r3, r3, r2
- 403 000c B3F90810 		ldrsh	r1, [r3, #8]
- 404 0010 0248     		ldr	r0, .L36+4
- 405 0012 FFF7FEFF 		bl	printf
- 406              	.LVL38:
- 407              	.LBE41:
- 408              	.LBE40:
- 409              		.loc 1 33 0
- 410 0016 08BD     		pop	{r3, pc}
- 411              	.L37:
- 412              		.align	2
- 413              	.L36:
- 414 0018 00000000 		.word	.LANCHOR0
- 415 001c 00000000 		.word	.LC1
- 416              		.cfi_endproc
- 417              	.LFE148:
- 419              		.section	.text._GLOBAL__sub_I__Z12encoder_initv,"ax",%progbits
- 420              		.align	1
- 421              		.syntax unified
- 422              		.thumb
- 423              		.thumb_func
- 424              		.fpu fpv4-sp-d16
- 426              	_GLOBAL__sub_I__Z12encoder_initv:
- 427              	.LFB151:
- 428              		.loc 1 33 0
- 429              		.cfi_startproc
- 430              		@ args = 0, pretend = 0, frame = 0
- 431              		@ frame_needed = 0, uses_anonymous_args = 0
- 432 0000 08B5     		push	{r3, lr}
- 433              	.LCFI6:
- 434              		.cfi_def_cfa_offset 8
- 435              		.cfi_offset 3, -8
- 436              		.cfi_offset 14, -4
- 437              		.loc 1 33 0
- 438 0002 4FF6FF71 		movw	r1, #65535
- 439 0006 0120     		movs	r0, #1
- 440 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 441              	.LVL39:
- 442 000c 08BD     		pop	{r3, pc}
- 443              		.cfi_endproc
- 444              	.LFE151:
- 446              		.section	.init_array,"aw",%init_array
- 447              		.align	2
- 448 0000 00000000 		.word	_GLOBAL__sub_I__Z12encoder_initv(target1)
- 449              		.section	.bss._ZL14encoder_config,"aw",%nobits
- 450              		.align	2
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 10
+ 330              		.thumb
+ 331              		.thumb_func
+ 332              		.fpu fpv4-sp-d16
+ 334              	_Z8get_datai:
+ 335              	.LFB371:
+  32:Core/Src/encoder.cpp ****     //    printf("get_omega=%f",encoder_config[i].get_omega());
+ 336              		.loc 1 32 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              	.LVL30:
+ 341 0000 70B5     		push	{r4, r5, r6, lr}
+ 342              	.LCFI4:
+ 343              		.cfi_def_cfa_offset 16
+ 344              		.cfi_offset 4, -16
+ 345              		.cfi_offset 5, -12
+ 346              		.cfi_offset 6, -8
+ 347              		.cfi_offset 14, -4
+ 348 0002 0646     		mov	r6, r0
+  34:Core/Src/encoder.cpp **** }
+ 349              		.loc 1 34 0
+ 350 0004 064D     		ldr	r5, .L32
+ 351 0006 4400     		lsls	r4, r0, #1
+ 352 0008 2318     		adds	r3, r4, r0
+ 353 000a 9800     		lsls	r0, r3, #2
+ 354              	.LVL31:
+ 355              	.LBB38:
+ 356              	.LBB39:
+  23:Core/Inc/encoder.h ****     void calculate(void);
+  24:Core/Inc/encoder.h ****     float get_omega(void)
+  25:Core/Inc/encoder.h ****     {
+  26:Core/Inc/encoder.h ****         this->calculate();
+ 357              		.loc 2 26 0
+ 358 000c 2844     		add	r0, r0, r5
+ 359              	.LVL32:
+ 360 000e FFF7FEFF 		bl	_ZN7encoder9calculateEv
+ 361              	.LVL33:
+  27:Core/Inc/encoder.h ****         // printf("%f\t", omega);
+  28:Core/Inc/encoder.h ****         return omega;
+ 362              		.loc 2 28 0
+ 363 0012 3444     		add	r4, r4, r6
+ 364              	.LVL34:
+ 365 0014 A300     		lsls	r3, r4, #2
+ 366              	.LVL35:
+ 367 0016 1D44     		add	r5, r5, r3
+ 368              	.LVL36:
+ 369              	.LBE39:
+ 370              	.LBE38:
+  35:Core/Src/encoder.cpp **** 
+ 371              		.loc 1 35 0
+ 372 0018 95ED010A 		vldr.32	s0, [r5, #4]
+ 373 001c 70BD     		pop	{r4, r5, r6, pc}
+ 374              	.LVL37:
+ 375              	.L33:
+ 376 001e 00BF     		.align	2
+ 377              	.L32:
+ 378 0020 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 9
 
 
- 451              		.set	.LANCHOR0,. + 0
- 454              	_ZL14encoder_config:
- 455 0000 00000000 		.space	48
- 455      00000000 
- 455      00000000 
- 455      00000000 
- 455      00000000 
- 456              		.section	.rodata._Z7get_cnti.str1.4,"aMS",%progbits,1
- 457              		.align	2
- 458              	.LC1:
- 459 0000 0A636F75 		.ascii	"\012count: %d\000"
- 459      6E743A20 
- 459      256400
- 460              		.section	.rodata._Z8get_datai.str1.4,"aMS",%progbits,1
- 461              		.align	2
- 462              	.LC0:
- 463 0000 0A202566 		.ascii	"\012 %f\000"
- 463      00
- 464              		.text
- 465              	.Letext0:
- 466              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 467              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 468              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 469              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 470              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 471              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 472              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 473              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 474              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 475              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 476              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 477              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 478              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
- 479              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 480              		.file 17 "Core/Inc/tim.h"
- 481              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s 			page 11
+ 379              		.cfi_endproc
+ 380              	.LFE371:
+ 382              		.section	.text._Z7get_cnti,"ax",%progbits
+ 383              		.align	1
+ 384              		.global	_Z7get_cnti
+ 385              		.syntax unified
+ 386              		.thumb
+ 387              		.thumb_func
+ 388              		.fpu fpv4-sp-d16
+ 390              	_Z7get_cnti:
+ 391              	.LFB372:
+  38:Core/Src/encoder.cpp ****     return encoder_config[i].get_count();
+ 392              		.loc 1 38 0
+ 393              		.cfi_startproc
+ 394              		@ args = 0, pretend = 0, frame = 0
+ 395              		@ frame_needed = 0, uses_anonymous_args = 0
+ 396              	.LVL38:
+ 397 0000 70B5     		push	{r4, r5, r6, lr}
+ 398              	.LCFI5:
+ 399              		.cfi_def_cfa_offset 16
+ 400              		.cfi_offset 4, -16
+ 401              		.cfi_offset 5, -12
+ 402              		.cfi_offset 6, -8
+ 403              		.cfi_offset 14, -4
+ 404 0002 0646     		mov	r6, r0
+ 405              	.LVL39:
+ 406              	.LBB40:
+ 407              	.LBB41:
+  29:Core/Inc/encoder.h ****     }
+  30:Core/Inc/encoder.h ****     float get_count(void)
+  31:Core/Inc/encoder.h ****     {
+  32:Core/Inc/encoder.h ****         printf("\ncount: %d", count);
+ 408              		.loc 2 32 0
+ 409 0004 074D     		ldr	r5, .L36
+ 410 0006 4400     		lsls	r4, r0, #1
+ 411 0008 2218     		adds	r2, r4, r0
+ 412 000a 9300     		lsls	r3, r2, #2
+ 413 000c 2B44     		add	r3, r3, r5
+ 414 000e B3F90810 		ldrsh	r1, [r3, #8]
+ 415 0012 0548     		ldr	r0, .L36+4
+ 416              	.LVL40:
+ 417 0014 FFF7FEFF 		bl	printf
+ 418              	.LVL41:
+  33:Core/Inc/encoder.h ****         return count;
+ 419              		.loc 2 33 0
+ 420 0018 3444     		add	r4, r4, r6
+ 421 001a A300     		lsls	r3, r4, #2
+ 422 001c 1D44     		add	r5, r5, r3
+ 423              	.LVL42:
+ 424              	.LBE41:
+ 425              	.LBE40:
+ 426              		.loc 1 40 0
+ 427 001e B5F90800 		ldrsh	r0, [r5, #8]
+ 428 0022 70BD     		pop	{r4, r5, r6, pc}
+ 429              	.LVL43:
+ 430              	.L37:
+ 431              		.align	2
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 10
+
+
+ 432              	.L36:
+ 433 0024 00000000 		.word	.LANCHOR0
+ 434 0028 00000000 		.word	.LC0
+ 435              		.cfi_endproc
+ 436              	.LFE372:
+ 438              		.section	.text._GLOBAL__sub_I__Z12encoder_initv,"ax",%progbits
+ 439              		.align	1
+ 440              		.syntax unified
+ 441              		.thumb
+ 442              		.thumb_func
+ 443              		.fpu fpv4-sp-d16
+ 445              	_GLOBAL__sub_I__Z12encoder_initv:
+ 446              	.LFB375:
+ 447              		.loc 1 40 0
+ 448              		.cfi_startproc
+ 449              		@ args = 0, pretend = 0, frame = 0
+ 450              		@ frame_needed = 0, uses_anonymous_args = 0
+ 451 0000 08B5     		push	{r3, lr}
+ 452              	.LCFI6:
+ 453              		.cfi_def_cfa_offset 8
+ 454              		.cfi_offset 3, -8
+ 455              		.cfi_offset 14, -4
+ 456              		.loc 1 40 0
+ 457 0002 4FF6FF71 		movw	r1, #65535
+ 458 0006 0120     		movs	r0, #1
+ 459 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 460              	.LVL44:
+ 461 000c 08BD     		pop	{r3, pc}
+ 462              		.cfi_endproc
+ 463              	.LFE375:
+ 465              		.section	.init_array,"aw",%init_array
+ 466              		.align	2
+ 467 0000 00000000 		.word	_GLOBAL__sub_I__Z12encoder_initv(target1)
+ 468              		.section	.bss._ZL14encoder_config,"aw",%nobits
+ 469              		.align	2
+ 470              		.set	.LANCHOR0,. + 0
+ 473              	_ZL14encoder_config:
+ 474 0000 00000000 		.space	48
+ 474      00000000 
+ 474      00000000 
+ 474      00000000 
+ 474      00000000 
+ 475              		.section	.rodata._Z7get_cnti.str1.4,"aMS",%progbits,1
+ 476              		.align	2
+ 477              	.LC0:
+ 478 0000 0A636F75 		.ascii	"\012count: %d\000"
+ 478      6E743A20 
+ 478      256400
+ 479              		.text
+ 480              	.Letext0:
+ 481              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 482              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 483              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 484              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 485              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 486              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 487              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 11
+
+
+ 488              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 489              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 490              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 491              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 492              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 493              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
+ 494              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 495              		.file 17 "Core/Inc/tim.h"
+ 496              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 497              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 498              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 499              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 500              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 501              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 502              		.file 24 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 503              		.file 25 "<built-in>"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 encoder.cpp
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:18     .text.__tcf_0:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:24     .text.__tcf_0:00000000 __tcf_0
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:50     .text.__tcf_0:00000010 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:56     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:62     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:126    .text._Z41__static_initialization_and_destruction_0ii:00000034 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:133    .text._Z12encoder_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:140    .text._Z12encoder_initv:00000000 _Z12encoder_initv
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:206    .text._Z12encoder_initv:00000034 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:219    .text._ZN7encoder9calculateEv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:226    .text._ZN7encoder9calculateEv:00000000 _ZN7encoder9calculateEv
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:280    .text._ZN7encoder9calculateEv:00000048 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:288    .text._Z14calculate_datai:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:295    .text._Z14calculate_datai:00000000 _Z14calculate_datai
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:320    .text._Z14calculate_datai:00000014 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:326    .text._Z8get_datai:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:333    .text._Z8get_datai:00000000 _Z8get_datai
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:369    .text._Z8get_datai:00000020 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:375    .text._Z7get_cnti:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:382    .text._Z7get_cnti:00000000 _Z7get_cnti
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:414    .text._Z7get_cnti:00000018 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:420    .text._GLOBAL__sub_I__Z12encoder_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:426    .text._GLOBAL__sub_I__Z12encoder_initv:00000000 _GLOBAL__sub_I__Z12encoder_initv
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:447    .init_array:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:450    .bss._ZL14encoder_config:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:454    .bss._ZL14encoder_config:00000000 _ZL14encoder_config
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:457    .rodata._Z7get_cnti.str1.4:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccWBvVvl.s:461    .rodata._Z8get_datai.str1.4:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:18     .text.__tcf_0:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:24     .text.__tcf_0:00000000 __tcf_0
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:50     .text.__tcf_0:00000010 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:56     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:62     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:126    .text._Z41__static_initialization_and_destruction_0ii:00000034 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:133    .text._Z12encoder_initv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:140    .text._Z12encoder_initv:00000000 _Z12encoder_initv
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:206    .text._Z12encoder_initv:00000034 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:219    .text._ZN7encoder9calculateEv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:226    .text._ZN7encoder9calculateEv:00000000 _ZN7encoder9calculateEv
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:281    .text._ZN7encoder9calculateEv:00000048 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:290    .text._Z14calculate_datai:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:297    .text._Z14calculate_datai:00000000 _Z14calculate_datai
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:322    .text._Z14calculate_datai:00000014 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:327    .text._Z8get_datai:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:334    .text._Z8get_datai:00000000 _Z8get_datai
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:378    .text._Z8get_datai:00000020 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:383    .text._Z7get_cnti:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:390    .text._Z7get_cnti:00000000 _Z7get_cnti
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:433    .text._Z7get_cnti:00000024 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:439    .text._GLOBAL__sub_I__Z12encoder_initv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:445    .text._GLOBAL__sub_I__Z12encoder_initv:00000000 _GLOBAL__sub_I__Z12encoder_initv
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:466    .init_array:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:469    .bss._ZL14encoder_config:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:473    .bss._ZL14encoder_config:00000000 _ZL14encoder_config
+C:\Users\Aasman\AppData\Local\Temp\ccMnpfgb.s:476    .rodata._Z7get_cnti.str1.4:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_atexit
@@ -623,5 +662,4 @@ __aeabi_i2d
 __aeabi_dmul
 __aeabi_ddiv
 __aeabi_d2f
-__aeabi_f2d
 printf

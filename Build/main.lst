@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -25,7 +25,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
   22              		.thumb_func
   23              		.fpu fpv4-sp-d16
   25              	_Z18SystemClock_Configv:
-  26              	.LFB367:
+  26              	.LFB393:
   27              		.file 1 "Core/Src/main.cpp"
    1:Core/Src/main.cpp **** /* USER CODE BEGIN Header */
    2:Core/Src/main.cpp **** /**
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
   29:Core/Src/main.cpp **** #include "robo_init.h"
   30:Core/Src/main.cpp **** #include "motor.h"
   31:Core/Src/main.cpp **** #include "actuator.h"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 2
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 2
 
 
   32:Core/Src/main.cpp **** #include "dma.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
   86:Core/Src/main.cpp **** 
   87:Core/Src/main.cpp ****   /* Configure the system clock */
   88:Core/Src/main.cpp ****   SystemClock_Config();
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 3
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 3
 
 
   89:Core/Src/main.cpp **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
   44 0008 08A8     		add	r0, sp, #32
   45 000a FFF7FEFF 		bl	memset
   46              	.LVL0:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 4
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 4
 
 
  127:Core/Src/main.cpp ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
   89 0058 0F93     		str	r3, [sp, #60]
  139:Core/Src/main.cpp ****   RCC_OscInitStruct.PLL.PLLM = 8;
   90              		.loc 1 139 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 5
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 5
 
 
   91 005a 0823     		movs	r3, #8
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
  124 008c 15B0     		add	sp, sp, #84
  125              	.LCFI2:
  126              		.cfi_def_cfa_offset 12
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 6
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 6
 
 
  127              		@ sp needed
@@ -309,7 +309,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
  132 0090 00380240 		.word	1073887232
  133 0094 00700040 		.word	1073770496
  134              		.cfi_endproc
- 135              	.LFE367:
+ 135              	.LFE393:
  137              		.section	.text.main,"ax",%progbits
  138              		.align	1
  139              		.global	main
@@ -318,7 +318,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
  142              		.thumb_func
  143              		.fpu fpv4-sp-d16
  145              	main:
- 146              	.LFB366:
+ 146              	.LFB392:
   72:Core/Src/main.cpp ****   /* USER CODE BEGIN 1 */
  147              		.loc 1 72 0
  148              		.cfi_startproc
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
  175              		.loc 1 99 0
  176 001a FFF7FEFF 		bl	MX_TIM3_Init
  177              	.LVL9:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 7
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 7
 
 
  100:Core/Src/main.cpp ****   MX_TIM8_Init();
@@ -388,7 +388,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
  196              	.LVL15:
  197 0036 FCE7     		b	.L6
  198              		.cfi_endproc
- 199              	.LFE366:
+ 199              	.LFE392:
  201              		.section	.text.Error_Handler,"ax",%progbits
  202              		.align	1
  203              		.global	Error_Handler
@@ -397,7 +397,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
  206              		.thumb_func
  207              		.fpu fpv4-sp-d16
  209              	Error_Handler:
- 210              	.LFB368:
+ 210              	.LFB394:
  161:Core/Src/main.cpp **** 
  162:Core/Src/main.cpp **** /* USER CODE BEGIN 4 */
  163:Core/Src/main.cpp **** 
@@ -418,14 +418,14 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
  173:Core/Src/main.cpp ****   /* User can add his own implementation to report the HAL error return state */
  174:Core/Src/main.cpp **** 
  175:Core/Src/main.cpp ****   /* USER CODE END Error_Handler_Debug */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 8
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 8
 
 
  176:Core/Src/main.cpp **** }
  216              		.loc 1 176 0
  217 0000 7047     		bx	lr
  218              		.cfi_endproc
- 219              	.LFE368:
+ 219              	.LFE394:
  221              		.text
  222              	.Letext0:
  223              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
@@ -456,18 +456,18 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 1
  248              		.file 27 "Core/Inc/robo_init.h"
  249              		.file 28 "Core/Inc/actuator.h"
  250              		.file 29 "<built-in>"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s 			page 9
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.cpp
-C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s:18     .text._Z18SystemClock_Configv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s:25     .text._Z18SystemClock_Configv:00000000 _Z18SystemClock_Configv
-C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s:132    .text._Z18SystemClock_Configv:00000090 $d
-C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s:138    .text.main:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s:145    .text.main:00000000 main
-C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s:202    .text.Error_Handler:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccERTgL3.s:209    .text.Error_Handler:00000000 Error_Handler
+C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s:18     .text._Z18SystemClock_Configv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s:25     .text._Z18SystemClock_Configv:00000000 _Z18SystemClock_Configv
+C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s:132    .text._Z18SystemClock_Configv:00000090 $d
+C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s:138    .text.main:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s:145    .text.main:00000000 main
+C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s:202    .text.Error_Handler:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccHPTkEa.s:209    .text.Error_Handler:00000000 Error_Handler
 
 UNDEFINED SYMBOLS
 memset

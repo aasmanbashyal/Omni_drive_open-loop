@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
   29:Core/Src/usart.c **** DMA_HandleTypeDef hdma_uart4_rx;
   30:Core/Src/usart.c **** DMA_HandleTypeDef hdma_usart2_rx;
   31:Core/Src/usart.c **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 2
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 2
 
 
   32:Core/Src/usart.c **** /* UART4 init function */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
   64 0024 08BD     		pop	{r3, pc}
   65              	.L4:
   46:Core/Src/usart.c ****   }
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 3
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 3
 
 
   66              		.loc 1 46 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
   60:Core/Src/usart.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
  112              		.loc 1 60 0
  113 0016 0C22     		movs	r2, #12
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 4
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 4
 
 
  114 0018 4261     		str	r2, [r0, #20]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  158              		.cfi_offset 4, -12
  159              		.cfi_offset 5, -8
  160              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 5
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 5
 
 
  161 0002 8BB0     		sub	sp, sp, #44
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  110:Core/Src/usart.c **** 
  111:Core/Src/usart.c ****     __HAL_LINKDMA(uartHandle,hdmarx,hdma_uart4_rx);
  112:Core/Src/usart.c **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 6
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 6
 
 
  113:Core/Src/usart.c ****   /* USER CODE BEGIN UART4_MspInit 1 */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  183              		.loc 1 160 0
  184 0020 0BB0     		add	sp, sp, #44
  185              	.LCFI4:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 7
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 7
 
 
  186              		.cfi_remember_state
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
   92:Core/Src/usart.c **** 
  233              		.loc 1 92 0
  234 0066 05A9     		add	r1, sp, #20
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 8
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 8
 
 
  235 0068 3248     		ldr	r0, .L23+12
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  276 00a0 FFF7FEFF 		bl	Error_Handler
  277              	.LVL10:
  278 00a4 F8E7     		b	.L15
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 9
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 9
 
 
  279              	.LVL11:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  325              	.LVL13:
  139:Core/Src/usart.c ****     hdma_usart2_rx.Init.Channel = DMA_CHANNEL_4;
  326              		.loc 1 139 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 10
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 10
 
 
  327 00ee 1548     		ldr	r0, .L23+28
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  369              	.L23:
  370 0128 004C0040 		.word	1073761280
  371 012c 00440040 		.word	1073759232
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 11
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 11
 
 
  372 0130 00380240 		.word	1073887232
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  181:Core/Src/usart.c ****   /* USER CODE BEGIN UART4_MspDeInit 1 */
  182:Core/Src/usart.c **** 
  183:Core/Src/usart.c ****   /* USER CODE END UART4_MspDeInit 1 */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 12
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 12
 
 
  184:Core/Src/usart.c ****   }
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  436              		.loc 1 191 0
  437 0032 02F5FA32 		add	r2, r2, #128000
  438 0036 136C     		ldr	r3, [r2, #64]
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 13
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 13
 
 
  439 0038 23F40033 		bic	r3, r3, #131072
@@ -767,27 +767,27 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 1
  481              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
  482              		.file 15 "Core/Inc/usart.h"
  483              		.file 16 "Core/Inc/main.h"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s 			page 14
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usart.c
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:18     .text.MX_UART4_Init:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:25     .text.MX_UART4_Init:00000000 MX_UART4_Init
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:74     .text.MX_UART4_Init:0000002c $d
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:18     .text.MX_UART4_Init:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:25     .text.MX_UART4_Init:00000000 MX_UART4_Init
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:74     .text.MX_UART4_Init:0000002c $d
                             *COM*:00000040 huart4
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:80     .text.MX_USART2_UART_Init:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:87     .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:135    .text.MX_USART2_UART_Init:0000002c $d
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:80     .text.MX_USART2_UART_Init:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:87     .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:135    .text.MX_USART2_UART_Init:0000002c $d
                             *COM*:00000040 huart2
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:141    .text.HAL_UART_MspInit:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:148    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:370    .text.HAL_UART_MspInit:00000128 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:141    .text.HAL_UART_MspInit:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:148    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:370    .text.HAL_UART_MspInit:00000128 $d
                             *COM*:00000060 hdma_uart4_rx
                             *COM*:00000060 hdma_usart2_rx
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:383    .text.HAL_UART_MspDeInit:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:390    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-C:\Users\Aasman\AppData\Local\Temp\cc58CmlQ.s:456    .text.HAL_UART_MspDeInit:00000050 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:383    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:390    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\Aasman\AppData\Local\Temp\cc0BgJee.s:456    .text.HAL_UART_MspDeInit:00000050 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Init

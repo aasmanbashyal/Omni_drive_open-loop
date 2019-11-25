@@ -74,7 +74,9 @@ Core/Src/robo_init.cpp \
 Core/Src/encoder.cpp \
 Core/Src/main.cpp\
 Core/Src/joystick.cpp\
-Core/Src/crc_hash.cpp
+Core/Src/crc_hash.cpp\
+Core/Src/pid.cpp
+
 
 ##
 #######################################
