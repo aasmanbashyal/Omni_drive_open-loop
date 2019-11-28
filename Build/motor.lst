@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
   44              	.L2:
   45 0010 00BD0105 		.word	84000000
   46              		.cfi_endproc
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 2
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 2
 
 
   47              	.LFE392:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
   96 0030 1864     		str	r0, [r3, #64]
   97              	.LVL6:
   20:Core/Src/motor.cpp **** }
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 3
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 3
 
 
   98              		.loc 1 20 0 is_stmt 1 discriminator 6
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  148              		.cfi_offset 14, -4
   24:Core/Src/motor.cpp ****         set_DutyCycle_Primary(m->htim, m->channel, dutyCycle);
  149              		.loc 1 24 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 4
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 4
 
 
  150 0002 0A46     		mov	r2, r1
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  183              		.cfi_offset 3, -24
  184              		.cfi_offset 4, -20
  185              		.cfi_offset 5, -16
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 5
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 5
 
 
  186              		.cfi_offset 6, -12
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  236              		.thumb_func
  237              		.fpu fpv4-sp-d16
  239              	_ZL18set_motorDirectionP12motor_config9Direction:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 6
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 6
 
 
  240              	.LFB395:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  286 002c A18A     		ldrh	r1, [r4, #20]
  287 002e 2069     		ldr	r0, [r4, #16]
  288 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 7
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 7
 
 
  289              	.LVL33:
@@ -396,14 +396,16 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
   53:Core/Src/motor.cpp **** 
   54:Core/Src/motor.cpp **** void motor ::motor_input(float setpoint, float iOmega)
   55:Core/Src/motor.cpp **** {
-  56:Core/Src/motor.cpp **** 
+  56:Core/Src/motor.cpp ****         printf("Measured Omega = %f ", iOmega);
   57:Core/Src/motor.cpp ****         float computed_omega = Spid.computePID(setpoint, iOmega);
-  58:Core/Src/motor.cpp ****         this->set_omega(computed_omega);
-  59:Core/Src/motor.cpp **** }
-  60:Core/Src/motor.cpp **** 
-  61:Core/Src/motor.cpp **** void motor::set_omega(float omega)
-  62:Core/Src/motor.cpp **** {
- 321              		.loc 1 62 0
+  58:Core/Src/motor.cpp ****         // printf("computed_omega = %f \n", computed_omega);
+  59:Core/Src/motor.cpp **** 
+  60:Core/Src/motor.cpp ****         this->set_omega(computed_omega);
+  61:Core/Src/motor.cpp **** }
+  62:Core/Src/motor.cpp **** 
+  63:Core/Src/motor.cpp **** void motor::set_omega(float omega)
+  64:Core/Src/motor.cpp **** {
+ 321              		.loc 1 64 0
  322              		.cfi_startproc
  323              		@ args = 0, pretend = 0, frame = 0
  324              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -416,26 +418,26 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  331 0002 2DED028B 		vpush.64	{d8}
  332              	.LCFI5:
  333              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 8
+
+
  334              		.cfi_offset 80, -16
  335              		.cfi_offset 81, -12
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 8
-
-
  336 0006 0446     		mov	r4, r0
-  63:Core/Src/motor.cpp ****         // printf("omega = %d", (int)(omega*100));
-  64:Core/Src/motor.cpp ****         if (omega > motor_->max_omega)
- 337              		.loc 1 64 0
+  65:Core/Src/motor.cpp ****         // printf("omega = %d", (int)(omega*100));
+  66:Core/Src/motor.cpp ****         if (omega > motor_->max_omega)
+ 337              		.loc 1 66 0
  338 0008 0068     		ldr	r0, [r0]
  339              	.LVL40:
  340 000a 90ED008A 		vldr.32	s16, [r0]
  341 000e B4EEC08A 		vcmpe.f32	s16, s0
  342 0012 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  343 0016 08D4     		bmi	.L29
-  65:Core/Src/motor.cpp ****         {
-  66:Core/Src/motor.cpp ****                 omega = motor_->max_omega;
-  67:Core/Src/motor.cpp ****         }
-  68:Core/Src/motor.cpp ****         else if (omega < -motor_->max_omega)
- 344              		.loc 1 68 0
+  67:Core/Src/motor.cpp ****         {
+  68:Core/Src/motor.cpp ****                 omega = motor_->max_omega;
+  69:Core/Src/motor.cpp ****         }
+  70:Core/Src/motor.cpp ****         else if (omega < -motor_->max_omega)
+ 344              		.loc 1 70 0
  345 0018 B1EE488A 		vneg.f32	s16, s16
  346 001c B4EEC08A 		vcmpe.f32	s16, s0
  347 0020 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
@@ -443,49 +445,49 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  349 0026 B0EE408A 		vmov.f32	s16, s0
  350              	.L29:
  351              	.LVL41:
-  69:Core/Src/motor.cpp ****         {
-  70:Core/Src/motor.cpp ****                 omega = -motor_->max_omega;
-  71:Core/Src/motor.cpp ****         }
-  72:Core/Src/motor.cpp ****         if (omega < -motor_->tolerance)
- 352              		.loc 1 72 0
+  71:Core/Src/motor.cpp ****         {
+  72:Core/Src/motor.cpp ****                 omega = -motor_->max_omega;
+  73:Core/Src/motor.cpp ****         }
+  74:Core/Src/motor.cpp ****         if (omega < -motor_->tolerance)
+ 352              		.loc 1 74 0
  353 002a D0ED017A 		vldr.32	s15, [r0, #4]
  354 002e B1EE677A 		vneg.f32	s14, s15
  355 0032 B4EEC87A 		vcmpe.f32	s14, s16
  356 0036 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  357 003a 0FDC     		bgt	.L40
-  73:Core/Src/motor.cpp ****         {
-  74:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::CLOCKWISE);
-  75:Core/Src/motor.cpp ****                 set_motorOmega(motor_, fabs(omega));
-  76:Core/Src/motor.cpp ****         }
-  77:Core/Src/motor.cpp ****         else if (omega > motor_->tolerance)
- 358              		.loc 1 77 0
+  75:Core/Src/motor.cpp ****         {
+  76:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::CLOCKWISE);
+  77:Core/Src/motor.cpp ****                 set_motorOmega(motor_, fabs(omega));
+  78:Core/Src/motor.cpp ****         }
+  79:Core/Src/motor.cpp ****         else if (omega > motor_->tolerance)
+ 358              		.loc 1 79 0
  359 003c F4EEC87A 		vcmpe.f32	s15, s16
  360 0040 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  361 0044 13D4     		bmi	.L41
-  78:Core/Src/motor.cpp ****         {
-  79:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::ANTICLOCKWISE);
-  80:Core/Src/motor.cpp ****                 set_motorOmega(motor_, fabs(omega));
-  81:Core/Src/motor.cpp ****         }
-  82:Core/Src/motor.cpp ****         else
-  83:Core/Src/motor.cpp ****         {
-  84:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::STOP);
- 362              		.loc 1 84 0
+  80:Core/Src/motor.cpp ****         {
+  81:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::ANTICLOCKWISE);
+  82:Core/Src/motor.cpp ****                 set_motorOmega(motor_, fabs(omega));
+  83:Core/Src/motor.cpp ****         }
+  84:Core/Src/motor.cpp ****         else
+  85:Core/Src/motor.cpp ****         {
+  86:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::STOP);
+ 362              		.loc 1 86 0
  363 0046 0221     		movs	r1, #2
  364 0048 FFF7FEFF 		bl	_ZL18set_motorDirectionP12motor_config9Direction
  365              	.LVL42:
-  85:Core/Src/motor.cpp ****                 set_motorOmega(motor_, 0);
- 366              		.loc 1 85 0
+  87:Core/Src/motor.cpp ****                 set_motorOmega(motor_, 0);
+ 366              		.loc 1 87 0
  367 004c 9FED0C0A 		vldr.32	s0, .L42
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 9
+
+
  368 0050 2068     		ldr	r0, [r4]
  369 0052 FFF7FEFF 		bl	_ZL14set_motorOmegaP12motor_configf
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 9
-
-
  370              	.LVL43:
  371              	.L28:
-  86:Core/Src/motor.cpp ****         }
-  87:Core/Src/motor.cpp **** }...
- 372              		.loc 1 87 0
+  88:Core/Src/motor.cpp ****         }
+  89:Core/Src/motor.cpp **** }...
+ 372              		.loc 1 89 0
  373 0056 BDEC028B 		vldm	sp!, {d8}
  374              	.LCFI6:
  375              		.cfi_remember_state
@@ -498,26 +500,26 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  382              	.L40:
  383              	.LCFI7:
  384              		.cfi_restore_state
-  74:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::CLOCKWISE);
- 385              		.loc 1 74 0
+  76:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::CLOCKWISE);
+ 385              		.loc 1 76 0
  386 005c 0021     		movs	r1, #0
  387 005e FFF7FEFF 		bl	_ZL18set_motorDirectionP12motor_config9Direction
  388              	.LVL46:
-  75:Core/Src/motor.cpp ****                 set_motorOmega(motor_, fabs(omega));
- 389              		.loc 1 75 0
+  77:Core/Src/motor.cpp ****                 set_motorOmega(motor_, fabs(omega));
+ 389              		.loc 1 77 0
  390 0062 B0EEC80A 		vabs.f32	s0, s16
  391 0066 2068     		ldr	r0, [r4]
  392 0068 FFF7FEFF 		bl	_ZL14set_motorOmegaP12motor_configf
  393              	.LVL47:
  394 006c F3E7     		b	.L28
  395              	.L41:
-  79:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::ANTICLOCKWISE);
- 396              		.loc 1 79 0
+  81:Core/Src/motor.cpp ****                 set_motorDirection(motor_, Direction::ANTICLOCKWISE);
+ 396              		.loc 1 81 0
  397 006e 0121     		movs	r1, #1
  398 0070 FFF7FEFF 		bl	_ZL18set_motorDirectionP12motor_config9Direction
  399              	.LVL48:
-  80:Core/Src/motor.cpp ****                 set_motorOmega(motor_, fabs(omega));
- 400              		.loc 1 80 0
+  82:Core/Src/motor.cpp ****                 set_motorOmega(motor_, fabs(omega));
+ 400              		.loc 1 82 0
  401 0074 B0EEC80A 		vabs.f32	s0, s16
  402 0078 2068     		ldr	r0, [r4]
  403 007a FFF7FEFF 		bl	_ZL14set_motorOmegaP12motor_configf
@@ -536,11 +538,11 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  417              		.thumb
  418              		.thumb_func
  419              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 10
+
+
  421              	_ZN5motor11motor_inputEff:
  422              	.LFB397:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 10
-
-
   55:Core/Src/motor.cpp **** {
  423              		.loc 1 55 0
  424              		.cfi_startproc
@@ -552,70 +554,114 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 1
  430              		.cfi_def_cfa_offset 8
  431              		.cfi_offset 4, -8
  432              		.cfi_offset 14, -4
- 433 0002 0446     		mov	r4, r0
+ 433 0002 2DED028B 		vpush.64	{d8}
+ 434              	.LCFI9:
+ 435              		.cfi_def_cfa_offset 16
+ 436              		.cfi_offset 80, -16
+ 437              		.cfi_offset 81, -12
+ 438 0006 0446     		mov	r4, r0
+ 439 0008 F0EE408A 		vmov.f32	s17, s0
+ 440 000c B0EE608A 		vmov.f32	s16, s1
+  56:Core/Src/motor.cpp ****         printf("Measured Omega = %f ", iOmega);
+ 441              		.loc 1 56 0
+ 442 0010 10EE900A 		vmov	r0, s1
+ 443              	.LVL51:
+ 444 0014 FFF7FEFF 		bl	__aeabi_f2d
+ 445              	.LVL52:
+ 446 0018 0246     		mov	r2, r0
+ 447 001a 0B46     		mov	r3, r1
+ 448 001c 0748     		ldr	r0, .L46
+ 449 001e FFF7FEFF 		bl	printf
+ 450              	.LVL53:
   57:Core/Src/motor.cpp ****         float computed_omega = Spid.computePID(setpoint, iOmega);
- 434              		.loc 1 57 0
- 435 0004 0430     		adds	r0, r0, #4
- 436              	.LVL51:
- 437 0006 FFF7FEFF 		bl	_ZN3PID10computePIDEff
- 438              	.LVL52:
-  58:Core/Src/motor.cpp ****         this->set_omega(computed_omega);
- 439              		.loc 1 58 0
- 440 000a 2046     		mov	r0, r4
- 441 000c FFF7FEFF 		bl	_ZN5motor9set_omegaEf
- 442              	.LVL53:
-  59:Core/Src/motor.cpp **** }
- 443              		.loc 1 59 0
- 444 0010 10BD     		pop	{r4, pc}
- 445              		.cfi_endproc
- 446              	.LFE397:
- 448              		.text
- 449              	.Letext0:
- 450              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 451              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 452              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 453              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 454              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 455              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 456              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 457              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 458              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 459              		.file 11 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 460              		.file 12 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 461              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
- 462              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 463              		.file 15 "Core/Inc/tim.h"
- 464              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 465              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 466              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 467              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 468              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 469              		.file 21 "Core/Inc/pid.h"
- 470              		.file 22 "Core/Inc/motor.h"
- 471              		.file 23 "<built-in>"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s 			page 11
+ 451              		.loc 1 57 0
+ 452 0022 F0EE480A 		vmov.f32	s1, s16
+ 453 0026 B0EE680A 		vmov.f32	s0, s17
+ 454 002a 201D     		adds	r0, r4, #4
+ 455 002c FFF7FEFF 		bl	_ZN3PID10computePIDEff
+ 456              	.LVL54:
+  60:Core/Src/motor.cpp ****         this->set_omega(computed_omega);
+ 457              		.loc 1 60 0
+ 458 0030 2046     		mov	r0, r4
+ 459 0032 FFF7FEFF 		bl	_ZN5motor9set_omegaEf
+ 460              	.LVL55:
+  61:Core/Src/motor.cpp **** }
+ 461              		.loc 1 61 0
+ 462 0036 BDEC028B 		vldm	sp!, {d8}
+ 463              	.LCFI10:
+ 464              		.cfi_restore 80
+ 465              		.cfi_restore 81
+ 466              		.cfi_def_cfa_offset 8
+ 467              	.LVL56:
+ 468 003a 10BD     		pop	{r4, pc}
+ 469              	.LVL57:
+ 470              	.L47:
+ 471              		.align	2
+ 472              	.L46:
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 11
+
+
+ 473 003c 00000000 		.word	.LC0
+ 474              		.cfi_endproc
+ 475              	.LFE397:
+ 477              		.section	.rodata._ZN5motor11motor_inputEff.str1.4,"aMS",%progbits,1
+ 478              		.align	2
+ 479              	.LC0:
+ 480 0000 4D656173 		.ascii	"Measured Omega = %f \000"
+ 480      75726564 
+ 480      204F6D65 
+ 480      6761203D 
+ 480      20256620 
+ 481              		.text
+ 482              	.Letext0:
+ 483              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 484              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 485              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 486              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 487              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 488              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 489              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 490              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 491              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 492              		.file 11 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 493              		.file 12 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 494              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
+ 495              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 496              		.file 15 "Core/Inc/tim.h"
+ 497              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 498              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 499              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 500              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 501              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 502              		.file 21 "Core/Inc/pid.h"
+ 503              		.file 22 "Core/Inc/motor.h"
+ 504              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 505              		.file 24 "<built-in>"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 motor.cpp
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:18     .text._ZL11time_periodt:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:24     .text._ZL11time_periodt:00000000 _ZL11time_periodt
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:45     .text._ZL11time_periodt:00000010 $d
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:50     .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:56     .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:00000000 _ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:126    .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:0000004c $d
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:131    .text._ZL13set_DutyCycleP12motor_configt:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:137    .text._ZL13set_DutyCycleP12motor_configt:00000000 _ZL13set_DutyCycleP12motor_configt
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:167    .text._ZL14set_motorOmegaP12motor_configf:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:173    .text._ZL14set_motorOmegaP12motor_configf:00000000 _ZL14set_motorOmegaP12motor_configf
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:227    .text._ZL14set_motorOmegaP12motor_configf:00000040 $d
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:233    .text._ZL18set_motorDirectionP12motor_config9Direction:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:239    .text._ZL18set_motorDirectionP12motor_config9Direction:00000000 _ZL18set_motorDirectionP12motor_config9Direction
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:312    .text._ZN5motor9set_omegaEf:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:319    .text._ZN5motor9set_omegaEf:00000000 _ZN5motor9set_omegaEf
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:409    .text._ZN5motor9set_omegaEf:00000080 $d
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:414    .text._ZN5motor11motor_inputEff:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\cce1Esza.s:421    .text._ZN5motor11motor_inputEff:00000000 _ZN5motor11motor_inputEff
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:18     .text._ZL11time_periodt:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:24     .text._ZL11time_periodt:00000000 _ZL11time_periodt
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:45     .text._ZL11time_periodt:00000010 $d
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:50     .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:56     .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:00000000 _ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:126    .text._ZL21set_DutyCycle_PrimaryP17TIM_HandleTypeDefmt:0000004c $d
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:131    .text._ZL13set_DutyCycleP12motor_configt:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:137    .text._ZL13set_DutyCycleP12motor_configt:00000000 _ZL13set_DutyCycleP12motor_configt
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:167    .text._ZL14set_motorOmegaP12motor_configf:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:173    .text._ZL14set_motorOmegaP12motor_configf:00000000 _ZL14set_motorOmegaP12motor_configf
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:227    .text._ZL14set_motorOmegaP12motor_configf:00000040 $d
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:233    .text._ZL18set_motorDirectionP12motor_config9Direction:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:239    .text._ZL18set_motorDirectionP12motor_config9Direction:00000000 _ZL18set_motorDirectionP12motor_config9Direction
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:312    .text._ZN5motor9set_omegaEf:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:319    .text._ZN5motor9set_omegaEf:00000000 _ZN5motor9set_omegaEf
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:409    .text._ZN5motor9set_omegaEf:00000080 $d
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:414    .text._ZN5motor11motor_inputEff:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:421    .text._ZN5motor11motor_inputEff:00000000 _ZN5motor11motor_inputEff
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:473    .text._ZN5motor11motor_inputEff:0000003c $d
+C:\Users\Aasman\AppData\Local\Temp\ccT06Z9J.s:478    .rodata._ZN5motor11motor_inputEff.str1.4:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_f2d
@@ -623,4 +669,5 @@ __aeabi_ddiv
 __aeabi_dmul
 __aeabi_d2uiz
 HAL_GPIO_WritePin
+printf
 _ZN3PID10computePIDEff

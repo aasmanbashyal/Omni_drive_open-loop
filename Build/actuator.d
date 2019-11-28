@@ -30,7 +30,7 @@ Build/actuator.o: Core/Src/actuator.cpp Core/Inc/actuator.h \
  Core/Inc/stm32f4xx_hal_conf.h Core/Inc/pid.h Core/Inc/main.h \
  Core/Inc/joystick.h Core/Inc/container/queue_custom.h \
  Core/Inc/crypto/crc_hash.h Core/Inc/robo_init.h Core/Inc/motor.h \
- Core/Inc/encoder.h
+ Core/Inc/encoder.h Core/Inc/container/array.h
 
 Core/Inc/actuator.h:
 
@@ -121,3 +121,5 @@ Core/Inc/robo_init.h:
 Core/Inc/motor.h:
 
 Core/Inc/encoder.h:
+
+Core/Inc/container/array.h:

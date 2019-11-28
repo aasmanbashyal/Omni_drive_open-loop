@@ -3,17 +3,22 @@
 #include "joystick.h"
 #include "robo_init.h"
 #include "motor.h"
+#include "array.h"
 
 extern motor gmotor[4];
 static float velocity_robot[3] = {0, 0, 0};
-int32_t time = HAL_GetTick();
+uint32_t time = HAL_GetTick();
 
-static float velocity = 40;
+float velocity = 40;
 extern JoyStick joystick;
 void play(void)
 {
-    joystick.init();
-    task_();
+    if ((HAL_GetTick() - time) >= 10)
+    {
+        time = HAL_GetTick();
+        task_();
+        // printf("%ld\n", (int32_t)(velocity));
+    }
 }
 
 void calculate_wheel_velocity()
@@ -34,13 +39,14 @@ void calculate_wheel_velocity()
         }
     }
 
-    if ((HAL_GetTick() - time) >= 10)
+    // arrPrint(velocity_robot);
+    // printf("\t");
+    // arrPrint(velocity_motor);
+    // printf("\n");
+
+    for (int i = 0; i < 4; i++)
     {
-        time = HAL_GetTick();
-        for (int i = 0; i < 4; i++)
-        {
-            gmotor[i].motor_input(velocity_motor[i], get_data(i)); //pid
-        }
+        gmotor[i].motor_input(velocity_motor[i], get_data(i)); //pid
     }
 }
 

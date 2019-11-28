@@ -18,8 +18,11 @@ void encoder_init(void)
 
 void encoder::calculate(void)
 {
-    omega = -((2 * PI * (int16_t)henc->Instance->CNT * 1000) / (PPR * SAMPLE_TIME));
-    count += int16_t(henc->Instance->CNT);
+    int16_t c = (int16_t)henc->Instance->CNT;
+    float factor = float(PPR * SAMPLE_TIME);
+    printf("%d, %f\n", c, factor);
+    omega = -((2 * PI * c * 1000.0) / factor);
+    count += c;
     henc->Instance->CNT = 0;
 }
 
@@ -30,7 +33,7 @@ void calculate_data(int i)
 
 float get_data(int i)
 {
-    //    printf("get_omega=%f",encoder_config[i].get_omega());
+    // printf("\nget_omega=%f\n", encoder_config[i].get_omega());
     return encoder_config[i].get_omega();
 }
 

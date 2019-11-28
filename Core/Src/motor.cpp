@@ -53,8 +53,10 @@ static void set_motorOmega(motor_config *m, float omega)
 
 void motor ::motor_input(float setpoint, float iOmega)
 {
-
+        printf("Measured Omega = %f ", iOmega);
         float computed_omega = Spid.computePID(setpoint, iOmega);
+        // printf("computed_omega = %f \n", computed_omega);
+
         this->set_omega(computed_omega);
 }
 

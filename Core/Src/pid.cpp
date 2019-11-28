@@ -7,11 +7,7 @@ float max, min;
 float lastError = 0;
 float iError = 0;
 
-void PID::setKp(float kp)
-{
-    Kp = kp;
-    //printf("KP=%f",Kp);
-}
+void PID::setKp(float kp) { Kp = kp; }
 void PID::setKi(float ki) { Ki = ki; }
 void PID::setKd(float kd) { Kd = kd; }
 void PID::setPID(float kp, float ki, float kd)
@@ -35,11 +31,12 @@ float PID::computePID(float setpoint, float obtain)
     float error = setpoint - obtain;
     // printf("PIDomega=%f",omega);
     // printf("\nerror=%f\n",error);
-    iError = iError + (error * SampleTime) / 1000;
-    // printf("iError=%f\n",iError);
-    float dError = (error - float(lastError) * 1000 / (SampleTime));
+    iError = iError + (error * float(SampleTime)) / 1000.0;
+    //printf("iError=%f\n",iError);
+    //printf("error=%f\n", error);
+    // float dError = (error - float(lastError) * 1000 / (SampleTime));
     //PID Function
-    float output = Kp * error + Ki * iError + Kd * dError;
+    float output = Kp * error + Ki * iError; //+ Kd * dError;
 
     // printf("%f\n",output);
     //omega = output;
@@ -52,7 +49,7 @@ float PID::computePID(float setpoint, float obtain)
     {
         output = min;
     }
-    // printf("Output=%f\n",output);
+    printf("SetPoint = %f, Output = %f\n", setpoint, output);
     return output;
 }
 

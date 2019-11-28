@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -24,32 +24,33 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
   21              		.thumb_func
   22              		.fpu fpv4-sp-d16
   24              	__tcf_0:
-  25              	.LFB396:
+  25              	.LFB411:
   26              		.file 1 "Core/Src/robo_init.cpp"
    1:Core/Src/robo_init.cpp **** #include "robo_init.h"
    2:Core/Src/robo_init.cpp **** #include "motor.h"
    3:Core/Src/robo_init.cpp **** #include "encoder.h"
-   4:Core/Src/robo_init.cpp **** 
-   5:Core/Src/robo_init.cpp **** motor gmotor[4];
-  27              		.loc 1 5 0
+   4:Core/Src/robo_init.cpp **** #include "joystick.h"
+   5:Core/Src/robo_init.cpp **** 
+   6:Core/Src/robo_init.cpp **** motor gmotor[4];
+  27              		.loc 1 6 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              		@ link register save eliminated.
-  32              		.loc 1 5 0
+  32              		.loc 1 6 0
   33 0000 034B     		ldr	r3, .L4
   34              	.L3:
-  35              		.loc 1 5 0 is_stmt 0 discriminator 5
+  35              		.loc 1 6 0 is_stmt 0 discriminator 5
   36 0002 044A     		ldr	r2, .L4+4
   37 0004 9342     		cmp	r3, r2
   38 0006 01D0     		beq	.L1
-  39              		.loc 1 5 0 discriminator 4
+  39              		.loc 1 6 0 discriminator 4
   40 0008 183B     		subs	r3, r3, #24
   41              	.LVL0:
   42 000a FAE7     		b	.L3
   43              	.LVL1:
   44              	.L1:
-  45              		.loc 1 5 0
+  45              		.loc 1 6 0
   46 000c 7047     		bx	lr
   47              	.L5:
   48 000e 00BF     		.align	2
@@ -57,10 +58,10 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
   50 0010 60000000 		.word	.LANCHOR0+96
   51 0014 00000000 		.word	.LANCHOR0
   52              		.cfi_endproc
-  53              	.LFE396:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 2
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 2
 
 
+  53              	.LFE411:
   55              		.section	.text._ZL10motor_initv,"ax",%progbits
   56              		.align	1
   57              		.syntax unified
@@ -68,35 +69,38 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
   59              		.thumb_func
   60              		.fpu fpv4-sp-d16
   62              	_ZL10motor_initv:
-  63              	.LFB394:
-   6:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
-   7:Core/Src/robo_init.cpp **** //static  encoder_config encoder_configurations[4];
-   8:Core/Src/robo_init.cpp **** 
-   9:Core/Src/robo_init.cpp **** static void motor_init();
-  10:Core/Src/robo_init.cpp **** //static void encoder_init();
-  11:Core/Src/robo_init.cpp **** static void pid_init();
-  12:Core/Src/robo_init.cpp **** 
-  13:Core/Src/robo_init.cpp **** void robo_init()
-  14:Core/Src/robo_init.cpp **** {
-  15:Core/Src/robo_init.cpp **** 	// printf("\nLet's Begin\n");
-  16:Core/Src/robo_init.cpp **** 	pid_init();
-  17:Core/Src/robo_init.cpp **** 	encoder_init();
-  18:Core/Src/robo_init.cpp **** 	motor_init();
-  19:Core/Src/robo_init.cpp **** }
-  20:Core/Src/robo_init.cpp **** 
-  21:Core/Src/robo_init.cpp **** static void pid_init()
-  22:Core/Src/robo_init.cpp **** {
-  23:Core/Src/robo_init.cpp **** 	// 2.6
-  24:Core/Src/robo_init.cpp **** 	gmotor[0].setPID_constraints(1.9312, 0.0454, 0.00, 50, -50); //(3.5,0.594,0,40,-40)
-  25:Core/Src/robo_init.cpp **** 	gmotor[1].setPID_constraints(2.0536, 0.0397, 0.00, 50, -50); //(2.7,0.36,0,37,-37)
-  26:Core/Src/robo_init.cpp **** 	gmotor[2].setPID_constraints(2.0183, 0.0362, 0.00, 50, -50); //1.494(3.4,0.79,0,39,-39)
-  27:Core/Src/robo_init.cpp **** 	gmotor[3].setPID_constraints(2.1134, 0.0379, 0.00, 50, -50); //(2.4,0.268,0,37,-37)
-  28:Core/Src/robo_init.cpp **** 																					 //gMotors[3].set_omega(40);
-  29:Core/Src/robo_init.cpp **** }
-  30:Core/Src/robo_init.cpp **** 
-  31:Core/Src/robo_init.cpp **** void motor_init()
-  32:Core/Src/robo_init.cpp **** {
-  64              		.loc 1 32 0 is_stmt 1
+  63              	.LFB409:
+   7:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+   8:Core/Src/robo_init.cpp **** extern JoyStick joystick;
+   9:Core/Src/robo_init.cpp **** //static  encoder_config encoder_configurations[4];
+  10:Core/Src/robo_init.cpp **** 
+  11:Core/Src/robo_init.cpp **** static void motor_init();
+  12:Core/Src/robo_init.cpp **** //static void encoder_init();
+  13:Core/Src/robo_init.cpp **** static void pid_init();
+  14:Core/Src/robo_init.cpp **** 
+  15:Core/Src/robo_init.cpp **** void robo_init()
+  16:Core/Src/robo_init.cpp **** {
+  17:Core/Src/robo_init.cpp **** 	// printf("\nLet's Begin\n");
+  18:Core/Src/robo_init.cpp **** 	pid_init();
+  19:Core/Src/robo_init.cpp **** 	encoder_init();
+  20:Core/Src/robo_init.cpp **** 	motor_init();
+  21:Core/Src/robo_init.cpp **** 
+  22:Core/Src/robo_init.cpp **** 	joystick.init();
+  23:Core/Src/robo_init.cpp **** }
+  24:Core/Src/robo_init.cpp **** 
+  25:Core/Src/robo_init.cpp **** static void pid_init()
+  26:Core/Src/robo_init.cpp **** {
+  27:Core/Src/robo_init.cpp **** 	// 2.6
+  28:Core/Src/robo_init.cpp **** 	gmotor[0].setPID_constraints(1.9312, 0.0454, 0.00, 50, -50); //(3.5,0.594,0,40,-40)
+  29:Core/Src/robo_init.cpp **** 	gmotor[1].setPID_constraints(2.0536, 0.0397, 0.00, 50, -50); //(2.7,0.36,0,37,-37)
+  30:Core/Src/robo_init.cpp **** 	gmotor[2].setPID_constraints(2.0183, 0.0362, 0.00, 50, -50); //1.494(3.4,0.79,0,39,-39)
+  31:Core/Src/robo_init.cpp **** 	gmotor[3].setPID_constraints(2.1134, 0.0379, 0.00, 50, -50); //(2.4,0.268,0,37,-37)
+  32:Core/Src/robo_init.cpp **** 																					 //gMotors[3].set_omega(40);
+  33:Core/Src/robo_init.cpp **** }
+  34:Core/Src/robo_init.cpp **** 
+  35:Core/Src/robo_init.cpp **** void motor_init()
+  36:Core/Src/robo_init.cpp **** {
+  64              		.loc 1 36 0 is_stmt 1
   65              		.cfi_startproc
   66              		@ args = 0, pretend = 0, frame = 0
   67              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -109,181 +113,180 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
   74              		.cfi_offset 6, -12
   75              		.cfi_offset 7, -8
   76              		.cfi_offset 14, -4
-  33:Core/Src/robo_init.cpp **** 	motor_configurations[0].htim = &htim8;
-  77              		.loc 1 33 0
+  37:Core/Src/robo_init.cpp **** 	motor_configurations[0].htim = &htim8;
+  77              		.loc 1 37 0
   78 0002 2F4C     		ldr	r4, .L10
   79 0004 2F48     		ldr	r0, .L10+4
   80 0006 A061     		str	r0, [r4, #24]
-  34:Core/Src/robo_init.cpp **** 	motor_configurations[0].in1_port = GPIOD;
-  81              		.loc 1 34 0
-  82 0008 DFF8D8C0 		ldr	ip, .L10+36
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 3
+
+
+  38:Core/Src/robo_init.cpp **** 	motor_configurations[0].in1_port = GPIOD;
+  81              		.loc 1 38 0
+  82 0008 DFF8D0C0 		ldr	ip, .L10+28
   83 000c C4F808C0 		str	ip, [r4, #8]
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 3
-
-
-  35:Core/Src/robo_init.cpp **** 	motor_configurations[0].in1_pin = GPIO_PIN_0;
-  84              		.loc 1 35 0
+  39:Core/Src/robo_init.cpp **** 	motor_configurations[0].in1_pin = GPIO_PIN_0;
+  84              		.loc 1 39 0
   85 0010 0123     		movs	r3, #1
   86 0012 A381     		strh	r3, [r4, #12]	@ movhi
-  36:Core/Src/robo_init.cpp **** 	motor_configurations[0].in2_port = GPIOE;
-  87              		.loc 1 36 0
+  40:Core/Src/robo_init.cpp **** 	motor_configurations[0].in2_port = GPIOE;
+  87              		.loc 1 40 0
   88 0014 2C49     		ldr	r1, .L10+8
   89 0016 2161     		str	r1, [r4, #16]
-  37:Core/Src/robo_init.cpp **** 	motor_configurations[0].in2_pin = GPIO_PIN_5;
-  90              		.loc 1 37 0
+  41:Core/Src/robo_init.cpp **** 	motor_configurations[0].in2_pin = GPIO_PIN_5;
+  90              		.loc 1 41 0
   91 0018 2026     		movs	r6, #32
   92 001a A682     		strh	r6, [r4, #20]	@ movhi
-  38:Core/Src/robo_init.cpp **** 	motor_configurations[0].channel = TIM_CHANNEL_1;
-  93              		.loc 1 38 0
+  42:Core/Src/robo_init.cpp **** 	motor_configurations[0].channel = TIM_CHANNEL_1;
+  93              		.loc 1 42 0
   94 001c 0025     		movs	r5, #0
   95 001e E561     		str	r5, [r4, #28]
-  39:Core/Src/robo_init.cpp **** 	motor_configurations[0].max_omega = 70;
-  96              		.loc 1 39 0
+  43:Core/Src/robo_init.cpp **** 	motor_configurations[0].max_omega = 70;
+  96              		.loc 1 43 0
   97 0020 2A4A     		ldr	r2, .L10+12
   98 0022 2260     		str	r2, [r4]	@ float
-  40:Core/Src/robo_init.cpp **** 	motor_configurations[0].tolerance = 0.1;
-  99              		.loc 1 40 0
- 100 0024 2A4B     		ldr	r3, .L10+16
- 101 0026 6360     		str	r3, [r4, #4]	@ float
-  41:Core/Src/robo_init.cpp **** 
-  42:Core/Src/robo_init.cpp **** 	motor_configurations[1].htim = &htim8;
- 102              		.loc 1 42 0
- 103 0028 A063     		str	r0, [r4, #56]
-  43:Core/Src/robo_init.cpp **** 	motor_configurations[1].in1_port = GPIOA;
- 104              		.loc 1 43 0
- 105 002a 2A4F     		ldr	r7, .L10+20
- 106 002c A762     		str	r7, [r4, #40]
-  44:Core/Src/robo_init.cpp **** 	motor_configurations[1].in1_pin = GPIO_PIN_10;
- 107              		.loc 1 44 0
- 108 002e 4FF48067 		mov	r7, #1024
- 109 0032 A785     		strh	r7, [r4, #44]	@ movhi
-  45:Core/Src/robo_init.cpp **** 	motor_configurations[1].in2_port = GPIOB;
- 110              		.loc 1 45 0
- 111 0034 07F18047 		add	r7, r7, #1073741824
- 112 0038 07F50037 		add	r7, r7, #131072
- 113 003c 2763     		str	r7, [r4, #48]
-  46:Core/Src/robo_init.cpp **** 	motor_configurations[1].in2_pin = GPIO_PIN_5;
- 114              		.loc 1 46 0
- 115 003e A686     		strh	r6, [r4, #52]	@ movhi
-  47:Core/Src/robo_init.cpp **** 	motor_configurations[1].channel = TIM_CHANNEL_2;
- 116              		.loc 1 47 0
- 117 0040 0427     		movs	r7, #4
- 118 0042 E763     		str	r7, [r4, #60]
-  48:Core/Src/robo_init.cpp **** 	motor_configurations[1].max_omega = 70;
- 119              		.loc 1 48 0
- 120 0044 2262     		str	r2, [r4, #32]	@ float
-  49:Core/Src/robo_init.cpp **** 	motor_configurations[1].tolerance = 0.1;
- 121              		.loc 1 49 0
- 122 0046 6362     		str	r3, [r4, #36]	@ float
-  50:Core/Src/robo_init.cpp **** 
-  51:Core/Src/robo_init.cpp **** 	motor_configurations[2].htim = &htim8;
- 123              		.loc 1 51 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 4
+  44:Core/Src/robo_init.cpp **** 	motor_configurations[0].tolerance = 1;
+  99              		.loc 1 44 0
+ 100 0024 4FF07E53 		mov	r3, #1065353216
+ 101 0028 6360     		str	r3, [r4, #4]	@ float
+  45:Core/Src/robo_init.cpp **** 
+  46:Core/Src/robo_init.cpp **** 	motor_configurations[1].htim = &htim8;
+ 102              		.loc 1 46 0
+ 103 002a A063     		str	r0, [r4, #56]
+  47:Core/Src/robo_init.cpp **** 	motor_configurations[1].in1_port = GPIOA;
+ 104              		.loc 1 47 0
+ 105 002c 284F     		ldr	r7, .L10+16
+ 106 002e A762     		str	r7, [r4, #40]
+  48:Core/Src/robo_init.cpp **** 	motor_configurations[1].in1_pin = GPIO_PIN_10;
+ 107              		.loc 1 48 0
+ 108 0030 4FF48067 		mov	r7, #1024
+ 109 0034 A785     		strh	r7, [r4, #44]	@ movhi
+  49:Core/Src/robo_init.cpp **** 	motor_configurations[1].in2_port = GPIOB;
+ 110              		.loc 1 49 0
+ 111 0036 07F18047 		add	r7, r7, #1073741824
+ 112 003a 07F50037 		add	r7, r7, #131072
+ 113 003e 2763     		str	r7, [r4, #48]
+  50:Core/Src/robo_init.cpp **** 	motor_configurations[1].in2_pin = GPIO_PIN_5;
+ 114              		.loc 1 50 0
+ 115 0040 A686     		strh	r6, [r4, #52]	@ movhi
+  51:Core/Src/robo_init.cpp **** 	motor_configurations[1].channel = TIM_CHANNEL_2;
+ 116              		.loc 1 51 0
+ 117 0042 0427     		movs	r7, #4
+ 118 0044 E763     		str	r7, [r4, #60]
+  52:Core/Src/robo_init.cpp **** 	motor_configurations[1].max_omega = 70;
+ 119              		.loc 1 52 0
+ 120 0046 2262     		str	r2, [r4, #32]	@ float
+  53:Core/Src/robo_init.cpp **** 	motor_configurations[1].tolerance = 1;
+ 121              		.loc 1 53 0
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 4
 
 
- 124 0048 A065     		str	r0, [r4, #88]
-  52:Core/Src/robo_init.cpp **** 	motor_configurations[2].in1_port = GPIOE;
- 125              		.loc 1 52 0
- 126 004a A164     		str	r1, [r4, #72]
-  53:Core/Src/robo_init.cpp **** 	motor_configurations[2].in1_pin = GPIO_PIN_3;
- 127              		.loc 1 53 0
- 128 004c 0826     		movs	r6, #8
- 129 004e A4F84C60 		strh	r6, [r4, #76]	@ movhi
-  54:Core/Src/robo_init.cpp **** 	motor_configurations[2].in2_port = GPIOD;
- 130              		.loc 1 54 0
- 131 0052 C4F850C0 		str	ip, [r4, #80]
-  55:Core/Src/robo_init.cpp **** 	motor_configurations[2].in2_pin = GPIO_PIN_2;
- 132              		.loc 1 55 0
- 133 0056 A4F85470 		strh	r7, [r4, #84]	@ movhi
-  56:Core/Src/robo_init.cpp **** 	motor_configurations[2].channel = TIM_CHANNEL_3;
- 134              		.loc 1 56 0
- 135 005a E665     		str	r6, [r4, #92]
-  57:Core/Src/robo_init.cpp **** 	motor_configurations[2].max_omega = 55;
- 136              		.loc 1 57 0
- 137 005c 1E4E     		ldr	r6, .L10+24
- 138 005e 2664     		str	r6, [r4, #64]	@ float
-  58:Core/Src/robo_init.cpp **** 	motor_configurations[2].tolerance = 0.1;
- 139              		.loc 1 58 0
- 140 0060 6364     		str	r3, [r4, #68]	@ float
-  59:Core/Src/robo_init.cpp **** 
-  60:Core/Src/robo_init.cpp **** 	motor_configurations[3].htim = &htim8;
- 141              		.loc 1 60 0
- 142 0062 A067     		str	r0, [r4, #120]
-  61:Core/Src/robo_init.cpp **** 	motor_configurations[3].in1_port = GPIOC;
- 143              		.loc 1 61 0
- 144 0064 1D4E     		ldr	r6, .L10+28
- 145 0066 A666     		str	r6, [r4, #104]
-  62:Core/Src/robo_init.cpp **** 	motor_configurations[3].in1_pin = GPIO_PIN_13;
- 146              		.loc 1 62 0
- 147 0068 4FF40056 		mov	r6, #8192
- 148 006c A4F86C60 		strh	r6, [r4, #108]	@ movhi
-  63:Core/Src/robo_init.cpp **** 	motor_configurations[3].in2_port = GPIOE;
- 149              		.loc 1 63 0
- 150 0070 2167     		str	r1, [r4, #112]
-  64:Core/Src/robo_init.cpp **** 	motor_configurations[3].in2_pin = GPIO_PIN_1;
- 151              		.loc 1 64 0
- 152 0072 0221     		movs	r1, #2
- 153 0074 A4F87410 		strh	r1, [r4, #116]	@ movhi
-  65:Core/Src/robo_init.cpp **** 	motor_configurations[3].channel = TIM_CHANNEL_4;
- 154              		.loc 1 65 0
- 155 0078 0C21     		movs	r1, #12
- 156 007a E167     		str	r1, [r4, #124]
-  66:Core/Src/robo_init.cpp **** 	motor_configurations[3].max_omega = 70;
- 157              		.loc 1 66 0
- 158 007c 2266     		str	r2, [r4, #96]	@ float
-  67:Core/Src/robo_init.cpp **** 	motor_configurations[3].tolerance = 0.1;
- 159              		.loc 1 67 0
- 160 007e 6366     		str	r3, [r4, #100]	@ float
-  68:Core/Src/robo_init.cpp **** 
-  69:Core/Src/robo_init.cpp **** 	HAL_TIM_Base_Start(&htim8);
- 161              		.loc 1 69 0
- 162 0080 FFF7FEFF 		bl	HAL_TIM_Base_Start
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 5
+ 122 0048 6362     		str	r3, [r4, #36]	@ float
+  54:Core/Src/robo_init.cpp **** 
+  55:Core/Src/robo_init.cpp **** 	motor_configurations[2].htim = &htim8;
+ 123              		.loc 1 55 0
+ 124 004a A065     		str	r0, [r4, #88]
+  56:Core/Src/robo_init.cpp **** 	motor_configurations[2].in1_port = GPIOE;
+ 125              		.loc 1 56 0
+ 126 004c A164     		str	r1, [r4, #72]
+  57:Core/Src/robo_init.cpp **** 	motor_configurations[2].in1_pin = GPIO_PIN_3;
+ 127              		.loc 1 57 0
+ 128 004e 0826     		movs	r6, #8
+ 129 0050 A4F84C60 		strh	r6, [r4, #76]	@ movhi
+  58:Core/Src/robo_init.cpp **** 	motor_configurations[2].in2_port = GPIOD;
+ 130              		.loc 1 58 0
+ 131 0054 C4F850C0 		str	ip, [r4, #80]
+  59:Core/Src/robo_init.cpp **** 	motor_configurations[2].in2_pin = GPIO_PIN_2;
+ 132              		.loc 1 59 0
+ 133 0058 A4F85470 		strh	r7, [r4, #84]	@ movhi
+  60:Core/Src/robo_init.cpp **** 	motor_configurations[2].channel = TIM_CHANNEL_3;
+ 134              		.loc 1 60 0
+ 135 005c E665     		str	r6, [r4, #92]
+  61:Core/Src/robo_init.cpp **** 	motor_configurations[2].max_omega = 70;
+ 136              		.loc 1 61 0
+ 137 005e 2264     		str	r2, [r4, #64]	@ float
+  62:Core/Src/robo_init.cpp **** 	motor_configurations[2].tolerance = 1;
+ 138              		.loc 1 62 0
+ 139 0060 6364     		str	r3, [r4, #68]	@ float
+  63:Core/Src/robo_init.cpp **** 
+  64:Core/Src/robo_init.cpp **** 	motor_configurations[3].htim = &htim8;
+ 140              		.loc 1 64 0
+ 141 0062 A067     		str	r0, [r4, #120]
+  65:Core/Src/robo_init.cpp **** 	motor_configurations[3].in1_port = GPIOC;
+ 142              		.loc 1 65 0
+ 143 0064 1B4E     		ldr	r6, .L10+20
+ 144 0066 A666     		str	r6, [r4, #104]
+  66:Core/Src/robo_init.cpp **** 	motor_configurations[3].in1_pin = GPIO_PIN_13;
+ 145              		.loc 1 66 0
+ 146 0068 4FF40056 		mov	r6, #8192
+ 147 006c A4F86C60 		strh	r6, [r4, #108]	@ movhi
+  67:Core/Src/robo_init.cpp **** 	motor_configurations[3].in2_port = GPIOE;
+ 148              		.loc 1 67 0
+ 149 0070 2167     		str	r1, [r4, #112]
+  68:Core/Src/robo_init.cpp **** 	motor_configurations[3].in2_pin = GPIO_PIN_1;
+ 150              		.loc 1 68 0
+ 151 0072 0221     		movs	r1, #2
+ 152 0074 A4F87410 		strh	r1, [r4, #116]	@ movhi
+  69:Core/Src/robo_init.cpp **** 	motor_configurations[3].channel = TIM_CHANNEL_4;
+ 153              		.loc 1 69 0
+ 154 0078 0C21     		movs	r1, #12
+ 155 007a E167     		str	r1, [r4, #124]
+  70:Core/Src/robo_init.cpp **** 	motor_configurations[3].max_omega = 70;
+ 156              		.loc 1 70 0
+ 157 007c 2266     		str	r2, [r4, #96]	@ float
+  71:Core/Src/robo_init.cpp **** 	motor_configurations[3].tolerance = 1;
+ 158              		.loc 1 71 0
+ 159 007e 6366     		str	r3, [r4, #100]	@ float
+  72:Core/Src/robo_init.cpp **** 
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 5
 
 
- 163              	.LVL2:
-  70:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[0].htim, motor_configurations[0].channel);
- 164              		.loc 1 70 0
- 165 0084 E169     		ldr	r1, [r4, #28]
- 166 0086 A069     		ldr	r0, [r4, #24]
- 167 0088 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 168              	.LVL3:
-  71:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[1].htim, motor_configurations[1].channel);
- 169              		.loc 1 71 0
- 170 008c E16B     		ldr	r1, [r4, #60]
- 171 008e A06B     		ldr	r0, [r4, #56]
- 172 0090 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 173              	.LVL4:
-  72:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[2].htim, motor_configurations[2].channel);
- 174              		.loc 1 72 0
- 175 0094 E16D     		ldr	r1, [r4, #92]
- 176 0096 A06D     		ldr	r0, [r4, #88]
- 177 0098 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 178              	.LVL5:
-  73:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[3].htim, motor_configurations[3].channel);
- 179              		.loc 1 73 0
- 180 009c E16F     		ldr	r1, [r4, #124]
- 181 009e A06F     		ldr	r0, [r4, #120]
- 182 00a0 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 183              	.LVL6:
- 184              	.LBB23:
-  74:Core/Src/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
- 185              		.loc 1 74 0
- 186 00a4 2B46     		mov	r3, r5
- 187              	.LVL7:
- 188              	.L8:
- 189              		.loc 1 74 0 is_stmt 0 discriminator 3
- 190 00a6 032B     		cmp	r3, #3
- 191 00a8 09DC     		bgt	.L6
-  75:Core/Src/robo_init.cpp **** 	{
-  76:Core/Src/robo_init.cpp **** 		gmotor[i].set_config(&motor_configurations[i]);
- 192              		.loc 1 76 0 is_stmt 1 discriminator 2
- 193 00aa 054A     		ldr	r2, .L10
- 194 00ac 02EB4312 		add	r2, r2, r3, lsl #5
- 195              	.LVL8:
- 196              	.LBB24:
- 197              	.LBB25:
- 198              		.file 2 "Core/Inc/motor.h"
+  73:Core/Src/robo_init.cpp **** 	HAL_TIM_Base_Start(&htim8);
+ 160              		.loc 1 73 0
+ 161 0080 FFF7FEFF 		bl	HAL_TIM_Base_Start
+ 162              	.LVL2:
+  74:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[0].htim, motor_configurations[0].channel);
+ 163              		.loc 1 74 0
+ 164 0084 E169     		ldr	r1, [r4, #28]
+ 165 0086 A069     		ldr	r0, [r4, #24]
+ 166 0088 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 167              	.LVL3:
+  75:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[1].htim, motor_configurations[1].channel);
+ 168              		.loc 1 75 0
+ 169 008c E16B     		ldr	r1, [r4, #60]
+ 170 008e A06B     		ldr	r0, [r4, #56]
+ 171 0090 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 172              	.LVL4:
+  76:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[2].htim, motor_configurations[2].channel);
+ 173              		.loc 1 76 0
+ 174 0094 E16D     		ldr	r1, [r4, #92]
+ 175 0096 A06D     		ldr	r0, [r4, #88]
+ 176 0098 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 177              	.LVL5:
+  77:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[3].htim, motor_configurations[3].channel);
+ 178              		.loc 1 77 0
+ 179 009c E16F     		ldr	r1, [r4, #124]
+ 180 009e A06F     		ldr	r0, [r4, #120]
+ 181 00a0 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 182              	.LVL6:
+ 183              	.LBB23:
+  78:Core/Src/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+ 184              		.loc 1 78 0
+ 185 00a4 2B46     		mov	r3, r5
+ 186              	.LVL7:
+ 187              	.L8:
+ 188              		.loc 1 78 0 is_stmt 0 discriminator 3
+ 189 00a6 032B     		cmp	r3, #3
+ 190 00a8 09DC     		bgt	.L6
+  79:Core/Src/robo_init.cpp **** 	{
+  80:Core/Src/robo_init.cpp **** 		gmotor[i].set_config(&motor_configurations[i]);
+ 191              		.loc 1 80 0 is_stmt 1 discriminator 2
+ 192 00aa 054A     		ldr	r2, .L10
+ 193 00ac 02EB4312 		add	r2, r2, r3, lsl #5
+ 194              	.LVL8:
+ 195              	.LBB24:
+ 196              	.LBB25:
+ 197              		.file 2 "Core/Inc/motor.h"
    1:Core/Inc/motor.h **** #ifndef _MOTOR_H_
    2:Core/Inc/motor.h **** #define _MOTOR_H_
    3:Core/Inc/motor.h **** 
@@ -295,12 +298,12 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
    9:Core/Inc/motor.h **** #include "encoder.h"
   10:Core/Inc/motor.h **** 
   11:Core/Inc/motor.h **** enum Direction
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 6
+
+
   12:Core/Inc/motor.h **** {
   13:Core/Inc/motor.h **** 	CLOCKWISE,
   14:Core/Inc/motor.h **** 	ANTICLOCKWISE,
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 6
-
-
   15:Core/Inc/motor.h **** 	STOP
   16:Core/Inc/motor.h **** };
   17:Core/Inc/motor.h **** 
@@ -328,99 +331,97 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
   39:Core/Inc/motor.h **** 	motor &operator=(const motor &) = default;
   40:Core/Inc/motor.h **** 	~motor() {}
   41:Core/Inc/motor.h **** 	void set_config(motor_config *motors) { motor_ = motors; }
- 199              		.loc 2 41 0 discriminator 2
- 200 00b0 03EB4300 		add	r0, r3, r3, lsl #1
- 201 00b4 C100     		lsls	r1, r0, #3
- 202 00b6 0A48     		ldr	r0, .L10+32
- 203 00b8 4250     		str	r2, [r0, r1]
- 204              	.LVL9:
- 205              	.LBE25:
- 206              	.LBE24:
-  74:Core/Src/robo_init.cpp **** 	{
- 207              		.loc 1 74 0 discriminator 2
- 208 00ba 0133     		adds	r3, r3, #1
- 209              	.LVL10:
- 210 00bc F3E7     		b	.L8
- 211              	.L6:
- 212              	.LBE23:
-  77:Core/Src/robo_init.cpp **** 	}
-  78:Core/Src/robo_init.cpp **** }
- 213              		.loc 1 78 0
- 214 00be F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 215              	.LVL11:
- 216              	.L11:
- 217              		.align	2
- 218              	.L10:
- 219 00c0 00000000 		.word	.LANCHOR1
- 220 00c4 00000000 		.word	htim8
- 221 00c8 00100240 		.word	1073876992
- 222 00cc 00008C42 		.word	1116471296
- 223 00d0 CDCCCC3D 		.word	1036831949
- 224 00d4 00000240 		.word	1073872896
- 225 00d8 00005C42 		.word	1113325568
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 7
+ 198              		.loc 2 41 0 discriminator 2
+ 199 00b0 03EB4300 		add	r0, r3, r3, lsl #1
+ 200 00b4 C100     		lsls	r1, r0, #3
+ 201 00b6 0848     		ldr	r0, .L10+24
+ 202 00b8 4250     		str	r2, [r0, r1]
+ 203              	.LVL9:
+ 204              	.LBE25:
+ 205              	.LBE24:
+  78:Core/Src/robo_init.cpp **** 	{
+ 206              		.loc 1 78 0 discriminator 2
+ 207 00ba 0133     		adds	r3, r3, #1
+ 208              	.LVL10:
+ 209 00bc F3E7     		b	.L8
+ 210              	.L6:
+ 211              	.LBE23:
+  81:Core/Src/robo_init.cpp **** 	}
+  82:Core/Src/robo_init.cpp **** }
+ 212              		.loc 1 82 0
+ 213 00be F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 214              	.LVL11:
+ 215              	.L11:
+ 216              		.align	2
+ 217              	.L10:
+ 218 00c0 00000000 		.word	.LANCHOR1
+ 219 00c4 00000000 		.word	htim8
+ 220 00c8 00100240 		.word	1073876992
+ 221 00cc 00008C42 		.word	1116471296
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 7
 
 
- 226 00dc 00080240 		.word	1073874944
- 227 00e0 00000000 		.word	.LANCHOR0
- 228 00e4 000C0240 		.word	1073875968
- 229              		.cfi_endproc
- 230              	.LFE394:
- 232              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
- 233              		.align	1
- 234              		.syntax unified
- 235              		.thumb
- 236              		.thumb_func
- 237              		.fpu fpv4-sp-d16
- 239              	_Z41__static_initialization_and_destruction_0ii:
- 240              	.LFB395:
- 241              		.loc 1 78 0
- 242              		.cfi_startproc
- 243              		@ args = 0, pretend = 0, frame = 0
- 244              		@ frame_needed = 0, uses_anonymous_args = 0
- 245              	.LVL12:
- 246 0000 0128     		cmp	r0, #1
- 247 0002 00D0     		beq	.L20
- 248 0004 7047     		bx	lr
- 249              	.L20:
- 250              		.loc 1 78 0 is_stmt 0 discriminator 1
- 251 0006 38B5     		push	{r3, r4, r5, lr}
- 252              	.LCFI1:
- 253              		.cfi_def_cfa_offset 16
- 254              		.cfi_offset 3, -16
- 255              		.cfi_offset 4, -12
- 256              		.cfi_offset 5, -8
- 257              		.cfi_offset 14, -4
- 258              		.loc 1 78 0 is_stmt 1 discriminator 1
- 259 0008 4FF6FF73 		movw	r3, #65535
- 260 000c 9942     		cmp	r1, r3
- 261 000e 00D0     		beq	.L21
- 262              	.LVL13:
- 263              	.L12:
- 264              		.loc 1 78 0 is_stmt 0
- 265 0010 38BD     		pop	{r3, r4, r5, pc}
- 266              	.LVL14:
- 267              	.L21:
-   5:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
- 268              		.loc 1 5 0 is_stmt 1
- 269 0012 0324     		movs	r4, #3
- 270 0014 0B4D     		ldr	r5, .L22
- 271              	.LVL15:
- 272              	.L15:
-   5:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
- 273              		.loc 1 5 0 is_stmt 0 discriminator 4
- 274 0016 002C     		cmp	r4, #0
- 275 0018 0DDB     		blt	.L14
- 276              	.LVL16:
- 277              	.LBB26:
- 278              	.LBB27:
- 279              	.LBB28:
- 280              	.LBB29:
- 281              		.file 3 "Core/Inc/pid.h"
+ 222 00d0 00000240 		.word	1073872896
+ 223 00d4 00080240 		.word	1073874944
+ 224 00d8 00000000 		.word	.LANCHOR0
+ 225 00dc 000C0240 		.word	1073875968
+ 226              		.cfi_endproc
+ 227              	.LFE409:
+ 229              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+ 230              		.align	1
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 234              		.fpu fpv4-sp-d16
+ 236              	_Z41__static_initialization_and_destruction_0ii:
+ 237              	.LFB410:
+ 238              		.loc 1 82 0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242              	.LVL12:
+ 243 0000 0128     		cmp	r0, #1
+ 244 0002 00D0     		beq	.L20
+ 245 0004 7047     		bx	lr
+ 246              	.L20:
+ 247              		.loc 1 82 0 is_stmt 0 discriminator 1
+ 248 0006 38B5     		push	{r3, r4, r5, lr}
+ 249              	.LCFI1:
+ 250              		.cfi_def_cfa_offset 16
+ 251              		.cfi_offset 3, -16
+ 252              		.cfi_offset 4, -12
+ 253              		.cfi_offset 5, -8
+ 254              		.cfi_offset 14, -4
+ 255              		.loc 1 82 0 is_stmt 1 discriminator 1
+ 256 0008 4FF6FF73 		movw	r3, #65535
+ 257 000c 9942     		cmp	r1, r3
+ 258 000e 00D0     		beq	.L21
+ 259              	.LVL13:
+ 260              	.L12:
+ 261              		.loc 1 82 0 is_stmt 0
+ 262 0010 38BD     		pop	{r3, r4, r5, pc}
+ 263              	.LVL14:
+ 264              	.L21:
+   6:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 265              		.loc 1 6 0 is_stmt 1
+ 266 0012 0324     		movs	r4, #3
+ 267 0014 0B4D     		ldr	r5, .L22
+ 268              	.LVL15:
+ 269              	.L15:
+   6:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 270              		.loc 1 6 0 is_stmt 0 discriminator 4
+ 271 0016 002C     		cmp	r4, #0
+ 272 0018 0DDB     		blt	.L14
+ 273              	.LVL16:
+ 274              	.LBB26:
+ 275              	.LBB27:
+ 276              	.LBB28:
+ 277              	.LBB29:
+ 278              		.file 3 "Core/Inc/pid.h"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 8
+
+
    1:Core/Inc/pid.h **** #ifndef _PID_H_
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 8
-
-
    2:Core/Inc/pid.h **** #define _PID_H_
    3:Core/Inc/pid.h **** #include "stdio.h"
    4:Core/Inc/pid.h **** //extern float SampleTime=10;
@@ -433,79 +434,79 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
   11:Core/Inc/pid.h ****         PID &operator=(PID &&) = default;
   12:Core/Inc/pid.h ****         PID &operator=(const PID &) = default;
   13:Core/Inc/pid.h ****         PID(){setPID(0,0,0);}
- 282              		.loc 3 13 0 is_stmt 1
- 283 001a 9FED0B0A 		vldr.32	s0, .L22+4
- 284 001e B0EE401A 		vmov.f32	s2, s0
- 285 0022 F0EE400A 		vmov.f32	s1, s0
- 286 0026 281D     		adds	r0, r5, #4
- 287              	.LVL17:
- 288 0028 FFF7FEFF 		bl	_ZN3PID6setPIDEfff
- 289              	.LVL18:
- 290              	.LBE29:
- 291              	.LBE28:
+ 279              		.loc 3 13 0 is_stmt 1
+ 280 001a 9FED0B0A 		vldr.32	s0, .L22+4
+ 281 001e B0EE401A 		vmov.f32	s2, s0
+ 282 0022 F0EE400A 		vmov.f32	s1, s0
+ 283 0026 281D     		adds	r0, r5, #4
+ 284              	.LVL17:
+ 285 0028 FFF7FEFF 		bl	_ZN3PID6setPIDEfff
+ 286              	.LVL18:
+ 287              	.LBE29:
+ 288              	.LBE28:
   34:Core/Inc/motor.h **** 	motor(motor_config *motors) { motor_ = motors; }
- 292              		.loc 2 34 0
- 293 002c 0023     		movs	r3, #0
- 294 002e 45F8183B 		str	r3, [r5], #24
- 295              	.LVL19:
- 296              	.LBE27:
- 297              	.LBE26:
-   5:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
- 298              		.loc 1 5 0
- 299 0032 013C     		subs	r4, r4, #1
- 300 0034 EFE7     		b	.L15
- 301              	.L14:
-   5:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
- 302              		.loc 1 5 0 is_stmt 0 discriminator 2
- 303 0036 054A     		ldr	r2, .L22+8
- 304 0038 0549     		ldr	r1, .L22+12
- 305 003a 0020     		movs	r0, #0
- 306 003c FFF7FEFF 		bl	__aeabi_atexit
- 307              	.LVL20:
- 308              		.loc 1 78 0 is_stmt 1 discriminator 2
- 309 0040 E6E7     		b	.L12
- 310              	.L23:
- 311 0042 00BF     		.align	2
- 312              	.L22:
- 313 0044 00000000 		.word	.LANCHOR0
- 314 0048 00000000 		.word	0
- 315 004c 00000000 		.word	__dso_handle
- 316 0050 00000000 		.word	__tcf_0
- 317              		.cfi_endproc
- 318              	.LFE395:
- 320              		.section	.text._ZL8pid_initv,"ax",%progbits
- 321              		.align	1
- 322              		.syntax unified
- 323              		.thumb
- 324              		.thumb_func
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 9
+ 289              		.loc 2 34 0
+ 290 002c 0023     		movs	r3, #0
+ 291 002e 45F8183B 		str	r3, [r5], #24
+ 292              	.LVL19:
+ 293              	.LBE27:
+ 294              	.LBE26:
+   6:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 295              		.loc 1 6 0
+ 296 0032 013C     		subs	r4, r4, #1
+ 297 0034 EFE7     		b	.L15
+ 298              	.L14:
+   6:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 299              		.loc 1 6 0 is_stmt 0 discriminator 2
+ 300 0036 054A     		ldr	r2, .L22+8
+ 301 0038 0549     		ldr	r1, .L22+12
+ 302 003a 0020     		movs	r0, #0
+ 303 003c FFF7FEFF 		bl	__aeabi_atexit
+ 304              	.LVL20:
+ 305              		.loc 1 82 0 is_stmt 1 discriminator 2
+ 306 0040 E6E7     		b	.L12
+ 307              	.L23:
+ 308 0042 00BF     		.align	2
+ 309              	.L22:
+ 310 0044 00000000 		.word	.LANCHOR0
+ 311 0048 00000000 		.word	0
+ 312 004c 00000000 		.word	__dso_handle
+ 313 0050 00000000 		.word	__tcf_0
+ 314              		.cfi_endproc
+ 315              	.LFE410:
+ 317              		.section	.text._ZL8pid_initv,"ax",%progbits
+ 318              		.align	1
+ 319              		.syntax unified
+ 320              		.thumb
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 9
 
 
- 325              		.fpu fpv4-sp-d16
- 327              	_ZL8pid_initv:
- 328              	.LFB393:
-  22:Core/Src/robo_init.cpp **** 	// 2.6
- 329              		.loc 1 22 0
- 330              		.cfi_startproc
- 331              		@ args = 0, pretend = 0, frame = 0
- 332              		@ frame_needed = 0, uses_anonymous_args = 0
- 333 0000 38B5     		push	{r3, r4, r5, lr}
- 334              	.LCFI2:
- 335              		.cfi_def_cfa_offset 16
- 336              		.cfi_offset 3, -16
- 337              		.cfi_offset 4, -12
- 338              		.cfi_offset 5, -8
- 339              		.cfi_offset 14, -4
- 340 0002 2DED048B 		vpush.64	{d8, d9}
- 341              	.LCFI3:
- 342              		.cfi_def_cfa_offset 32
- 343              		.cfi_offset 80, -32
- 344              		.cfi_offset 81, -28
- 345              		.cfi_offset 82, -24
- 346              		.cfi_offset 83, -20
- 347              	.LVL21:
- 348              	.LBB38:
- 349              	.LBB39:
+ 321              		.thumb_func
+ 322              		.fpu fpv4-sp-d16
+ 324              	_ZL8pid_initv:
+ 325              	.LFB408:
+  26:Core/Src/robo_init.cpp **** 	// 2.6
+ 326              		.loc 1 26 0
+ 327              		.cfi_startproc
+ 328              		@ args = 0, pretend = 0, frame = 0
+ 329              		@ frame_needed = 0, uses_anonymous_args = 0
+ 330 0000 38B5     		push	{r3, r4, r5, lr}
+ 331              	.LCFI2:
+ 332              		.cfi_def_cfa_offset 16
+ 333              		.cfi_offset 3, -16
+ 334              		.cfi_offset 4, -12
+ 335              		.cfi_offset 5, -8
+ 336              		.cfi_offset 14, -4
+ 337 0002 2DED048B 		vpush.64	{d8, d9}
+ 338              	.LCFI3:
+ 339              		.cfi_def_cfa_offset 32
+ 340              		.cfi_offset 80, -32
+ 341              		.cfi_offset 81, -28
+ 342              		.cfi_offset 82, -24
+ 343              		.cfi_offset 83, -20
+ 344              	.LVL21:
+ 345              	.LBB38:
+ 346              	.LBB39:
   42:Core/Inc/motor.h **** 	float get_max_omega() { return motor_->max_omega; }
   43:Core/Inc/motor.h **** 	void set_direction(enum Direction dir);
   44:Core/Inc/motor.h **** 	void motor_input(float setpoint, float iOmega);
@@ -515,302 +516,313 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 1
   48:Core/Inc/motor.h **** 	void setPID_constraints(float kp, float ki, float kd, float upper_limit, float lower_limit)
   49:Core/Inc/motor.h **** 	{
   50:Core/Inc/motor.h **** 		Spid.setKp(kp);
- 350              		.loc 2 50 0
- 351 0006 344C     		ldr	r4, .L26
- 352 0008 251D     		adds	r5, r4, #4
- 353 000a 9FED340A 		vldr.32	s0, .L26+4
- 354 000e 2846     		mov	r0, r5
- 355 0010 FFF7FEFF 		bl	_ZN3PID5setKpEf
- 356              	.LVL22:
+ 347              		.loc 2 50 0
+ 348 0006 344C     		ldr	r4, .L26
+ 349 0008 251D     		adds	r5, r4, #4
+ 350 000a 9FED340A 		vldr.32	s0, .L26+4
+ 351 000e 2846     		mov	r0, r5
+ 352 0010 FFF7FEFF 		bl	_ZN3PID5setKpEf
+ 353              	.LVL22:
   51:Core/Inc/motor.h **** 		Spid.setKi(ki);
- 357              		.loc 2 51 0
- 358 0014 9FED320A 		vldr.32	s0, .L26+8
- 359 0018 2846     		mov	r0, r5
- 360 001a FFF7FEFF 		bl	_ZN3PID5setKiEf
- 361              	.LVL23:
+ 354              		.loc 2 51 0
+ 355 0014 9FED320A 		vldr.32	s0, .L26+8
+ 356 0018 2846     		mov	r0, r5
+ 357 001a FFF7FEFF 		bl	_ZN3PID5setKiEf
+ 358              	.LVL23:
   52:Core/Inc/motor.h **** 		Spid.setKd(kd);
- 362              		.loc 2 52 0
- 363 001e 9FED319A 		vldr.32	s18, .L26+12
- 364 0022 B0EE490A 		vmov.f32	s0, s18
- 365 0026 2846     		mov	r0, r5
- 366 0028 FFF7FEFF 		bl	_ZN3PID5setKdEf
- 367              	.LVL24:
+ 359              		.loc 2 52 0
+ 360 001e 9FED319A 		vldr.32	s18, .L26+12
+ 361 0022 B0EE490A 		vmov.f32	s0, s18
+ 362 0026 2846     		mov	r0, r5
+ 363 0028 FFF7FEFF 		bl	_ZN3PID5setKdEf
+ 364              	.LVL24:
   53:Core/Inc/motor.h **** 		Spid.setlimits(upper_limit, lower_limit);
- 368              		.loc 2 53 0
- 369 002c DFED2E8A 		vldr.32	s17, .L26+16
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 10
+ 365              		.loc 2 53 0
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 10
 
 
- 370 0030 9FED2E8A 		vldr.32	s16, .L26+20
- 371 0034 F0EE680A 		vmov.f32	s1, s17
- 372 0038 B0EE480A 		vmov.f32	s0, s16
- 373 003c 2846     		mov	r0, r5
- 374 003e FFF7FEFF 		bl	_ZN3PID9setlimitsEff
- 375              	.LVL25:
- 376              	.LBE39:
- 377              	.LBE38:
- 378              	.LBB40:
- 379              	.LBB41:
+ 366 002c DFED2E8A 		vldr.32	s17, .L26+16
+ 367 0030 9FED2E8A 		vldr.32	s16, .L26+20
+ 368 0034 F0EE680A 		vmov.f32	s1, s17
+ 369 0038 B0EE480A 		vmov.f32	s0, s16
+ 370 003c 2846     		mov	r0, r5
+ 371 003e FFF7FEFF 		bl	_ZN3PID9setlimitsEff
+ 372              	.LVL25:
+ 373              	.LBE39:
+ 374              	.LBE38:
+ 375              	.LBB40:
+ 376              	.LBB41:
   50:Core/Inc/motor.h **** 		Spid.setKi(ki);
- 380              		.loc 2 50 0
- 381 0042 04F11C05 		add	r5, r4, #28
- 382 0046 9FED2A0A 		vldr.32	s0, .L26+24
- 383 004a 2846     		mov	r0, r5
- 384 004c FFF7FEFF 		bl	_ZN3PID5setKpEf
- 385              	.LVL26:
+ 377              		.loc 2 50 0
+ 378 0042 04F11C05 		add	r5, r4, #28
+ 379 0046 9FED2A0A 		vldr.32	s0, .L26+24
+ 380 004a 2846     		mov	r0, r5
+ 381 004c FFF7FEFF 		bl	_ZN3PID5setKpEf
+ 382              	.LVL26:
   51:Core/Inc/motor.h **** 		Spid.setKd(kd);
- 386              		.loc 2 51 0
- 387 0050 9FED280A 		vldr.32	s0, .L26+28
- 388 0054 2846     		mov	r0, r5
- 389 0056 FFF7FEFF 		bl	_ZN3PID5setKiEf
- 390              	.LVL27:
+ 383              		.loc 2 51 0
+ 384 0050 9FED280A 		vldr.32	s0, .L26+28
+ 385 0054 2846     		mov	r0, r5
+ 386 0056 FFF7FEFF 		bl	_ZN3PID5setKiEf
+ 387              	.LVL27:
   52:Core/Inc/motor.h **** 		Spid.setlimits(upper_limit, lower_limit);
- 391              		.loc 2 52 0
- 392 005a B0EE490A 		vmov.f32	s0, s18
- 393 005e 2846     		mov	r0, r5
- 394 0060 FFF7FEFF 		bl	_ZN3PID5setKdEf
- 395              	.LVL28:
- 396              		.loc 2 53 0
- 397 0064 F0EE680A 		vmov.f32	s1, s17
- 398 0068 B0EE480A 		vmov.f32	s0, s16
- 399 006c 2846     		mov	r0, r5
- 400 006e FFF7FEFF 		bl	_ZN3PID9setlimitsEff
- 401              	.LVL29:
- 402              	.LBE41:
- 403              	.LBE40:
- 404              	.LBB42:
- 405              	.LBB43:
+ 388              		.loc 2 52 0
+ 389 005a B0EE490A 		vmov.f32	s0, s18
+ 390 005e 2846     		mov	r0, r5
+ 391 0060 FFF7FEFF 		bl	_ZN3PID5setKdEf
+ 392              	.LVL28:
+ 393              		.loc 2 53 0
+ 394 0064 F0EE680A 		vmov.f32	s1, s17
+ 395 0068 B0EE480A 		vmov.f32	s0, s16
+ 396 006c 2846     		mov	r0, r5
+ 397 006e FFF7FEFF 		bl	_ZN3PID9setlimitsEff
+ 398              	.LVL29:
+ 399              	.LBE41:
+ 400              	.LBE40:
+ 401              	.LBB42:
+ 402              	.LBB43:
   50:Core/Inc/motor.h **** 		Spid.setKi(ki);
- 406              		.loc 2 50 0
- 407 0072 04F13405 		add	r5, r4, #52
- 408 0076 9FED200A 		vldr.32	s0, .L26+32
- 409 007a 2846     		mov	r0, r5
- 410 007c FFF7FEFF 		bl	_ZN3PID5setKpEf
- 411              	.LVL30:
+ 403              		.loc 2 50 0
+ 404 0072 04F13405 		add	r5, r4, #52
+ 405 0076 9FED200A 		vldr.32	s0, .L26+32
+ 406 007a 2846     		mov	r0, r5
+ 407 007c FFF7FEFF 		bl	_ZN3PID5setKpEf
+ 408              	.LVL30:
   51:Core/Inc/motor.h **** 		Spid.setKd(kd);
- 412              		.loc 2 51 0
- 413 0080 9FED1E0A 		vldr.32	s0, .L26+36
- 414 0084 2846     		mov	r0, r5
- 415 0086 FFF7FEFF 		bl	_ZN3PID5setKiEf
- 416              	.LVL31:
+ 409              		.loc 2 51 0
+ 410 0080 9FED1E0A 		vldr.32	s0, .L26+36
+ 411 0084 2846     		mov	r0, r5
+ 412 0086 FFF7FEFF 		bl	_ZN3PID5setKiEf
+ 413              	.LVL31:
   52:Core/Inc/motor.h **** 		Spid.setlimits(upper_limit, lower_limit);
- 417              		.loc 2 52 0
- 418 008a B0EE490A 		vmov.f32	s0, s18
- 419 008e 2846     		mov	r0, r5
- 420 0090 FFF7FEFF 		bl	_ZN3PID5setKdEf
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 11
+ 414              		.loc 2 52 0
+ 415 008a B0EE490A 		vmov.f32	s0, s18
+ 416 008e 2846     		mov	r0, r5
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 11
 
 
- 421              	.LVL32:
- 422              		.loc 2 53 0
- 423 0094 F0EE680A 		vmov.f32	s1, s17
- 424 0098 B0EE480A 		vmov.f32	s0, s16
- 425 009c 2846     		mov	r0, r5
- 426 009e FFF7FEFF 		bl	_ZN3PID9setlimitsEff
- 427              	.LVL33:
- 428              	.LBE43:
- 429              	.LBE42:
- 430              	.LBB44:
- 431              	.LBB45:
+ 417 0090 FFF7FEFF 		bl	_ZN3PID5setKdEf
+ 418              	.LVL32:
+ 419              		.loc 2 53 0
+ 420 0094 F0EE680A 		vmov.f32	s1, s17
+ 421 0098 B0EE480A 		vmov.f32	s0, s16
+ 422 009c 2846     		mov	r0, r5
+ 423 009e FFF7FEFF 		bl	_ZN3PID9setlimitsEff
+ 424              	.LVL33:
+ 425              	.LBE43:
+ 426              	.LBE42:
+ 427              	.LBB44:
+ 428              	.LBB45:
   50:Core/Inc/motor.h **** 		Spid.setKi(ki);
- 432              		.loc 2 50 0
- 433 00a2 4C34     		adds	r4, r4, #76
- 434 00a4 9FED160A 		vldr.32	s0, .L26+40
- 435 00a8 2046     		mov	r0, r4
- 436 00aa FFF7FEFF 		bl	_ZN3PID5setKpEf
- 437              	.LVL34:
+ 429              		.loc 2 50 0
+ 430 00a2 4C34     		adds	r4, r4, #76
+ 431 00a4 9FED160A 		vldr.32	s0, .L26+40
+ 432 00a8 2046     		mov	r0, r4
+ 433 00aa FFF7FEFF 		bl	_ZN3PID5setKpEf
+ 434              	.LVL34:
   51:Core/Inc/motor.h **** 		Spid.setKd(kd);
- 438              		.loc 2 51 0
- 439 00ae 9FED150A 		vldr.32	s0, .L26+44
- 440 00b2 2046     		mov	r0, r4
- 441 00b4 FFF7FEFF 		bl	_ZN3PID5setKiEf
- 442              	.LVL35:
+ 435              		.loc 2 51 0
+ 436 00ae 9FED150A 		vldr.32	s0, .L26+44
+ 437 00b2 2046     		mov	r0, r4
+ 438 00b4 FFF7FEFF 		bl	_ZN3PID5setKiEf
+ 439              	.LVL35:
   52:Core/Inc/motor.h **** 		Spid.setlimits(upper_limit, lower_limit);
- 443              		.loc 2 52 0
- 444 00b8 B0EE490A 		vmov.f32	s0, s18
- 445 00bc 2046     		mov	r0, r4
- 446 00be FFF7FEFF 		bl	_ZN3PID5setKdEf
- 447              	.LVL36:
- 448              		.loc 2 53 0
- 449 00c2 F0EE680A 		vmov.f32	s1, s17
- 450 00c6 B0EE480A 		vmov.f32	s0, s16
- 451 00ca 2046     		mov	r0, r4
- 452 00cc FFF7FEFF 		bl	_ZN3PID9setlimitsEff
- 453              	.LVL37:
- 454              	.LBE45:
- 455              	.LBE44:
-  29:Core/Src/robo_init.cpp **** 
- 456              		.loc 1 29 0
- 457 00d0 BDEC048B 		vldm	sp!, {d8-d9}
- 458              	.LCFI4:
- 459              		.cfi_restore 82
- 460              		.cfi_restore 83
- 461              		.cfi_restore 80
- 462              		.cfi_restore 81
- 463              		.cfi_def_cfa_offset 16
- 464 00d4 38BD     		pop	{r3, r4, r5, pc}
- 465              	.L27:
- 466 00d6 00BF     		.align	2
- 467              	.L26:
- 468 00d8 00000000 		.word	.LANCHOR0
- 469 00dc 9031F73F 		.word	1073164688
- 470 00e0 5AF5393D 		.word	1027208538
- 471 00e4 00000000 		.word	0
- 472 00e8 000048C2 		.word	-1035468800
- 473 00ec 00004842 		.word	1112014848
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 12
+ 440              		.loc 2 52 0
+ 441 00b8 B0EE490A 		vmov.f32	s0, s18
+ 442 00bc 2046     		mov	r0, r4
+ 443 00be FFF7FEFF 		bl	_ZN3PID5setKdEf
+ 444              	.LVL36:
+ 445              		.loc 2 53 0
+ 446 00c2 F0EE680A 		vmov.f32	s1, s17
+ 447 00c6 B0EE480A 		vmov.f32	s0, s16
+ 448 00ca 2046     		mov	r0, r4
+ 449 00cc FFF7FEFF 		bl	_ZN3PID9setlimitsEff
+ 450              	.LVL37:
+ 451              	.LBE45:
+ 452              	.LBE44:
+  33:Core/Src/robo_init.cpp **** 
+ 453              		.loc 1 33 0
+ 454 00d0 BDEC048B 		vldm	sp!, {d8-d9}
+ 455              	.LCFI4:
+ 456              		.cfi_restore 82
+ 457              		.cfi_restore 83
+ 458              		.cfi_restore 80
+ 459              		.cfi_restore 81
+ 460              		.cfi_def_cfa_offset 16
+ 461 00d4 38BD     		pop	{r3, r4, r5, pc}
+ 462              	.L27:
+ 463 00d6 00BF     		.align	2
+ 464              	.L26:
+ 465 00d8 00000000 		.word	.LANCHOR0
+ 466 00dc 9031F73F 		.word	1073164688
+ 467 00e0 5AF5393D 		.word	1027208538
+ 468 00e4 00000000 		.word	0
+ 469 00e8 000048C2 		.word	-1035468800
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 12
 
 
- 474 00f0 2F6E0340 		.word	1073966639
- 475 00f4 789C223D 		.word	1025678456
- 476 00f8 D42B0140 		.word	1073818580
- 477 00fc 7446143D 		.word	1024738932
- 478 0100 F2410740 		.word	1074217458
- 479 0104 083D1B3D 		.word	1025195272
- 480              		.cfi_endproc
- 481              	.LFE393:
- 483              		.section	.text._Z9robo_initv,"ax",%progbits
- 484              		.align	1
- 485              		.global	_Z9robo_initv
- 486              		.syntax unified
- 487              		.thumb
- 488              		.thumb_func
- 489              		.fpu fpv4-sp-d16
- 491              	_Z9robo_initv:
- 492              	.LFB392:
-  14:Core/Src/robo_init.cpp **** 	// printf("\nLet's Begin\n");
- 493              		.loc 1 14 0
- 494              		.cfi_startproc
- 495              		@ args = 0, pretend = 0, frame = 0
- 496              		@ frame_needed = 0, uses_anonymous_args = 0
- 497 0000 08B5     		push	{r3, lr}
- 498              	.LCFI5:
- 499              		.cfi_def_cfa_offset 8
- 500              		.cfi_offset 3, -8
- 501              		.cfi_offset 14, -4
-  16:Core/Src/robo_init.cpp **** 	encoder_init();
- 502              		.loc 1 16 0
- 503 0002 FFF7FEFF 		bl	_ZL8pid_initv
- 504              	.LVL38:
-  17:Core/Src/robo_init.cpp **** 	motor_init();
- 505              		.loc 1 17 0
- 506 0006 FFF7FEFF 		bl	_Z12encoder_initv
- 507              	.LVL39:
-  18:Core/Src/robo_init.cpp **** }
- 508              		.loc 1 18 0
- 509 000a FFF7FEFF 		bl	_ZL10motor_initv
- 510              	.LVL40:
-  19:Core/Src/robo_init.cpp **** 
- 511              		.loc 1 19 0
- 512 000e 08BD     		pop	{r3, pc}
- 513              		.cfi_endproc
- 514              	.LFE392:
- 516              		.section	.text._GLOBAL__sub_I_gmotor,"ax",%progbits
- 517              		.align	1
- 518              		.syntax unified
- 519              		.thumb
- 520              		.thumb_func
- 521              		.fpu fpv4-sp-d16
- 523              	_GLOBAL__sub_I_gmotor:
- 524              	.LFB397:
- 525              		.loc 1 78 0
- 526              		.cfi_startproc
- 527              		@ args = 0, pretend = 0, frame = 0
- 528              		@ frame_needed = 0, uses_anonymous_args = 0
- 529 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 13
+ 470 00ec 00004842 		.word	1112014848
+ 471 00f0 2F6E0340 		.word	1073966639
+ 472 00f4 789C223D 		.word	1025678456
+ 473 00f8 D42B0140 		.word	1073818580
+ 474 00fc 7446143D 		.word	1024738932
+ 475 0100 F2410740 		.word	1074217458
+ 476 0104 083D1B3D 		.word	1025195272
+ 477              		.cfi_endproc
+ 478              	.LFE408:
+ 480              		.section	.text._Z9robo_initv,"ax",%progbits
+ 481              		.align	1
+ 482              		.global	_Z9robo_initv
+ 483              		.syntax unified
+ 484              		.thumb
+ 485              		.thumb_func
+ 486              		.fpu fpv4-sp-d16
+ 488              	_Z9robo_initv:
+ 489              	.LFB407:
+  16:Core/Src/robo_init.cpp **** 	// printf("\nLet's Begin\n");
+ 490              		.loc 1 16 0
+ 491              		.cfi_startproc
+ 492              		@ args = 0, pretend = 0, frame = 0
+ 493              		@ frame_needed = 0, uses_anonymous_args = 0
+ 494 0000 08B5     		push	{r3, lr}
+ 495              	.LCFI5:
+ 496              		.cfi_def_cfa_offset 8
+ 497              		.cfi_offset 3, -8
+ 498              		.cfi_offset 14, -4
+  18:Core/Src/robo_init.cpp **** 	encoder_init();
+ 499              		.loc 1 18 0
+ 500 0002 FFF7FEFF 		bl	_ZL8pid_initv
+ 501              	.LVL38:
+  19:Core/Src/robo_init.cpp **** 	motor_init();
+ 502              		.loc 1 19 0
+ 503 0006 FFF7FEFF 		bl	_Z12encoder_initv
+ 504              	.LVL39:
+  20:Core/Src/robo_init.cpp **** 
+ 505              		.loc 1 20 0
+ 506 000a FFF7FEFF 		bl	_ZL10motor_initv
+ 507              	.LVL40:
+  22:Core/Src/robo_init.cpp **** }
+ 508              		.loc 1 22 0
+ 509 000e 0248     		ldr	r0, .L30
+ 510 0010 FFF7FEFF 		bl	_ZN8JoyStick4initEv
+ 511              	.LVL41:
+  23:Core/Src/robo_init.cpp **** 
+ 512              		.loc 1 23 0
+ 513 0014 08BD     		pop	{r3, pc}
+ 514              	.L31:
+ 515 0016 00BF     		.align	2
+ 516              	.L30:
+ 517 0018 00000000 		.word	joystick
+ 518              		.cfi_endproc
+ 519              	.LFE407:
+ 521              		.section	.text._GLOBAL__sub_I_gmotor,"ax",%progbits
+ 522              		.align	1
+ 523              		.syntax unified
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 13
 
 
- 530              	.LCFI6:
- 531              		.cfi_def_cfa_offset 8
- 532              		.cfi_offset 3, -8
- 533              		.cfi_offset 14, -4
- 534              		.loc 1 78 0
- 535 0002 4FF6FF71 		movw	r1, #65535
- 536 0006 0120     		movs	r0, #1
- 537 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 538              	.LVL41:
- 539 000c 08BD     		pop	{r3, pc}
- 540              		.cfi_endproc
- 541              	.LFE397:
- 543              		.section	.init_array,"aw",%init_array
- 544              		.align	2
- 545 0000 00000000 		.word	_GLOBAL__sub_I_gmotor(target1)
- 546              		.global	gmotor
- 547              		.section	.bss._ZL20motor_configurations,"aw",%nobits
- 548              		.align	2
- 549              		.set	.LANCHOR1,. + 0
- 552              	_ZL20motor_configurations:
- 553 0000 00000000 		.space	128
- 553      00000000 
- 553      00000000 
- 553      00000000 
- 553      00000000 
- 554              		.section	.bss.gmotor,"aw",%nobits
- 555              		.align	2
- 556              		.set	.LANCHOR0,. + 0
- 559              	gmotor:
- 560 0000 00000000 		.space	96
- 560      00000000 
- 560      00000000 
- 560      00000000 
- 560      00000000 
- 561              		.text
- 562              	.Letext0:
- 563              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 564              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 565              		.file 6 "Drivers/CMSIS/Include/core_cm4.h"
- 566              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 567              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 568              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 569              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 570              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 571              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 572              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 573              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 574              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 575              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 576              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
- 577              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 578              		.file 19 "Core/Inc/tim.h"
- 579              		.file 20 "Core/Inc/usart.h"
- 580              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 581              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 582              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 583              		.file 24 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 14
+ 524              		.thumb
+ 525              		.thumb_func
+ 526              		.fpu fpv4-sp-d16
+ 528              	_GLOBAL__sub_I_gmotor:
+ 529              	.LFB412:
+ 530              		.loc 1 82 0
+ 531              		.cfi_startproc
+ 532              		@ args = 0, pretend = 0, frame = 0
+ 533              		@ frame_needed = 0, uses_anonymous_args = 0
+ 534 0000 08B5     		push	{r3, lr}
+ 535              	.LCFI6:
+ 536              		.cfi_def_cfa_offset 8
+ 537              		.cfi_offset 3, -8
+ 538              		.cfi_offset 14, -4
+ 539              		.loc 1 82 0
+ 540 0002 4FF6FF71 		movw	r1, #65535
+ 541 0006 0120     		movs	r0, #1
+ 542 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 543              	.LVL42:
+ 544 000c 08BD     		pop	{r3, pc}
+ 545              		.cfi_endproc
+ 546              	.LFE412:
+ 548              		.section	.init_array,"aw",%init_array
+ 549              		.align	2
+ 550 0000 00000000 		.word	_GLOBAL__sub_I_gmotor(target1)
+ 551              		.global	gmotor
+ 552              		.section	.bss._ZL20motor_configurations,"aw",%nobits
+ 553              		.align	2
+ 554              		.set	.LANCHOR1,. + 0
+ 557              	_ZL20motor_configurations:
+ 558 0000 00000000 		.space	128
+ 558      00000000 
+ 558      00000000 
+ 558      00000000 
+ 558      00000000 
+ 559              		.section	.bss.gmotor,"aw",%nobits
+ 560              		.align	2
+ 561              		.set	.LANCHOR0,. + 0
+ 564              	gmotor:
+ 565 0000 00000000 		.space	96
+ 565      00000000 
+ 565      00000000 
+ 565      00000000 
+ 565      00000000 
+ 566              		.text
+ 567              	.Letext0:
+ 568              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 569              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 570              		.file 6 "Drivers/CMSIS/Include/core_cm4.h"
+ 571              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 572              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 573              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 574              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 575              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 576              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 577              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 578              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 14
 
 
- 584              		.file 25 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 585              		.file 26 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 586              		.file 27 "<built-in>"
- 587              		.file 28 "Core/Inc/encoder.h"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s 			page 15
+ 579              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 580              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 581              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
+ 582              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 583              		.file 19 "Core/Inc/tim.h"
+ 584              		.file 20 "Core/Inc/usart.h"
+ 585              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 586              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 587              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 588              		.file 24 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 589              		.file 25 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 590              		.file 26 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 591              		.file 27 "Core/Inc/joystick.h"
+ 592              		.file 28 "<built-in>"
+ 593              		.file 29 "Core/Inc/encoder.h"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 robo_init.cpp
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:18     .text.__tcf_0:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:24     .text.__tcf_0:00000000 __tcf_0
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:50     .text.__tcf_0:00000010 $d
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:56     .text._ZL10motor_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:62     .text._ZL10motor_initv:00000000 _ZL10motor_initv
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:219    .text._ZL10motor_initv:000000c0 $d
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:233    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:239    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:313    .text._Z41__static_initialization_and_destruction_0ii:00000044 $d
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:321    .text._ZL8pid_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:327    .text._ZL8pid_initv:00000000 _ZL8pid_initv
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:468    .text._ZL8pid_initv:000000d8 $d
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:484    .text._Z9robo_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:491    .text._Z9robo_initv:00000000 _Z9robo_initv
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:517    .text._GLOBAL__sub_I_gmotor:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:523    .text._GLOBAL__sub_I_gmotor:00000000 _GLOBAL__sub_I_gmotor
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:544    .init_array:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:559    .bss.gmotor:00000000 gmotor
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:548    .bss._ZL20motor_configurations:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:552    .bss._ZL20motor_configurations:00000000 _ZL20motor_configurations
-C:\Users\Aasman\AppData\Local\Temp\ccNSPFeL.s:555    .bss.gmotor:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:18     .text.__tcf_0:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:24     .text.__tcf_0:00000000 __tcf_0
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:50     .text.__tcf_0:00000010 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:56     .text._ZL10motor_initv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:62     .text._ZL10motor_initv:00000000 _ZL10motor_initv
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:218    .text._ZL10motor_initv:000000c0 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:230    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:236    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:310    .text._Z41__static_initialization_and_destruction_0ii:00000044 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:318    .text._ZL8pid_initv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:324    .text._ZL8pid_initv:00000000 _ZL8pid_initv
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:465    .text._ZL8pid_initv:000000d8 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:481    .text._Z9robo_initv:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:488    .text._Z9robo_initv:00000000 _Z9robo_initv
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:517    .text._Z9robo_initv:00000018 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:522    .text._GLOBAL__sub_I_gmotor:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:528    .text._GLOBAL__sub_I_gmotor:00000000 _GLOBAL__sub_I_gmotor
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:549    .init_array:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:564    .bss.gmotor:00000000 gmotor
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:553    .bss._ZL20motor_configurations:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:557    .bss._ZL20motor_configurations:00000000 _ZL20motor_configurations
+C:\Users\Aasman\AppData\Local\Temp\cc0lBq6b.s:560    .bss.gmotor:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_TIM_Base_Start
@@ -824,3 +836,5 @@ _ZN3PID5setKiEf
 _ZN3PID5setKdEf
 _ZN3PID9setlimitsEff
 _Z12encoder_initv
+_ZN8JoyStick4initEv
+joystick

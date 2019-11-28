@@ -4,7 +4,7 @@
 #include "tim.h"
 #include "stm32f4xx_hal_gpio.h"
 
-#define PPR (998)
+#define PPR (2 * 249.6)
 #define PI (3.1415)
 #define SAMPLE_TIME (10)
 
