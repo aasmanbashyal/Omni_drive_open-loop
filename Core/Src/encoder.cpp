@@ -1,3 +1,5 @@
+//! This code doesnot implement the use of encoder but you can take reference from the encoder.cpp and encoder.h for future implementation
+
 #include "encoder.h"
 #include "stm32f407xx.h"
 

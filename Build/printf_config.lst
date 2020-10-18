@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,13 +20,15 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
   17              		.section	.text.ITM_SendString,"ax",%progbits
   18              		.align	1
   19              		.global	ITM_SendString
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  23              		.fpu fpv4-sp-d16
-  25              	ITM_SendString:
-  26              	.LFB130:
-  27              		.file 1 "Core/Src/printf_config.c"
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	ITM_SendString:
+  27              	.LVL0:
+  28              	.LFB130:
+  29              		.file 1 "Core/Src/printf_config.c"
    1:Core/Src/printf_config.c **** /*
    2:Core/Src/printf_config.c ****  * printf_config.cpp
    3:Core/Src/printf_config.c ****  * 
@@ -40,35 +42,41 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
   11:Core/Src/printf_config.c **** 
   12:Core/Src/printf_config.c **** int ITM_SendString(char *data, int len)
   13:Core/Src/printf_config.c **** {
-  28              		.loc 1 13 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  33              	.LVL0:
+  30              		.loc 1 13 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35              		.loc 1 13 1 is_stmt 0 view .LVU1
+  36 0000 0246     		mov	r2, r0
   14:Core/Src/printf_config.c ****         int i = 0;
-  34              		.loc 1 14 0
-  35 0000 0023     		movs	r3, #0
-  36              	.LVL1:
+  37              		.loc 1 14 9 is_stmt 1 view .LVU2
+  38              	.LVL1:
   15:Core/Src/printf_config.c ****         for (; i < len; ++i)
-  37              		.loc 1 15 0
-  38 0002 8B42     		cmp	r3, r1
-  39 0004 21DA     		bge	.L11
+  39              		.loc 1 15 9 view .LVU3
+  14:Core/Src/printf_config.c ****         int i = 0;
+  40              		.loc 1 14 13 is_stmt 0 view .LVU4
+  41 0002 0020     		movs	r0, #0
+  42              	.LVL2:
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 2
+
+
+  43              		.loc 1 15 16 is_stmt 1 view .LVU5
+  44              		.loc 1 15 9 is_stmt 0 view .LVU6
+  45 0004 8842     		cmp	r0, r1
+  46 0006 20DA     		bge	.L10
   13:Core/Src/printf_config.c ****         int i = 0;
-  40              		.loc 1 13 0
-  41 0006 10B4     		push	{r4}
-  42              	.LCFI0:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 2
-
-
-  43              		.cfi_def_cfa_offset 4
-  44              		.cfi_offset 4, -4
-  45 0008 0BE0     		b	.L6
-  46              	.LVL2:
-  47              	.L5:
-  48              	.LBB4:
-  49              	.LBB5:
-  50              		.file 2 "Drivers/CMSIS/Include/core_cm4.h"
+  47              		.loc 1 13 1 view .LVU7
+  48 0008 10B4     		push	{r4}
+  49              	.LCFI0:
+  50              		.cfi_def_cfa_offset 4
+  51              		.cfi_offset 4, -4
+  52 000a 05E0     		b	.L6
+  53              	.LVL3:
+  54              	.L12:
+  55              	.LBB4:
+  56              	.LBB5:
+  57              		.file 2 "Drivers/CMSIS/Include/core_cm4.h"
    1:Drivers/CMSIS/Include/core_cm4.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/core_cm4.h ****  * @file     core_cm4.h
    3:Drivers/CMSIS/Include/core_cm4.h ****  * @brief    CMSIS Cortex-M4 Core Peripheral Access Layer Header File
@@ -110,6 +118,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
   39:Drivers/CMSIS/Include/core_cm4.h **** 
   40:Drivers/CMSIS/Include/core_cm4.h **** /**
   41:Drivers/CMSIS/Include/core_cm4.h ****   \page CMSIS_MISRA_Exceptions  MISRA-C:2004 Compliance Exceptions
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 3
+
+
   42:Drivers/CMSIS/Include/core_cm4.h ****   CMSIS violates the following MISRA-C:2004 rules:
   43:Drivers/CMSIS/Include/core_cm4.h **** 
   44:Drivers/CMSIS/Include/core_cm4.h ****    \li Required Rule 8.5, object/function definition in header file.<br>
@@ -118,9 +129,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
   47:Drivers/CMSIS/Include/core_cm4.h ****    \li Required Rule 18.4, declaration of union type or object of union type: '{...}'.<br>
   48:Drivers/CMSIS/Include/core_cm4.h ****      Unions are used for effective representation of core registers.
   49:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 3
-
-
   50:Drivers/CMSIS/Include/core_cm4.h ****    \li Advisory Rule 19.7, Function-like macro defined.<br>
   51:Drivers/CMSIS/Include/core_cm4.h ****      Function-like macros are used to allow more efficient code.
   52:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -170,6 +178,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
   96:Drivers/CMSIS/Include/core_cm4.h ****   #else
   97:Drivers/CMSIS/Include/core_cm4.h ****     #define __FPU_USED         0U
   98:Drivers/CMSIS/Include/core_cm4.h ****   #endif
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 4
+
+
   99:Drivers/CMSIS/Include/core_cm4.h **** 
  100:Drivers/CMSIS/Include/core_cm4.h **** #elif defined ( __GNUC__ )
  101:Drivers/CMSIS/Include/core_cm4.h ****   #if defined (__VFP_FP__) && !defined(__SOFTFP__)
@@ -178,9 +189,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  104:Drivers/CMSIS/Include/core_cm4.h ****     #else
  105:Drivers/CMSIS/Include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
  106:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       0U
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 4
-
-
  107:Drivers/CMSIS/Include/core_cm4.h ****     #endif
  108:Drivers/CMSIS/Include/core_cm4.h ****   #else
  109:Drivers/CMSIS/Include/core_cm4.h ****     #define __FPU_USED         0U
@@ -230,6 +238,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  153:Drivers/CMSIS/Include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
  154:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       0U
  155:Drivers/CMSIS/Include/core_cm4.h ****     #endif
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 5
+
+
  156:Drivers/CMSIS/Include/core_cm4.h ****   #else
  157:Drivers/CMSIS/Include/core_cm4.h ****     #define __FPU_USED         0U
  158:Drivers/CMSIS/Include/core_cm4.h ****   #endif
@@ -238,9 +249,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  161:Drivers/CMSIS/Include/core_cm4.h **** 
  162:Drivers/CMSIS/Include/core_cm4.h **** #include "cmsis_compiler.h"               /* CMSIS compiler specific defines */
  163:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 5
-
-
  164:Drivers/CMSIS/Include/core_cm4.h **** 
  165:Drivers/CMSIS/Include/core_cm4.h **** #ifdef __cplusplus
  166:Drivers/CMSIS/Include/core_cm4.h **** }
@@ -290,6 +298,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  210:Drivers/CMSIS/Include/core_cm4.h ****     \defgroup CMSIS_glob_defs CMSIS Global Defines
  211:Drivers/CMSIS/Include/core_cm4.h **** 
  212:Drivers/CMSIS/Include/core_cm4.h ****     <strong>IO Type Qualifiers</strong> are used
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 6
+
+
  213:Drivers/CMSIS/Include/core_cm4.h ****     \li to specify the access to peripheral variables.
  214:Drivers/CMSIS/Include/core_cm4.h ****     \li for automatic generation of peripheral register debug information.
  215:Drivers/CMSIS/Include/core_cm4.h **** */
@@ -298,9 +309,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  218:Drivers/CMSIS/Include/core_cm4.h **** #else
  219:Drivers/CMSIS/Include/core_cm4.h ****   #define   __I     volatile const       /*!< Defines 'read only' permissions */
  220:Drivers/CMSIS/Include/core_cm4.h **** #endif
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 6
-
-
  221:Drivers/CMSIS/Include/core_cm4.h **** #define     __O     volatile             /*!< Defines 'write only' permissions */
  222:Drivers/CMSIS/Include/core_cm4.h **** #define     __IO    volatile             /*!< Defines 'read / write' permissions */
  223:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -350,6 +358,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  267:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
  268:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t C:1;                        /*!< bit:     29  Carry condition code flag */
  269:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t Z:1;                        /*!< bit:     30  Zero condition code flag */
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 7
+
+
  270:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t N:1;                        /*!< bit:     31  Negative condition code flag */
  271:Drivers/CMSIS/Include/core_cm4.h ****   } b;                                   /*!< Structure used for bit  access */
  272:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t w;                            /*!< Type      used for word access */
@@ -358,9 +369,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  275:Drivers/CMSIS/Include/core_cm4.h **** /* APSR Register Definitions */
  276:Drivers/CMSIS/Include/core_cm4.h **** #define APSR_N_Pos                         31U                                            /*!< APSR
  277:Drivers/CMSIS/Include/core_cm4.h **** #define APSR_N_Msk                         (1UL << APSR_N_Pos)                            /*!< APSR
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 7
-
-
  278:Drivers/CMSIS/Include/core_cm4.h **** 
  279:Drivers/CMSIS/Include/core_cm4.h **** #define APSR_Z_Pos                         30U                                            /*!< APSR
  280:Drivers/CMSIS/Include/core_cm4.h **** #define APSR_Z_Msk                         (1UL << APSR_Z_Pos)                            /*!< APSR
@@ -410,6 +418,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  324:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t _reserved1:4;               /*!< bit: 20..23  Reserved */
  325:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t T:1;                        /*!< bit:     24  Thumb bit */
  326:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t ICI_IT_2:2;                 /*!< bit: 25..26  ICI/IT part 2 */
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 8
+
+
  327:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t Q:1;                        /*!< bit:     27  Saturation condition flag */
  328:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
  329:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t C:1;                        /*!< bit:     29  Carry condition code flag */
@@ -418,9 +429,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  332:Drivers/CMSIS/Include/core_cm4.h ****   } b;                                   /*!< Structure used for bit  access */
  333:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t w;                            /*!< Type      used for word access */
  334:Drivers/CMSIS/Include/core_cm4.h **** } xPSR_Type;
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 8
-
-
  335:Drivers/CMSIS/Include/core_cm4.h **** 
  336:Drivers/CMSIS/Include/core_cm4.h **** /* xPSR Register Definitions */
  337:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_N_Pos                         31U                                            /*!< xPSR
@@ -470,6 +478,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  381:Drivers/CMSIS/Include/core_cm4.h **** } CONTROL_Type;
  382:Drivers/CMSIS/Include/core_cm4.h **** 
  383:Drivers/CMSIS/Include/core_cm4.h **** /* CONTROL Register Definitions */
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 9
+
+
  384:Drivers/CMSIS/Include/core_cm4.h **** #define CONTROL_FPCA_Pos                    2U                                            /*!< CONT
  385:Drivers/CMSIS/Include/core_cm4.h **** #define CONTROL_FPCA_Msk                   (1UL << CONTROL_FPCA_Pos)                      /*!< CONT
  386:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -478,9 +489,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  389:Drivers/CMSIS/Include/core_cm4.h **** 
  390:Drivers/CMSIS/Include/core_cm4.h **** #define CONTROL_nPRIV_Pos                   0U                                            /*!< CONT
  391:Drivers/CMSIS/Include/core_cm4.h **** #define CONTROL_nPRIV_Msk                  (1UL /*<< CONTROL_nPRIV_Pos*/)                 /*!< CONT
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 9
-
-
  392:Drivers/CMSIS/Include/core_cm4.h **** 
  393:Drivers/CMSIS/Include/core_cm4.h **** /*@} end of group CMSIS_CORE */
  394:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -530,6 +538,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  438:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Structure type to access the System Control Block (SCB).
  439:Drivers/CMSIS/Include/core_cm4.h ****  */
  440:Drivers/CMSIS/Include/core_cm4.h **** typedef struct
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 10
+
+
  441:Drivers/CMSIS/Include/core_cm4.h **** {
  442:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t CPUID;                  /*!< Offset: 0x000 (R/ )  CPUID Base Register */
  443:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t ICSR;                   /*!< Offset: 0x004 (R/W)  Interrupt Control and State Regi
@@ -538,9 +549,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  446:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t SCR;                    /*!< Offset: 0x010 (R/W)  System Control Register */
  447:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t CCR;                    /*!< Offset: 0x014 (R/W)  Configuration Control Register *
  448:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint8_t  SHP[12U];               /*!< Offset: 0x018 (R/W)  System Handlers Priority Registe
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 10
-
-
  449:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t SHCSR;                  /*!< Offset: 0x024 (R/W)  System Handler Control and State
  450:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t CFSR;                   /*!< Offset: 0x028 (R/W)  Configurable Fault Status Regist
  451:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t HFSR;                   /*!< Offset: 0x02C (R/W)  HardFault Status Register */
@@ -590,6 +598,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  495:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_PENDSTCLR_Msk             (1UL << SCB_ICSR_PENDSTCLR_Pos)                /*!< SCB 
  496:Drivers/CMSIS/Include/core_cm4.h **** 
  497:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_ISRPREEMPT_Pos            23U                                            /*!< SCB 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 11
+
+
  498:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_ISRPREEMPT_Msk            (1UL << SCB_ICSR_ISRPREEMPT_Pos)               /*!< SCB 
  499:Drivers/CMSIS/Include/core_cm4.h **** 
  500:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_ISRPENDING_Pos            22U                                            /*!< SCB 
@@ -598,9 +609,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  503:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_VECTPENDING_Pos           12U                                            /*!< SCB 
  504:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_VECTPENDING_Msk           (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)          /*!< SCB 
  505:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 11
-
-
  506:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_RETTOBASE_Pos             11U                                            /*!< SCB 
  507:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_RETTOBASE_Msk             (1UL << SCB_ICSR_RETTOBASE_Pos)                /*!< SCB 
  508:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -650,6 +658,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  552:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_BFHFNMIGN_Pos               8U                                            /*!< SCB 
  553:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_BFHFNMIGN_Msk              (1UL << SCB_CCR_BFHFNMIGN_Pos)                 /*!< SCB 
  554:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 12
+
+
  555:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_DIV_0_TRP_Pos               4U                                            /*!< SCB 
  556:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_DIV_0_TRP_Msk              (1UL << SCB_CCR_DIV_0_TRP_Pos)                 /*!< SCB 
  557:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -658,9 +669,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  560:Drivers/CMSIS/Include/core_cm4.h **** 
  561:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_USERSETMPEND_Pos            1U                                            /*!< SCB 
  562:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_USERSETMPEND_Msk           (1UL << SCB_CCR_USERSETMPEND_Pos)              /*!< SCB 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 12
-
-
  563:Drivers/CMSIS/Include/core_cm4.h **** 
  564:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_NONBASETHRDENA_Pos          0U                                            /*!< SCB 
  565:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_NONBASETHRDENA_Msk         (1UL /*<< SCB_CCR_NONBASETHRDENA_Pos*/)        /*!< SCB 
@@ -710,6 +718,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  609:Drivers/CMSIS/Include/core_cm4.h **** 
  610:Drivers/CMSIS/Include/core_cm4.h **** /* SCB Configurable Fault Status Register Definitions */
  611:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_USGFAULTSR_Pos            16U                                            /*!< SCB 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 13
+
+
  612:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_USGFAULTSR_Msk            (0xFFFFUL << SCB_CFSR_USGFAULTSR_Pos)          /*!< SCB 
  613:Drivers/CMSIS/Include/core_cm4.h **** 
  614:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_BUSFAULTSR_Pos             8U                                            /*!< SCB 
@@ -718,9 +729,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  617:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_MEMFAULTSR_Pos             0U                                            /*!< SCB 
  618:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_MEMFAULTSR_Msk            (0xFFUL /*<< SCB_CFSR_MEMFAULTSR_Pos*/)        /*!< SCB 
  619:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 13
-
-
  620:Drivers/CMSIS/Include/core_cm4.h **** /* MemManage Fault Status Register (part of SCB Configurable Fault Status Register) */
  621:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_MMARVALID_Pos             (SCB_SHCSR_MEMFAULTACT_Pos + 7U)               /*!< SCB 
  622:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_MMARVALID_Msk             (1UL << SCB_CFSR_MMARVALID_Pos)                /*!< SCB 
@@ -770,6 +778,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  666:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_UNALIGNED_Msk            (1UL << SCB_CFSR_UNALIGNED_Pos)                 /*!< SCB 
  667:Drivers/CMSIS/Include/core_cm4.h **** 
  668:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_NOCP_Pos                 (SCB_CFSR_USGFAULTSR_Pos + 3U)                  /*!< SCB 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 14
+
+
  669:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_NOCP_Msk                 (1UL << SCB_CFSR_NOCP_Pos)                      /*!< SCB 
  670:Drivers/CMSIS/Include/core_cm4.h **** 
  671:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_INVPC_Pos                (SCB_CFSR_USGFAULTSR_Pos + 2U)                  /*!< SCB 
@@ -778,9 +789,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  674:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_INVSTATE_Pos             (SCB_CFSR_USGFAULTSR_Pos + 1U)                  /*!< SCB 
  675:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_INVSTATE_Msk             (1UL << SCB_CFSR_INVSTATE_Pos)                  /*!< SCB 
  676:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 14
-
-
  677:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_UNDEFINSTR_Pos           (SCB_CFSR_USGFAULTSR_Pos + 0U)                  /*!< SCB 
  678:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_UNDEFINSTR_Msk           (1UL << SCB_CFSR_UNDEFINSTR_Pos)                /*!< SCB 
  679:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -830,6 +838,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  723:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t ACTLR;                  /*!< Offset: 0x008 (R/W)  Auxiliary Control Register */
  724:Drivers/CMSIS/Include/core_cm4.h **** } SCnSCB_Type;
  725:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 15
+
+
  726:Drivers/CMSIS/Include/core_cm4.h **** /* Interrupt Controller Type Register Definitions */
  727:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB_ICTR_INTLINESNUM_Pos         0U                                         /*!< ICTR: I
  728:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB_ICTR_INTLINESNUM_Msk        (0xFUL /*<< SCnSCB_ICTR_INTLINESNUM_Pos*/)  /*!< ICTR: I
@@ -838,9 +849,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  731:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB_ACTLR_DISOOFP_Pos            9U                                         /*!< ACTLR: 
  732:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB_ACTLR_DISOOFP_Msk           (1UL << SCnSCB_ACTLR_DISOOFP_Pos)           /*!< ACTLR: 
  733:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 15
-
-
  734:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB_ACTLR_DISFPCA_Pos            8U                                         /*!< ACTLR: 
  735:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB_ACTLR_DISFPCA_Msk           (1UL << SCnSCB_ACTLR_DISFPCA_Pos)           /*!< ACTLR: 
  736:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -890,6 +898,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  780:Drivers/CMSIS/Include/core_cm4.h **** /* SysTick Reload Register Definitions */
  781:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_LOAD_RELOAD_Pos             0U                                            /*!< SysT
  782:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_LOAD_RELOAD_Msk            (0xFFFFFFUL /*<< SysTick_LOAD_RELOAD_Pos*/)    /*!< SysT
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 16
+
+
  783:Drivers/CMSIS/Include/core_cm4.h **** 
  784:Drivers/CMSIS/Include/core_cm4.h **** /* SysTick Current Register Definitions */
  785:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_VAL_CURRENT_Pos             0U                                            /*!< SysT
@@ -898,9 +909,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  788:Drivers/CMSIS/Include/core_cm4.h **** /* SysTick Calibration Register Definitions */
  789:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CALIB_NOREF_Pos            31U                                            /*!< SysT
  790:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CALIB_NOREF_Msk            (1UL << SysTick_CALIB_NOREF_Pos)               /*!< SysT
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 16
-
-
  791:Drivers/CMSIS/Include/core_cm4.h **** 
  792:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CALIB_SKEW_Pos             30U                                            /*!< SysT
  793:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CALIB_SKEW_Msk             (1UL << SysTick_CALIB_SKEW_Pos)                /*!< SysT
@@ -950,6 +958,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  837:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t PID0;                   /*!< Offset: 0xFE0 (R/ )  ITM Peripheral Identification Re
  838:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t PID1;                   /*!< Offset: 0xFE4 (R/ )  ITM Peripheral Identification Re
  839:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t PID2;                   /*!< Offset: 0xFE8 (R/ )  ITM Peripheral Identification Re
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 17
+
+
  840:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t PID3;                   /*!< Offset: 0xFEC (R/ )  ITM Peripheral Identification Re
  841:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t CID0;                   /*!< Offset: 0xFF0 (R/ )  ITM Component  Identification Re
  842:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t CID1;                   /*!< Offset: 0xFF4 (R/ )  ITM Component  Identification Re
@@ -958,9 +969,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  845:Drivers/CMSIS/Include/core_cm4.h **** } ITM_Type;
  846:Drivers/CMSIS/Include/core_cm4.h **** 
  847:Drivers/CMSIS/Include/core_cm4.h **** /* ITM Trace Privilege Register Definitions */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 17
-
-
  848:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TPR_PRIVMASK_Pos                0U                                            /*!< ITM 
  849:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TPR_PRIVMASK_Msk               (0xFFFFFFFFUL /*<< ITM_TPR_PRIVMASK_Pos*/)     /*!< ITM 
  850:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1010,6 +1018,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  894:Drivers/CMSIS/Include/core_cm4.h **** 
  895:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_LSR_Access_Pos                  1U                                            /*!< ITM 
  896:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_LSR_Access_Msk                 (1UL << ITM_LSR_Access_Pos)                    /*!< ITM 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 18
+
+
  897:Drivers/CMSIS/Include/core_cm4.h **** 
  898:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_LSR_Present_Pos                 0U                                            /*!< ITM 
  899:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_LSR_Present_Msk                (1UL /*<< ITM_LSR_Present_Pos*/)               /*!< ITM 
@@ -1018,9 +1029,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  902:Drivers/CMSIS/Include/core_cm4.h **** 
  903:Drivers/CMSIS/Include/core_cm4.h **** 
  904:Drivers/CMSIS/Include/core_cm4.h **** /**
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 18
-
-
  905:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup  CMSIS_core_register
  906:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup CMSIS_DWT     Data Watchpoint and Trace (DWT)
  907:Drivers/CMSIS/Include/core_cm4.h ****   \brief    Type definitions for the Data Watchpoint and Trace (DWT)
@@ -1070,6 +1078,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  951:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOCYCCNT_Pos              25U                                         /*!< DWT CTR
  952:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOCYCCNT_Msk              (0x1UL << DWT_CTRL_NOCYCCNT_Pos)            /*!< DWT CTR
  953:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 19
+
+
  954:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOPRFCNT_Pos              24U                                         /*!< DWT CTR
  955:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOPRFCNT_Msk              (0x1UL << DWT_CTRL_NOPRFCNT_Pos)            /*!< DWT CTR
  956:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1078,9 +1089,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
  959:Drivers/CMSIS/Include/core_cm4.h **** 
  960:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_FOLDEVTENA_Pos            21U                                         /*!< DWT CTR
  961:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_FOLDEVTENA_Msk            (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)          /*!< DWT CTR
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 19
-
-
  962:Drivers/CMSIS/Include/core_cm4.h **** 
  963:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_LSUEVTENA_Pos             20U                                         /*!< DWT CTR
  964:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_LSUEVTENA_Msk             (0x1UL << DWT_CTRL_LSUEVTENA_Pos)           /*!< DWT CTR
@@ -1130,6 +1138,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1008:Drivers/CMSIS/Include/core_cm4.h **** /* DWT LSU Count Register Definitions */
 1009:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_LSUCNT_LSUCNT_Pos               0U                                         /*!< DWT LSU
 1010:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_LSUCNT_LSUCNT_Msk              (0xFFUL /*<< DWT_LSUCNT_LSUCNT_Pos*/)       /*!< DWT LSU
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 20
+
+
 1011:Drivers/CMSIS/Include/core_cm4.h **** 
 1012:Drivers/CMSIS/Include/core_cm4.h **** /* DWT Folded-instruction Count Register Definitions */
 1013:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FOLDCNT_FOLDCNT_Pos             0U                                         /*!< DWT FOL
@@ -1138,9 +1149,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1016:Drivers/CMSIS/Include/core_cm4.h **** /* DWT Comparator Mask Register Definitions */
 1017:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_MASK_MASK_Pos                   0U                                         /*!< DWT MAS
 1018:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_MASK_MASK_Msk                  (0x1FUL /*<< DWT_MASK_MASK_Pos*/)           /*!< DWT MAS
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 20
-
-
 1019:Drivers/CMSIS/Include/core_cm4.h **** 
 1020:Drivers/CMSIS/Include/core_cm4.h **** /* DWT Comparator Function Register Definitions */
 1021:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_MATCHED_Pos           24U                                         /*!< DWT FUN
@@ -1190,6 +1198,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1065:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED0[2U];
 1066:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t ACPR;                   /*!< Offset: 0x010 (R/W)  Asynchronous Clock Prescaler Reg
 1067:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED1[55U];
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 21
+
+
 1068:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t SPPR;                   /*!< Offset: 0x0F0 (R/W)  Selected Pin Protocol Register *
 1069:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED2[131U];
 1070:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t FFSR;                   /*!< Offset: 0x300 (R/ )  Formatter and Flush Status Regis
@@ -1198,9 +1209,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1073:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED3[759U];
 1074:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t TRIGGER;                /*!< Offset: 0xEE8 (R/ )  TRIGGER Register */
 1075:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t FIFO0;                  /*!< Offset: 0xEEC (R/ )  Integration ETM Data */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 21
-
-
 1076:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t ITATBCTR2;              /*!< Offset: 0xEF0 (R/ )  ITATBCTR2 */
 1077:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED4[1U];
 1078:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t ITATBCTR0;              /*!< Offset: 0xEF8 (R/ )  ITATBCTR0 */
@@ -1250,6 +1258,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1122:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ITM_ATVALID_Pos          29U                                         /*!< TPI FIF
 1123:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ITM_ATVALID_Msk          (0x3UL << TPI_FIFO0_ITM_ATVALID_Pos)        /*!< TPI FIF
 1124:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 22
+
+
 1125:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ITM_bytecount_Pos        27U                                         /*!< TPI FIF
 1126:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ITM_bytecount_Msk        (0x3UL << TPI_FIFO0_ITM_bytecount_Pos)      /*!< TPI FIF
 1127:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1258,9 +1269,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1130:Drivers/CMSIS/Include/core_cm4.h **** 
 1131:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ETM_bytecount_Pos        24U                                         /*!< TPI FIF
 1132:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ETM_bytecount_Msk        (0x3UL << TPI_FIFO0_ETM_bytecount_Pos)      /*!< TPI FIF
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 22
-
-
 1133:Drivers/CMSIS/Include/core_cm4.h **** 
 1134:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ETM2_Pos                 16U                                         /*!< TPI FIF
 1135:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ETM2_Msk                 (0xFFUL << TPI_FIFO0_ETM2_Pos)              /*!< TPI FIF
@@ -1310,6 +1318,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1179:Drivers/CMSIS/Include/core_cm4.h **** /* TPI Integration Mode Control Register Definitions */
 1180:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_ITCTRL_Mode_Pos                 0U                                         /*!< TPI ITC
 1181:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_ITCTRL_Mode_Msk                (0x3UL /*<< TPI_ITCTRL_Mode_Pos*/)          /*!< TPI ITC
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 23
+
+
 1182:Drivers/CMSIS/Include/core_cm4.h **** 
 1183:Drivers/CMSIS/Include/core_cm4.h **** /* TPI DEVID Register Definitions */
 1184:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVID_NRZVALID_Pos             11U                                         /*!< TPI DEV
@@ -1318,9 +1329,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1187:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVID_MANCVALID_Pos            10U                                         /*!< TPI DEV
 1188:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVID_MANCVALID_Msk            (0x1UL << TPI_DEVID_MANCVALID_Pos)          /*!< TPI DEV
 1189:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 23
-
-
 1190:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVID_PTINVALID_Pos             9U                                         /*!< TPI DEV
 1191:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVID_PTINVALID_Msk            (0x1UL << TPI_DEVID_PTINVALID_Pos)          /*!< TPI DEV
 1192:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1370,6 +1378,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1236:Drivers/CMSIS/Include/core_cm4.h **** } MPU_Type;
 1237:Drivers/CMSIS/Include/core_cm4.h **** 
 1238:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_TYPE_RALIASES                  4U
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 24
+
+
 1239:Drivers/CMSIS/Include/core_cm4.h **** 
 1240:Drivers/CMSIS/Include/core_cm4.h **** /* MPU Type Register Definitions */
 1241:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_TYPE_IREGION_Pos               16U                                            /*!< MPU 
@@ -1378,9 +1389,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1244:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_TYPE_DREGION_Pos                8U                                            /*!< MPU 
 1245:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_TYPE_DREGION_Msk               (0xFFUL << MPU_TYPE_DREGION_Pos)               /*!< MPU 
 1246:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 24
-
-
 1247:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_TYPE_SEPARATE_Pos               0U                                            /*!< MPU 
 1248:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_TYPE_SEPARATE_Msk              (1UL /*<< MPU_TYPE_SEPARATE_Pos*/)             /*!< MPU 
 1249:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1430,6 +1438,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1293:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_B_Pos                     16U                                            /*!< MPU 
 1294:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_B_Msk                     (1UL << MPU_RASR_B_Pos)                        /*!< MPU 
 1295:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 25
+
+
 1296:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_SRD_Pos                    8U                                            /*!< MPU 
 1297:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_SRD_Msk                   (0xFFUL << MPU_RASR_SRD_Pos)                   /*!< MPU 
 1298:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1438,9 +1449,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1301:Drivers/CMSIS/Include/core_cm4.h **** 
 1302:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_ENABLE_Pos                 0U                                            /*!< MPU 
 1303:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_ENABLE_Msk                (1UL /*<< MPU_RASR_ENABLE_Pos*/)               /*!< MPU 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 25
-
-
 1304:Drivers/CMSIS/Include/core_cm4.h **** 
 1305:Drivers/CMSIS/Include/core_cm4.h **** /*@} end of group CMSIS_MPU */
 1306:Drivers/CMSIS/Include/core_cm4.h **** #endif /* defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U) */
@@ -1490,6 +1498,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1350:Drivers/CMSIS/Include/core_cm4.h **** 
 1351:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_USER_Pos                  1U                                            /*!< FPCC
 1352:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_USER_Msk                 (1UL << FPU_FPCCR_USER_Pos)                    /*!< FPCC
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 26
+
+
 1353:Drivers/CMSIS/Include/core_cm4.h **** 
 1354:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_LSPACT_Pos                0U                                            /*!< FPCC
 1355:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_LSPACT_Msk               (1UL /*<< FPU_FPCCR_LSPACT_Pos*/)              /*!< FPCC
@@ -1498,9 +1509,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1358:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCAR_ADDRESS_Pos               3U                                            /*!< FPCA
 1359:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCAR_ADDRESS_Msk              (0x1FFFFFFFUL << FPU_FPCAR_ADDRESS_Pos)        /*!< FPCA
 1360:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 26
-
-
 1361:Drivers/CMSIS/Include/core_cm4.h **** /* Floating-Point Default Status Control Register Definitions */
 1362:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPDSCR_AHP_Pos                 26U                                            /*!< FPDS
 1363:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPDSCR_AHP_Msk                 (1UL << FPU_FPDSCR_AHP_Pos)                    /*!< FPDS
@@ -1550,6 +1558,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1407:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_D_NaN_mode_Msk           (0xFUL << FPU_MVFR1_D_NaN_mode_Pos)            /*!< MVFR
 1408:Drivers/CMSIS/Include/core_cm4.h **** 
 1409:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_FtZ_mode_Pos              0U                                            /*!< MVFR
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 27
+
+
 1410:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_FtZ_mode_Msk             (0xFUL /*<< FPU_MVFR1_FtZ_mode_Pos*/)          /*!< MVFR
 1411:Drivers/CMSIS/Include/core_cm4.h **** 
 1412:Drivers/CMSIS/Include/core_cm4.h **** /*@} end of group CMSIS_FPU */
@@ -1558,9 +1569,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1415:Drivers/CMSIS/Include/core_cm4.h **** /**
 1416:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup  CMSIS_core_register
 1417:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup CMSIS_CoreDebug       Core Debug Registers (CoreDebug)
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 27
-
-
 1418:Drivers/CMSIS/Include/core_cm4.h ****   \brief    Type definitions for the Core Debug Registers
 1419:Drivers/CMSIS/Include/core_cm4.h ****   @{
 1420:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -1610,6 +1618,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1464:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_HALT_Pos          1U                                            /*!< Core
 1465:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_HALT_Msk         (1UL << CoreDebug_DHCSR_C_HALT_Pos)            /*!< Core
 1466:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 28
+
+
 1467:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_DEBUGEN_Pos       0U                                            /*!< Core
 1468:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_DEBUGEN_Msk      (1UL /*<< CoreDebug_DHCSR_C_DEBUGEN_Pos*/)     /*!< Core
 1469:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1618,9 +1629,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1472:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DCRSR_REGWnR_Msk         (1UL << CoreDebug_DCRSR_REGWnR_Pos)            /*!< Core
 1473:Drivers/CMSIS/Include/core_cm4.h **** 
 1474:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DCRSR_REGSEL_Pos          0U                                            /*!< Core
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 28
-
-
 1475:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DCRSR_REGSEL_Msk         (0x1FUL /*<< CoreDebug_DCRSR_REGSEL_Pos*/)     /*!< Core
 1476:Drivers/CMSIS/Include/core_cm4.h **** 
 1477:Drivers/CMSIS/Include/core_cm4.h **** /* Debug Exception and Monitor Control Register Definitions */
@@ -1670,6 +1678,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1521:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup    CMSIS_core_register
 1522:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup   CMSIS_core_bitfield     Core register bit field macros
 1523:Drivers/CMSIS/Include/core_cm4.h ****   \brief      Macros for use with bit field definitions (xxx_Pos, xxx_Msk).
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 29
+
+
 1524:Drivers/CMSIS/Include/core_cm4.h ****   @{
 1525:Drivers/CMSIS/Include/core_cm4.h ****  */
 1526:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1678,9 +1689,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1529:Drivers/CMSIS/Include/core_cm4.h ****   \param[in] field  Name of the register bit field.
 1530:Drivers/CMSIS/Include/core_cm4.h ****   \param[in] value  Value of the bit field. This parameter is interpreted as an uint32_t type.
 1531:Drivers/CMSIS/Include/core_cm4.h ****   \return           Masked and shifted value.
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 29
-
-
 1532:Drivers/CMSIS/Include/core_cm4.h **** */
 1533:Drivers/CMSIS/Include/core_cm4.h **** #define _VAL2FLD(field, value)    (((uint32_t)(value) << field ## _Pos) & field ## _Msk)
 1534:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1730,6 +1738,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1578:Drivers/CMSIS/Include/core_cm4.h **** #define FPU                 ((FPU_Type       *)     FPU_BASE      )   /*!< Floating Point Unit */
 1579:Drivers/CMSIS/Include/core_cm4.h **** 
 1580:Drivers/CMSIS/Include/core_cm4.h **** /*@} */
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 30
+
+
 1581:Drivers/CMSIS/Include/core_cm4.h **** 
 1582:Drivers/CMSIS/Include/core_cm4.h **** 
 1583:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1738,9 +1749,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1586:Drivers/CMSIS/Include/core_cm4.h ****   Core Function Interface contains:
 1587:Drivers/CMSIS/Include/core_cm4.h ****   - Core NVIC Functions
 1588:Drivers/CMSIS/Include/core_cm4.h ****   - Core SysTick Functions
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 30
-
-
 1589:Drivers/CMSIS/Include/core_cm4.h ****   - Core Debug Functions
 1590:Drivers/CMSIS/Include/core_cm4.h ****   - Core Register Access Functions
 1591:Drivers/CMSIS/Include/core_cm4.h ****  ******************************************************************************/
@@ -1790,6 +1798,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1635:Drivers/CMSIS/Include/core_cm4.h **** 
 1636:Drivers/CMSIS/Include/core_cm4.h **** #define NVIC_USER_IRQ_OFFSET          16
 1637:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 31
+
+
 1638:Drivers/CMSIS/Include/core_cm4.h **** 
 1639:Drivers/CMSIS/Include/core_cm4.h **** /* The following EXC_RETURN values are saved the LR on exception entry */
 1640:Drivers/CMSIS/Include/core_cm4.h **** #define EXC_RETURN_HANDLER         (0xFFFFFFF1UL)     /* return to Handler mode, uses MSP after ret
@@ -1798,9 +1809,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1643:Drivers/CMSIS/Include/core_cm4.h **** #define EXC_RETURN_HANDLER_FPU     (0xFFFFFFE1UL)     /* return to Handler mode, uses MSP after ret
 1644:Drivers/CMSIS/Include/core_cm4.h **** #define EXC_RETURN_THREAD_MSP_FPU  (0xFFFFFFE9UL)     /* return to Thread mode, uses MSP after retu
 1645:Drivers/CMSIS/Include/core_cm4.h **** #define EXC_RETURN_THREAD_PSP_FPU  (0xFFFFFFEDUL)     /* return to Thread mode, uses PSP after retu
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 31
-
-
 1646:Drivers/CMSIS/Include/core_cm4.h **** 
 1647:Drivers/CMSIS/Include/core_cm4.h **** 
 1648:Drivers/CMSIS/Include/core_cm4.h **** /**
@@ -1850,6 +1858,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1692:Drivers/CMSIS/Include/core_cm4.h ****     NVIC->ISER[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
 1693:Drivers/CMSIS/Include/core_cm4.h ****   }
 1694:Drivers/CMSIS/Include/core_cm4.h **** }
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 32
+
+
 1695:Drivers/CMSIS/Include/core_cm4.h **** 
 1696:Drivers/CMSIS/Include/core_cm4.h **** 
 1697:Drivers/CMSIS/Include/core_cm4.h **** /**
@@ -1858,9 +1869,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1700:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]      IRQn  Device specific interrupt number.
 1701:Drivers/CMSIS/Include/core_cm4.h ****   \return             0  Interrupt is not enabled.
 1702:Drivers/CMSIS/Include/core_cm4.h ****   \return             1  Interrupt is enabled.
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 32
-
-
 1703:Drivers/CMSIS/Include/core_cm4.h ****   \note    IRQn must not be negative.
 1704:Drivers/CMSIS/Include/core_cm4.h ****  */
 1705:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
@@ -1910,6 +1918,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1749:Drivers/CMSIS/Include/core_cm4.h ****   else
 1750:Drivers/CMSIS/Include/core_cm4.h ****   {
 1751:Drivers/CMSIS/Include/core_cm4.h ****     return(0U);
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 33
+
+
 1752:Drivers/CMSIS/Include/core_cm4.h ****   }
 1753:Drivers/CMSIS/Include/core_cm4.h **** }
 1754:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1918,9 +1929,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1757:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Set Pending Interrupt
 1758:Drivers/CMSIS/Include/core_cm4.h ****   \details Sets the pending bit of a device specific interrupt in the NVIC pending register.
 1759:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]      IRQn  Device specific interrupt number.
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 33
-
-
 1760:Drivers/CMSIS/Include/core_cm4.h ****   \note    IRQn must not be negative.
 1761:Drivers/CMSIS/Include/core_cm4.h ****  */
 1762:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
@@ -1970,6 +1978,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1806:Drivers/CMSIS/Include/core_cm4.h **** 
 1807:Drivers/CMSIS/Include/core_cm4.h **** /**
 1808:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Set Interrupt Priority
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 34
+
+
 1809:Drivers/CMSIS/Include/core_cm4.h ****   \details Sets the priority of a device specific interrupt or a processor exception.
 1810:Drivers/CMSIS/Include/core_cm4.h ****            The interrupt number can be positive to specify a device specific interrupt,
 1811:Drivers/CMSIS/Include/core_cm4.h ****            or negative to specify a processor exception.
@@ -1978,9 +1989,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1814:Drivers/CMSIS/Include/core_cm4.h ****   \note    The priority cannot be set for every processor exception.
 1815:Drivers/CMSIS/Include/core_cm4.h ****  */
 1816:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 34
-
-
 1817:Drivers/CMSIS/Include/core_cm4.h **** {
 1818:Drivers/CMSIS/Include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
 1819:Drivers/CMSIS/Include/core_cm4.h ****   {
@@ -2030,6 +2038,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1863:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t PreemptPriority, uin
 1864:Drivers/CMSIS/Include/core_cm4.h **** {
 1865:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t PriorityGroupTmp = (PriorityGroup & (uint32_t)0x07UL);   /* only values 0..7 are used   
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 35
+
+
 1866:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t PreemptPriorityBits;
 1867:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t SubPriorityBits;
 1868:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2038,9 +2049,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1871:Drivers/CMSIS/Include/core_cm4.h **** 
 1872:Drivers/CMSIS/Include/core_cm4.h ****   return (
 1873:Drivers/CMSIS/Include/core_cm4.h ****            ((PreemptPriority & (uint32_t)((1UL << (PreemptPriorityBits)) - 1UL)) << SubPriorityBits
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 35
-
-
 1874:Drivers/CMSIS/Include/core_cm4.h ****            ((SubPriority     & (uint32_t)((1UL << (SubPriorityBits    )) - 1UL)))
 1875:Drivers/CMSIS/Include/core_cm4.h ****          );
 1876:Drivers/CMSIS/Include/core_cm4.h **** }
@@ -2090,6 +2098,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1920:Drivers/CMSIS/Include/core_cm4.h **** /**
 1921:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Get Interrupt Vector
 1922:Drivers/CMSIS/Include/core_cm4.h ****   \details Reads an interrupt vector from interrupt vector table.
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 36
+
+
 1923:Drivers/CMSIS/Include/core_cm4.h ****            The interrupt number can be positive to specify a device specific interrupt,
 1924:Drivers/CMSIS/Include/core_cm4.h ****            or negative to specify a processor exception.
 1925:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]   IRQn      Interrupt number.
@@ -2098,9 +2109,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1928:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
 1929:Drivers/CMSIS/Include/core_cm4.h **** {
 1930:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t *vectors = (uint32_t *)SCB->VTOR;
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 36
-
-
 1931:Drivers/CMSIS/Include/core_cm4.h ****   return vectors[(int32_t)IRQn + NVIC_USER_IRQ_OFFSET];
 1932:Drivers/CMSIS/Include/core_cm4.h **** }
 1933:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2150,6 +2158,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1977:Drivers/CMSIS/Include/core_cm4.h ****    - \b  0: No FPU
 1978:Drivers/CMSIS/Include/core_cm4.h ****    - \b  1: Single precision FPU
 1979:Drivers/CMSIS/Include/core_cm4.h ****    - \b  2: Double + Single precision FPU
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 37
+
+
 1980:Drivers/CMSIS/Include/core_cm4.h ****  */
 1981:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t SCB_GetFPUType(void)
 1982:Drivers/CMSIS/Include/core_cm4.h **** {
@@ -2158,9 +2169,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 1985:Drivers/CMSIS/Include/core_cm4.h ****   mvfr0 = FPU->MVFR0;
 1986:Drivers/CMSIS/Include/core_cm4.h ****   if      ((mvfr0 & (FPU_MVFR0_Single_precision_Msk | FPU_MVFR0_Double_precision_Msk)) == 0x020U)
 1987:Drivers/CMSIS/Include/core_cm4.h ****   {
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 37
-
-
 1988:Drivers/CMSIS/Include/core_cm4.h ****     return 1U;           /* Single precision FPU */
 1989:Drivers/CMSIS/Include/core_cm4.h ****   }
 1990:Drivers/CMSIS/Include/core_cm4.h ****   else
@@ -2210,6 +2218,9 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 2034:Drivers/CMSIS/Include/core_cm4.h ****                    SysTick_CTRL_ENABLE_Msk;                         /* Enable SysTick IRQ and SysTi
 2035:Drivers/CMSIS/Include/core_cm4.h ****   return (0UL);                                                     /* Function successful */
 2036:Drivers/CMSIS/Include/core_cm4.h **** }
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 38
+
+
 2037:Drivers/CMSIS/Include/core_cm4.h **** 
 2038:Drivers/CMSIS/Include/core_cm4.h **** #endif
 2039:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2218,9 +2229,6 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 2042:Drivers/CMSIS/Include/core_cm4.h **** 
 2043:Drivers/CMSIS/Include/core_cm4.h **** 
 2044:Drivers/CMSIS/Include/core_cm4.h **** /* ##################################### Debug In/Output function #################################
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 38
-
-
 2045:Drivers/CMSIS/Include/core_cm4.h **** /**
 2046:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup  CMSIS_Core_FunctionInterface
 2047:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup CMSIS_core_DebugFunctions ITM Functions
@@ -2248,135 +2256,160 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 1
 2069:Drivers/CMSIS/Include/core_cm4.h ****     while (ITM->PORT[0U].u32 == 0UL)
 2070:Drivers/CMSIS/Include/core_cm4.h ****     {
 2071:Drivers/CMSIS/Include/core_cm4.h ****       __NOP();
-  51              		.loc 2 2071 0
-  52              		.syntax unified
-  53              	@ 2071 "Drivers/CMSIS/Include/core_cm4.h" 1
-  54 000a 00BF     		nop
-  55              	@ 0 "" 2
-  56              		.thumb
-  57              		.syntax unified
-  58              	.L4:
-2069:Drivers/CMSIS/Include/core_cm4.h ****     {
-  59              		.loc 2 2069 0
-  60 000c 4FF06042 		mov	r2, #-536870912
-  61 0010 1268     		ldr	r2, [r2]
-  62 0012 002A     		cmp	r2, #0
-  63 0014 F9D0     		beq	.L5
 2072:Drivers/CMSIS/Include/core_cm4.h ****     }
 2073:Drivers/CMSIS/Include/core_cm4.h ****     ITM->PORT[0U].u8 = (uint8_t)ch;
-  64              		.loc 2 2073 0
-  65 0016 4FF06042 		mov	r2, #-536870912
-  66 001a 1470     		strb	r4, [r2]
-  67              	.L3:
-  68              	.LVL3:
-  69              	.LBE5:
-  70              	.LBE4:
-  71              		.loc 1 15 0
-  72 001c 0133     		adds	r3, r3, #1
-  73              	.LVL4:
-  74 001e 8B42     		cmp	r3, r1
-  75 0020 0FDA     		bge	.L12
-  76              	.L6:
+  58              		.loc 2 2073 5 is_stmt 1 view .LVU8
+  59              		.loc 2 2073 22 is_stmt 0 view .LVU9
+  60 000c 4FF06043 		mov	r3, #-536870912
+  61 0010 1C70     		strb	r4, [r3]
+  62              	.L3:
+2074:Drivers/CMSIS/Include/core_cm4.h ****   }
+2075:Drivers/CMSIS/Include/core_cm4.h ****   return (ch);
+  63              		.loc 2 2075 3 is_stmt 1 view .LVU10
+  64              	.LVL4:
+  65              		.loc 2 2075 3 is_stmt 0 view .LVU11
+  66              	.LBE5:
+  67              	.LBE4:
+  68              		.loc 1 15 25 is_stmt 1 view .LVU12
+  69 0012 0130     		adds	r0, r0, #1
+  70              	.LVL5:
+  71              		.loc 1 15 16 view .LVU13
+  72              		.loc 1 15 9 is_stmt 0 view .LVU14
+  73 0014 8842     		cmp	r0, r1
+  74 0016 15DA     		bge	.L11
+  75              	.L6:
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 39
+
+
   16:Core/Src/printf_config.c ****         {
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 39
-
-
   17:Core/Src/printf_config.c ****                 // gPrintfData[gPrintfDataIndex++] = data[i];
   18:Core/Src/printf_config.c ****                 ITM_SendChar(data[i]);
-  77              		.loc 1 18 0 discriminator 2
-  78 0022 C45C     		ldrb	r4, [r0, r3]	@ zero_extendqisi2
-  79              	.LVL5:
+  76              		.loc 1 18 17 is_stmt 1 discriminator 2 view .LVU15
+  77              		.loc 1 18 34 is_stmt 0 discriminator 2 view .LVU16
+  78 0018 145C     		ldrb	r4, [r2, r0]	@ zero_extendqisi2
+  79              	.LVL6:
   80              	.LBB7:
-  81              	.LBB6:
+  81              	.LBI4:
+2064:Drivers/CMSIS/Include/core_cm4.h **** {
+  82              		.loc 2 2064 26 is_stmt 1 discriminator 2 view .LVU17
+  83              	.LBB6:
 2066:Drivers/CMSIS/Include/core_cm4.h ****       ((ITM->TER & 1UL               ) != 0UL)   )     /* ITM Port #0 enabled */
-  82              		.loc 2 2066 0 discriminator 2
-  83 0024 4FF06042 		mov	r2, #-536870912
-  84 0028 D2F8802E 		ldr	r2, [r2, #3712]
-  85 002c 12F0010F 		tst	r2, #1
-  86 0030 F4D0     		beq	.L3
+  84              		.loc 2 2066 3 discriminator 2 view .LVU18
+2066:Drivers/CMSIS/Include/core_cm4.h ****       ((ITM->TER & 1UL               ) != 0UL)   )     /* ITM Port #0 enabled */
+  85              		.loc 2 2066 12 is_stmt 0 discriminator 2 view .LVU19
+  86 001a 4FF06043 		mov	r3, #-536870912
+  87 001e D3F8803E 		ldr	r3, [r3, #3712]
+2066:Drivers/CMSIS/Include/core_cm4.h ****       ((ITM->TER & 1UL               ) != 0UL)   )     /* ITM Port #0 enabled */
+  88              		.loc 2 2066 6 discriminator 2 view .LVU20
+  89 0022 13F0010F 		tst	r3, #1
+  90 0026 F4D0     		beq	.L3
 2067:Drivers/CMSIS/Include/core_cm4.h ****   {
-  87              		.loc 2 2067 0
-  88 0032 4FF06042 		mov	r2, #-536870912
-  89 0036 D2F8002E 		ldr	r2, [r2, #3584]
+  91              		.loc 2 2067 12 view .LVU21
+  92 0028 4FF06043 		mov	r3, #-536870912
+  93 002c D3F8003E 		ldr	r3, [r3, #3584]
 2066:Drivers/CMSIS/Include/core_cm4.h ****       ((ITM->TER & 1UL               ) != 0UL)   )     /* ITM Port #0 enabled */
-  90              		.loc 2 2066 0
-  91 003a 12F0010F 		tst	r2, #1
-  92 003e EDD0     		beq	.L3
-  93 0040 E4E7     		b	.L4
-  94              	.LVL6:
-  95              	.L12:
-  96              	.LBE6:
-  97              	.LBE7:
+  94              		.loc 2 2066 48 view .LVU22
+  95 0030 13F0010F 		tst	r3, #1
+  96 0034 EDD0     		beq	.L3
+  97              	.L4:
+2069:Drivers/CMSIS/Include/core_cm4.h ****     {
+  98              		.loc 2 2069 11 is_stmt 1 view .LVU23
+2069:Drivers/CMSIS/Include/core_cm4.h ****     {
+  99              		.loc 2 2069 25 is_stmt 0 view .LVU24
+ 100 0036 4FF06043 		mov	r3, #-536870912
+ 101 003a 1B68     		ldr	r3, [r3]
+2069:Drivers/CMSIS/Include/core_cm4.h ****     {
+ 102              		.loc 2 2069 11 view .LVU25
+ 103 003c 002B     		cmp	r3, #0
+ 104 003e E5D1     		bne	.L12
+2071:Drivers/CMSIS/Include/core_cm4.h ****     }
+ 105              		.loc 2 2071 7 is_stmt 1 view .LVU26
+ 106              		.syntax unified
+ 107              	@ 2071 "Drivers/CMSIS/Include/core_cm4.h" 1
+ 108 0040 00BF     		nop
+ 109              	@ 0 "" 2
+ 110              		.thumb
+ 111              		.syntax unified
+ 112 0042 F8E7     		b	.L4
+ 113              	.LVL7:
+ 114              	.L11:
+2071:Drivers/CMSIS/Include/core_cm4.h ****     }
+ 115              		.loc 2 2071 7 is_stmt 0 view .LVU27
+ 116              	.LBE6:
+ 117              	.LBE7:
   19:Core/Src/printf_config.c ****         }
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 40
+
+
   20:Core/Src/printf_config.c ****         return i;
   21:Core/Src/printf_config.c **** }
-  98              		.loc 1 21 0
-  99 0042 1846     		mov	r0, r3
- 100              	.LVL7:
- 101 0044 5DF8044B 		ldr	r4, [sp], #4
- 102              	.LCFI1:
- 103              		.cfi_restore 4
- 104              		.cfi_def_cfa_offset 0
- 105 0048 7047     		bx	lr
- 106              	.LVL8:
- 107              	.L11:
- 108 004a 1846     		mov	r0, r3
- 109              	.LVL9:
- 110 004c 7047     		bx	lr
- 111              		.cfi_endproc
- 112              	.LFE130:
- 114              		.section	.text._write,"ax",%progbits
- 115              		.align	1
- 116              		.global	_write
- 117              		.syntax unified
- 118              		.thumb
- 119              		.thumb_func
- 120              		.fpu fpv4-sp-d16
- 122              	_write:
- 123              	.LFB131:
+ 118              		.loc 1 21 1 view .LVU28
+ 119 0044 5DF8044B 		ldr	r4, [sp], #4
+ 120              	.LCFI1:
+ 121              		.cfi_restore 4
+ 122              		.cfi_def_cfa_offset 0
+ 123 0048 7047     		bx	lr
+ 124              	.L10:
+ 125              		.loc 1 21 1 view .LVU29
+ 126 004a 7047     		bx	lr
+ 127              		.cfi_endproc
+ 128              	.LFE130:
+ 130              		.section	.text._write,"ax",%progbits
+ 131              		.align	1
+ 132              		.global	_write
+ 133              		.syntax unified
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.fpu fpv4-sp-d16
+ 138              	_write:
+ 139              	.LVL8:
+ 140              	.LFB131:
   22:Core/Src/printf_config.c **** 
   23:Core/Src/printf_config.c **** int _write(int file, char *data, int len)
   24:Core/Src/printf_config.c **** {
- 124              		.loc 1 24 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 40
-
-
- 125              		.cfi_startproc
- 126              		@ args = 0, pretend = 0, frame = 0
- 127              		@ frame_needed = 0, uses_anonymous_args = 0
- 128              	.LVL10:
- 129 0000 08B5     		push	{r3, lr}
- 130              	.LCFI2:
- 131              		.cfi_def_cfa_offset 8
- 132              		.cfi_offset 3, -8
- 133              		.cfi_offset 14, -4
- 134 0002 0846     		mov	r0, r1
- 135              	.LVL11:
+ 141              		.loc 1 24 1 is_stmt 1 view -0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		.loc 1 24 1 is_stmt 0 view .LVU31
+ 146 0000 08B5     		push	{r3, lr}
+ 147              	.LCFI2:
+ 148              		.cfi_def_cfa_offset 8
+ 149              		.cfi_offset 3, -8
+ 150              		.cfi_offset 14, -4
+ 151 0002 0846     		mov	r0, r1
+ 152              	.LVL9:
   25:Core/Src/printf_config.c ****         int sent = ITM_SendString(data, len);
- 136              		.loc 1 25 0
- 137 0004 1146     		mov	r1, r2
- 138              	.LVL12:
- 139 0006 FFF7FEFF 		bl	ITM_SendString
- 140              	.LVL13:
+ 153              		.loc 1 25 9 is_stmt 1 view .LVU32
+ 154              		.loc 1 25 20 is_stmt 0 view .LVU33
+ 155 0004 1146     		mov	r1, r2
+ 156              	.LVL10:
+ 157              		.loc 1 25 20 view .LVU34
+ 158 0006 FFF7FEFF 		bl	ITM_SendString
+ 159              	.LVL11:
   26:Core/Src/printf_config.c ****         return sent;
+ 160              		.loc 1 26 9 is_stmt 1 view .LVU35
   27:Core/Src/printf_config.c **** }
- 141              		.loc 1 27 0
- 142 000a 08BD     		pop	{r3, pc}
- 143              		.cfi_endproc
- 144              	.LFE131:
- 146              		.text
- 147              	.Letext0:
- 148              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 149              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 150              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s 			page 41
+ 161              		.loc 1 27 1 is_stmt 0 view .LVU36
+ 162 000a 08BD     		pop	{r3, pc}
+ 163              		.cfi_endproc
+ 164              	.LFE131:
+ 166              		.text
+ 167              	.Letext0:
+ 168              		.file 3 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 169              		.file 4 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 41
+
+
+ 170              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccAuhdWg.s 			page 42
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 printf_config.c
-C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s:18     .text.ITM_SendString:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s:25     .text.ITM_SendString:00000000 ITM_SendString
-C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s:115    .text._write:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccbc9v94.s:122    .text._write:00000000 _write
+C:\Users\one\AppData\Local\Temp\ccAuhdWg.s:18     .text.ITM_SendString:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccAuhdWg.s:26     .text.ITM_SendString:00000000 ITM_SendString
+C:\Users\one\AppData\Local\Temp\ccAuhdWg.s:131    .text._write:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccAuhdWg.s:138    .text._write:00000000 _write
 
 NO UNDEFINED SYMBOLS

@@ -2511,7 +2511,7 @@ LOAD c:/vsarm/armcc/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtn.
                 0x00001032       0x34 c:/vsarm/armcc/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libnosys.a(_exit.o)
  .ARM.attributes
                 0x00001066       0x1e c:/vsarm/armcc/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtn.o
-OUTPUT(Build/test2.elf elf32-littlearm)
+OUTPUT(Build/basic_omnidrive.elf elf32-littlearm)
 LOAD linker stubs
 LOAD c:/vsarm/armcc/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a
 LOAD c:/vsarm/armcc/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
@@ -2652,7 +2652,7 @@ LOAD c:/vsarm/armcc/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgc
  .debug_ranges  0x00000c10       0x48 Build/encoder.o
  .debug_ranges  0x00000c58       0x20 Build/main.o
 
-.debug_line     0x00000000     0xc4ec
+.debug_line     0x00000000     0xc4d4
  .debug_line    0x00000000      0x1d5 Build/printf_config.o
  .debug_line    0x000001d5      0x2a2 Build/gpio.o
  .debug_line    0x00000477      0x997 Build/tim.o
@@ -2669,11 +2669,11 @@ LOAD c:/vsarm/armcc/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgc
  .debug_line    0x0000a264      0x50c Build/stm32f4xx_hal.o
  .debug_line    0x0000a770      0x242 Build/system_stm32f4xx.o
  .debug_line    0x0000a9b2       0x74 Build/startup_stm32f407xx.o
- .debug_line    0x0000aa26      0x645 Build/actuator.o
- .debug_line    0x0000b06b      0x515 Build/motor.o
- .debug_line    0x0000b580      0x5ea Build/robo_init.o
- .debug_line    0x0000bb6a      0x489 Build/encoder.o
- .debug_line    0x0000bff3      0x4f9 Build/main.o
+ .debug_line    0x0000aa26      0x631 Build/actuator.o
+ .debug_line    0x0000b057      0x515 Build/motor.o
+ .debug_line    0x0000b56c      0x5e6 Build/robo_init.o
+ .debug_line    0x0000bb52      0x489 Build/encoder.o
+ .debug_line    0x0000bfdb      0x4f9 Build/main.o
 
 .debug_str      0x00000000     0x4e4d
  .debug_str     0x00000000      0x250 Build/printf_config.o

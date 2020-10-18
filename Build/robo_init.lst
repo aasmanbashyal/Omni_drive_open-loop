@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 1
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,272 +19,32 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 1
   16              		.cfi_sections	.debug_frame
   17              		.section	.text.__tcf_0,"ax",%progbits
   18              		.align	1
-  19              		.syntax unified
-  20              		.thumb
-  21              		.thumb_func
-  22              		.fpu fpv4-sp-d16
-  24              	__tcf_0:
-  25              	.LFB382:
-  26              		.file 1 "Core/Src/robo_init.cpp"
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	__tcf_0:
+  26              	.LFB382:
+  27              		.file 1 "Core/Src/robo_init.cpp"
    1:Core/Src/robo_init.cpp **** #include "robo_init.h"
    2:Core/Src/robo_init.cpp **** 
-   3:Core/Src/robo_init.cpp **** 
-   4:Core/Src/robo_init.cpp **** motor motor[4];
-  27              		.loc 1 4 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
-  32              		.loc 1 4 0
-  33 0000 034B     		ldr	r3, .L4
-  34              	.L3:
-  35              		.loc 1 4 0 is_stmt 0 discriminator 5
-  36 0002 044A     		ldr	r2, .L4+4
-  37 0004 9342     		cmp	r3, r2
-  38 0006 01D0     		beq	.L1
-  39              		.loc 1 4 0 discriminator 4
-  40 0008 043B     		subs	r3, r3, #4
-  41              	.LVL0:
-  42 000a FAE7     		b	.L3
-  43              	.LVL1:
-  44              	.L1:
-  45              		.loc 1 4 0
-  46 000c 7047     		bx	lr
-  47              	.L5:
-  48 000e 00BF     		.align	2
-  49              	.L4:
-  50 0010 10000000 		.word	.LANCHOR0+16
-  51 0014 00000000 		.word	.LANCHOR0
-  52              		.cfi_endproc
-  53              	.LFE382:
-  55              		.section	.text._ZL10motor_initv,"ax",%progbits
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 2
-
-
-  56              		.align	1
-  57              		.syntax unified
-  58              		.thumb
-  59              		.thumb_func
-  60              		.fpu fpv4-sp-d16
-  62              	_ZL10motor_initv:
-  63              	.LFB380:
-   5:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
-   6:Core/Src/robo_init.cpp **** //static  encoder_config encoder_configurations[4];
-   7:Core/Src/robo_init.cpp **** 
-   8:Core/Src/robo_init.cpp **** 
-   9:Core/Src/robo_init.cpp **** static void motor_init();
-  10:Core/Src/robo_init.cpp **** //static void encoder_init();
-  11:Core/Src/robo_init.cpp **** //static void pid_init();
-  12:Core/Src/robo_init.cpp **** 
-  13:Core/Src/robo_init.cpp **** 
-  14:Core/Src/robo_init.cpp **** void robo_init(){ 
-  15:Core/Src/robo_init.cpp **** 	motor_init();
-  16:Core/Src/robo_init.cpp **** 	encoder_init();	
-  17:Core/Src/robo_init.cpp **** 	//pid_init();
-  18:Core/Src/robo_init.cpp **** 	
-  19:Core/Src/robo_init.cpp **** }
-  20:Core/Src/robo_init.cpp **** 
-  21:Core/Src/robo_init.cpp **** 
-  22:Core/Src/robo_init.cpp **** /*static void pid_init(){
-  23:Core/Src/robo_init.cpp **** 
-  24:Core/Src/robo_init.cpp **** 	leg[0].set_PID_constants( 1.8, 30, 0, -17.5, 17.5);		//1.8, 30
-  25:Core/Src/robo_init.cpp **** 	leg[1].set_PID_constants( 1, 25, 0, -17.5, 17.5);
-  26:Core/Src/robo_init.cpp **** 	steering.set_PID_constants( 2, 50, 0, -8.75, 8.75);		//2.3, 50
-  27:Core/Src/robo_init.cpp **** 	steering.set_angle_PID_constants( 0.154, 0.0002, 0, -1.7, 1.7);	//0.164, 0.0002
-  28:Core/Src/robo_init.cpp **** }
-  29:Core/Src/robo_init.cpp **** */
-  30:Core/Src/robo_init.cpp **** 
-  31:Core/Src/robo_init.cpp **** void motor_init(){
-  64              		.loc 1 31 0 is_stmt 1
-  65              		.cfi_startproc
-  66              		@ args = 0, pretend = 0, frame = 0
-  67              		@ frame_needed = 0, uses_anonymous_args = 0
-  68 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-  69              	.LCFI0:
-  70              		.cfi_def_cfa_offset 24
-  71              		.cfi_offset 3, -24
-  72              		.cfi_offset 4, -20
-  73              		.cfi_offset 5, -16
-  74              		.cfi_offset 6, -12
-  75              		.cfi_offset 7, -8
-  76              		.cfi_offset 14, -4
-  32:Core/Src/robo_init.cpp ****         motor_configurations[0].htim = &htim8;
-  77              		.loc 1 32 0
-  78 0002 2E4C     		ldr	r4, .L10
-  79 0004 2E48     		ldr	r0, .L10+4
-  80 0006 A061     		str	r0, [r4, #24]
-  33:Core/Src/robo_init.cpp ****         motor_configurations[0].in1_port = GPIOD;
-  81              		.loc 1 33 0
-  82 0008 2E4F     		ldr	r7, .L10+8
-  83 000a A760     		str	r7, [r4, #8]
-  34:Core/Src/robo_init.cpp ****         motor_configurations[0].in1_pin = GPIO_PIN_0; 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 3
-
-
-  84              		.loc 1 34 0
-  85 000c 0123     		movs	r3, #1
-  86 000e A381     		strh	r3, [r4, #12]	@ movhi
-  35:Core/Src/robo_init.cpp ****         motor_configurations[0].in2_port = GPIOE;
-  87              		.loc 1 35 0
-  88 0010 2D4A     		ldr	r2, .L10+12
-  89 0012 2261     		str	r2, [r4, #16]
-  36:Core/Src/robo_init.cpp ****         motor_configurations[0].in2_pin = GPIO_PIN_5;
-  90              		.loc 1 36 0
-  91 0014 2021     		movs	r1, #32
-  92 0016 A182     		strh	r1, [r4, #20]	@ movhi
-  37:Core/Src/robo_init.cpp ****         motor_configurations[0].channel = TIM_CHANNEL_1;
-  93              		.loc 1 37 0
-  94 0018 0025     		movs	r5, #0
-  95 001a E561     		str	r5, [r4, #28]
-  38:Core/Src/robo_init.cpp ****         motor_configurations[0].max_omega = 92;
-  96              		.loc 1 38 0
-  97 001c 2B4B     		ldr	r3, .L10+16
-  98 001e 2360     		str	r3, [r4]	@ float
-  39:Core/Src/robo_init.cpp ****         motor_configurations[0].tolerance = 0.1;
-  99              		.loc 1 39 0
- 100 0020 2B4B     		ldr	r3, .L10+20
- 101 0022 6360     		str	r3, [r4, #4]	@ float
-  40:Core/Src/robo_init.cpp **** 
-  41:Core/Src/robo_init.cpp **** 		  motor_configurations[1].htim = &htim8;
- 102              		.loc 1 41 0
- 103 0024 A063     		str	r0, [r4, #56]
-  42:Core/Src/robo_init.cpp ****         motor_configurations[1].in1_port = GPIOA;
- 104              		.loc 1 42 0
- 105 0026 2B4E     		ldr	r6, .L10+24
- 106 0028 A662     		str	r6, [r4, #40]
-  43:Core/Src/robo_init.cpp ****         motor_configurations[1].in1_pin = GPIO_PIN_10;
- 107              		.loc 1 43 0
- 108 002a 4FF48066 		mov	r6, #1024
- 109 002e A685     		strh	r6, [r4, #44]	@ movhi
-  44:Core/Src/robo_init.cpp ****         motor_configurations[1].in2_port = GPIOB;
- 110              		.loc 1 44 0
- 111 0030 06F18046 		add	r6, r6, #1073741824
- 112 0034 06F50036 		add	r6, r6, #131072
- 113 0038 2663     		str	r6, [r4, #48]
-  45:Core/Src/robo_init.cpp ****         motor_configurations[1].in2_pin = GPIO_PIN_5;
- 114              		.loc 1 45 0
- 115 003a A186     		strh	r1, [r4, #52]	@ movhi
-  46:Core/Src/robo_init.cpp ****         motor_configurations[1].channel = TIM_CHANNEL_2;
- 116              		.loc 1 46 0
- 117 003c 0426     		movs	r6, #4
- 118 003e E663     		str	r6, [r4, #60]
-  47:Core/Src/robo_init.cpp ****         motor_configurations[1].max_omega = 62;
- 119              		.loc 1 47 0
- 120 0040 2549     		ldr	r1, .L10+28
- 121 0042 2162     		str	r1, [r4, #32]	@ float
-  48:Core/Src/robo_init.cpp ****         motor_configurations[1].tolerance = 0.1;    
- 122              		.loc 1 48 0
- 123 0044 6362     		str	r3, [r4, #36]	@ float
-  49:Core/Src/robo_init.cpp **** 
-  50:Core/Src/robo_init.cpp **** 			motor_configurations[2].htim = &htim8;
- 124              		.loc 1 50 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 4
-
-
- 125 0046 A065     		str	r0, [r4, #88]
-  51:Core/Src/robo_init.cpp **** 			motor_configurations[2].in1_port = GPIOE;
- 126              		.loc 1 51 0
- 127 0048 A264     		str	r2, [r4, #72]
-  52:Core/Src/robo_init.cpp **** 			motor_configurations[2].in1_pin = GPIO_PIN_3;
- 128              		.loc 1 52 0
- 129 004a 0821     		movs	r1, #8
- 130 004c A4F84C10 		strh	r1, [r4, #76]	@ movhi
-  53:Core/Src/robo_init.cpp **** 			motor_configurations[2].in2_port = GPIOD;
- 131              		.loc 1 53 0
- 132 0050 2765     		str	r7, [r4, #80]
-  54:Core/Src/robo_init.cpp **** 			motor_configurations[2].in2_pin = GPIO_PIN_2;
- 133              		.loc 1 54 0
- 134 0052 A4F85460 		strh	r6, [r4, #84]	@ movhi
-  55:Core/Src/robo_init.cpp **** 			motor_configurations[2].channel = TIM_CHANNEL_3;
- 135              		.loc 1 55 0
- 136 0056 E165     		str	r1, [r4, #92]
-  56:Core/Src/robo_init.cpp **** 			motor_configurations[2].max_omega = 88;
- 137              		.loc 1 56 0
- 138 0058 2049     		ldr	r1, .L10+32
- 139 005a 2164     		str	r1, [r4, #64]	@ float
-  57:Core/Src/robo_init.cpp **** 			motor_configurations[2].tolerance = 0.1;
- 140              		.loc 1 57 0
- 141 005c 6364     		str	r3, [r4, #68]	@ float
-  58:Core/Src/robo_init.cpp **** 			
-  59:Core/Src/robo_init.cpp **** 			motor_configurations[3].htim = &htim8;
- 142              		.loc 1 59 0
- 143 005e A067     		str	r0, [r4, #120]
-  60:Core/Src/robo_init.cpp **** 			motor_configurations[3].in1_port = GPIOC;
- 144              		.loc 1 60 0
- 145 0060 1F49     		ldr	r1, .L10+36
- 146 0062 A166     		str	r1, [r4, #104]
-  61:Core/Src/robo_init.cpp **** 			motor_configurations[3].in1_pin = GPIO_PIN_13;
- 147              		.loc 1 61 0
- 148 0064 4FF40051 		mov	r1, #8192
- 149 0068 A4F86C10 		strh	r1, [r4, #108]	@ movhi
-  62:Core/Src/robo_init.cpp **** 			motor_configurations[3].in2_port = GPIOE;
- 150              		.loc 1 62 0
- 151 006c 2267     		str	r2, [r4, #112]
-  63:Core/Src/robo_init.cpp **** 			motor_configurations[3].in2_pin = GPIO_PIN_1;
- 152              		.loc 1 63 0
- 153 006e 0222     		movs	r2, #2
- 154 0070 A4F87420 		strh	r2, [r4, #116]	@ movhi
-  64:Core/Src/robo_init.cpp **** 			motor_configurations[3].channel = TIM_CHANNEL_4;
- 155              		.loc 1 64 0
- 156 0074 0C22     		movs	r2, #12
- 157 0076 E267     		str	r2, [r4, #124]
-  65:Core/Src/robo_init.cpp **** 			motor_configurations[3].max_omega = 61;
- 158              		.loc 1 65 0
- 159 0078 1A4A     		ldr	r2, .L10+40
- 160 007a 2266     		str	r2, [r4, #96]	@ float
-  66:Core/Src/robo_init.cpp **** 			motor_configurations[3].tolerance = 0.1;
- 161              		.loc 1 66 0
- 162 007c 6366     		str	r3, [r4, #100]	@ float
-  67:Core/Src/robo_init.cpp **** 
-  68:Core/Src/robo_init.cpp **** 		HAL_TIM_Base_Start(&htim8);
- 163              		.loc 1 68 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 5
-
-
- 164 007e FFF7FEFF 		bl	HAL_TIM_Base_Start
- 165              	.LVL2:
-  69:Core/Src/robo_init.cpp **** 		HAL_TIM_PWM_Start(motor_configurations[0].htim, motor_configurations[0].channel);
- 166              		.loc 1 69 0
- 167 0082 E169     		ldr	r1, [r4, #28]
- 168 0084 A069     		ldr	r0, [r4, #24]
- 169 0086 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 170              	.LVL3:
-  70:Core/Src/robo_init.cpp ****         HAL_TIM_PWM_Start(motor_configurations[1].htim, motor_configurations[1].channel);
- 171              		.loc 1 70 0
- 172 008a E16B     		ldr	r1, [r4, #60]
- 173 008c A06B     		ldr	r0, [r4, #56]
- 174 008e FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 175              	.LVL4:
-  71:Core/Src/robo_init.cpp ****         HAL_TIM_PWM_Start(motor_configurations[2].htim, motor_configurations[2].channel);
- 176              		.loc 1 71 0
- 177 0092 E16D     		ldr	r1, [r4, #92]
- 178 0094 A06D     		ldr	r0, [r4, #88]
- 179 0096 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 180              	.LVL5:
-  72:Core/Src/robo_init.cpp **** 		  HAL_TIM_PWM_Start(motor_configurations[3].htim, motor_configurations[3].channel);
- 181              		.loc 1 72 0
- 182 009a E16F     		ldr	r1, [r4, #124]
- 183 009c A06F     		ldr	r0, [r4, #120]
- 184 009e FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 185              	.LVL6:
- 186              	.LBB11:
-  73:Core/Src/robo_init.cpp **** 		for(int i=0; i<4; i++)
- 187              		.loc 1 73 0
- 188 00a2 2B46     		mov	r3, r5
- 189              	.LVL7:
- 190              	.L8:
- 191              		.loc 1 73 0 is_stmt 0 discriminator 3
- 192 00a4 032B     		cmp	r3, #3
- 193 00a6 07DC     		bgt	.L6
-  74:Core/Src/robo_init.cpp **** 		{
-  75:Core/Src/robo_init.cpp **** 			motor[i].set_config(&motor_configurations[i]);
- 194              		.loc 1 75 0 is_stmt 1 discriminator 2
- 195 00a8 044A     		ldr	r2, .L10
- 196 00aa 02EB4312 		add	r2, r2, r3, lsl #5
- 197              	.LVL8:
- 198              	.LBB12:
- 199              	.LBB13:
- 200              		.file 2 "Core/Inc/motor.h"
+   3:Core/Src/robo_init.cpp **** motor motor[4];
+  28              		.loc 1 3 7 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 3 7 is_stmt 0 view .LVU1
+  34 0000 034B     		ldr	r3, .L5
+  35 0002 00E0     		b	.L3
+  36              	.L4:
+  37              		.loc 1 3 7 discriminator 3 view .LVU2
+  38 0004 043B     		subs	r3, r3, #4
+  39              	.LVL0:
+  40              	.LBB11:
+  41              	.LBI11:
+  42              		.file 2 "Core/Inc/motor.h"
    1:Core/Inc/motor.h **** #ifndef _MOTOR_H_
    2:Core/Inc/motor.h **** #define _MOTOR_H_
    3:Core/Inc/motor.h **** 
@@ -298,7 +58,7 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 1
   11:Core/Inc/motor.h **** 	STOP
   12:Core/Inc/motor.h **** };
   13:Core/Inc/motor.h **** 
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 6
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 2
 
 
   14:Core/Inc/motor.h **** struct motor_config{
@@ -323,258 +83,540 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 1
   33:Core/Inc/motor.h **** 	motor &operator=(motor &&) = default;
   34:Core/Inc/motor.h **** 	motor &operator=(const motor &) = default;
   35:Core/Inc/motor.h **** 	~motor(){}
+  43              		.loc 2 35 2 is_stmt 1 discriminator 3 view .LVU3
+  44              	.L3:
+  45              		.loc 2 35 2 is_stmt 0 discriminator 3 view .LVU4
+  46              	.LBE11:
+  47              		.loc 1 3 7 discriminator 4 view .LVU5
+  48 0006 034A     		ldr	r2, .L5+4
+  49 0008 9342     		cmp	r3, r2
+  50 000a FBD1     		bne	.L4
+  51              		.loc 1 3 7 view .LVU6
+  52 000c 7047     		bx	lr
+  53              	.L6:
+  54 000e 00BF     		.align	2
+  55              	.L5:
+  56 0010 10000000 		.word	.LANCHOR0+16
+  57 0014 00000000 		.word	.LANCHOR0
+  58              		.cfi_endproc
+  59              	.LFE382:
+  61              		.section	.text._ZL10motor_initv,"ax",%progbits
+  62              		.align	1
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  66              		.fpu fpv4-sp-d16
+  68              	_ZL10motor_initv:
+  69              	.LFB380:
+   4:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+   5:Core/Src/robo_init.cpp **** 
+   6:Core/Src/robo_init.cpp **** static void motor_init();
+   7:Core/Src/robo_init.cpp **** 
+   8:Core/Src/robo_init.cpp **** 
+   9:Core/Src/robo_init.cpp **** void robo_init()
+  10:Core/Src/robo_init.cpp **** {
+  11:Core/Src/robo_init.cpp **** 	motor_init();
+  12:Core/Src/robo_init.cpp **** 	encoder_init();
+  13:Core/Src/robo_init.cpp **** }
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 3
+
+
+  14:Core/Src/robo_init.cpp **** 
+  15:Core/Src/robo_init.cpp **** void motor_init()
+  16:Core/Src/robo_init.cpp **** {
+  70              		.loc 1 16 1 is_stmt 1 view -0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  75              	.LCFI0:
+  76              		.cfi_def_cfa_offset 24
+  77              		.cfi_offset 3, -24
+  78              		.cfi_offset 4, -20
+  79              		.cfi_offset 5, -16
+  80              		.cfi_offset 6, -12
+  81              		.cfi_offset 7, -8
+  82              		.cfi_offset 14, -4
+  17:Core/Src/robo_init.cpp **** 	motor_configurations[0].htim = &htim8;
+  83              		.loc 1 17 2 view .LVU8
+  84              		.loc 1 17 31 is_stmt 0 view .LVU9
+  85 0002 2E4C     		ldr	r4, .L12
+  86 0004 2E48     		ldr	r0, .L12+4
+  87 0006 A061     		str	r0, [r4, #24]
+  18:Core/Src/robo_init.cpp **** 	motor_configurations[0].in1_port = GPIOD;
+  88              		.loc 1 18 2 is_stmt 1 view .LVU10
+  89              		.loc 1 18 35 is_stmt 0 view .LVU11
+  90 0008 DFF8CCC0 		ldr	ip, .L12+28
+  91 000c C4F808C0 		str	ip, [r4, #8]
+  19:Core/Src/robo_init.cpp **** 	motor_configurations[0].in1_pin = GPIO_PIN_0;
+  92              		.loc 1 19 2 is_stmt 1 view .LVU12
+  93              		.loc 1 19 34 is_stmt 0 view .LVU13
+  94 0010 0123     		movs	r3, #1
+  95 0012 A381     		strh	r3, [r4, #12]	@ movhi
+  20:Core/Src/robo_init.cpp **** 	motor_configurations[0].in2_port = GPIOE;
+  96              		.loc 1 20 2 is_stmt 1 view .LVU14
+  97              		.loc 1 20 35 is_stmt 0 view .LVU15
+  98 0014 2B49     		ldr	r1, .L12+8
+  99 0016 2161     		str	r1, [r4, #16]
+  21:Core/Src/robo_init.cpp **** 	motor_configurations[0].in2_pin = GPIO_PIN_5;
+ 100              		.loc 1 21 2 is_stmt 1 view .LVU16
+ 101              		.loc 1 21 34 is_stmt 0 view .LVU17
+ 102 0018 2026     		movs	r6, #32
+ 103 001a A682     		strh	r6, [r4, #20]	@ movhi
+  22:Core/Src/robo_init.cpp **** 	motor_configurations[0].channel = TIM_CHANNEL_1;
+ 104              		.loc 1 22 2 is_stmt 1 view .LVU18
+ 105              		.loc 1 22 34 is_stmt 0 view .LVU19
+ 106 001c 0025     		movs	r5, #0
+ 107 001e E561     		str	r5, [r4, #28]
+  23:Core/Src/robo_init.cpp **** 	motor_configurations[0].max_omega = 70;
+ 108              		.loc 1 23 2 is_stmt 1 view .LVU20
+ 109              		.loc 1 23 36 is_stmt 0 view .LVU21
+ 110 0020 294A     		ldr	r2, .L12+12
+ 111 0022 2260     		str	r2, [r4]	@ float
+  24:Core/Src/robo_init.cpp **** 	motor_configurations[0].tolerance = 1;
+ 112              		.loc 1 24 2 is_stmt 1 view .LVU22
+ 113              		.loc 1 24 36 is_stmt 0 view .LVU23
+ 114 0024 4FF07E53 		mov	r3, #1065353216
+ 115 0028 6360     		str	r3, [r4, #4]	@ float
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 4
+
+
+  25:Core/Src/robo_init.cpp **** 
+  26:Core/Src/robo_init.cpp **** 	motor_configurations[1].htim = &htim8;
+ 116              		.loc 1 26 2 is_stmt 1 view .LVU24
+ 117              		.loc 1 26 31 is_stmt 0 view .LVU25
+ 118 002a A063     		str	r0, [r4, #56]
+  27:Core/Src/robo_init.cpp **** 	motor_configurations[1].in1_port = GPIOA;
+ 119              		.loc 1 27 2 is_stmt 1 view .LVU26
+ 120              		.loc 1 27 35 is_stmt 0 view .LVU27
+ 121 002c 274F     		ldr	r7, .L12+16
+ 122 002e A762     		str	r7, [r4, #40]
+  28:Core/Src/robo_init.cpp **** 	motor_configurations[1].in1_pin = GPIO_PIN_10;
+ 123              		.loc 1 28 2 is_stmt 1 view .LVU28
+ 124              		.loc 1 28 34 is_stmt 0 view .LVU29
+ 125 0030 4FF48067 		mov	r7, #1024
+ 126 0034 A785     		strh	r7, [r4, #44]	@ movhi
+  29:Core/Src/robo_init.cpp **** 	motor_configurations[1].in2_port = GPIOB;
+ 127              		.loc 1 29 2 is_stmt 1 view .LVU30
+ 128              		.loc 1 29 35 is_stmt 0 view .LVU31
+ 129 0036 07F18047 		add	r7, r7, #1073741824
+ 130 003a 07F50037 		add	r7, r7, #131072
+ 131 003e 2763     		str	r7, [r4, #48]
+  30:Core/Src/robo_init.cpp **** 	motor_configurations[1].in2_pin = GPIO_PIN_5;
+ 132              		.loc 1 30 2 is_stmt 1 view .LVU32
+ 133              		.loc 1 30 34 is_stmt 0 view .LVU33
+ 134 0040 A686     		strh	r6, [r4, #52]	@ movhi
+  31:Core/Src/robo_init.cpp **** 	motor_configurations[1].channel = TIM_CHANNEL_2;
+ 135              		.loc 1 31 2 is_stmt 1 view .LVU34
+ 136              		.loc 1 31 34 is_stmt 0 view .LVU35
+ 137 0042 0427     		movs	r7, #4
+ 138 0044 E763     		str	r7, [r4, #60]
+  32:Core/Src/robo_init.cpp **** 	motor_configurations[1].max_omega = 70;
+ 139              		.loc 1 32 2 is_stmt 1 view .LVU36
+ 140              		.loc 1 32 36 is_stmt 0 view .LVU37
+ 141 0046 2262     		str	r2, [r4, #32]	@ float
+  33:Core/Src/robo_init.cpp **** 	motor_configurations[1].tolerance = 1;
+ 142              		.loc 1 33 2 is_stmt 1 view .LVU38
+ 143              		.loc 1 33 36 is_stmt 0 view .LVU39
+ 144 0048 6362     		str	r3, [r4, #36]	@ float
+  34:Core/Src/robo_init.cpp **** 
+  35:Core/Src/robo_init.cpp **** 	motor_configurations[2].htim = &htim8;
+ 145              		.loc 1 35 2 is_stmt 1 view .LVU40
+ 146              		.loc 1 35 31 is_stmt 0 view .LVU41
+ 147 004a A065     		str	r0, [r4, #88]
+  36:Core/Src/robo_init.cpp **** 	motor_configurations[2].in1_port = GPIOE;
+ 148              		.loc 1 36 2 is_stmt 1 view .LVU42
+ 149              		.loc 1 36 35 is_stmt 0 view .LVU43
+ 150 004c A164     		str	r1, [r4, #72]
+  37:Core/Src/robo_init.cpp **** 	motor_configurations[2].in1_pin = GPIO_PIN_3;
+ 151              		.loc 1 37 2 is_stmt 1 view .LVU44
+ 152              		.loc 1 37 34 is_stmt 0 view .LVU45
+ 153 004e 0826     		movs	r6, #8
+ 154 0050 A4F84C60 		strh	r6, [r4, #76]	@ movhi
+  38:Core/Src/robo_init.cpp **** 	motor_configurations[2].in2_port = GPIOD;
+ 155              		.loc 1 38 2 is_stmt 1 view .LVU46
+ 156              		.loc 1 38 35 is_stmt 0 view .LVU47
+ 157 0054 C4F850C0 		str	ip, [r4, #80]
+  39:Core/Src/robo_init.cpp **** 	motor_configurations[2].in2_pin = GPIO_PIN_2;
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 5
+
+
+ 158              		.loc 1 39 2 is_stmt 1 view .LVU48
+ 159              		.loc 1 39 34 is_stmt 0 view .LVU49
+ 160 0058 A4F85470 		strh	r7, [r4, #84]	@ movhi
+  40:Core/Src/robo_init.cpp **** 	motor_configurations[2].channel = TIM_CHANNEL_3;
+ 161              		.loc 1 40 2 is_stmt 1 view .LVU50
+ 162              		.loc 1 40 34 is_stmt 0 view .LVU51
+ 163 005c E665     		str	r6, [r4, #92]
+  41:Core/Src/robo_init.cpp **** 	motor_configurations[2].max_omega = 70;
+ 164              		.loc 1 41 2 is_stmt 1 view .LVU52
+ 165              		.loc 1 41 36 is_stmt 0 view .LVU53
+ 166 005e 2264     		str	r2, [r4, #64]	@ float
+  42:Core/Src/robo_init.cpp **** 	motor_configurations[2].tolerance = 1;
+ 167              		.loc 1 42 2 is_stmt 1 view .LVU54
+ 168              		.loc 1 42 36 is_stmt 0 view .LVU55
+ 169 0060 6364     		str	r3, [r4, #68]	@ float
+  43:Core/Src/robo_init.cpp **** 
+  44:Core/Src/robo_init.cpp **** 	motor_configurations[3].htim = &htim8;
+ 170              		.loc 1 44 2 is_stmt 1 view .LVU56
+ 171              		.loc 1 44 31 is_stmt 0 view .LVU57
+ 172 0062 A067     		str	r0, [r4, #120]
+  45:Core/Src/robo_init.cpp **** 	motor_configurations[3].in1_port = GPIOC;
+ 173              		.loc 1 45 2 is_stmt 1 view .LVU58
+ 174              		.loc 1 45 35 is_stmt 0 view .LVU59
+ 175 0064 1A4E     		ldr	r6, .L12+20
+ 176 0066 A666     		str	r6, [r4, #104]
+  46:Core/Src/robo_init.cpp **** 	motor_configurations[3].in1_pin = GPIO_PIN_13;
+ 177              		.loc 1 46 2 is_stmt 1 view .LVU60
+ 178              		.loc 1 46 34 is_stmt 0 view .LVU61
+ 179 0068 4FF40056 		mov	r6, #8192
+ 180 006c A4F86C60 		strh	r6, [r4, #108]	@ movhi
+  47:Core/Src/robo_init.cpp **** 	motor_configurations[3].in2_port = GPIOE;
+ 181              		.loc 1 47 2 is_stmt 1 view .LVU62
+ 182              		.loc 1 47 35 is_stmt 0 view .LVU63
+ 183 0070 2167     		str	r1, [r4, #112]
+  48:Core/Src/robo_init.cpp **** 	motor_configurations[3].in2_pin = GPIO_PIN_1;
+ 184              		.loc 1 48 2 is_stmt 1 view .LVU64
+ 185              		.loc 1 48 34 is_stmt 0 view .LVU65
+ 186 0072 0221     		movs	r1, #2
+ 187 0074 A4F87410 		strh	r1, [r4, #116]	@ movhi
+  49:Core/Src/robo_init.cpp **** 	motor_configurations[3].channel = TIM_CHANNEL_4;
+ 188              		.loc 1 49 2 is_stmt 1 view .LVU66
+ 189              		.loc 1 49 34 is_stmt 0 view .LVU67
+ 190 0078 0C21     		movs	r1, #12
+ 191 007a E167     		str	r1, [r4, #124]
+  50:Core/Src/robo_init.cpp **** 	motor_configurations[3].max_omega = 70;
+ 192              		.loc 1 50 2 is_stmt 1 view .LVU68
+ 193              		.loc 1 50 36 is_stmt 0 view .LVU69
+ 194 007c 2266     		str	r2, [r4, #96]	@ float
+  51:Core/Src/robo_init.cpp **** 	motor_configurations[3].tolerance = 1;
+ 195              		.loc 1 51 2 is_stmt 1 view .LVU70
+ 196              		.loc 1 51 36 is_stmt 0 view .LVU71
+ 197 007e 6366     		str	r3, [r4, #100]	@ float
+  52:Core/Src/robo_init.cpp **** 
+  53:Core/Src/robo_init.cpp **** 	HAL_TIM_Base_Start(&htim8);
+ 198              		.loc 1 53 2 is_stmt 1 view .LVU72
+ 199              		.loc 1 53 20 is_stmt 0 view .LVU73
+ 200 0080 FFF7FEFF 		bl	HAL_TIM_Base_Start
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 6
+
+
+ 201              	.LVL1:
+  54:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[0].htim, motor_configurations[0].channel);
+ 202              		.loc 1 54 2 is_stmt 1 view .LVU74
+ 203              		.loc 1 54 19 is_stmt 0 view .LVU75
+ 204 0084 E169     		ldr	r1, [r4, #28]
+ 205 0086 A069     		ldr	r0, [r4, #24]
+ 206 0088 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 207              	.LVL2:
+  55:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[1].htim, motor_configurations[1].channel);
+ 208              		.loc 1 55 2 is_stmt 1 view .LVU76
+ 209              		.loc 1 55 19 is_stmt 0 view .LVU77
+ 210 008c E16B     		ldr	r1, [r4, #60]
+ 211 008e A06B     		ldr	r0, [r4, #56]
+ 212 0090 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 213              	.LVL3:
+  56:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[2].htim, motor_configurations[2].channel);
+ 214              		.loc 1 56 2 is_stmt 1 view .LVU78
+ 215              		.loc 1 56 19 is_stmt 0 view .LVU79
+ 216 0094 E16D     		ldr	r1, [r4, #92]
+ 217 0096 A06D     		ldr	r0, [r4, #88]
+ 218 0098 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 219              	.LVL4:
+  57:Core/Src/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[3].htim, motor_configurations[3].channel);
+ 220              		.loc 1 57 2 is_stmt 1 view .LVU80
+ 221              		.loc 1 57 19 is_stmt 0 view .LVU81
+ 222 009c E16F     		ldr	r1, [r4, #124]
+ 223 009e A06F     		ldr	r0, [r4, #120]
+ 224 00a0 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 225              	.LVL5:
+  58:Core/Src/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+ 226              		.loc 1 58 2 is_stmt 1 view .LVU82
+ 227              	.LBB12:
+ 228              		.loc 1 58 11 is_stmt 0 view .LVU83
+ 229 00a4 2B46     		mov	r3, r5
+ 230 00a6 06E0     		b	.L9
+ 231              	.LVL6:
+ 232              	.L11:
+  59:Core/Src/robo_init.cpp **** 	{
+  60:Core/Src/robo_init.cpp **** 		motor[i].set_config(&motor_configurations[i]);
+ 233              		.loc 1 60 3 is_stmt 1 discriminator 2 view .LVU84
+ 234              		.loc 1 60 22 is_stmt 0 discriminator 2 view .LVU85
+ 235 00a8 044A     		ldr	r2, .L12
+ 236 00aa 02EB4312 		add	r2, r2, r3, lsl #5
+ 237              	.LVL7:
+ 238              	.LBB13:
+ 239              	.LBI13:
   36:Core/Inc/motor.h ****         void set_config(motor_config *motor) { motor_ = motor;}
- 201              		.loc 2 36 0 discriminator 2
- 202 00ae 0E49     		ldr	r1, .L10+44
- 203 00b0 41F82320 		str	r2, [r1, r3, lsl #2]
- 204              	.LVL9:
- 205              	.LBE13:
- 206              	.LBE12:
-  73:Core/Src/robo_init.cpp **** 		{
- 207              		.loc 1 73 0 discriminator 2
- 208 00b4 0133     		adds	r3, r3, #1
- 209              	.LVL10:
- 210 00b6 F5E7     		b	.L8
- 211              	.L6:
- 212              	.LBE11:
-  76:Core/Src/robo_init.cpp **** 		}
-  77:Core/Src/robo_init.cpp **** }
- 213              		.loc 1 77 0
- 214 00b8 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 215              	.LVL11:
- 216              	.L11:
- 217 00ba 00BF     		.align	2
- 218              	.L10:
- 219 00bc 00000000 		.word	.LANCHOR1
- 220 00c0 00000000 		.word	htim8
- 221 00c4 000C0240 		.word	1073875968
- 222 00c8 00100240 		.word	1073876992
- 223 00cc 0000B842 		.word	1119354880
- 224 00d0 CDCCCC3D 		.word	1036831949
- 225 00d4 00000240 		.word	1073872896
- 226 00d8 00007842 		.word	1115160576
- 227 00dc 0000B042 		.word	1118830592
- 228 00e0 00080240 		.word	1073874944
- 229 00e4 00007442 		.word	1114898432
- 230 00e8 00000000 		.word	.LANCHOR0
- 231              		.cfi_endproc
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 7
+ 240              		.loc 2 36 14 is_stmt 1 discriminator 2 view .LVU86
+ 241              	.LBB14:
+ 242              		.loc 2 36 48 discriminator 2 view .LVU87
+ 243              		.loc 2 36 55 is_stmt 0 discriminator 2 view .LVU88
+ 244 00ae 0949     		ldr	r1, .L12+24
+ 245 00b0 41F82320 		str	r2, [r1, r3, lsl #2]
+ 246              	.LVL8:
+ 247              		.loc 2 36 55 discriminator 2 view .LVU89
+ 248              	.LBE14:
+ 249              	.LBE13:
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 7
 
 
- 232              	.LFE380:
- 234              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
- 235              		.align	1
- 236              		.syntax unified
- 237              		.thumb
- 238              		.thumb_func
- 239              		.fpu fpv4-sp-d16
- 241              	_Z41__static_initialization_and_destruction_0ii:
- 242              	.LFB381:
- 243              		.loc 1 77 0
- 244              		.cfi_startproc
- 245              		@ args = 0, pretend = 0, frame = 0
- 246              		@ frame_needed = 0, uses_anonymous_args = 0
- 247              	.LVL12:
- 248 0000 0128     		cmp	r0, #1
- 249 0002 00D0     		beq	.L20
- 250 0004 7047     		bx	lr
- 251              	.L20:
- 252              		.loc 1 77 0 is_stmt 0 discriminator 1
- 253 0006 08B5     		push	{r3, lr}
- 254              	.LCFI1:
- 255              		.cfi_def_cfa_offset 8
- 256              		.cfi_offset 3, -8
- 257              		.cfi_offset 14, -4
- 258              		.loc 1 77 0 is_stmt 1 discriminator 1
- 259 0008 4FF6FF73 		movw	r3, #65535
- 260 000c 9942     		cmp	r1, r3
- 261 000e 00D0     		beq	.L21
- 262              	.LVL13:
- 263              	.L12:
- 264              		.loc 1 77 0 is_stmt 0
- 265 0010 08BD     		pop	{r3, pc}
- 266              	.LVL14:
- 267              	.L21:
-   4:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
- 268              		.loc 1 4 0 is_stmt 1
- 269 0012 0323     		movs	r3, #3
- 270 0014 064A     		ldr	r2, .L22
- 271              	.LVL15:
- 272              	.L15:
-   4:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
- 273              		.loc 1 4 0 is_stmt 0 discriminator 4
- 274 0016 002B     		cmp	r3, #0
- 275 0018 04DB     		blt	.L14
- 276              	.LVL16:
- 277              	.LBB14:
- 278              	.LBB15:
+  58:Core/Src/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+ 250              		.loc 1 58 2 is_stmt 1 discriminator 2 view .LVU90
+ 251 00b4 0133     		adds	r3, r3, #1
+ 252              	.LVL9:
+ 253              	.L9:
+  58:Core/Src/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+ 254              		.loc 1 58 20 discriminator 3 view .LVU91
+ 255 00b6 032B     		cmp	r3, #3
+ 256 00b8 F6DD     		ble	.L11
+ 257              	.LBE12:
+  61:Core/Src/robo_init.cpp **** 	}
+  62:Core/Src/robo_init.cpp **** }
+ 258              		.loc 1 62 1 is_stmt 0 view .LVU92
+ 259 00ba F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 260              	.LVL10:
+ 261              	.L13:
+ 262              		.loc 1 62 1 view .LVU93
+ 263              		.align	2
+ 264              	.L12:
+ 265 00bc 00000000 		.word	.LANCHOR1
+ 266 00c0 00000000 		.word	htim8
+ 267 00c4 00100240 		.word	1073876992
+ 268 00c8 00008C42 		.word	1116471296
+ 269 00cc 00000240 		.word	1073872896
+ 270 00d0 00080240 		.word	1073874944
+ 271 00d4 00000000 		.word	.LANCHOR0
+ 272 00d8 000C0240 		.word	1073875968
+ 273              		.cfi_endproc
+ 274              	.LFE380:
+ 276              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+ 277              		.align	1
+ 278              		.syntax unified
+ 279              		.thumb
+ 280              		.thumb_func
+ 281              		.fpu fpv4-sp-d16
+ 283              	_Z41__static_initialization_and_destruction_0ii:
+ 284              	.LVL11:
+ 285              	.LFB381:
+ 286              		.loc 1 62 1 is_stmt 1 view -0
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 290              		.loc 1 62 1 is_stmt 0 view .LVU95
+ 291 0000 0128     		cmp	r0, #1
+ 292 0002 00D0     		beq	.L22
+ 293 0004 7047     		bx	lr
+ 294              	.L22:
+ 295              		.loc 1 62 1 discriminator 1 view .LVU96
+ 296 0006 08B5     		push	{r3, lr}
+ 297              	.LCFI1:
+ 298              		.cfi_def_cfa_offset 8
+ 299              		.cfi_offset 3, -8
+ 300              		.cfi_offset 14, -4
+ 301              		.loc 1 62 1 discriminator 1 view .LVU97
+ 302 0008 4FF6FF73 		movw	r3, #65535
+ 303 000c 9942     		cmp	r1, r3
+ 304 000e 00D0     		beq	.L23
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 8
+
+
+ 305              	.LVL12:
+ 306              	.L14:
+ 307              		.loc 1 62 1 view .LVU98
+ 308 0010 08BD     		pop	{r3, pc}
+ 309              	.LVL13:
+ 310              	.L23:
+   3:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 311              		.loc 1 3 14 view .LVU99
+ 312 0012 0323     		movs	r3, #3
+ 313 0014 064A     		ldr	r2, .L25
+ 314 0016 03E0     		b	.L17
+ 315              	.LVL14:
+ 316              	.L24:
+ 317              	.LBB15:
+ 318              	.LBI15:
   29:Core/Inc/motor.h ****         motor(motor_config *motor) { motor_ = motor; }
- 279              		.loc 2 29 0 is_stmt 1
- 280 001a 0021     		movs	r1, #0
- 281 001c 42F8041B 		str	r1, [r2], #4
- 282              	.LVL17:
- 283              	.LBE15:
- 284              	.LBE14:
-   4:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
- 285              		.loc 1 4 0
- 286 0020 013B     		subs	r3, r3, #1
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 8
+ 319              		.loc 2 29 2 is_stmt 1 view .LVU100
+ 320              	.LBB16:
+  29:Core/Inc/motor.h ****         motor(motor_config *motor) { motor_ = motor; }
+ 321              		.loc 2 29 10 view .LVU101
+  29:Core/Inc/motor.h ****         motor(motor_config *motor) { motor_ = motor; }
+ 322              		.loc 2 29 17 is_stmt 0 view .LVU102
+ 323 0018 0021     		movs	r1, #0
+ 324 001a 42F8041B 		str	r1, [r2], #4
+ 325              	.LVL15:
+  29:Core/Inc/motor.h ****         motor(motor_config *motor) { motor_ = motor; }
+ 326              		.loc 2 29 17 view .LVU103
+ 327              	.LBE16:
+ 328              	.LBE15:
+   3:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 329              		.loc 1 3 14 is_stmt 1 view .LVU104
+ 330 001e 013B     		subs	r3, r3, #1
+ 331              	.L17:
+   3:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 332              		.loc 1 3 14 discriminator 4 view .LVU105
+ 333 0020 002B     		cmp	r3, #0
+ 334 0022 F9DA     		bge	.L24
+   3:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 335              		.loc 1 3 7 is_stmt 0 discriminator 2 view .LVU106
+ 336 0024 034A     		ldr	r2, .L25+4
+ 337 0026 0449     		ldr	r1, .L25+8
+ 338 0028 0020     		movs	r0, #0
+ 339              	.LVL16:
+   3:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
+ 340              		.loc 1 3 7 discriminator 2 view .LVU107
+ 341 002a FFF7FEFF 		bl	__aeabi_atexit
+ 342              	.LVL17:
+ 343              		.loc 1 62 1 discriminator 2 view .LVU108
+ 344 002e EFE7     		b	.L14
+ 345              	.L26:
+ 346              		.align	2
+ 347              	.L25:
+ 348 0030 00000000 		.word	.LANCHOR0
+ 349 0034 00000000 		.word	__dso_handle
+ 350 0038 00000000 		.word	__tcf_0
+ 351              		.cfi_endproc
+ 352              	.LFE381:
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 9
 
 
- 287 0022 F8E7     		b	.L15
- 288              	.L14:
-   4:Core/Src/robo_init.cpp **** static motor_config motor_configurations[4];
- 289              		.loc 1 4 0 is_stmt 0 discriminator 2
- 290 0024 034A     		ldr	r2, .L22+4
- 291 0026 0449     		ldr	r1, .L22+8
- 292 0028 0020     		movs	r0, #0
- 293              	.LVL18:
- 294 002a FFF7FEFF 		bl	__aeabi_atexit
- 295              	.LVL19:
- 296              		.loc 1 77 0 is_stmt 1 discriminator 2
- 297 002e EFE7     		b	.L12
- 298              	.L23:
- 299              		.align	2
- 300              	.L22:
- 301 0030 00000000 		.word	.LANCHOR0
- 302 0034 00000000 		.word	__dso_handle
- 303 0038 00000000 		.word	__tcf_0
- 304              		.cfi_endproc
- 305              	.LFE381:
- 307              		.section	.text._Z9robo_initv,"ax",%progbits
- 308              		.align	1
- 309              		.global	_Z9robo_initv
- 310              		.syntax unified
- 311              		.thumb
- 312              		.thumb_func
- 313              		.fpu fpv4-sp-d16
- 315              	_Z9robo_initv:
- 316              	.LFB379:
-  14:Core/Src/robo_init.cpp **** 	motor_init();
- 317              		.loc 1 14 0
- 318              		.cfi_startproc
- 319              		@ args = 0, pretend = 0, frame = 0
- 320              		@ frame_needed = 0, uses_anonymous_args = 0
- 321 0000 08B5     		push	{r3, lr}
- 322              	.LCFI2:
- 323              		.cfi_def_cfa_offset 8
- 324              		.cfi_offset 3, -8
- 325              		.cfi_offset 14, -4
-  15:Core/Src/robo_init.cpp **** 	encoder_init();	
- 326              		.loc 1 15 0
- 327 0002 FFF7FEFF 		bl	_ZL10motor_initv
- 328              	.LVL20:
-  16:Core/Src/robo_init.cpp **** 	//pid_init();
- 329              		.loc 1 16 0
- 330 0006 FFF7FEFF 		bl	_Z12encoder_initv
- 331              	.LVL21:
-  19:Core/Src/robo_init.cpp **** 
- 332              		.loc 1 19 0
- 333 000a 08BD     		pop	{r3, pc}
- 334              		.cfi_endproc
- 335              	.LFE379:
- 337              		.section	.text._GLOBAL__sub_I_motor,"ax",%progbits
- 338              		.align	1
- 339              		.syntax unified
- 340              		.thumb
- 341              		.thumb_func
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 9
+ 354              		.section	.text._Z9robo_initv,"ax",%progbits
+ 355              		.align	1
+ 356              		.global	_Z9robo_initv
+ 357              		.syntax unified
+ 358              		.thumb
+ 359              		.thumb_func
+ 360              		.fpu fpv4-sp-d16
+ 362              	_Z9robo_initv:
+ 363              	.LFB379:
+  10:Core/Src/robo_init.cpp **** 	motor_init();
+ 364              		.loc 1 10 1 is_stmt 1 view -0
+ 365              		.cfi_startproc
+ 366              		@ args = 0, pretend = 0, frame = 0
+ 367              		@ frame_needed = 0, uses_anonymous_args = 0
+ 368 0000 08B5     		push	{r3, lr}
+ 369              	.LCFI2:
+ 370              		.cfi_def_cfa_offset 8
+ 371              		.cfi_offset 3, -8
+ 372              		.cfi_offset 14, -4
+  11:Core/Src/robo_init.cpp **** 	encoder_init();
+ 373              		.loc 1 11 2 view .LVU110
+  11:Core/Src/robo_init.cpp **** 	encoder_init();
+ 374              		.loc 1 11 12 is_stmt 0 view .LVU111
+ 375 0002 FFF7FEFF 		bl	_ZL10motor_initv
+ 376              	.LVL18:
+  12:Core/Src/robo_init.cpp **** }
+ 377              		.loc 1 12 2 is_stmt 1 view .LVU112
+  12:Core/Src/robo_init.cpp **** }
+ 378              		.loc 1 12 14 is_stmt 0 view .LVU113
+ 379 0006 FFF7FEFF 		bl	_Z12encoder_initv
+ 380              	.LVL19:
+  13:Core/Src/robo_init.cpp **** 
+ 381              		.loc 1 13 1 view .LVU114
+ 382 000a 08BD     		pop	{r3, pc}
+ 383              		.cfi_endproc
+ 384              	.LFE379:
+ 386              		.section	.text._GLOBAL__sub_I_motor,"ax",%progbits
+ 387              		.align	1
+ 388              		.syntax unified
+ 389              		.thumb
+ 390              		.thumb_func
+ 391              		.fpu fpv4-sp-d16
+ 393              	_GLOBAL__sub_I_motor:
+ 394              	.LFB383:
+ 395              		.loc 1 62 1 is_stmt 1 view -0
+ 396              		.cfi_startproc
+ 397              		@ args = 0, pretend = 0, frame = 0
+ 398              		@ frame_needed = 0, uses_anonymous_args = 0
+ 399 0000 08B5     		push	{r3, lr}
+ 400              	.LCFI3:
+ 401              		.cfi_def_cfa_offset 8
+ 402              		.cfi_offset 3, -8
+ 403              		.cfi_offset 14, -4
+ 404              		.loc 1 62 1 is_stmt 0 view .LVU116
+ 405 0002 4FF6FF71 		movw	r1, #65535
+ 406 0006 0120     		movs	r0, #1
+ 407 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 10
 
 
- 342              		.fpu fpv4-sp-d16
- 344              	_GLOBAL__sub_I_motor:
- 345              	.LFB383:
- 346              		.loc 1 77 0
- 347              		.cfi_startproc
- 348              		@ args = 0, pretend = 0, frame = 0
- 349              		@ frame_needed = 0, uses_anonymous_args = 0
- 350 0000 08B5     		push	{r3, lr}
- 351              	.LCFI3:
- 352              		.cfi_def_cfa_offset 8
- 353              		.cfi_offset 3, -8
- 354              		.cfi_offset 14, -4
- 355              		.loc 1 77 0
- 356 0002 4FF6FF71 		movw	r1, #65535
- 357 0006 0120     		movs	r0, #1
- 358 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 359              	.LVL22:
- 360 000c 08BD     		pop	{r3, pc}
- 361              		.cfi_endproc
- 362              	.LFE383:
- 364              		.section	.init_array,"aw",%init_array
- 365              		.align	2
- 366 0000 00000000 		.word	_GLOBAL__sub_I_motor(target1)
- 367              		.global	motor
- 368              		.section	.bss._ZL20motor_configurations,"aw",%nobits
- 369              		.align	2
- 370              		.set	.LANCHOR1,. + 0
- 373              	_ZL20motor_configurations:
- 374 0000 00000000 		.space	128
- 374      00000000 
- 374      00000000 
- 374      00000000 
- 374      00000000 
- 375              		.section	.bss.motor,"aw",%nobits
- 376              		.align	2
- 377              		.set	.LANCHOR0,. + 0
- 380              	motor:
- 381 0000 00000000 		.space	16
- 381      00000000 
- 381      00000000 
- 381      00000000 
- 382              		.text
- 383              	.Letext0:
- 384              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 385              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 386              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 387              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 388              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 389              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 390              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 391              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 392              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 393              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 394              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 395              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 396              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 397              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 10
-
-
- 398              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 399              		.file 18 "Core/Inc/tim.h"
- 400              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 401              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 402              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 403              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 404              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 405              		.file 24 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 406              		.file 25 "Core/Inc/usart.h"
- 407              		.file 26 "<built-in>"
- 408              		.file 27 "Core/Inc/encoder.h"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s 			page 11
+ 408              	.LVL20:
+ 409 000c 08BD     		pop	{r3, pc}
+ 410              		.cfi_endproc
+ 411              	.LFE383:
+ 413              		.section	.init_array,"aw",%init_array
+ 414              		.align	2
+ 415 0000 00000000 		.word	_GLOBAL__sub_I_motor(target1)
+ 416              		.global	motor
+ 417              		.section	.bss._ZL20motor_configurations,"aw",%nobits
+ 418              		.align	2
+ 419              		.set	.LANCHOR1,. + 0
+ 422              	_ZL20motor_configurations:
+ 423 0000 00000000 		.space	128
+ 423      00000000 
+ 423      00000000 
+ 423      00000000 
+ 423      00000000 
+ 424              		.section	.bss.motor,"aw",%nobits
+ 425              		.align	2
+ 426              		.set	.LANCHOR0,. + 0
+ 429              	motor:
+ 430 0000 00000000 		.space	16
+ 430      00000000 
+ 430      00000000 
+ 430      00000000 
+ 431              		.text
+ 432              	.Letext0:
+ 433              		.file 3 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 434              		.file 4 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 435              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 436              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 437              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 438              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 439              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 440              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 441              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 442              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 443              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 444              		.file 14 "c:\\vsarm\\armcc\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h"
+ 445              		.file 15 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 446              		.file 16 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 447              		.file 17 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 448              		.file 18 "Core/Inc/tim.h"
+ 449              		.file 19 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\bits\\cpp_type_traits.h"
+ 450              		.file 20 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\cmath"
+ 451              		.file 21 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\bits\\std_abs.h"
+ 452              		.file 22 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\arm-none-eabi\\thumb\\v7e-m+fp\\ha
+ 453              		.file 23 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\math.h"
+ 454              		.file 24 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\stdlib.h"
+ 455              		.file 25 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\math.h"
+ 456              		.file 26 "Core/Inc/usart.h"
+ 457              		.file 27 "Core/Inc/encoder.h"
+ 458              		.file 28 "<built-in>"
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccMVKxWc.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 robo_init.cpp
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:18     .text.__tcf_0:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:24     .text.__tcf_0:00000000 __tcf_0
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:50     .text.__tcf_0:00000010 $d
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:56     .text._ZL10motor_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:62     .text._ZL10motor_initv:00000000 _ZL10motor_initv
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:219    .text._ZL10motor_initv:000000bc $d
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:235    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:241    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:301    .text._Z41__static_initialization_and_destruction_0ii:00000030 $d
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:308    .text._Z9robo_initv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:315    .text._Z9robo_initv:00000000 _Z9robo_initv
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:338    .text._GLOBAL__sub_I_motor:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:344    .text._GLOBAL__sub_I_motor:00000000 _GLOBAL__sub_I_motor
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:365    .init_array:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:380    .bss.motor:00000000 motor
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:369    .bss._ZL20motor_configurations:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:373    .bss._ZL20motor_configurations:00000000 _ZL20motor_configurations
-C:\Users\Aasman\AppData\Local\Temp\ccqjZUej.s:376    .bss.motor:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:18     .text.__tcf_0:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:25     .text.__tcf_0:00000000 __tcf_0
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:56     .text.__tcf_0:00000010 $d
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:62     .text._ZL10motor_initv:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:68     .text._ZL10motor_initv:00000000 _ZL10motor_initv
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:265    .text._ZL10motor_initv:000000bc $d
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:277    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:283    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:348    .text._Z41__static_initialization_and_destruction_0ii:00000030 $d
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:355    .text._Z9robo_initv:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:362    .text._Z9robo_initv:00000000 _Z9robo_initv
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:387    .text._GLOBAL__sub_I_motor:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:393    .text._GLOBAL__sub_I_motor:00000000 _GLOBAL__sub_I_motor
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:414    .init_array:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:429    .bss.motor:00000000 motor
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:418    .bss._ZL20motor_configurations:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:422    .bss._ZL20motor_configurations:00000000 _ZL20motor_configurations
+C:\Users\one\AppData\Local\Temp\ccMVKxWc.s:425    .bss.motor:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_TIM_Base_Start

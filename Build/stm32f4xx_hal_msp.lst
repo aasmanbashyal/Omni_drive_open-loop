@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s 			page 1
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbWfah9.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,13 +20,14 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s 			page 1
   17              		.section	.text.HAL_MspInit,"ax",%progbits
   18              		.align	1
   19              		.global	HAL_MspInit
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  23              		.fpu fpv4-sp-d16
-  25              	HAL_MspInit:
-  26              	.LFB133:
-  27              		.file 1 "Core/Src/stm32f4xx_hal_msp.c"
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	HAL_MspInit:
+  27              	.LFB133:
+  28              		.file 1 "Core/Src/stm32f4xx_hal_msp.c"
    1:Core/Src/stm32f4xx_hal_msp.c **** /* USER CODE BEGIN Header */
    2:Core/Src/stm32f4xx_hal_msp.c **** /**
    3:Core/Src/stm32f4xx_hal_msp.c ****   ******************************************************************************
@@ -57,10 +58,10 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s 			page 1
   28:Core/Src/stm32f4xx_hal_msp.c **** /* Private typedef -----------------------------------------------------------*/
   29:Core/Src/stm32f4xx_hal_msp.c **** /* USER CODE BEGIN TD */
   30:Core/Src/stm32f4xx_hal_msp.c **** 
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbWfah9.s 			page 2
+
+
   31:Core/Src/stm32f4xx_hal_msp.c **** /* USER CODE END TD */
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s 			page 2
-
-
   32:Core/Src/stm32f4xx_hal_msp.c **** 
   33:Core/Src/stm32f4xx_hal_msp.c **** /* Private define ------------------------------------------------------------*/
   34:Core/Src/stm32f4xx_hal_msp.c **** /* USER CODE BEGIN Define */
@@ -95,56 +96,66 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s 			page 1
   63:Core/Src/stm32f4xx_hal_msp.c ****   */
   64:Core/Src/stm32f4xx_hal_msp.c **** void HAL_MspInit(void)
   65:Core/Src/stm32f4xx_hal_msp.c **** {
-  28              		.loc 1 65 0
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 8
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32 0000 00B5     		push	{lr}
-  33              	.LCFI0:
-  34              		.cfi_def_cfa_offset 4
-  35              		.cfi_offset 14, -4
-  36 0002 83B0     		sub	sp, sp, #12
-  37              	.LCFI1:
-  38              		.cfi_def_cfa_offset 16
-  39              	.LBB2:
+  29              		.loc 1 65 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 00B5     		push	{lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 14, -4
+  37 0002 83B0     		sub	sp, sp, #12
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 16
   66:Core/Src/stm32f4xx_hal_msp.c ****   /* USER CODE BEGIN MspInit 0 */
   67:Core/Src/stm32f4xx_hal_msp.c **** 
   68:Core/Src/stm32f4xx_hal_msp.c ****   /* USER CODE END MspInit 0 */
   69:Core/Src/stm32f4xx_hal_msp.c **** 
   70:Core/Src/stm32f4xx_hal_msp.c ****   __HAL_RCC_SYSCFG_CLK_ENABLE();
-  40              		.loc 1 70 0
-  41 0004 0021     		movs	r1, #0
-  42 0006 0091     		str	r1, [sp]
-  43 0008 0C4B     		ldr	r3, .L3
-  44 000a 5A6C     		ldr	r2, [r3, #68]
-  45 000c 42F48042 		orr	r2, r2, #16384
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s 			page 3
+  40              		.loc 1 70 3 view .LVU1
+  41              	.LBB2:
+  42              		.loc 1 70 3 view .LVU2
+  43 0004 0021     		movs	r1, #0
+  44 0006 0091     		str	r1, [sp]
+  45              		.loc 1 70 3 view .LVU3
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbWfah9.s 			page 3
 
 
-  46 0010 5A64     		str	r2, [r3, #68]
-  47 0012 5A6C     		ldr	r2, [r3, #68]
-  48 0014 02F48042 		and	r2, r2, #16384
-  49 0018 0092     		str	r2, [sp]
-  50 001a 009A     		ldr	r2, [sp]
-  51              	.LBE2:
-  52              	.LBB3:
+  46 0008 0C4B     		ldr	r3, .L3
+  47 000a 5A6C     		ldr	r2, [r3, #68]
+  48 000c 42F48042 		orr	r2, r2, #16384
+  49 0010 5A64     		str	r2, [r3, #68]
+  50              		.loc 1 70 3 view .LVU4
+  51 0012 5A6C     		ldr	r2, [r3, #68]
+  52 0014 02F48042 		and	r2, r2, #16384
+  53 0018 0092     		str	r2, [sp]
+  54              		.loc 1 70 3 view .LVU5
+  55 001a 009A     		ldr	r2, [sp]
+  56              	.LBE2:
+  57              		.loc 1 70 3 view .LVU6
   71:Core/Src/stm32f4xx_hal_msp.c ****   __HAL_RCC_PWR_CLK_ENABLE();
-  53              		.loc 1 71 0
-  54 001c 0191     		str	r1, [sp, #4]
-  55 001e 1A6C     		ldr	r2, [r3, #64]
-  56 0020 42F08052 		orr	r2, r2, #268435456
-  57 0024 1A64     		str	r2, [r3, #64]
-  58 0026 1B6C     		ldr	r3, [r3, #64]
-  59 0028 03F08053 		and	r3, r3, #268435456
-  60 002c 0193     		str	r3, [sp, #4]
-  61 002e 019B     		ldr	r3, [sp, #4]
-  62              	.LBE3:
+  58              		.loc 1 71 3 view .LVU7
+  59              	.LBB3:
+  60              		.loc 1 71 3 view .LVU8
+  61 001c 0191     		str	r1, [sp, #4]
+  62              		.loc 1 71 3 view .LVU9
+  63 001e 1A6C     		ldr	r2, [r3, #64]
+  64 0020 42F08052 		orr	r2, r2, #268435456
+  65 0024 1A64     		str	r2, [r3, #64]
+  66              		.loc 1 71 3 view .LVU10
+  67 0026 1B6C     		ldr	r3, [r3, #64]
+  68 0028 03F08053 		and	r3, r3, #268435456
+  69 002c 0193     		str	r3, [sp, #4]
+  70              		.loc 1 71 3 view .LVU11
+  71 002e 019B     		ldr	r3, [sp, #4]
+  72              	.LBE3:
+  73              		.loc 1 71 3 view .LVU12
   72:Core/Src/stm32f4xx_hal_msp.c **** 
   73:Core/Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
-  63              		.loc 1 73 0
-  64 0030 0720     		movs	r0, #7
-  65 0032 FFF7FEFF 		bl	HAL_NVIC_SetPriorityGrouping
-  66              	.LVL0:
+  74              		.loc 1 73 3 view .LVU13
+  75 0030 0720     		movs	r0, #7
+  76 0032 FFF7FEFF 		bl	HAL_NVIC_SetPriorityGrouping
+  77              	.LVL0:
   74:Core/Src/stm32f4xx_hal_msp.c **** 
   75:Core/Src/stm32f4xx_hal_msp.c ****   /* System interrupt init*/
   76:Core/Src/stm32f4xx_hal_msp.c **** 
@@ -152,38 +163,41 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s 			page 1
   78:Core/Src/stm32f4xx_hal_msp.c **** 
   79:Core/Src/stm32f4xx_hal_msp.c ****   /* USER CODE END MspInit 1 */
   80:Core/Src/stm32f4xx_hal_msp.c **** }
-  67              		.loc 1 80 0
-  68 0036 03B0     		add	sp, sp, #12
-  69              	.LCFI2:
-  70              		.cfi_def_cfa_offset 4
-  71              		@ sp needed
-  72 0038 5DF804FB 		ldr	pc, [sp], #4
-  73              	.L4:
-  74              		.align	2
-  75              	.L3:
-  76 003c 00380240 		.word	1073887232
-  77              		.cfi_endproc
-  78              	.LFE133:
-  80              		.text
-  81              	.Letext0:
-  82              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  83              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  84              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
-  85              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
-  86              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
-  87              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  88              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  89              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
-  90              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
-  91              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s 			page 4
+  78              		.loc 1 80 1 is_stmt 0 view .LVU14
+  79 0036 03B0     		add	sp, sp, #12
+  80              	.LCFI2:
+  81              		.cfi_def_cfa_offset 4
+  82              		@ sp needed
+  83 0038 5DF804FB 		ldr	pc, [sp], #4
+  84              	.L4:
+  85              		.align	2
+  86              	.L3:
+  87 003c 00380240 		.word	1073887232
+  88              		.cfi_endproc
+  89              	.LFE133:
+  91              		.text
+  92              	.Letext0:
+  93              		.file 2 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbWfah9.s 			page 4
+
+
+  94              		.file 3 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+  95              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+  96              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+  97              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+  98              		.file 7 "c:\\vsarm\\armcc\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h"
+  99              		.file 8 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 100              		.file 9 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 101              		.file 10 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 102              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbWfah9.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_msp.c
-C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s:18     .text.HAL_MspInit:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
-C:\Users\Aasman\AppData\Local\Temp\ccdckCDY.s:76     .text.HAL_MspInit:0000003c $d
+C:\Users\one\AppData\Local\Temp\ccbWfah9.s:18     .text.HAL_MspInit:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccbWfah9.s:26     .text.HAL_MspInit:00000000 HAL_MspInit
+C:\Users\one\AppData\Local\Temp\ccbWfah9.s:87     .text.HAL_MspInit:0000003c $d
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriorityGrouping

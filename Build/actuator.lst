@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 1
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,771 +19,965 @@ ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 1
   16              		.cfi_sections	.debug_frame
   17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
   18              		.align	1
-  19              		.syntax unified
-  20              		.thumb
-  21              		.thumb_func
-  22              		.fpu fpv4-sp-d16
-  24              	_Z41__static_initialization_and_destruction_0ii:
-  25              	.LFB381:
-  26              		.file 1 "Core/Src/actuator.cpp"
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_Z41__static_initialization_and_destruction_0ii:
+  26              	.LVL0:
+  27              	.LFB381:
+  28              		.file 1 "Core/Src/actuator.cpp"
    1:Core/Src/actuator.cpp **** #include "actuator.h"
    2:Core/Src/actuator.cpp **** #include "main.h"
    3:Core/Src/actuator.cpp **** 
    4:Core/Src/actuator.cpp **** extern motor motor[4];
    5:Core/Src/actuator.cpp **** 
-   6:Core/Src/actuator.cpp **** static float velocity_robot[3]={0,0,0};
+   6:Core/Src/actuator.cpp **** static float velocity_robot[3] = {0, 0, 0};
    7:Core/Src/actuator.cpp **** float velocity = 30;
    8:Core/Src/actuator.cpp **** int32_t time = HAL_GetTick();
    9:Core/Src/actuator.cpp **** 
   10:Core/Src/actuator.cpp **** void play(void)
   11:Core/Src/actuator.cpp **** {
-  12:Core/Src/actuator.cpp ****     char data;
-  13:Core/Src/actuator.cpp ****    if(HAL_UART_Receive(&huart2,(uint8_t*)&data,1,10)==HAL_OK){
-  14:Core/Src/actuator.cpp ****       printf("\n %c",data);
-  15:Core/Src/actuator.cpp ****       switch(data)
-  16:Core/Src/actuator.cpp ****       {
-  17:Core/Src/actuator.cpp ****          case 'F':{
-  18:Core/Src/actuator.cpp ****             velocity_robot[0]= 0;
-  19:Core/Src/actuator.cpp ****             velocity_robot[1]= velocity;
-  20:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  21:Core/Src/actuator.cpp ****             // printf("\nforward");
-  22:Core/Src/actuator.cpp ****           break;
-  23:Core/Src/actuator.cpp ****          }
-  24:Core/Src/actuator.cpp ****          case 'B':{
-  25:Core/Src/actuator.cpp ****             velocity_robot[0]= 0;
-  26:Core/Src/actuator.cpp ****             velocity_robot[1]= -velocity;
-  27:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  28:Core/Src/actuator.cpp ****             // printf("\back");
-  29:Core/Src/actuator.cpp ****           break;
-  30:Core/Src/actuator.cpp ****          }
-  31:Core/Src/actuator.cpp ****          case 'L':{
-  32:Core/Src/actuator.cpp ****             velocity_robot[0]= velocity;
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 2
+  12:Core/Src/actuator.cpp ****    char data;
+  13:Core/Src/actuator.cpp ****    if (HAL_UART_Receive(&huart2, (uint8_t *)&data, 1, 10) == HAL_OK)
+  14:Core/Src/actuator.cpp ****    {
+  15:Core/Src/actuator.cpp ****       printf("\n %c", data);
+  16:Core/Src/actuator.cpp ****       switch (data)
+  17:Core/Src/actuator.cpp ****       {
+  18:Core/Src/actuator.cpp ****       case 'F':
+  19:Core/Src/actuator.cpp ****       {
+  20:Core/Src/actuator.cpp ****          velocity_robot[0] = 0;
+  21:Core/Src/actuator.cpp ****          velocity_robot[1] = -velocity;
+  22:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  23:Core/Src/actuator.cpp ****          // printf("\nforward");
+  24:Core/Src/actuator.cpp ****          break;
+  25:Core/Src/actuator.cpp ****       }
+  26:Core/Src/actuator.cpp ****       case 'B':
+  27:Core/Src/actuator.cpp ****       {
+  28:Core/Src/actuator.cpp ****          velocity_robot[0] = 0;
+  29:Core/Src/actuator.cpp ****          velocity_robot[1] = +velocity;
+  30:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 2
 
 
-  33:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
-  34:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  35:Core/Src/actuator.cpp ****             // printf("\nright");
-  36:Core/Src/actuator.cpp ****           break;
-  37:Core/Src/actuator.cpp ****          }
-  38:Core/Src/actuator.cpp ****          case 'R':{
-  39:Core/Src/actuator.cpp ****             velocity_robot[0]= -velocity;
-  40:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
-  41:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  42:Core/Src/actuator.cpp ****             // printf("\nleft");
-  43:Core/Src/actuator.cpp ****           break;
-  44:Core/Src/actuator.cpp ****          }
-  45:Core/Src/actuator.cpp ****          case 'S':{
-  46:Core/Src/actuator.cpp ****             velocity_robot[0]= 0;
-  47:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
-  48:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  49:Core/Src/actuator.cpp ****             // printf("\nstop");
-  50:Core/Src/actuator.cpp ****           break;
-  51:Core/Src/actuator.cpp ****          }
-  52:Core/Src/actuator.cpp ****           case 'I':{
-  53:Core/Src/actuator.cpp ****             velocity_robot[0]= -(velocity/2);
-  54:Core/Src/actuator.cpp ****             velocity_robot[1]= -(velocity/2);
-  55:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  56:Core/Src/actuator.cpp ****             // printf("\nstop");
-  57:Core/Src/actuator.cpp ****           break;
-  58:Core/Src/actuator.cpp ****          }
-  59:Core/Src/actuator.cpp ****           case 'G':{
-  60:Core/Src/actuator.cpp ****             velocity_robot[0]= (velocity/2);
-  61:Core/Src/actuator.cpp ****             velocity_robot[1]= (velocity/2);
-  62:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  63:Core/Src/actuator.cpp ****             // printf("\nstop");
-  64:Core/Src/actuator.cpp ****           break;
-  65:Core/Src/actuator.cpp ****          }
-  66:Core/Src/actuator.cpp ****          case 'H':{
-  67:Core/Src/actuator.cpp ****             velocity_robot[0]= (velocity/2);
-  68:Core/Src/actuator.cpp ****             velocity_robot[1]= -(velocity/2);
-  69:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  70:Core/Src/actuator.cpp ****             // printf("\nstop");
-  71:Core/Src/actuator.cpp ****           break;
-  72:Core/Src/actuator.cpp ****          }
-  73:Core/Src/actuator.cpp ****          case 'J':{
-  74:Core/Src/actuator.cpp ****             velocity_robot[0]= -(velocity/2);
-  75:Core/Src/actuator.cpp ****             velocity_robot[1]= (velocity/2);
-  76:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  77:Core/Src/actuator.cpp ****             // printf("\nstop");
-  78:Core/Src/actuator.cpp ****           break;
-  79:Core/Src/actuator.cpp ****          }
-  80:Core/Src/actuator.cpp ****          default:{
-  81:Core/Src/actuator.cpp ****           velocity_robot[0]= 0;
-  82:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
-  83:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
-  84:Core/Src/actuator.cpp ****             // printf("\ndefault");
-  85:Core/Src/actuator.cpp ****           break;
-  86:Core/Src/actuator.cpp ****          }
-  87:Core/Src/actuator.cpp ****       }
-  88:Core/Src/actuator.cpp ****       // printf("here too");
-  89:Core/Src/actuator.cpp ****       printf("\n%d\t%d\t%d\t",(int)velocity_robot[0], (int)velocity_robot[1], (int)velocity_robot[2
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 3
+  31:Core/Src/actuator.cpp ****          // printf("\back");
+  32:Core/Src/actuator.cpp ****          break;
+  33:Core/Src/actuator.cpp ****       }
+  34:Core/Src/actuator.cpp ****       case 'L':
+  35:Core/Src/actuator.cpp ****       {
+  36:Core/Src/actuator.cpp ****          velocity_robot[0] = -velocity;
+  37:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+  38:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  39:Core/Src/actuator.cpp ****          // printf("\nright");
+  40:Core/Src/actuator.cpp ****          break;
+  41:Core/Src/actuator.cpp ****       }
+  42:Core/Src/actuator.cpp ****       case 'R':
+  43:Core/Src/actuator.cpp ****       {
+  44:Core/Src/actuator.cpp ****          velocity_robot[0] = velocity;
+  45:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+  46:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  47:Core/Src/actuator.cpp ****          // printf("\nleft");
+  48:Core/Src/actuator.cpp ****          break;
+  49:Core/Src/actuator.cpp ****       }
+  50:Core/Src/actuator.cpp ****       case 'S':
+  51:Core/Src/actuator.cpp ****       {
+  52:Core/Src/actuator.cpp ****          velocity_robot[0] = 0;
+  53:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+  54:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  55:Core/Src/actuator.cpp ****          // printf("\nstop");
+  56:Core/Src/actuator.cpp ****          break;
+  57:Core/Src/actuator.cpp ****       }
+  58:Core/Src/actuator.cpp ****       case 'J':
+  59:Core/Src/actuator.cpp ****       {
+  60:Core/Src/actuator.cpp ****          velocity_robot[0] = -(velocity / 2);
+  61:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+  62:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  63:Core/Src/actuator.cpp ****          // printf("\nstop");
+  64:Core/Src/actuator.cpp ****          break;
+  65:Core/Src/actuator.cpp ****       }
+  66:Core/Src/actuator.cpp ****       case 'G':
+  67:Core/Src/actuator.cpp ****       {
+  68:Core/Src/actuator.cpp ****          velocity_robot[0] = (velocity / 2);
+  69:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+  70:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  71:Core/Src/actuator.cpp ****          // printf("\nstop");
+  72:Core/Src/actuator.cpp ****          break;
+  73:Core/Src/actuator.cpp ****       }
+  74:Core/Src/actuator.cpp ****       case 'H':
+  75:Core/Src/actuator.cpp ****       {
+  76:Core/Src/actuator.cpp ****          velocity_robot[0] = (velocity / 2);
+  77:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+  78:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  79:Core/Src/actuator.cpp ****          // printf("\nstop");
+  80:Core/Src/actuator.cpp ****          break;
+  81:Core/Src/actuator.cpp ****       }
+  82:Core/Src/actuator.cpp ****       case 'I':
+  83:Core/Src/actuator.cpp ****       {
+  84:Core/Src/actuator.cpp ****          velocity_robot[0] = -(velocity / 2);
+  85:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+  86:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  87:Core/Src/actuator.cpp ****          // printf("\nstop");
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 3
 
 
-  90:Core/Src/actuator.cpp ****    
-  91:Core/Src/actuator.cpp ****       calculate_wheel_velocity();
-  92:Core/Src/actuator.cpp ****    }
-  93:Core/Src/actuator.cpp ****    else{
-  94:Core/Src/actuator.cpp ****       // printf("\nnodata");
-  95:Core/Src/actuator.cpp ****    }
-  96:Core/Src/actuator.cpp **** }
-  97:Core/Src/actuator.cpp **** 
-  98:Core/Src/actuator.cpp **** void calculate_wheel_velocity()
-  99:Core/Src/actuator.cpp **** {
- 100:Core/Src/actuator.cpp ****    // printf("here\n");
- 101:Core/Src/actuator.cpp ****    float velocity_motor[4] = {0,0,0,0};
- 102:Core/Src/actuator.cpp **** 	float coupling_matrix[4][3] = {{0.707,-0.707,1},
- 103:Core/Src/actuator.cpp ****                                  {-0.707,-0.707,1},
- 104:Core/Src/actuator.cpp ****                                  {-0.707,0.707,1},
- 105:Core/Src/actuator.cpp ****                                  {0.707,0.707,1}};
- 106:Core/Src/actuator.cpp ****     for(int i=0;i<4;i++)
- 107:Core/Src/actuator.cpp ****     {
- 108:Core/Src/actuator.cpp ****         velocity_motor[i] = 0;
- 109:Core/Src/actuator.cpp ****         for(int j=0;j<3;j++)
- 110:Core/Src/actuator.cpp ****         {
- 111:Core/Src/actuator.cpp ****              velocity_motor[i] += velocity_robot[j] * coupling_matrix[i][j];
- 112:Core/Src/actuator.cpp ****         }
- 113:Core/Src/actuator.cpp ****       printf("\t%d",(int)(velocity_motor[i]*100) );
- 114:Core/Src/actuator.cpp ****       
- 115:Core/Src/actuator.cpp ****        motor[i].set_omega(velocity_motor[i]);
- 116:Core/Src/actuator.cpp ****       //  motor[1].set_omega(-30);
- 117:Core/Src/actuator.cpp **** 		// if((HAL_GetTick() - time) >= SAMPLE_TIME){
- 118:Core/Src/actuator.cpp ****       //    time = HAL_GetTick();
- 119:Core/Src/actuator.cpp ****       //    calculate_data(1);
- 120:Core/Src/actuator.cpp ****       //    get_data(1);
- 121:Core/Src/actuator.cpp ****          //get_cnt(0);
- 122:Core/Src/actuator.cpp ****       }
- 123:Core/Src/actuator.cpp ****     //}
- 124:Core/Src/actuator.cpp **** 	
- 125:Core/Src/actuator.cpp **** }
-  27              		.loc 1 125 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              	.LVL0:
-  32 0000 0128     		cmp	r0, #1
-  33 0002 00D0     		beq	.L7
-  34 0004 7047     		bx	lr
-  35              	.L7:
-  36              		.loc 1 125 0 is_stmt 0 discriminator 1
-  37 0006 08B5     		push	{r3, lr}
-  38              	.LCFI0:
-  39              		.cfi_def_cfa_offset 8
-  40              		.cfi_offset 3, -8
-  41              		.cfi_offset 14, -4
-  42              		.loc 1 125 0 is_stmt 1 discriminator 1
-  43 0008 4FF6FF73 		movw	r3, #65535
-  44 000c 9942     		cmp	r1, r3
-  45 000e 00D0     		beq	.L8
-  46              	.LVL1:
-  47              	.L1:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 4
+  88:Core/Src/actuator.cpp ****          break;
+  89:Core/Src/actuator.cpp ****       }
+  90:Core/Src/actuator.cpp ****       default:
+  91:Core/Src/actuator.cpp ****       {
+  92:Core/Src/actuator.cpp ****          velocity_robot[0] = 0;
+  93:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+  94:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+  95:Core/Src/actuator.cpp ****          // printf("\ndefault");
+  96:Core/Src/actuator.cpp ****          break;
+  97:Core/Src/actuator.cpp ****       }
+  98:Core/Src/actuator.cpp ****       }
+  99:Core/Src/actuator.cpp ****       // printf("here too");
+ 100:Core/Src/actuator.cpp ****       printf("\n%d\t%d\t%d\t", (int)velocity_robot[0], (int)velocity_robot[1], (int)velocity_robot[
+ 101:Core/Src/actuator.cpp **** 
+ 102:Core/Src/actuator.cpp ****       calculate_wheel_velocity();
+ 103:Core/Src/actuator.cpp ****    }
+ 104:Core/Src/actuator.cpp ****    else
+ 105:Core/Src/actuator.cpp ****    {
+ 106:Core/Src/actuator.cpp ****       // printf("\nnodata");
+ 107:Core/Src/actuator.cpp ****    }
+ 108:Core/Src/actuator.cpp **** }
+ 109:Core/Src/actuator.cpp **** 
+ 110:Core/Src/actuator.cpp **** void calculate_wheel_velocity()
+ 111:Core/Src/actuator.cpp **** {
+ 112:Core/Src/actuator.cpp ****    // printf("here\n");
+ 113:Core/Src/actuator.cpp ****    float velocity_motor[4] = {0, 0, 0, 0};
+ 114:Core/Src/actuator.cpp ****    float coupling_matrix[4][3] = {{1, -1, 1},
+ 115:Core/Src/actuator.cpp ****                                   {-1, -1, 1},
+ 116:Core/Src/actuator.cpp ****                                   {-1, 1, 1},
+ 117:Core/Src/actuator.cpp ****                                   {1, 1, 1}};
+ 118:Core/Src/actuator.cpp ****    //!Actual coupling_matrix for the omni drive is the one listed below
+ 119:Core/Src/actuator.cpp ****    //!for directely setting setpoint  equal to robot velocity we can use above one
+ 120:Core/Src/actuator.cpp ****    // float coupling_matrix[4][3] = {{0.707,-0.707,1},
+ 121:Core/Src/actuator.cpp ****    //                               {-0.707,-0.707,1},
+ 122:Core/Src/actuator.cpp ****    //                               {-0.707,0.707,1},
+ 123:Core/Src/actuator.cpp ****    //                               {0.707,0.707,1}};
+ 124:Core/Src/actuator.cpp ****    for (int i = 0; i < 4; i++)
+ 125:Core/Src/actuator.cpp ****    {
+ 126:Core/Src/actuator.cpp ****       velocity_motor[i] = 0;
+ 127:Core/Src/actuator.cpp ****       for (int j = 0; j < 3; j++)
+ 128:Core/Src/actuator.cpp ****       {
+ 129:Core/Src/actuator.cpp ****          velocity_motor[i] += velocity_robot[j] * coupling_matrix[i][j];
+ 130:Core/Src/actuator.cpp ****       }
+ 131:Core/Src/actuator.cpp ****       printf("\t%d", (int)(velocity_motor[i] * 100));
+ 132:Core/Src/actuator.cpp **** 
+ 133:Core/Src/actuator.cpp ****       motor[i].set_omega(velocity_motor[i]);
+ 134:Core/Src/actuator.cpp ****    }
+ 135:Core/Src/actuator.cpp **** }
+  29              		.loc 1 135 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 135 1 is_stmt 0 view .LVU1
+  34 0000 0128     		cmp	r0, #1
+  35 0002 00D0     		beq	.L7
+  36 0004 7047     		bx	lr
+  37              	.L7:
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 4
 
 
-  48              		.loc 1 125 0 is_stmt 0
-  49 0010 08BD     		pop	{r3, pc}
-  50              	.LVL2:
-  51              	.L8:
+  38              		.loc 1 135 1 discriminator 1 view .LVU2
+  39 0006 08B5     		push	{r3, lr}
+  40              	.LCFI0:
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 3, -8
+  43              		.cfi_offset 14, -4
+  44              		.loc 1 135 1 discriminator 1 view .LVU3
+  45 0008 4FF6FF73 		movw	r3, #65535
+  46 000c 9942     		cmp	r1, r3
+  47 000e 00D0     		beq	.L8
+  48              	.LVL1:
+  49              	.L1:
+  50              		.loc 1 135 1 view .LVU4
+  51 0010 08BD     		pop	{r3, pc}
+  52              	.LVL2:
+  53              	.L8:
    8:Core/Src/actuator.cpp **** 
-  52              		.loc 1 8 0 is_stmt 1
-  53 0012 FFF7FEFF 		bl	HAL_GetTick
-  54              	.LVL3:
-  55 0016 014B     		ldr	r3, .L9
-  56 0018 1860     		str	r0, [r3]
-  57              		.loc 1 125 0
-  58 001a F9E7     		b	.L1
-  59              	.L10:
-  60              		.align	2
-  61              	.L9:
-  62 001c 00000000 		.word	.LANCHOR0
-  63              		.cfi_endproc
-  64              	.LFE381:
-  66              		.section	.text._Z24calculate_wheel_velocityv,"ax",%progbits
-  67              		.align	1
-  68              		.global	_Z24calculate_wheel_velocityv
-  69              		.syntax unified
-  70              		.thumb
-  71              		.thumb_func
-  72              		.fpu fpv4-sp-d16
-  74              	_Z24calculate_wheel_velocityv:
-  75              	.LFB380:
-  99:Core/Src/actuator.cpp ****    // printf("here\n");
-  76              		.loc 1 99 0
-  77              		.cfi_startproc
-  78              		@ args = 0, pretend = 0, frame = 64
-  79              		@ frame_needed = 0, uses_anonymous_args = 0
-  80 0000 30B5     		push	{r4, r5, lr}
-  81              	.LCFI1:
-  82              		.cfi_def_cfa_offset 12
-  83              		.cfi_offset 4, -12
-  84              		.cfi_offset 5, -8
-  85              		.cfi_offset 14, -4
-  86 0002 2DED028B 		vpush.64	{d8}
-  87              	.LCFI2:
-  88              		.cfi_def_cfa_offset 20
-  89              		.cfi_offset 80, -20
-  90              		.cfi_offset 81, -16
-  91 0006 91B0     		sub	sp, sp, #68
-  92              	.LCFI3:
-  93              		.cfi_def_cfa_offset 88
- 102:Core/Src/actuator.cpp ****                                  {-0.707,-0.707,1},
-  94              		.loc 1 102 0
-  95 0008 6C46     		mov	r4, sp
-  96 000a 254D     		ldr	r5, .L17
-  97 000c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
-  98 000e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
-  99 0010 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 100 0012 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 101 0014 95E80F00 		ldm	r5, {r0, r1, r2, r3}
- 102 0018 84E80F00 		stm	r4, {r0, r1, r2, r3}
- 103              	.LVL4:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 5
+  54              		.loc 1 8 27 view .LVU5
+  55 0012 FFF7FEFF 		bl	HAL_GetTick
+  56              	.LVL3:
+   8:Core/Src/actuator.cpp **** 
+  57              		.loc 1 8 9 view .LVU6
+  58 0016 014B     		ldr	r3, .L9
+  59 0018 1860     		str	r0, [r3]
+  60              		.loc 1 135 1 view .LVU7
+  61 001a F9E7     		b	.L1
+  62              	.L10:
+  63              		.align	2
+  64              	.L9:
+  65 001c 00000000 		.word	.LANCHOR0
+  66              		.cfi_endproc
+  67              	.LFE381:
+  69              		.section	.rodata._Z24calculate_wheel_velocityv.str1.4,"aMS",%progbits,1
+  70              		.align	2
+  71              	.LC1:
+  72 0000 09256400 		.ascii	"\011%d\000"
+  73              		.section	.text._Z24calculate_wheel_velocityv,"ax",%progbits
+  74              		.align	1
+  75              		.global	_Z24calculate_wheel_velocityv
+  76              		.syntax unified
+  77              		.thumb
+  78              		.thumb_func
+  79              		.fpu fpv4-sp-d16
+  81              	_Z24calculate_wheel_velocityv:
+  82              	.LFB380:
+ 111:Core/Src/actuator.cpp ****    // printf("here\n");
+  83              		.loc 1 111 1 is_stmt 1 view -0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 64
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87 0000 30B5     		push	{r4, r5, lr}
+  88              	.LCFI1:
+  89              		.cfi_def_cfa_offset 12
+  90              		.cfi_offset 4, -12
+  91              		.cfi_offset 5, -8
+  92              		.cfi_offset 14, -4
+  93 0002 2DED028B 		vpush.64	{d8}
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 5
 
 
- 104              	.LBB2:
- 106:Core/Src/actuator.cpp ****     {
- 105              		.loc 1 106 0
- 106 001c 0024     		movs	r4, #0
- 107 001e 16E0     		b	.L15
- 108              	.LVL5:
- 109              	.L13:
- 110              	.LBB3:
- 113:Core/Src/actuator.cpp ****       
- 111              		.loc 1 113 0 discriminator 2
- 112 0020 A500     		lsls	r5, r4, #2
- 113 0022 10AB     		add	r3, sp, #64
- 114 0024 2B44     		add	r3, r3, r5
- 115 0026 13ED048A 		vldr.32	s16, [r3, #-16]
- 116 002a DFED1E7A 		vldr.32	s15, .L17+4
- 117 002e 68EE277A 		vmul.f32	s15, s16, s15
- 118 0032 FDEEE77A 		vcvt.s32.f32	s15, s15
- 119 0036 17EE901A 		vmov	r1, s15	@ int
- 120 003a 1B48     		ldr	r0, .L17+8
- 121 003c FFF7FEFF 		bl	printf
- 122              	.LVL6:
- 115:Core/Src/actuator.cpp ****       //  motor[1].set_omega(-30);
- 123              		.loc 1 115 0 discriminator 2
- 124 0040 B0EE480A 		vmov.f32	s0, s16
- 125 0044 1948     		ldr	r0, .L17+12
- 126 0046 2844     		add	r0, r0, r5
- 127 0048 FFF7FEFF 		bl	_ZN5motor9set_omegaEf
- 128              	.LVL7:
- 129              	.LBE3:
- 106:Core/Src/actuator.cpp ****     {
- 130              		.loc 1 106 0 discriminator 2
- 131 004c 0134     		adds	r4, r4, #1
- 132              	.LVL8:
- 133              	.L15:
- 106:Core/Src/actuator.cpp ****     {
- 134              		.loc 1 106 0 is_stmt 0 discriminator 1
- 135 004e 032C     		cmp	r4, #3
- 136 0050 21DC     		bgt	.L11
- 137              	.LBB5:
- 108:Core/Src/actuator.cpp ****         for(int j=0;j<3;j++)
- 138              		.loc 1 108 0 is_stmt 1
- 139 0052 0022     		movs	r2, #0
- 140 0054 10AB     		add	r3, sp, #64
- 141 0056 03EB8403 		add	r3, r3, r4, lsl #2
- 142 005a 43F8102C 		str	r2, [r3, #-16]	@ float
- 143              	.LVL9:
- 144              	.LBB4:
- 109:Core/Src/actuator.cpp ****         {
- 145              		.loc 1 109 0
- 146 005e 0022     		movs	r2, #0
- 147              	.LVL10:
- 148              	.L14:
- 109:Core/Src/actuator.cpp ****         {
- 149              		.loc 1 109 0 is_stmt 0 discriminator 3
- 150 0060 022A     		cmp	r2, #2
- 151 0062 DDDC     		bgt	.L13
- 111:Core/Src/actuator.cpp ****         }
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 6
+  94              	.LCFI2:
+  95              		.cfi_def_cfa_offset 20
+  96              		.cfi_offset 80, -20
+  97              		.cfi_offset 81, -16
+  98 0006 91B0     		sub	sp, sp, #68
+  99              	.LCFI3:
+ 100              		.cfi_def_cfa_offset 88
+ 113:Core/Src/actuator.cpp ****    float coupling_matrix[4][3] = {{1, -1, 1},
+ 101              		.loc 1 113 4 view .LVU9
+ 114:Core/Src/actuator.cpp ****                                   {-1, -1, 1},
+ 102              		.loc 1 114 4 view .LVU10
+ 114:Core/Src/actuator.cpp ****                                   {-1, -1, 1},
+ 103              		.loc 1 114 10 is_stmt 0 view .LVU11
+ 104 0008 6C46     		mov	r4, sp
+ 105 000a 254D     		ldr	r5, .L18
+ 106 000c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 107 000e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 108 0010 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 109 0012 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 110 0014 95E80F00 		ldm	r5, {r0, r1, r2, r3}
+ 111 0018 84E80F00 		stm	r4, {r0, r1, r2, r3}
+ 124:Core/Src/actuator.cpp ****    {
+ 112              		.loc 1 124 4 is_stmt 1 view .LVU12
+ 113              	.LVL4:
+ 114              	.LBB2:
+ 124:Core/Src/actuator.cpp ****    {
+ 115              		.loc 1 124 13 is_stmt 0 view .LVU13
+ 116 001c 0024     		movs	r4, #0
+ 117 001e 31E0     		b	.L15
+ 118              	.LVL5:
+ 119              	.L17:
+ 120              	.LBB3:
+ 121              	.LBB4:
+ 129:Core/Src/actuator.cpp ****       }
+ 122              		.loc 1 129 10 is_stmt 1 discriminator 2 view .LVU14
+ 129:Core/Src/actuator.cpp ****       }
+ 123              		.loc 1 129 47 is_stmt 0 discriminator 2 view .LVU15
+ 124 0020 204B     		ldr	r3, .L18+4
+ 125 0022 03EB8203 		add	r3, r3, r2, lsl #2
+ 126 0026 D3ED007A 		vldr.32	s15, [r3]
+ 129:Core/Src/actuator.cpp ****       }
+ 127              		.loc 1 129 71 discriminator 2 view .LVU16
+ 128 002a 04EB4403 		add	r3, r4, r4, lsl #1
+ 129 002e 1344     		add	r3, r3, r2
+ 130 0030 10A9     		add	r1, sp, #64
+ 131 0032 01EB8303 		add	r3, r1, r3, lsl #2
+ 132 0036 13ED107A 		vldr.32	s14, [r3, #-64]
+ 129:Core/Src/actuator.cpp ****       }
+ 133              		.loc 1 129 49 discriminator 2 view .LVU17
+ 134 003a 27EE877A 		vmul.f32	s14, s15, s14
+ 129:Core/Src/actuator.cpp ****       }
+ 135              		.loc 1 129 28 discriminator 2 view .LVU18
+ 136 003e 01EB8403 		add	r3, r1, r4, lsl #2
+ 137 0042 53ED047A 		vldr.32	s15, [r3, #-16]
+ 138 0046 77EE877A 		vadd.f32	s15, s15, s14
+ 139 004a 43ED047A 		vstr.32	s15, [r3, #-16]
+ 127:Core/Src/actuator.cpp ****       {
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 6
 
 
- 152              		.loc 1 111 0 is_stmt 1 discriminator 2
- 153 0064 124B     		ldr	r3, .L17+16
- 154 0066 03EB8203 		add	r3, r3, r2, lsl #2
- 155 006a D3ED007A 		vldr.32	s15, [r3]
- 156 006e 04EB4403 		add	r3, r4, r4, lsl #1
- 157 0072 1344     		add	r3, r3, r2
- 158 0074 10A9     		add	r1, sp, #64
- 159 0076 01EB8303 		add	r3, r1, r3, lsl #2
- 160 007a 13ED107A 		vldr.32	s14, [r3, #-64]
- 161 007e 27EE877A 		vmul.f32	s14, s15, s14
- 162 0082 01EB8403 		add	r3, r1, r4, lsl #2
- 163 0086 53ED047A 		vldr.32	s15, [r3, #-16]
- 164 008a 77EE877A 		vadd.f32	s15, s15, s14
- 165 008e 43ED047A 		vstr.32	s15, [r3, #-16]
- 109:Core/Src/actuator.cpp ****         {
- 166              		.loc 1 109 0 discriminator 2
- 167 0092 0132     		adds	r2, r2, #1
- 168              	.LVL11:
- 169 0094 E4E7     		b	.L14
- 170              	.LVL12:
- 171              	.L11:
- 172              	.LBE4:
- 173              	.LBE5:
- 174              	.LBE2:
- 175              		.loc 1 125 0
- 176 0096 11B0     		add	sp, sp, #68
- 177              	.LCFI4:
- 178              		.cfi_def_cfa_offset 20
- 179              		@ sp needed
- 180 0098 BDEC028B 		vldm	sp!, {d8}
- 181              	.LCFI5:
- 182              		.cfi_restore 80
- 183              		.cfi_restore 81
- 184              		.cfi_def_cfa_offset 12
- 185 009c 30BD     		pop	{r4, r5, pc}
- 186              	.LVL13:
- 187              	.L18:
- 188 009e 00BF     		.align	2
- 189              	.L17:
- 190 00a0 00000000 		.word	.LANCHOR1
- 191 00a4 0000C842 		.word	1120403456
- 192 00a8 00000000 		.word	.LC1
- 193 00ac 00000000 		.word	motor
- 194 00b0 00000000 		.word	.LANCHOR2
- 195              		.cfi_endproc
- 196              	.LFE380:
- 198              		.section	.text._Z4playv,"ax",%progbits
- 199              		.align	1
- 200              		.global	_Z4playv
- 201              		.syntax unified
- 202              		.thumb
- 203              		.thumb_func
- 204              		.fpu fpv4-sp-d16
- 206              	_Z4playv:
- 207              	.LFB379:
-  11:Core/Src/actuator.cpp ****     char data;
- 208              		.loc 1 11 0
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 7
+ 140              		.loc 1 127 7 is_stmt 1 discriminator 2 view .LVU19
+ 141 004e 0132     		adds	r2, r2, #1
+ 142              	.LVL6:
+ 143              	.L14:
+ 127:Core/Src/actuator.cpp ****       {
+ 144              		.loc 1 127 25 discriminator 3 view .LVU20
+ 145 0050 022A     		cmp	r2, #2
+ 146 0052 E5DD     		ble	.L17
+ 147              	.LBE4:
+ 131:Core/Src/actuator.cpp **** 
+ 148              		.loc 1 131 7 discriminator 2 view .LVU21
+ 131:Core/Src/actuator.cpp **** 
+ 149              		.loc 1 131 44 is_stmt 0 discriminator 2 view .LVU22
+ 150 0054 A500     		lsls	r5, r4, #2
+ 151 0056 10AB     		add	r3, sp, #64
+ 152 0058 03EB8403 		add	r3, r3, r4, lsl #2
+ 153 005c 13ED048A 		vldr.32	s16, [r3, #-16]
+ 131:Core/Src/actuator.cpp **** 
+ 154              		.loc 1 131 46 discriminator 2 view .LVU23
+ 155 0060 DFED117A 		vldr.32	s15, .L18+8
+ 156 0064 68EE277A 		vmul.f32	s15, s16, s15
+ 131:Core/Src/actuator.cpp **** 
+ 157              		.loc 1 131 13 discriminator 2 view .LVU24
+ 158 0068 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 159 006c 17EE901A 		vmov	r1, s15	@ int
+ 160 0070 0E48     		ldr	r0, .L18+12
+ 161 0072 FFF7FEFF 		bl	printf
+ 162              	.LVL7:
+ 133:Core/Src/actuator.cpp ****    }
+ 163              		.loc 1 133 7 is_stmt 1 discriminator 2 view .LVU25
+ 133:Core/Src/actuator.cpp ****    }
+ 164              		.loc 1 133 25 is_stmt 0 discriminator 2 view .LVU26
+ 165 0076 B0EE480A 		vmov.f32	s0, s16
+ 166 007a 0D48     		ldr	r0, .L18+16
+ 167 007c 2844     		add	r0, r0, r5
+ 168 007e FFF7FEFF 		bl	_ZN5motor9set_omegaEf
+ 169              	.LVL8:
+ 170              	.LBE3:
+ 124:Core/Src/actuator.cpp ****    {
+ 171              		.loc 1 124 4 is_stmt 1 discriminator 2 view .LVU27
+ 172 0082 0134     		adds	r4, r4, #1
+ 173              	.LVL9:
+ 174              	.L15:
+ 124:Core/Src/actuator.cpp ****    {
+ 175              		.loc 1 124 22 discriminator 1 view .LVU28
+ 176 0084 032C     		cmp	r4, #3
+ 177 0086 07DC     		bgt	.L11
+ 178              	.LBB6:
+ 126:Core/Src/actuator.cpp ****       for (int j = 0; j < 3; j++)
+ 179              		.loc 1 126 7 view .LVU29
+ 126:Core/Src/actuator.cpp ****       for (int j = 0; j < 3; j++)
+ 180              		.loc 1 126 25 is_stmt 0 view .LVU30
+ 181 0088 0022     		movs	r2, #0
+ 182 008a 10AB     		add	r3, sp, #64
+ 183 008c 03EB8403 		add	r3, r3, r4, lsl #2
+ 184 0090 43F8102C 		str	r2, [r3, #-16]	@ float
+ 127:Core/Src/actuator.cpp ****       {
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 7
 
 
- 209              		.cfi_startproc
- 210              		@ args = 0, pretend = 0, frame = 8
- 211              		@ frame_needed = 0, uses_anonymous_args = 0
- 212 0000 00B5     		push	{lr}
- 213              	.LCFI6:
- 214              		.cfi_def_cfa_offset 4
- 215              		.cfi_offset 14, -4
- 216 0002 83B0     		sub	sp, sp, #12
- 217              	.LCFI7:
- 218              		.cfi_def_cfa_offset 16
-  13:Core/Src/actuator.cpp ****       printf("\n %c",data);
- 219              		.loc 1 13 0
- 220 0004 0A23     		movs	r3, #10
- 221 0006 0122     		movs	r2, #1
- 222 0008 0DF10701 		add	r1, sp, #7
- 223 000c 5448     		ldr	r0, .L35
- 224 000e FFF7FEFF 		bl	HAL_UART_Receive
- 225              	.LVL14:
- 226 0012 10B1     		cbz	r0, .L34
- 227              	.L19:
-  96:Core/Src/actuator.cpp **** 
- 228              		.loc 1 96 0
- 229 0014 03B0     		add	sp, sp, #12
- 230              	.LCFI8:
- 231              		.cfi_remember_state
- 232              		.cfi_def_cfa_offset 4
- 233              		@ sp needed
- 234 0016 5DF804FB 		ldr	pc, [sp], #4
- 235              	.L34:
- 236              	.LCFI9:
- 237              		.cfi_restore_state
-  14:Core/Src/actuator.cpp ****       switch(data)
- 238              		.loc 1 14 0
- 239 001a 9DF80710 		ldrb	r1, [sp, #7]	@ zero_extendqisi2
- 240 001e 5148     		ldr	r0, .L35+4
- 241 0020 FFF7FEFF 		bl	printf
- 242              	.LVL15:
-  15:Core/Src/actuator.cpp ****       {
- 243              		.loc 1 15 0
- 244 0024 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
- 245 0028 423B     		subs	r3, r3, #66
- 246 002a 112B     		cmp	r3, #17
- 247 002c 00F29180 		bhi	.L21
- 248 0030 DFE803F0 		tbb	[pc, r3]
- 249              	.L23:
- 250 0034 29       		.byte	(.L22-.L23)/2
- 251 0035 8F       		.byte	(.L21-.L23)/2
- 252 0036 8F       		.byte	(.L21-.L23)/2
- 253 0037 8F       		.byte	(.L21-.L23)/2
- 254 0038 09       		.byte	(.L24-.L23)/2
- 255 0039 5E       		.byte	(.L25-.L23)/2
- 256 003a 6D       		.byte	(.L26-.L23)/2
- 257 003b 4F       		.byte	(.L27-.L23)/2
- 258 003c 7E       		.byte	(.L28-.L23)/2
- 259 003d 8F       		.byte	(.L21-.L23)/2
- 260 003e 35       		.byte	(.L29-.L23)/2
- 261 003f 8F       		.byte	(.L21-.L23)/2
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 8
+ 185              		.loc 1 127 7 is_stmt 1 view .LVU31
+ 186              	.LVL10:
+ 187              	.LBB5:
+ 127:Core/Src/actuator.cpp ****       {
+ 188              		.loc 1 127 16 is_stmt 0 view .LVU32
+ 189 0094 0022     		movs	r2, #0
+ 190 0096 DBE7     		b	.L14
+ 191              	.LVL11:
+ 192              	.L11:
+ 127:Core/Src/actuator.cpp ****       {
+ 193              		.loc 1 127 16 view .LVU33
+ 194              	.LBE5:
+ 195              	.LBE6:
+ 196              	.LBE2:
+ 197              		.loc 1 135 1 view .LVU34
+ 198 0098 11B0     		add	sp, sp, #68
+ 199              	.LCFI4:
+ 200              		.cfi_def_cfa_offset 20
+ 201              		@ sp needed
+ 202 009a BDEC028B 		vldm	sp!, {d8}
+ 203              	.LCFI5:
+ 204              		.cfi_restore 80
+ 205              		.cfi_restore 81
+ 206              		.cfi_def_cfa_offset 12
+ 207 009e 30BD     		pop	{r4, r5, pc}
+ 208              	.LVL12:
+ 209              	.L19:
+ 210              		.loc 1 135 1 view .LVU35
+ 211              		.align	2
+ 212              	.L18:
+ 213 00a0 00000000 		.word	.LANCHOR1
+ 214 00a4 00000000 		.word	.LANCHOR2
+ 215 00a8 0000C842 		.word	1120403456
+ 216 00ac 00000000 		.word	.LC1
+ 217 00b0 00000000 		.word	motor
+ 218              		.cfi_endproc
+ 219              	.LFE380:
+ 221              		.section	.rodata._Z4playv.str1.4,"aMS",%progbits,1
+ 222              		.align	2
+ 223              	.LC2:
+ 224 0000 0A202563 		.ascii	"\012 %c\000"
+ 224      00
+ 225 0005 000000   		.align	2
+ 226              	.LC3:
+ 227 0008 0A256409 		.ascii	"\012%d\011%d\011%d\011\000"
+ 227      25640925 
+ 227      640900
+ 228              		.section	.text._Z4playv,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	_Z4playv
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 234              		.fpu fpv4-sp-d16
+ 236              	_Z4playv:
+ 237              	.LFB379:
+  11:Core/Src/actuator.cpp ****    char data;
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 8
 
 
- 262 0040 8F       		.byte	(.L21-.L23)/2
- 263 0041 8F       		.byte	(.L21-.L23)/2
- 264 0042 8F       		.byte	(.L21-.L23)/2
- 265 0043 8F       		.byte	(.L21-.L23)/2
- 266 0044 3D       		.byte	(.L30-.L23)/2
- 267 0045 49       		.byte	(.L31-.L23)/2
- 268              		.p2align 1
- 269              	.L24:
-  18:Core/Src/actuator.cpp ****             velocity_robot[1]= velocity;
- 270              		.loc 1 18 0
- 271 0046 484B     		ldr	r3, .L35+8
- 272 0048 0022     		movs	r2, #0
- 273 004a 1A60     		str	r2, [r3]	@ float
-  19:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 274              		.loc 1 19 0
- 275 004c 4749     		ldr	r1, .L35+12
- 276 004e 0968     		ldr	r1, [r1]	@ float
- 277 0050 5960     		str	r1, [r3, #4]	@ float
-  20:Core/Src/actuator.cpp ****             // printf("\nforward");
- 278              		.loc 1 20 0
- 279 0052 9A60     		str	r2, [r3, #8]	@ float
- 280              	.L32:
-  89:Core/Src/actuator.cpp ****    
- 281              		.loc 1 89 0
- 282 0054 444B     		ldr	r3, .L35+8
- 283 0056 D3ED007A 		vldr.32	s15, [r3]
- 284 005a 93ED017A 		vldr.32	s14, [r3, #4]
- 285 005e D3ED026A 		vldr.32	s13, [r3, #8]
- 286 0062 FDEEE66A 		vcvt.s32.f32	s13, s13
- 287 0066 16EE903A 		vmov	r3, s13	@ int
- 288 006a BDEEC77A 		vcvt.s32.f32	s14, s14
- 289 006e 17EE102A 		vmov	r2, s14	@ int
- 290 0072 FDEEE77A 		vcvt.s32.f32	s15, s15
- 291 0076 17EE901A 		vmov	r1, s15	@ int
- 292 007a 3D48     		ldr	r0, .L35+16
- 293 007c FFF7FEFF 		bl	printf
- 294              	.LVL16:
-  91:Core/Src/actuator.cpp ****    }
- 295              		.loc 1 91 0
- 296 0080 FFF7FEFF 		bl	_Z24calculate_wheel_velocityv
- 297              	.LVL17:
-  96:Core/Src/actuator.cpp **** 
- 298              		.loc 1 96 0
- 299 0084 C6E7     		b	.L19
- 300              	.L22:
-  25:Core/Src/actuator.cpp ****             velocity_robot[1]= -velocity;
- 301              		.loc 1 25 0
- 302 0086 384B     		ldr	r3, .L35+8
- 303 0088 0022     		movs	r2, #0
- 304 008a 1A60     		str	r2, [r3]	@ float
-  26:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 305              		.loc 1 26 0
- 306 008c 3749     		ldr	r1, .L35+12
- 307 008e D1ED007A 		vldr.32	s15, [r1]
- 308 0092 F1EE677A 		vneg.f32	s15, s15
- 309 0096 C3ED017A 		vstr.32	s15, [r3, #4]
-  27:Core/Src/actuator.cpp ****             // printf("\back");
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 9
+ 238              		.loc 1 11 1 is_stmt 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 8
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242 0000 00B5     		push	{lr}
+ 243              	.LCFI6:
+ 244              		.cfi_def_cfa_offset 4
+ 245              		.cfi_offset 14, -4
+ 246 0002 83B0     		sub	sp, sp, #12
+ 247              	.LCFI7:
+ 248              		.cfi_def_cfa_offset 16
+  12:Core/Src/actuator.cpp ****    if (HAL_UART_Receive(&huart2, (uint8_t *)&data, 1, 10) == HAL_OK)
+ 249              		.loc 1 12 4 view .LVU37
+  13:Core/Src/actuator.cpp ****    {
+ 250              		.loc 1 13 4 view .LVU38
+  13:Core/Src/actuator.cpp ****    {
+ 251              		.loc 1 13 24 is_stmt 0 view .LVU39
+ 252 0004 0A23     		movs	r3, #10
+ 253 0006 0122     		movs	r2, #1
+ 254 0008 0DF10701 		add	r1, sp, #7
+ 255 000c 5448     		ldr	r0, .L36
+ 256 000e FFF7FEFF 		bl	HAL_UART_Receive
+ 257              	.LVL13:
+  13:Core/Src/actuator.cpp ****    {
+ 258              		.loc 1 13 4 view .LVU40
+ 259 0012 10B1     		cbz	r0, .L35
+ 260              	.L20:
+ 108:Core/Src/actuator.cpp **** 
+ 261              		.loc 1 108 1 view .LVU41
+ 262 0014 03B0     		add	sp, sp, #12
+ 263              	.LCFI8:
+ 264              		.cfi_remember_state
+ 265              		.cfi_def_cfa_offset 4
+ 266              		@ sp needed
+ 267 0016 5DF804FB 		ldr	pc, [sp], #4
+ 268              	.L35:
+ 269              	.LCFI9:
+ 270              		.cfi_restore_state
+  15:Core/Src/actuator.cpp ****       switch (data)
+ 271              		.loc 1 15 7 is_stmt 1 view .LVU42
+  15:Core/Src/actuator.cpp ****       switch (data)
+ 272              		.loc 1 15 13 is_stmt 0 view .LVU43
+ 273 001a 9DF80710 		ldrb	r1, [sp, #7]	@ zero_extendqisi2
+ 274 001e 5148     		ldr	r0, .L36+4
+ 275 0020 FFF7FEFF 		bl	printf
+ 276              	.LVL14:
+  16:Core/Src/actuator.cpp ****       {
+ 277              		.loc 1 16 7 is_stmt 1 view .LVU44
+  16:Core/Src/actuator.cpp ****       {
+ 278              		.loc 1 16 15 is_stmt 0 view .LVU45
+ 279 0024 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
+ 280 0028 423B     		subs	r3, r3, #66
+ 281 002a 112B     		cmp	r3, #17
+ 282 002c 00F29180 		bhi	.L22
+ 283 0030 DFE803F0 		tbb	[pc, r3]
+ 284              	.L24:
+ 285 0034 2D       		.byte	(.L32-.L24)/2
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 9
 
 
- 310              		.loc 1 27 0
- 311 009a 9A60     		str	r2, [r3, #8]	@ float
-  29:Core/Src/actuator.cpp ****          }
- 312              		.loc 1 29 0
- 313 009c DAE7     		b	.L32
- 314              	.L29:
-  32:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
- 315              		.loc 1 32 0
- 316 009e 324B     		ldr	r3, .L35+8
- 317 00a0 324A     		ldr	r2, .L35+12
- 318 00a2 1268     		ldr	r2, [r2]	@ float
- 319 00a4 1A60     		str	r2, [r3]	@ float
-  33:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 320              		.loc 1 33 0
- 321 00a6 0022     		movs	r2, #0
- 322 00a8 5A60     		str	r2, [r3, #4]	@ float
-  34:Core/Src/actuator.cpp ****             // printf("\nright");
- 323              		.loc 1 34 0
- 324 00aa 9A60     		str	r2, [r3, #8]	@ float
-  36:Core/Src/actuator.cpp ****          }
- 325              		.loc 1 36 0
- 326 00ac D2E7     		b	.L32
- 327              	.L30:
-  39:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
- 328              		.loc 1 39 0
- 329 00ae 2F4B     		ldr	r3, .L35+12
- 330 00b0 D3ED007A 		vldr.32	s15, [r3]
- 331 00b4 F1EE677A 		vneg.f32	s15, s15
- 332 00b8 2B4B     		ldr	r3, .L35+8
- 333 00ba C3ED007A 		vstr.32	s15, [r3]
-  40:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 334              		.loc 1 40 0
- 335 00be 0022     		movs	r2, #0
- 336 00c0 5A60     		str	r2, [r3, #4]	@ float
-  41:Core/Src/actuator.cpp ****             // printf("\nleft");
- 337              		.loc 1 41 0
- 338 00c2 9A60     		str	r2, [r3, #8]	@ float
-  43:Core/Src/actuator.cpp ****          }
- 339              		.loc 1 43 0
- 340 00c4 C6E7     		b	.L32
- 341              	.L31:
-  46:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
- 342              		.loc 1 46 0
- 343 00c6 284B     		ldr	r3, .L35+8
- 344 00c8 0022     		movs	r2, #0
- 345 00ca 1A60     		str	r2, [r3]	@ float
-  47:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 346              		.loc 1 47 0
- 347 00cc 5A60     		str	r2, [r3, #4]	@ float
-  48:Core/Src/actuator.cpp ****             // printf("\nstop");
- 348              		.loc 1 48 0
- 349 00ce 9A60     		str	r2, [r3, #8]	@ float
-  50:Core/Src/actuator.cpp ****          }
- 350              		.loc 1 50 0
- 351 00d0 C0E7     		b	.L32
- 352              	.L27:
-  53:Core/Src/actuator.cpp ****             velocity_robot[1]= -(velocity/2);
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 10
+ 286 0035 8F       		.byte	(.L22-.L24)/2
+ 287 0036 8F       		.byte	(.L22-.L24)/2
+ 288 0037 8F       		.byte	(.L22-.L24)/2
+ 289 0038 09       		.byte	(.L31-.L24)/2
+ 290 0039 5E       		.byte	(.L30-.L24)/2
+ 291 003a 6D       		.byte	(.L29-.L24)/2
+ 292 003b 7E       		.byte	(.L28-.L24)/2
+ 293 003c 4F       		.byte	(.L27-.L24)/2
+ 294 003d 8F       		.byte	(.L22-.L24)/2
+ 295 003e 35       		.byte	(.L26-.L24)/2
+ 296 003f 8F       		.byte	(.L22-.L24)/2
+ 297 0040 8F       		.byte	(.L22-.L24)/2
+ 298 0041 8F       		.byte	(.L22-.L24)/2
+ 299 0042 8F       		.byte	(.L22-.L24)/2
+ 300 0043 8F       		.byte	(.L22-.L24)/2
+ 301 0044 41       		.byte	(.L25-.L24)/2
+ 302 0045 49       		.byte	(.L23-.L24)/2
+ 303              		.p2align 1
+ 304              	.L31:
+  18:Core/Src/actuator.cpp ****       {
+ 305              		.loc 1 18 7 is_stmt 1 view .LVU46
+  19:Core/Src/actuator.cpp ****          velocity_robot[0] = 0;
+ 306              		.loc 1 19 7 view .LVU47
+  20:Core/Src/actuator.cpp ****          velocity_robot[1] = -velocity;
+ 307              		.loc 1 20 10 view .LVU48
+  20:Core/Src/actuator.cpp ****          velocity_robot[1] = -velocity;
+ 308              		.loc 1 20 28 is_stmt 0 view .LVU49
+ 309 0046 484B     		ldr	r3, .L36+8
+ 310 0048 0022     		movs	r2, #0
+ 311 004a 1A60     		str	r2, [r3]	@ float
+  21:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 312              		.loc 1 21 10 is_stmt 1 view .LVU50
+  21:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 313              		.loc 1 21 30 is_stmt 0 view .LVU51
+ 314 004c 4749     		ldr	r1, .L36+12
+ 315 004e D1ED007A 		vldr.32	s15, [r1]
+ 316 0052 F1EE677A 		vneg.f32	s15, s15
+  21:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 317              		.loc 1 21 28 view .LVU52
+ 318 0056 C3ED017A 		vstr.32	s15, [r3, #4]
+  22:Core/Src/actuator.cpp ****          // printf("\nforward");
+ 319              		.loc 1 22 10 is_stmt 1 view .LVU53
+  22:Core/Src/actuator.cpp ****          // printf("\nforward");
+ 320              		.loc 1 22 28 is_stmt 0 view .LVU54
+ 321 005a 9A60     		str	r2, [r3, #8]	@ float
+  24:Core/Src/actuator.cpp ****       }
+ 322              		.loc 1 24 10 is_stmt 1 view .LVU55
+ 323              	.L33:
+ 100:Core/Src/actuator.cpp **** 
+ 324              		.loc 1 100 7 view .LVU56
+ 100:Core/Src/actuator.cpp **** 
+ 325              		.loc 1 100 53 is_stmt 0 view .LVU57
+ 326 005c 424B     		ldr	r3, .L36+8
+ 327 005e D3ED007A 		vldr.32	s15, [r3]
+ 100:Core/Src/actuator.cpp **** 
+ 328              		.loc 1 100 77 view .LVU58
+ 329 0062 93ED017A 		vldr.32	s14, [r3, #4]
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 10
 
 
- 353              		.loc 1 53 0
- 354 00d2 264B     		ldr	r3, .L35+12
- 355 00d4 93ED007A 		vldr.32	s14, [r3]
- 356 00d8 F6EE007A 		vmov.f32	s15, #5.0e-1
- 357 00dc 67EEC77A 		vnmul.f32	s15, s15, s14
- 358 00e0 214B     		ldr	r3, .L35+8
- 359 00e2 C3ED007A 		vstr.32	s15, [r3]
-  54:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 360              		.loc 1 54 0
- 361 00e6 C3ED017A 		vstr.32	s15, [r3, #4]
-  55:Core/Src/actuator.cpp ****             // printf("\nstop");
- 362              		.loc 1 55 0
- 363 00ea 0022     		movs	r2, #0
- 364 00ec 9A60     		str	r2, [r3, #8]	@ float
-  57:Core/Src/actuator.cpp ****          }
- 365              		.loc 1 57 0
- 366 00ee B1E7     		b	.L32
- 367              	.L25:
-  60:Core/Src/actuator.cpp ****             velocity_robot[1]= (velocity/2);
- 368              		.loc 1 60 0
- 369 00f0 1E4B     		ldr	r3, .L35+12
- 370 00f2 D3ED007A 		vldr.32	s15, [r3]
- 371 00f6 B6EE007A 		vmov.f32	s14, #5.0e-1
- 372 00fa 67EE877A 		vmul.f32	s15, s15, s14
- 373 00fe 1A4B     		ldr	r3, .L35+8
- 374 0100 C3ED007A 		vstr.32	s15, [r3]
-  61:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 375              		.loc 1 61 0
- 376 0104 C3ED017A 		vstr.32	s15, [r3, #4]
-  62:Core/Src/actuator.cpp ****             // printf("\nstop");
- 377              		.loc 1 62 0
- 378 0108 0022     		movs	r2, #0
- 379 010a 9A60     		str	r2, [r3, #8]	@ float
-  64:Core/Src/actuator.cpp ****          }
- 380              		.loc 1 64 0
- 381 010c A2E7     		b	.L32
- 382              	.L26:
-  67:Core/Src/actuator.cpp ****             velocity_robot[1]= -(velocity/2);
- 383              		.loc 1 67 0
- 384 010e 174B     		ldr	r3, .L35+12
- 385 0110 D3ED007A 		vldr.32	s15, [r3]
- 386 0114 B6EE007A 		vmov.f32	s14, #5.0e-1
- 387 0118 67EE877A 		vmul.f32	s15, s15, s14
- 388 011c 124B     		ldr	r3, .L35+8
- 389 011e C3ED007A 		vstr.32	s15, [r3]
-  68:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 390              		.loc 1 68 0
- 391 0122 F1EE677A 		vneg.f32	s15, s15
- 392 0126 C3ED017A 		vstr.32	s15, [r3, #4]
-  69:Core/Src/actuator.cpp ****             // printf("\nstop");
- 393              		.loc 1 69 0
- 394 012a 0022     		movs	r2, #0
- 395 012c 9A60     		str	r2, [r3, #8]	@ float
-  71:Core/Src/actuator.cpp ****          }
- 396              		.loc 1 71 0
- 397 012e 91E7     		b	.L32
- 398              	.L28:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 11
+ 100:Core/Src/actuator.cpp **** 
+ 330              		.loc 1 100 101 view .LVU59
+ 331 0066 D3ED026A 		vldr.32	s13, [r3, #8]
+ 100:Core/Src/actuator.cpp **** 
+ 332              		.loc 1 100 13 view .LVU60
+ 333 006a FDEEE66A 		vcvt.s32.f32	s13, s13
+ 334 006e 16EE903A 		vmov	r3, s13	@ int
+ 335 0072 BDEEC77A 		vcvt.s32.f32	s14, s14
+ 336 0076 17EE102A 		vmov	r2, s14	@ int
+ 337 007a FDEEE77A 		vcvt.s32.f32	s15, s15
+ 338 007e 17EE901A 		vmov	r1, s15	@ int
+ 339 0082 3B48     		ldr	r0, .L36+16
+ 340 0084 FFF7FEFF 		bl	printf
+ 341              	.LVL15:
+ 102:Core/Src/actuator.cpp ****    }
+ 342              		.loc 1 102 7 is_stmt 1 view .LVU61
+ 102:Core/Src/actuator.cpp ****    }
+ 343              		.loc 1 102 31 is_stmt 0 view .LVU62
+ 344 0088 FFF7FEFF 		bl	_Z24calculate_wheel_velocityv
+ 345              	.LVL16:
+ 108:Core/Src/actuator.cpp **** 
+ 346              		.loc 1 108 1 view .LVU63
+ 347 008c C2E7     		b	.L20
+ 348              	.L32:
+  26:Core/Src/actuator.cpp ****       {
+ 349              		.loc 1 26 7 is_stmt 1 view .LVU64
+  27:Core/Src/actuator.cpp ****          velocity_robot[0] = 0;
+ 350              		.loc 1 27 7 view .LVU65
+  28:Core/Src/actuator.cpp ****          velocity_robot[1] = +velocity;
+ 351              		.loc 1 28 10 view .LVU66
+  28:Core/Src/actuator.cpp ****          velocity_robot[1] = +velocity;
+ 352              		.loc 1 28 28 is_stmt 0 view .LVU67
+ 353 008e 364B     		ldr	r3, .L36+8
+ 354 0090 0022     		movs	r2, #0
+ 355 0092 1A60     		str	r2, [r3]	@ float
+  29:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 356              		.loc 1 29 10 is_stmt 1 view .LVU68
+  29:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 357              		.loc 1 29 28 is_stmt 0 view .LVU69
+ 358 0094 3549     		ldr	r1, .L36+12
+ 359 0096 0968     		ldr	r1, [r1]	@ float
+ 360 0098 5960     		str	r1, [r3, #4]	@ float
+  30:Core/Src/actuator.cpp ****          // printf("\back");
+ 361              		.loc 1 30 10 is_stmt 1 view .LVU70
+  30:Core/Src/actuator.cpp ****          // printf("\back");
+ 362              		.loc 1 30 28 is_stmt 0 view .LVU71
+ 363 009a 9A60     		str	r2, [r3, #8]	@ float
+  32:Core/Src/actuator.cpp ****       }
+ 364              		.loc 1 32 10 is_stmt 1 view .LVU72
+ 365 009c DEE7     		b	.L33
+ 366              	.L26:
+  34:Core/Src/actuator.cpp ****       {
+ 367              		.loc 1 34 7 view .LVU73
+  35:Core/Src/actuator.cpp ****          velocity_robot[0] = -velocity;
+ 368              		.loc 1 35 7 view .LVU74
+  36:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 369              		.loc 1 36 10 view .LVU75
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 11
 
 
-  74:Core/Src/actuator.cpp ****             velocity_robot[1]= (velocity/2);
- 399              		.loc 1 74 0
- 400 0130 0E4B     		ldr	r3, .L35+12
- 401 0132 D3ED007A 		vldr.32	s15, [r3]
- 402 0136 B6EE007A 		vmov.f32	s14, #5.0e-1
- 403 013a 67EE877A 		vmul.f32	s15, s15, s14
- 404 013e B1EE677A 		vneg.f32	s14, s15
- 405 0142 094B     		ldr	r3, .L35+8
- 406 0144 83ED007A 		vstr.32	s14, [r3]
-  75:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 407              		.loc 1 75 0
- 408 0148 C3ED017A 		vstr.32	s15, [r3, #4]
-  76:Core/Src/actuator.cpp ****             // printf("\nstop");
- 409              		.loc 1 76 0
- 410 014c 0022     		movs	r2, #0
- 411 014e 9A60     		str	r2, [r3, #8]	@ float
-  78:Core/Src/actuator.cpp ****          }
- 412              		.loc 1 78 0
- 413 0150 80E7     		b	.L32
- 414              	.L21:
-  81:Core/Src/actuator.cpp ****             velocity_robot[1]= 0;
- 415              		.loc 1 81 0
- 416 0152 054B     		ldr	r3, .L35+8
- 417 0154 0022     		movs	r2, #0
- 418 0156 1A60     		str	r2, [r3]	@ float
-  82:Core/Src/actuator.cpp ****             velocity_robot[2]= 0;
- 419              		.loc 1 82 0
- 420 0158 5A60     		str	r2, [r3, #4]	@ float
-  83:Core/Src/actuator.cpp ****             // printf("\ndefault");
- 421              		.loc 1 83 0
- 422 015a 9A60     		str	r2, [r3, #8]	@ float
-  85:Core/Src/actuator.cpp ****          }
- 423              		.loc 1 85 0
- 424 015c 7AE7     		b	.L32
- 425              	.L36:
- 426 015e 00BF     		.align	2
- 427              	.L35:
- 428 0160 00000000 		.word	huart2
- 429 0164 00000000 		.word	.LC2
- 430 0168 00000000 		.word	.LANCHOR2
- 431 016c 00000000 		.word	.LANCHOR3
- 432 0170 08000000 		.word	.LC3
- 433              		.cfi_endproc
- 434              	.LFE379:
- 436              		.section	.text._GLOBAL__sub_I_velocity,"ax",%progbits
- 437              		.align	1
- 438              		.syntax unified
- 439              		.thumb
- 440              		.thumb_func
- 441              		.fpu fpv4-sp-d16
- 443              	_GLOBAL__sub_I_velocity:
- 444              	.LFB382:
- 445              		.loc 1 125 0
- 446              		.cfi_startproc
- 447              		@ args = 0, pretend = 0, frame = 0
- 448              		@ frame_needed = 0, uses_anonymous_args = 0
- 449 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 12
+  36:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 370              		.loc 1 36 30 is_stmt 0 view .LVU76
+ 371 009e 334B     		ldr	r3, .L36+12
+ 372 00a0 D3ED007A 		vldr.32	s15, [r3]
+ 373 00a4 F1EE677A 		vneg.f32	s15, s15
+  36:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 374              		.loc 1 36 28 view .LVU77
+ 375 00a8 2F4B     		ldr	r3, .L36+8
+ 376 00aa C3ED007A 		vstr.32	s15, [r3]
+  37:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 377              		.loc 1 37 10 is_stmt 1 view .LVU78
+  37:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 378              		.loc 1 37 28 is_stmt 0 view .LVU79
+ 379 00ae 0022     		movs	r2, #0
+ 380 00b0 5A60     		str	r2, [r3, #4]	@ float
+  38:Core/Src/actuator.cpp ****          // printf("\nright");
+ 381              		.loc 1 38 10 is_stmt 1 view .LVU80
+  38:Core/Src/actuator.cpp ****          // printf("\nright");
+ 382              		.loc 1 38 28 is_stmt 0 view .LVU81
+ 383 00b2 9A60     		str	r2, [r3, #8]	@ float
+  40:Core/Src/actuator.cpp ****       }
+ 384              		.loc 1 40 10 is_stmt 1 view .LVU82
+ 385 00b4 D2E7     		b	.L33
+ 386              	.L25:
+  42:Core/Src/actuator.cpp ****       {
+ 387              		.loc 1 42 7 view .LVU83
+  43:Core/Src/actuator.cpp ****          velocity_robot[0] = velocity;
+ 388              		.loc 1 43 7 view .LVU84
+  44:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 389              		.loc 1 44 10 view .LVU85
+  44:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 390              		.loc 1 44 28 is_stmt 0 view .LVU86
+ 391 00b6 2C4B     		ldr	r3, .L36+8
+ 392 00b8 2C4A     		ldr	r2, .L36+12
+ 393 00ba 1268     		ldr	r2, [r2]	@ float
+ 394 00bc 1A60     		str	r2, [r3]	@ float
+  45:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 395              		.loc 1 45 10 is_stmt 1 view .LVU87
+  45:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 396              		.loc 1 45 28 is_stmt 0 view .LVU88
+ 397 00be 0022     		movs	r2, #0
+ 398 00c0 5A60     		str	r2, [r3, #4]	@ float
+  46:Core/Src/actuator.cpp ****          // printf("\nleft");
+ 399              		.loc 1 46 10 is_stmt 1 view .LVU89
+  46:Core/Src/actuator.cpp ****          // printf("\nleft");
+ 400              		.loc 1 46 28 is_stmt 0 view .LVU90
+ 401 00c2 9A60     		str	r2, [r3, #8]	@ float
+  48:Core/Src/actuator.cpp ****       }
+ 402              		.loc 1 48 10 is_stmt 1 view .LVU91
+ 403 00c4 CAE7     		b	.L33
+ 404              	.L23:
+  50:Core/Src/actuator.cpp ****       {
+ 405              		.loc 1 50 7 view .LVU92
+  51:Core/Src/actuator.cpp ****          velocity_robot[0] = 0;
+ 406              		.loc 1 51 7 view .LVU93
+  52:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 407              		.loc 1 52 10 view .LVU94
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 12
 
 
- 450              	.LCFI10:
- 451              		.cfi_def_cfa_offset 8
- 452              		.cfi_offset 3, -8
- 453              		.cfi_offset 14, -4
- 454              		.loc 1 125 0
- 455 0002 4FF6FF71 		movw	r1, #65535
- 456 0006 0120     		movs	r0, #1
- 457 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 458              	.LVL18:
- 459 000c 08BD     		pop	{r3, pc}
- 460              		.cfi_endproc
- 461              	.LFE382:
- 463              		.section	.init_array,"aw",%init_array
- 464              		.align	2
- 465 0000 00000000 		.word	_GLOBAL__sub_I_velocity(target1)
- 466              		.global	time
- 467              		.global	velocity
- 468              		.section	.rodata
- 469              		.align	2
- 470              		.set	.LANCHOR1,. + 0
- 471              	.LC0:
- 472 0000 F4FD343F 		.word	1060437492
- 473 0004 F4FD34BF 		.word	-1087046156
- 474 0008 0000803F 		.word	1065353216
- 475 000c F4FD34BF 		.word	-1087046156
- 476 0010 F4FD34BF 		.word	-1087046156
- 477 0014 0000803F 		.word	1065353216
- 478 0018 F4FD34BF 		.word	-1087046156
- 479 001c F4FD343F 		.word	1060437492
- 480 0020 0000803F 		.word	1065353216
- 481 0024 F4FD343F 		.word	1060437492
- 482 0028 F4FD343F 		.word	1060437492
- 483 002c 0000803F 		.word	1065353216
- 484              		.section	.bss._ZL14velocity_robot,"aw",%nobits
- 485              		.align	2
- 486              		.set	.LANCHOR2,. + 0
- 489              	_ZL14velocity_robot:
- 490 0000 00000000 		.space	12
- 490      00000000 
- 490      00000000 
- 491              		.section	.bss.time,"aw",%nobits
- 492              		.align	2
- 493              		.set	.LANCHOR0,. + 0
- 496              	time:
- 497 0000 00000000 		.space	4
- 498              		.section	.data.velocity,"aw",%progbits
- 499              		.align	2
- 500              		.set	.LANCHOR3,. + 0
- 503              	velocity:
- 504 0000 0000F041 		.word	1106247680
- 505              		.section	.rodata._Z24calculate_wheel_velocityv.str1.4,"aMS",%progbits,1
- 506              		.align	2
- 507              	.LC1:
- 508 0000 09256400 		.ascii	"\011%d\000"
- 509              		.section	.rodata._Z4playv.str1.4,"aMS",%progbits,1
- 510              		.align	2
- 511              	.LC2:
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 13
+  52:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 408              		.loc 1 52 28 is_stmt 0 view .LVU95
+ 409 00c6 284B     		ldr	r3, .L36+8
+ 410 00c8 0022     		movs	r2, #0
+ 411 00ca 1A60     		str	r2, [r3]	@ float
+  53:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 412              		.loc 1 53 10 is_stmt 1 view .LVU96
+  53:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 413              		.loc 1 53 28 is_stmt 0 view .LVU97
+ 414 00cc 5A60     		str	r2, [r3, #4]	@ float
+  54:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 415              		.loc 1 54 10 is_stmt 1 view .LVU98
+  54:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 416              		.loc 1 54 28 is_stmt 0 view .LVU99
+ 417 00ce 9A60     		str	r2, [r3, #8]	@ float
+  56:Core/Src/actuator.cpp ****       }
+ 418              		.loc 1 56 10 is_stmt 1 view .LVU100
+ 419 00d0 C4E7     		b	.L33
+ 420              	.L27:
+  58:Core/Src/actuator.cpp ****       {
+ 421              		.loc 1 58 7 view .LVU101
+  59:Core/Src/actuator.cpp ****          velocity_robot[0] = -(velocity / 2);
+ 422              		.loc 1 59 7 view .LVU102
+  60:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+ 423              		.loc 1 60 10 view .LVU103
+  60:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+ 424              		.loc 1 60 41 is_stmt 0 view .LVU104
+ 425 00d2 264B     		ldr	r3, .L36+12
+ 426 00d4 93ED007A 		vldr.32	s14, [r3]
+  60:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+ 427              		.loc 1 60 30 view .LVU105
+ 428 00d8 F6EE007A 		vmov.f32	s15, #5.0e-1
+ 429 00dc 67EEC77A 		vnmul.f32	s15, s15, s14
+  60:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+ 430              		.loc 1 60 28 view .LVU106
+ 431 00e0 214B     		ldr	r3, .L36+8
+ 432 00e2 C3ED007A 		vstr.32	s15, [r3]
+  61:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 433              		.loc 1 61 10 is_stmt 1 view .LVU107
+  61:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 434              		.loc 1 61 28 is_stmt 0 view .LVU108
+ 435 00e6 C3ED017A 		vstr.32	s15, [r3, #4]
+  62:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 436              		.loc 1 62 10 is_stmt 1 view .LVU109
+  62:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 437              		.loc 1 62 28 is_stmt 0 view .LVU110
+ 438 00ea 0022     		movs	r2, #0
+ 439 00ec 9A60     		str	r2, [r3, #8]	@ float
+  64:Core/Src/actuator.cpp ****       }
+ 440              		.loc 1 64 10 is_stmt 1 view .LVU111
+ 441 00ee B5E7     		b	.L33
+ 442              	.L30:
+  66:Core/Src/actuator.cpp ****       {
+ 443              		.loc 1 66 7 view .LVU112
+  67:Core/Src/actuator.cpp ****          velocity_robot[0] = (velocity / 2);
+ 444              		.loc 1 67 7 view .LVU113
+  68:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 13
 
 
- 512 0000 0A202563 		.ascii	"\012 %c\000"
- 512      00
- 513 0005 000000   		.space	3
- 514              	.LC3:
- 515 0008 0A256409 		.ascii	"\012%d\011%d\011%d\011\000"
- 515      25640925 
- 515      640900
- 516              		.text
- 517              	.Letext0:
- 518              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 519              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 520              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 521              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 522              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 523              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 524              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 525              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 526              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 527              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 528              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 529              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 530              		.file 14 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 531              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eab
- 532              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 533              		.file 17 "Core/Inc/tim.h"
- 534              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 535              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 536              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 537              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 538              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 539              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 540              		.file 24 "Core/Inc/motor.h"
- 541              		.file 25 "Core/Inc/usart.h"
- 542              		.file 26 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 543              		.file 27 "<built-in>"
-ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s 			page 14
+ 445              		.loc 1 68 10 view .LVU114
+  68:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+ 446              		.loc 1 68 40 is_stmt 0 view .LVU115
+ 447 00f0 1E4B     		ldr	r3, .L36+12
+ 448 00f2 D3ED007A 		vldr.32	s15, [r3]
+ 449 00f6 B6EE007A 		vmov.f32	s14, #5.0e-1
+ 450 00fa 67EE877A 		vmul.f32	s15, s15, s14
+  68:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+ 451              		.loc 1 68 28 view .LVU116
+ 452 00fe 1A4B     		ldr	r3, .L36+8
+ 453 0100 C3ED007A 		vstr.32	s15, [r3]
+  69:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 454              		.loc 1 69 10 is_stmt 1 view .LVU117
+  69:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 455              		.loc 1 69 28 is_stmt 0 view .LVU118
+ 456 0104 C3ED017A 		vstr.32	s15, [r3, #4]
+  70:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 457              		.loc 1 70 10 is_stmt 1 view .LVU119
+  70:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 458              		.loc 1 70 28 is_stmt 0 view .LVU120
+ 459 0108 0022     		movs	r2, #0
+ 460 010a 9A60     		str	r2, [r3, #8]	@ float
+  72:Core/Src/actuator.cpp ****       }
+ 461              		.loc 1 72 10 is_stmt 1 view .LVU121
+ 462 010c A6E7     		b	.L33
+ 463              	.L29:
+  74:Core/Src/actuator.cpp ****       {
+ 464              		.loc 1 74 7 view .LVU122
+  75:Core/Src/actuator.cpp ****          velocity_robot[0] = (velocity / 2);
+ 465              		.loc 1 75 7 view .LVU123
+  76:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+ 466              		.loc 1 76 10 view .LVU124
+  76:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+ 467              		.loc 1 76 40 is_stmt 0 view .LVU125
+ 468 010e 174B     		ldr	r3, .L36+12
+ 469 0110 D3ED007A 		vldr.32	s15, [r3]
+ 470 0114 B6EE007A 		vmov.f32	s14, #5.0e-1
+ 471 0118 67EE877A 		vmul.f32	s15, s15, s14
+  76:Core/Src/actuator.cpp ****          velocity_robot[1] = -(velocity / 2);
+ 472              		.loc 1 76 28 view .LVU126
+ 473 011c 124B     		ldr	r3, .L36+8
+ 474 011e C3ED007A 		vstr.32	s15, [r3]
+  77:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 475              		.loc 1 77 10 is_stmt 1 view .LVU127
+  77:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 476              		.loc 1 77 30 is_stmt 0 view .LVU128
+ 477 0122 F1EE677A 		vneg.f32	s15, s15
+  77:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 478              		.loc 1 77 28 view .LVU129
+ 479 0126 C3ED017A 		vstr.32	s15, [r3, #4]
+  78:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 480              		.loc 1 78 10 is_stmt 1 view .LVU130
+  78:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 481              		.loc 1 78 28 is_stmt 0 view .LVU131
+ 482 012a 0022     		movs	r2, #0
+ 483 012c 9A60     		str	r2, [r3, #8]	@ float
+  80:Core/Src/actuator.cpp ****       }
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 14
+
+
+ 484              		.loc 1 80 10 is_stmt 1 view .LVU132
+ 485 012e 95E7     		b	.L33
+ 486              	.L28:
+  82:Core/Src/actuator.cpp ****       {
+ 487              		.loc 1 82 7 view .LVU133
+  83:Core/Src/actuator.cpp ****          velocity_robot[0] = -(velocity / 2);
+ 488              		.loc 1 83 7 view .LVU134
+  84:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+ 489              		.loc 1 84 10 view .LVU135
+  84:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+ 490              		.loc 1 84 41 is_stmt 0 view .LVU136
+ 491 0130 0E4B     		ldr	r3, .L36+12
+ 492 0132 D3ED007A 		vldr.32	s15, [r3]
+ 493 0136 B6EE007A 		vmov.f32	s14, #5.0e-1
+ 494 013a 67EE877A 		vmul.f32	s15, s15, s14
+  84:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+ 495              		.loc 1 84 30 view .LVU137
+ 496 013e B1EE677A 		vneg.f32	s14, s15
+  84:Core/Src/actuator.cpp ****          velocity_robot[1] = (velocity / 2);
+ 497              		.loc 1 84 28 view .LVU138
+ 498 0142 094B     		ldr	r3, .L36+8
+ 499 0144 83ED007A 		vstr.32	s14, [r3]
+  85:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 500              		.loc 1 85 10 is_stmt 1 view .LVU139
+  85:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 501              		.loc 1 85 28 is_stmt 0 view .LVU140
+ 502 0148 C3ED017A 		vstr.32	s15, [r3, #4]
+  86:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 503              		.loc 1 86 10 is_stmt 1 view .LVU141
+  86:Core/Src/actuator.cpp ****          // printf("\nstop");
+ 504              		.loc 1 86 28 is_stmt 0 view .LVU142
+ 505 014c 0022     		movs	r2, #0
+ 506 014e 9A60     		str	r2, [r3, #8]	@ float
+  88:Core/Src/actuator.cpp ****       }
+ 507              		.loc 1 88 10 is_stmt 1 view .LVU143
+ 508 0150 84E7     		b	.L33
+ 509              	.L22:
+  90:Core/Src/actuator.cpp ****       {
+ 510              		.loc 1 90 7 view .LVU144
+  91:Core/Src/actuator.cpp ****          velocity_robot[0] = 0;
+ 511              		.loc 1 91 7 view .LVU145
+  92:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 512              		.loc 1 92 10 view .LVU146
+  92:Core/Src/actuator.cpp ****          velocity_robot[1] = 0;
+ 513              		.loc 1 92 28 is_stmt 0 view .LVU147
+ 514 0152 054B     		ldr	r3, .L36+8
+ 515 0154 0022     		movs	r2, #0
+ 516 0156 1A60     		str	r2, [r3]	@ float
+  93:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 517              		.loc 1 93 10 is_stmt 1 view .LVU148
+  93:Core/Src/actuator.cpp ****          velocity_robot[2] = 0;
+ 518              		.loc 1 93 28 is_stmt 0 view .LVU149
+ 519 0158 5A60     		str	r2, [r3, #4]	@ float
+  94:Core/Src/actuator.cpp ****          // printf("\ndefault");
+ 520              		.loc 1 94 10 is_stmt 1 view .LVU150
+  94:Core/Src/actuator.cpp ****          // printf("\ndefault");
+ 521              		.loc 1 94 28 is_stmt 0 view .LVU151
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 15
+
+
+ 522 015a 9A60     		str	r2, [r3, #8]	@ float
+  96:Core/Src/actuator.cpp ****       }
+ 523              		.loc 1 96 10 is_stmt 1 view .LVU152
+ 524 015c 7EE7     		b	.L33
+ 525              	.L37:
+ 526 015e 00BF     		.align	2
+ 527              	.L36:
+ 528 0160 00000000 		.word	huart2
+ 529 0164 00000000 		.word	.LC2
+ 530 0168 00000000 		.word	.LANCHOR2
+ 531 016c 00000000 		.word	.LANCHOR3
+ 532 0170 08000000 		.word	.LC3
+ 533              		.cfi_endproc
+ 534              	.LFE379:
+ 536              		.section	.text._GLOBAL__sub_I_velocity,"ax",%progbits
+ 537              		.align	1
+ 538              		.syntax unified
+ 539              		.thumb
+ 540              		.thumb_func
+ 541              		.fpu fpv4-sp-d16
+ 543              	_GLOBAL__sub_I_velocity:
+ 544              	.LFB382:
+ 545              		.loc 1 135 1 view -0
+ 546              		.cfi_startproc
+ 547              		@ args = 0, pretend = 0, frame = 0
+ 548              		@ frame_needed = 0, uses_anonymous_args = 0
+ 549 0000 08B5     		push	{r3, lr}
+ 550              	.LCFI10:
+ 551              		.cfi_def_cfa_offset 8
+ 552              		.cfi_offset 3, -8
+ 553              		.cfi_offset 14, -4
+ 554              		.loc 1 135 1 is_stmt 0 view .LVU154
+ 555 0002 4FF6FF71 		movw	r1, #65535
+ 556 0006 0120     		movs	r0, #1
+ 557 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 558              	.LVL17:
+ 559 000c 08BD     		pop	{r3, pc}
+ 560              		.cfi_endproc
+ 561              	.LFE382:
+ 563              		.section	.init_array,"aw",%init_array
+ 564              		.align	2
+ 565 0000 00000000 		.word	_GLOBAL__sub_I_velocity(target1)
+ 566              		.global	time
+ 567              		.global	velocity
+ 568              		.section	.rodata
+ 569              		.align	2
+ 570              		.set	.LANCHOR1,. + 0
+ 571              	.LC0:
+ 572 0000 0000803F 		.word	1065353216
+ 573 0004 000080BF 		.word	-1082130432
+ 574 0008 0000803F 		.word	1065353216
+ 575 000c 000080BF 		.word	-1082130432
+ 576 0010 000080BF 		.word	-1082130432
+ 577 0014 0000803F 		.word	1065353216
+ 578 0018 000080BF 		.word	-1082130432
+ 579 001c 0000803F 		.word	1065353216
+ 580 0020 0000803F 		.word	1065353216
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 16
+
+
+ 581 0024 0000803F 		.word	1065353216
+ 582 0028 0000803F 		.word	1065353216
+ 583 002c 0000803F 		.word	1065353216
+ 584              		.section	.bss._ZL14velocity_robot,"aw",%nobits
+ 585              		.align	2
+ 586              		.set	.LANCHOR2,. + 0
+ 589              	_ZL14velocity_robot:
+ 590 0000 00000000 		.space	12
+ 590      00000000 
+ 590      00000000 
+ 591              		.section	.bss.time,"aw",%nobits
+ 592              		.align	2
+ 593              		.set	.LANCHOR0,. + 0
+ 596              	time:
+ 597 0000 00000000 		.space	4
+ 598              		.section	.data.velocity,"aw"
+ 599              		.align	2
+ 600              		.set	.LANCHOR3,. + 0
+ 603              	velocity:
+ 604 0000 0000F041 		.word	1106247680
+ 605              		.text
+ 606              	.Letext0:
+ 607              		.file 2 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 608              		.file 3 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 609              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 610              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 611              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 612              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 613              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 614              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 615              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 616              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 617              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 618              		.file 13 "c:\\vsarm\\armcc\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h"
+ 619              		.file 14 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 620              		.file 15 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 621              		.file 16 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 622              		.file 17 "Core/Inc/tim.h"
+ 623              		.file 18 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\bits\\cpp_type_traits.h"
+ 624              		.file 19 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\cmath"
+ 625              		.file 20 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\bits\\std_abs.h"
+ 626              		.file 21 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\arm-none-eabi\\thumb\\v7e-m+fp\\ha
+ 627              		.file 22 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\math.h"
+ 628              		.file 23 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\stdlib.h"
+ 629              		.file 24 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\c++\\9.3.1\\math.h"
+ 630              		.file 25 "Core/Inc/motor.h"
+ 631              		.file 26 "Core/Inc/usart.h"
+ 632              		.file 27 "c:\\vsarm\\armcc\\arm-none-eabi\\include\\stdio.h"
+ 633              		.file 28 "<built-in>"
+ARM GAS  C:\Users\one\AppData\Local\Temp\ccbTMbai.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 actuator.cpp
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:24     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:62     .text._Z41__static_initialization_and_destruction_0ii:0000001c $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:67     .text._Z24calculate_wheel_velocityv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:74     .text._Z24calculate_wheel_velocityv:00000000 _Z24calculate_wheel_velocityv
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:190    .text._Z24calculate_wheel_velocityv:000000a0 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:199    .text._Z4playv:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:206    .text._Z4playv:00000000 _Z4playv
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:250    .text._Z4playv:00000034 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:268    .text._Z4playv:00000046 $t
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:428    .text._Z4playv:00000160 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:437    .text._GLOBAL__sub_I_velocity:00000000 $t
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:443    .text._GLOBAL__sub_I_velocity:00000000 _GLOBAL__sub_I_velocity
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:464    .init_array:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:496    .bss.time:00000000 time
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:503    .data.velocity:00000000 velocity
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:469    .rodata:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:485    .bss._ZL14velocity_robot:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:489    .bss._ZL14velocity_robot:00000000 _ZL14velocity_robot
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:492    .bss.time:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:499    .data.velocity:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:506    .rodata._Z24calculate_wheel_velocityv.str1.4:00000000 $d
-C:\Users\Aasman\AppData\Local\Temp\ccEsWwY6.s:510    .rodata._Z4playv.str1.4:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:25     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:65     .text._Z41__static_initialization_and_destruction_0ii:0000001c $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:70     .rodata._Z24calculate_wheel_velocityv.str1.4:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:74     .text._Z24calculate_wheel_velocityv:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:81     .text._Z24calculate_wheel_velocityv:00000000 _Z24calculate_wheel_velocityv
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:213    .text._Z24calculate_wheel_velocityv:000000a0 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:222    .rodata._Z4playv.str1.4:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:229    .text._Z4playv:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:236    .text._Z4playv:00000000 _Z4playv
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:285    .text._Z4playv:00000034 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:303    .text._Z4playv:00000046 $t
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:528    .text._Z4playv:00000160 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:537    .text._GLOBAL__sub_I_velocity:00000000 $t
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:543    .text._GLOBAL__sub_I_velocity:00000000 _GLOBAL__sub_I_velocity
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:564    .init_array:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:596    .bss.time:00000000 time
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:603    .data.velocity:00000000 velocity
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:569    .rodata:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:585    .bss._ZL14velocity_robot:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:589    .bss._ZL14velocity_robot:00000000 _ZL14velocity_robot
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:592    .bss.time:00000000 $d
+C:\Users\one\AppData\Local\Temp\ccbTMbai.s:599    .data.velocity:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick
