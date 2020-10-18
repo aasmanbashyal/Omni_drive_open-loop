@@ -4,4 +4,4 @@
 ## Requirement
 * Code was generated with the help of cubemx and vs code was used as the editor
 * This code can be debug with the help of OCD and path should be updated to launch.json, c_cpp_properties.json and task.json. 
-####Read the comment with //! for more information with in the code
+#### Read the comment with //! for more information with in the code
